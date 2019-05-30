@@ -1,0 +1,3 @@
+[submodule "wlroots"]
+	path = wlroots
+	url = git@github.com:swaywm/wlroots.git
