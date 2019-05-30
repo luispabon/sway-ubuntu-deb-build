@@ -18,49 +18,50 @@ Vagrant.configure("2") do |config|
     apt-get update && \
       apt-get install -y \
         build-essential \
-        meson \
-        ninja-build \
+        checkinstall \
+        clang-tidy\
+        cmake \
+        debhelper \
+        devscripts \
+        dh-make \
+        fish \
+        freerdp2-dev \
         git \
-        pkg-config \
-        libinput10 \
+        libavcodec-dev \
+        libavformat-dev \
+        libavutil-dev \
+        libcap-dev \
+        libdbusmenu-gtk3-dev \
+        libegl1-mesa-dev \
+        libgbm-dev \
+        libgles2-mesa-dev \
+        libgtkmm-3.0-dev \
         libinput-dev \
-        wayland-protocols \
+        libinput10 \
+        libjson-c-dev \
+        libjsoncpp-dev \
+        libmpdclient-dev \
+        libmpdclient-dev \
+        libnl-genl-3-dev \
+        libpixman-1-dev \
+        libpulse-dev \
+        libsystemd-dev \
+        libudev-dev \
         libwayland-client0 \
         libwayland-cursor0 \
         libwayland-dev \
-        libegl1-mesa-dev \
-        libgles2-mesa-dev \
-        libgbm-dev \
-        libxkbcommon-dev \
-        libudev-dev \
-        libpixman-1-dev \
-        libgtkmm-3.0-dev \
-        libjsoncpp-dev \
-        checkinstall \
-        libpulse-dev \
-        libmpdclient-dev \
-        libdbusmenu-gtk3-dev \
-        libnl-genl-3-dev \
-        libmpdclient-dev \
-        clang-tidy\
-        libjson-c-dev \
-        debhelper \
-        dh-make \
-        cmake \
-        freerdp2-dev \
         libwinpr2-dev \
-        libxcb-xinput-dev \
-        libavutil-dev \
-        libxcb1-dev \
-        libavcodec-dev \
-        libavformat-dev \
-        libxcb-icccm4-dev \
-        devscripts \
-        fish \
-        libsystemd-dev \
         libxcb-composite0-dev \
-        libcap-dev
+        libxcb-icccm4-dev \
+        libxcb-xinput-dev \
+        libxcb1-dev \
+        libxkbcommon-dev \
+        meson \
+        ninja-build \
+        pkg-config \
+        wayland-protocols
 
       chsh vagrant -s /usr/bin/fish
+      ln -s /vagrant /home/vagrant/code
   SHELL
 end

@@ -1,3 +1,6 @@
 [submodule "wlroots"]
 	path = wlroots
 	url = git@github.com:swaywm/wlroots.git
+[submodule "sway"]
+	path = sway
+	url = git@github.com:swaywm/sway.git
