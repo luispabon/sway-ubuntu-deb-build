@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
   config.vm.box_check_update = false
   config.vm.synced_folder "/home/luis/.gnupg", "/vagrant/.gnupg"
   config.vm.provider "virtualbox" do |vb|
-    vb.gui = false
+    vb.gui = true
     vb.memory = "2048"
   end
   config.vm.provision "shell", inline: <<-SHELL
@@ -59,7 +59,9 @@ Vagrant.configure("2") do |config|
         meson \
         ninja-build \
         pkg-config \
-        wayland-protocols
+        wayland-protocols \
+        virtualbox-guest-utils-hwe \
+        virtualbox-guest-dkms
 
       chsh vagrant -s /usr/bin/fish
       ln -s /vagrant /home/vagrant/code

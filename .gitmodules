@@ -4,3 +4,6 @@
 [submodule "sway"]
 	path = sway
 	url = git@github.com:swaywm/sway.git
+[submodule "json-c"]
+	path = json-c
+	url = git@github.com:json-c/json-c.git
