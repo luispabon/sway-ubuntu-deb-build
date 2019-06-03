@@ -10,3 +10,6 @@
 [submodule "swaylock"]
 	path = swaylock
 	url = git@github.com:swaywm/swaylock.git
+[submodule "swayidle"]
+	path = swayidle
+	url = git@github.com:luispabon/swayidle.git
