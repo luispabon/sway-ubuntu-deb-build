@@ -25,5 +25,9 @@ swayidle-build-deb:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "dpkg -i scdoc_1*deb; dpkg -i libwlroots0_*deb; dpkg -i libwlroots-dev*.deb; cd swayidle; meson build; ninja -C build; debuild -b -uc -us"
 	make fix-permissions
 
+swaybg-build-deb:
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "dpkg -i scdoc_1*deb; dpkg -i libwlroots0_*deb; dpkg -i libwlroots-dev*.deb; cd swayidle; meson build; ninja -C build; debuild -b -uc -us"
+	make fix-permissions
+
 fix-permissions:
 	sudo chown $(shell id -u):$(shell id -g) . -Rf
