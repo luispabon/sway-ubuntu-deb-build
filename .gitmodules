@@ -19,3 +19,9 @@
 [submodule "xdg-desktop-portal-wlr"]
 	path = xdg-desktop-portal-wlr
 	url = git@github.com:luispabon/xdg-desktop-portal-wlr.git
+[submodule "kanshi"]
+	path = kanshi
+	url = git@github.com:luispabon/kanshi.git
+[submodule "Waybar"]
+	path = Waybar
+	url = git@github.com:luispabon/Waybar.git
