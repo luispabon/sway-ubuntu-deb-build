@@ -16,3 +16,6 @@
 [submodule "swaybg"]
 	path = swaybg
 	url = git@github.com:luispabon/swaybg.git
+[submodule "xdg-desktop-portal-wlr"]
+	path = xdg-desktop-portal-wlr
+	url = git@github.com:luispabon/xdg-desktop-portal-wlr.git
