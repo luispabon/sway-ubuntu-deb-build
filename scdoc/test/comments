@@ -1,0 +1,22 @@
+#!/bin/sh
+. test/lib.sh
+
+begin "Ignore comments"
+scdoc <<EOF | grep "this is a comment" >/dev/null
+test(8)
+
+; this is a comment
+
+Hello world!
+EOF
+end 1
+
+begin "Fail on invalid comments"
+scdoc <<EOF >/dev/null
+test(8)
+
+;this is an invalid comment
+
+Hello world!
+EOF
+end 1

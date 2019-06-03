@@ -1,0 +1,2 @@
+version=3
+https://git.sr.ht/~sircmpwn/scdoc/refs /%7Esircmpwn/scdoc/archive/(.+)\.tar\.gz

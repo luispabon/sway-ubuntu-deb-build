@@ -1,0 +1,79 @@
+#!/bin/sh
+. test/lib.sh
+
+begin "Expects a name"
+scdoc <<EOF >/dev/null
+(8)
+EOF
+end 1
+
+begin "Expects a section"
+scdoc <<EOF >/dev/null
+test
+EOF
+end 1
+
+begin "Expects name to alphanumeric"
+scdoc <<EOF >/dev/null
+!!!!(8)
+EOF
+end 1
+
+begin "Expects section to be a number"
+scdoc <<EOF >/dev/null
+test(hello)
+EOF
+end 1
+
+begin "Expects section to legit"
+scdoc <<EOF >/dev/null
+test(100)
+EOF
+end 1
+
+begin "Accepts a valid preamble"
+scdoc <<EOF >/dev/null
+test(8)
+EOF
+end 0
+
+# Make sure SOURCE_DATE_EPOCH is not set for the next tests
+unset SOURCE_DATE_EPOCH
+
+begin "Writes the appropriate header"
+scdoc <<EOF | grep '^\.TH "test" "8" "'"$(date +'%F')"'"' >/dev/null
+test(8)
+EOF
+end 0
+
+begin "Preserves dashes"
+scdoc <<EOF | grep '^\.TH "test-manual" "8" "'"$(date +'%F')"'"' >/dev/null
+test-manual(8)
+EOF
+end 0
+
+begin "Handles extra footer field"
+scdoc <<EOF | grep '^\.TH "test-manual" "8" "'"$(date +'%F')"'" "Footer"' >/dev/null
+test-manual(8) "Footer"
+EOF
+end 0
+
+begin "Handles both extra fields"
+scdoc <<EOF | grep '^\.TH "test-manual" "8" "'"$(date +'%F')"'" "Footer" "Header"' >/dev/null
+test-manual(8) "Footer" "Header"
+EOF
+end 0
+
+begin "Emits empty footer correctly"
+scdoc <<EOF | grep '^\.TH "test-manual" "8" "'"$(date +'%F')"'" "" "Header"' >/dev/null
+test-manual(8) "" "Header"
+EOF
+end 0
+
+export SOURCE_DATE_EPOCH=$(date --date="2017-12-09 23:18:57" +'%s')
+
+begin "Supports \$SOURCE_DATE_EPOCH"
+scdoc <<EOF | grep '^\.TH "reproducible-manual" "8" "2017-12-10"' >/dev/null
+reproducible-manual(8)
+EOF
+end 0

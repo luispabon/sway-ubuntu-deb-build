@@ -1,0 +1,34 @@
+#!/bin/sh
+. test/lib.sh
+
+begin "Fail on ###"
+scdoc <<EOF >/dev/null
+test(8)
+
+### this is not a valid heading
+EOF
+end 1
+
+begin "Expects a space after #"
+scdoc <<EOF >/dev/null
+test(8)
+
+#needs a space there
+EOF
+end 1
+
+begin "Emits a new section"
+scdoc <<EOF | grep '^\.SH HEADER' >/dev/null
+test(8)
+
+# HEADER
+EOF
+end 0
+
+begin "Emits a new subsection"
+scdoc <<EOF | grep '^\.SS HEADER' >/dev/null
+test(8)
+
+## HEADER
+EOF
+end 0

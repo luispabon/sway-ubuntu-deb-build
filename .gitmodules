@@ -7,3 +7,6 @@
 [submodule "json-c"]
 	path = json-c
 	url = git@github.com:json-c/json-c.git
+[submodule "swaylock"]
+	path = swaylock
+	url = git@github.com:swaywm/swaylock.git

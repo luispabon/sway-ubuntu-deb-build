@@ -1,0 +1,19 @@
+From: Birger Schacht <birger@rantanplan.org>
+Date: Sat, 3 Nov 2018 11:53:52 +0100
+Subject: Delete forced LDFLAGS from Makefile
+
+---
+ Makefile | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index eb391c1..1fd97ef 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,6 +1,5 @@
+ VERSION=1.9.4
+ CFLAGS+=-g -DVERSION='"$(VERSION)"' -Wall -Wextra -Werror -Wno-unused-parameter
+-LDFLAGS+=-static
+ INCLUDE+=-Iinclude
+ PREFIX?=/usr/local
+ _INSTDIR=$(DESTDIR)$(PREFIX)

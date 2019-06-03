@@ -1,0 +1,21 @@
+#!/bin/sh
+. test/lib.sh
+
+begin "Indents indented text"
+scdoc <<EOF | grep ".RS 4" >/dev/null
+test(8)
+
+Not indented
+	Indented one level
+EOF
+end 0
+
+begin "Deindents following indented text"
+scdoc <<EOF | grep ".RE" >/dev/null
+test(8)
+
+Not indented
+	Indented one level
+Not indented
+EOF
+end 0

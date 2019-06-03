@@ -1,0 +1,18 @@
+Source: scdoc
+Section: text
+Priority: optional
+Maintainer: Aleksey Samoilov <samoilov.lex@gmail.com>
+Build-Depends: debhelper (>=10)
+Standards-Version: 4.3.0
+Homepage: https://git.sr.ht/~sircmpwn/scdoc
+Rules-Requires-Root: no
+Vcs-Browser: https://salsa.debian.org/bisco-guest/scdoc
+Vcs-Git: https://salsa.debian.org/bisco-guest/scdoc.git
+
+Package: scdoc
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Simple man page generator written for POSIX systems written in C99
+ scdoc is a tool designed to make the process of writing man pages more
+ friendly. It reads scdoc syntax from stdin and writes roff to stdout, suitable
+ for reading with man(1).
