@@ -8,17 +8,20 @@ RUN apt-get update; \
         cmake \
         debhelper \
         devscripts \
+        dh-exec \
         dh-make \
-        meson \
-        ninja-build \
-        pkg-config \
-        wayland-protocols \
+        libcairo2-dev \
         libcap-dev \
+        libdbus-1-dev \
         libdrm-dev \
         libegl1-mesa-dev \
         libgbm-dev \
+        libgdk-pixbuf2.0-dev \
         libgles2-mesa-dev \
         libinput-dev \
+        libjs-jquery \
+        libpam0g-dev \
+        libpango1.0-dev \
         libpixman-1-dev \
         libsystemd-dev \
         libwayland-dev \
@@ -27,21 +30,11 @@ RUN apt-get update; \
         libxcb-image0-dev \
         libxcb-render0-dev \
         libxcb-xfixes0-dev \
-        libxkbcommon-dev; \
-    apt-get clean
-
-RUN apt-get update;     \
-    apt-get install -y \
-        dh-exec
-
-RUN apt-get install -y \
-    libpango1.0-dev \
-    libcairo2-dev \
-    libgdk-pixbuf2.0-dev \
-    libpam0g-dev \
-    libdbus-1-dev \
-    libjs-jquery
-
-RUN apt-get install -y \
+        libxkbcommon-dev \
+        meson \
+        ninja-build \
+        pkg-config \
         scdoc \
-        tree
+        tree \
+        wayland-protocols; \
+    apt-get clean
