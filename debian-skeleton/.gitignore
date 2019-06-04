@@ -1,0 +1,8 @@
+sway-backgrounds/
+tmp/
+usr/
+mako/
+debhelper-build-stamp
+files
+*.log
+*.substvars

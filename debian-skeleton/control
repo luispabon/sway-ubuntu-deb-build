@@ -1,0 +1,26 @@
+Source: mako
+Section: x11
+Priority: optional
+Maintainer: Luis Pabon <luis.pabon@auronconsulting.co.uk>
+Build-Depends: debhelper (>= 11),
+                      libwayland-dev,
+                      libinput-dev (>= 1.6.0),
+                      libcap-dev,
+                      libpcre3-dev,
+                      libpango1.0-dev,
+                      libcairo2-dev,
+                      libgdk-pixbuf2.0-dev,
+                      libdbus-1-dev (>= 1.10),
+                      libsystemd-dev (>= 239),
+                      wayland-protocols (>= 1.15),
+                      meson,
+                      pkg-config
+Standards-Version: 4.3.0
+Homepage: https://github.com/emersion/mako
+
+Package: mako
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libwlroots0 (>=0.4)
+Recommends: sway-backgrounds
+Suggests: swayidle, swaylock, swaybg
+Description: A lightweight notification daemon for Wayland.
