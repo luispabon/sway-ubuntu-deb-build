@@ -6,3 +6,4 @@ debhelper-build-stamp
 files
 *.log
 *.substvars
+.debhelper
