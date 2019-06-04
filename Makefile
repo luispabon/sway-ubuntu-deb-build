@@ -28,7 +28,11 @@ swayidle-build-deb:
 	make fix-permissions
 
 swaybg-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "dpkg -i scdoc_1*deb; dpkg -i libwlroots0_*deb; dpkg -i libwlroots-dev*.deb; cd swaybg; meson build; ninja -C build; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "dpkg -i scdoc_1*deb; dpkg -i libwlroots0_*deb; dpkg -i libwlroots-dev*.deb; cd swaybg; debuild -b -uc -us"
+	make fix-permissions
+
+mako-build-deb:
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd mako; debuild -b -uc -us"
 	make fix-permissions
 
 xdg-desktop-portal-wlr-build-deb:
