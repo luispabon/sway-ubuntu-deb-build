@@ -13,16 +13,25 @@ RUN apt-get update; \
         libcairo2-dev \
         libcap-dev \
         libdbus-1-dev \
+        libdbusmenu-gtk3-dev \
         libdrm-dev \
         libegl1-mesa-dev \
+        libfmt-dev \
         libgbm-dev \
         libgdk-pixbuf2.0-dev \
         libgles2-mesa-dev \
+        libgtkmm-3.0-dev \
         libinput-dev \
         libjs-jquery \
+        libjsoncpp-dev \
+        libmpdclient-dev \
+        libnl-3-dev \
+        libnl-genl-3-dev \
         libpam0g-dev \
         libpango1.0-dev \
         libpixman-1-dev \
+        libpulse-dev \
+        libspdlog-dev  \
         libsystemd-dev \
         libwayland-dev \
         libxcb-composite0-dev \

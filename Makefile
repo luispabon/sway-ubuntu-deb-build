@@ -43,15 +43,9 @@ kanshi-build-deb:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd kanshi; debuild -b -uc -us"
 	make fix-permissions
 
-waybar-image:
-	docker build -t waybar_build ./Waybar
-
-waybar-build:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" waybar_build sh -c "cd Waybar; meson build; ninja -C build"
+waybar-build-deb:
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd Waybar; debuild -b -uc -us"
 	make fix-permissions
-
-waybar-install:
-	ln -s $(PWD)/Waybar/build/waybar ~/bin/
 
 fix-permissions:
 	sudo chown $(shell id -u):$(shell id -g) . -Rf
