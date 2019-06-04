@@ -39,12 +39,9 @@ xdg-desktop-portal-wlr-build-deb:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd xdg-desktop-portal-wlr; debuild -b -uc -us"
 	make fix-permissions
 
-kanshi-build:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "dpkg -i scdoc_1*deb; cd kanshi; meson build; ninja -C build"
+kanshi-build-deb:
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd kanshi; debuild -b -uc -us"
 	make fix-permissions
-
-kanshi-install:
-	ln -s $(PWD)/kanshi/build/kanshi ~/bin/
 
 waybar-image:
 	docker build -t waybar_build ./Waybar
