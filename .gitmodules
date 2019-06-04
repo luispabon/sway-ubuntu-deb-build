@@ -25,3 +25,6 @@
 [submodule "Waybar"]
 	path = Waybar
 	url = git@github.com:luispabon/Waybar.git
+[submodule "mako"]
+	path = mako
+	url = git@github.com:luispabon/mako.git
