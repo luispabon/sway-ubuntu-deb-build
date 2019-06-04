@@ -1,4 +1,5 @@
 build-everything: build-image json-c-build scdoc-build wlroots-build-deb sway-build-deb swaylock-build-deb swayidle-build-dev swaybg-build-dev xdg-desktop-portal-wlr-build-deb kanshi-build kanshi-install waybar-image waybar-build waybar-install
+
 build-image:
 	docker build -t sway_build .
 
@@ -11,19 +12,19 @@ scdoc-build:
 	make fix-permissions
 
 wlroots-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd wlroots; meson build; ninja -C build; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd wlroots; debuild -b -uc -us"
 	make fix-permissions
 
 sway-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c 'dpkg -i scdoc_1*deb; dpkg -i libwlroots0_*deb; dpkg -i libwlroots-dev*.deb;dpkg -i libjson-c*.deb; apt-get -f install; cd sway; meson build; ninja -C build; debuild -b -uc -us'
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c 'dpkg -i scdoc_1*deb; dpkg -i libwlroots0_*deb; dpkg -i libwlroots-dev*.deb;dpkg -i libjson-c*.deb; apt-get -f install; cd sway; debuild -b -uc -us'
 	make fix-permissions
 
 swaylock-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "dpkg -i scdoc_1*deb; dpkg -i libwlroots0_*deb; dpkg -i libwlroots-dev*.deb; cd swaylock; meson build; ninja -C build; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "dpkg -i scdoc_1*deb; dpkg -i libwlroots0_*deb; dpkg -i libwlroots-dev*.deb; cd swaylock; debuild -b -uc -us"
 	make fix-permissions
 
 swayidle-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "dpkg -i scdoc_1*deb; dpkg -i libwlroots0_*deb; dpkg -i libwlroots-dev*.deb; cd swayidle; meson build; ninja -C build; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "dpkg -i scdoc_1*deb; dpkg -i libwlroots0_*deb; dpkg -i libwlroots-dev*.deb; cd swayidle; debuild -b -uc -us"
 	make fix-permissions
 
 swaybg-build-deb:
@@ -31,7 +32,7 @@ swaybg-build-deb:
 	make fix-permissions
 
 xdg-desktop-portal-wlr-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd xdg-desktop-portal-wlr; meson build; ninja -C build; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd xdg-desktop-portal-wlr; debuild -b -uc -us"
 	make fix-permissions
 
 kanshi-build:
