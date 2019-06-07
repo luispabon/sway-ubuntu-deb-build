@@ -1,4 +1,4 @@
-build-everything: build-image json-c-build scdoc-build wlroots-build-deb sway-build-deb swaylock-build-deb swayidle-build-deb swaybg-build-deb xdg-desktop-portal-wlr-build-deb mako-build-deb kanshi-build-deb waybar-build-deb waybar-install
+build-everything: build-image json-c-build scdoc-build wlroots-build-deb sway-build-deb swaylock-build-deb swayidle-build-deb swaybg-build-deb xdg-desktop-portal-wlr-build-deb mako-build-deb kanshi-build-deb waybar-build-deb
 
 build-image:
 	docker build -t sway_build .
