@@ -3,6 +3,12 @@ build-everything: build-image json-c-build scdoc-build wlroots-build-deb sway-bu
 build-image:
 	docker build -t sway_build .
 
+install-all-debs:
+	ls -1  | tr '\n' '\0' | xargs -0 -n 1 basename | grep deb | grep -v ddeb | grep -v dev | grep -v skele | grep -v udeb | xargs sudo dpkg -i
+
+yolo: build-everything install-all-debs
+	echo "YOLO"
+
 json-c-build:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd json-c; debuild -b -uc -us"
 	make fix-permissions
