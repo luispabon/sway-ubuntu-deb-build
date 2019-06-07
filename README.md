@@ -1,6 +1,16 @@
 # Sway builds for ubuntu 19.04
 
-Ubuntu 19.04 build system for sway and related tools. Docker based.
+Ubuntu 19.04 build system for sway and related tools. Docker based. 
+
+You do need `docker.io` and `make` installed, and your user on the docker group (otherwise you need to sudo the make commands).
+
+## TL;DR
+
+```shell
+make yolo
+```
+
+## Otherwise...
 
 I'm going to assume you know what you're doing with git and stuff.
 
