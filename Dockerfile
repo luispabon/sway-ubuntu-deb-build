@@ -1,6 +1,7 @@
 FROM ubuntu:disco
 
-RUN apt-get update; \
+RUN yes | unminimize; \
+    apt-get update; \
     apt-get -y install \
         build-essential \
         checkinstall \
