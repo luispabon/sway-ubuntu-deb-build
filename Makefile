@@ -53,5 +53,12 @@ waybar-build-deb:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd Waybar; debuild -b -uc -us"
 	make fix-permissions
 
+wl-clipboard-build-deb:
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd wl-clipboard; debuild -b -uc -us"
+	make fix-permissions
+
+clipman-install:
+	cd clipman; go install; ln -s ~/go/bin/clipman ~/bin/
+
 fix-permissions:
 	sudo chown $(shell id -u):$(shell id -g) . -Rf

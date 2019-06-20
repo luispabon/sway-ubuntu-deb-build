@@ -34,6 +34,7 @@ RUN yes | unminimize; \
         libpulse-dev \
         libspdlog-dev  \
         libsystemd-dev \
+        libwayland-client++0 \
         libwayland-dev \
         libxcb-composite0-dev \
         libxcb-icccm4-dev \
@@ -47,4 +48,5 @@ RUN yes | unminimize; \
         scdoc \
         tree \
         wayland-protocols; \
+        wayland-scanner++ \
     apt-get clean

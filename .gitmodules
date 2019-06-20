@@ -28,3 +28,9 @@
 [submodule "mako"]
 	path = mako
 	url = git@github.com:luispabon/mako.git
+[submodule "clipman"]
+	path = clipman
+	url = git@github.com:yory8/clipman.git
+[submodule "wl-clipboard"]
+	path = wl-clipboard
+	url = git@github.com:luispabon/wl-clipboard.git
