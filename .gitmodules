@@ -34,3 +34,6 @@
 [submodule "wl-clipboard"]
 	path = wl-clipboard
 	url = git@github.com:luispabon/wl-clipboard.git
+[submodule "slurp"]
+	path = slurp
+	url = git@github.com:luispabon/slurp.git

@@ -49,6 +49,10 @@ kanshi-build-deb:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd kanshi; debuild -b -uc -us"
 	make fix-permissions
 
+slurp-build-deb:
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd slurp; debuild -b -uc -us"
+	make fix-permissions
+
 waybar-build-deb:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd Waybar; debuild -b -uc -us"
 	make fix-permissions
