@@ -37,3 +37,6 @@
 [submodule "slurp"]
 	path = slurp
 	url = git@github.com:luispabon/slurp.git
+[submodule "grim"]
+	path = grim
+	url = git@github.com:luispabon/grim.git

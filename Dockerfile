@@ -23,6 +23,7 @@ RUN yes | unminimize; \
         libgles2-mesa-dev \
         libgtkmm-3.0-dev \
         libinput-dev \
+        libjpeg-dev \
         libjs-jquery \
         libjsoncpp-dev \
         libmpdclient-dev \
@@ -47,6 +48,6 @@ RUN yes | unminimize; \
         pkg-config \
         scdoc \
         tree \
-        wayland-protocols; \
-        wayland-scanner++ \
+        wayland-protocols \
+        wayland-scanner++; \
     apt-get clean
