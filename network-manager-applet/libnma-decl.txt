@@ -1,0 +1,675 @@
+<ENUM>
+<NAME>NMACertChooserFlags</NAME>
+typedef enum {
+	NMA_CERT_CHOOSER_FLAG_NONE      = 0x0,
+	NMA_CERT_CHOOSER_FLAG_CERT      = 0x1,
+	NMA_CERT_CHOOSER_FLAG_PASSWORDS = 0x2,
+	NMA_CERT_CHOOSER_FLAG_PEM       = 0x4,
+} NMACertChooserFlags;
+</ENUM>
+<MACRO>
+<NAME>NMA_TYPE_CERT_CHOOSER</NAME>
+#define NMA_TYPE_CERT_CHOOSER                   (nma_cert_chooser_get_type ())
+</MACRO>
+<MACRO>
+<NAME>NMA_CERT_CHOOSER</NAME>
+#define NMA_CERT_CHOOSER(obj)                   (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_CERT_CHOOSER, NMACertChooser))
+</MACRO>
+<MACRO>
+<NAME>NMA_CERT_CHOOSER_CLASS</NAME>
+#define NMA_CERT_CHOOSER_CLASS(klass)           (G_TYPE_CHECK_CLASS_CAST ((klass), NMA_TYPE_CERT_CHOOSER, NMACertChooserClass))
+</MACRO>
+<MACRO>
+<NAME>NMA_IS_CERT_CHOOSER</NAME>
+#define NMA_IS_CERT_CHOOSER(obj)                (G_TYPE_CHECK_INSTANCE_TYPE ((obj), NMA_TYPE_CERT_CHOOSER))
+</MACRO>
+<MACRO>
+<NAME>NMA_IS_CERT_CHOOSER_CLASS</NAME>
+#define NMA_IS_CERT_CHOOSER_CLASS(klass)        (G_TYPE_CHECK_CLASS_TYPE ((klass), NMA_TYPE_CERT_CHOOSER))
+</MACRO>
+<MACRO>
+<NAME>NMA_CERT_CHOOSER_GET_CLASS</NAME>
+#define NMA_CERT_CHOOSER_GET_CLASS(obj)         (G_TYPE_INSTANCE_GET_CLASS ((obj), NMA_TYPE_CERT_CHOOSER, NMACertChooserClass))
+</MACRO>
+<FUNCTION>
+<NAME>nma_cert_chooser_get_type</NAME>
+<RETURNS>GType                 </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_set_cert</NAME>
+<RETURNS>void                  </RETURNS>
+NMACertChooser *cert_chooser, const gchar *value, NMSetting8021xCKScheme scheme
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_set_cert_uri</NAME>
+<RETURNS>void                  </RETURNS>
+NMACertChooser *cert_chooser, const gchar *uri
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_get_cert</NAME>
+<RETURNS>gchar                *</RETURNS>
+NMACertChooser *cert_chooser, NMSetting8021xCKScheme *scheme
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_get_cert_uri</NAME>
+<RETURNS>gchar                *</RETURNS>
+NMACertChooser *cert_chooser
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_set_cert_password</NAME>
+<RETURNS>void                  </RETURNS>
+NMACertChooser *cert_chooser, const gchar *password
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_get_cert_password</NAME>
+<RETURNS>const gchar          *</RETURNS>
+NMACertChooser *cert_chooser
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_set_key</NAME>
+<RETURNS>void                  </RETURNS>
+NMACertChooser *cert_chooser, const gchar *value, NMSetting8021xCKScheme scheme
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_set_key_uri</NAME>
+<RETURNS>void                  </RETURNS>
+NMACertChooser *cert_chooser, const gchar *uri
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_get_key</NAME>
+<RETURNS>gchar                *</RETURNS>
+NMACertChooser *cert_chooser, NMSetting8021xCKScheme *scheme
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_get_key_uri</NAME>
+<RETURNS>gchar                *</RETURNS>
+NMACertChooser *cert_chooser
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_set_key_password</NAME>
+<RETURNS>void                  </RETURNS>
+NMACertChooser *cert_chooser, const gchar *password
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_get_key_password</NAME>
+<RETURNS>const gchar          *</RETURNS>
+NMACertChooser *cert_chooser
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_new</NAME>
+<RETURNS>GtkWidget            *</RETURNS>
+const gchar *title, NMACertChooserFlags flags
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_add_to_size_group</NAME>
+<RETURNS>void                  </RETURNS>
+NMACertChooser *cert_chooser, GtkSizeGroup *group
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_validate</NAME>
+<RETURNS>gboolean              </RETURNS>
+NMACertChooser *cert_chooser, GError **error
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_setup_cert_password_storage</NAME>
+<RETURNS>void                  </RETURNS>
+NMACertChooser *cert_chooser, NMSettingSecretFlags initial_flags, NMSetting *setting, const char *password_flags_name, gboolean with_not_required, gboolean ask_mode
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_update_cert_password_storage</NAME>
+<RETURNS>void                  </RETURNS>
+NMACertChooser *cert_chooser, NMSettingSecretFlags secret_flags, NMSetting *setting, const char *password_flags_name
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_get_cert_password_flags</NAME>
+<RETURNS>NMSettingSecretFlags  </RETURNS>
+NMACertChooser *cert_chooser
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_setup_key_password_storage</NAME>
+<RETURNS>void                  </RETURNS>
+NMACertChooser *cert_chooser, NMSettingSecretFlags initial_flags, NMSetting *setting, const char *password_flags_name, gboolean with_not_required, gboolean ask_mode
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_update_key_password_storage</NAME>
+<RETURNS>void                  </RETURNS>
+NMACertChooser *cert_chooser, NMSettingSecretFlags secret_flags, NMSetting *setting, const char *password_flags_name
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_cert_chooser_get_key_password_flags</NAME>
+<RETURNS>NMSettingSecretFlags  </RETURNS>
+NMACertChooser *cert_chooser
+</FUNCTION>
+<STRUCT>
+<NAME>NMACertChooser</NAME>
+</STRUCT>
+<STRUCT>
+<NAME>NMACertChooserClass</NAME>
+</STRUCT>
+<ENUM>
+<NAME>NMAMobileFamily</NAME>
+typedef enum {
+    NMA_MOBILE_FAMILY_UNKNOWN = 0,
+    NMA_MOBILE_FAMILY_3GPP,
+    NMA_MOBILE_FAMILY_CDMA
+} NMAMobileFamily;
+</ENUM>
+<MACRO>
+<NAME>NMA_TYPE_MOBILE_ACCESS_METHOD</NAME>
+#define NMA_TYPE_MOBILE_ACCESS_METHOD (nma_mobile_access_method_get_type ())
+</MACRO>
+<FUNCTION>
+<NAME>nma_mobile_access_method_get_type</NAME>
+<RETURNS>GType                    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_access_method_ref</NAME>
+<RETURNS>NMAMobileAccessMethod   *</RETURNS>
+NMAMobileAccessMethod *method
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_access_method_unref</NAME>
+<RETURNS>void                     </RETURNS>
+NMAMobileAccessMethod *method
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_access_method_get_name</NAME>
+<RETURNS>const gchar             *</RETURNS>
+NMAMobileAccessMethod *method
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_access_method_get_username</NAME>
+<RETURNS>const gchar             *</RETURNS>
+NMAMobileAccessMethod *method
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_access_method_get_password</NAME>
+<RETURNS>const gchar             *</RETURNS>
+NMAMobileAccessMethod *method
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_access_method_get_gateway</NAME>
+<RETURNS>const gchar             *</RETURNS>
+NMAMobileAccessMethod *method
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_access_method_get_dns</NAME>
+<RETURNS>const gchar            **</RETURNS>
+NMAMobileAccessMethod *method
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_access_method_get_3gpp_apn</NAME>
+<RETURNS>const gchar             *</RETURNS>
+NMAMobileAccessMethod *method
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_access_method_get_family</NAME>
+<RETURNS>NMAMobileFamily          </RETURNS>
+NMAMobileAccessMethod *method
+</FUNCTION>
+<MACRO>
+<NAME>NMA_TYPE_MOBILE_PROVIDER</NAME>
+#define NMA_TYPE_MOBILE_PROVIDER (nma_mobile_provider_get_type ())
+</MACRO>
+<FUNCTION>
+<NAME>nma_mobile_provider_get_type</NAME>
+<RETURNS>GType                </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_provider_ref</NAME>
+<RETURNS>NMAMobileProvider   *</RETURNS>
+NMAMobileProvider *provider
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_provider_unref</NAME>
+<RETURNS>void                 </RETURNS>
+NMAMobileProvider *provider
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_provider_get_name</NAME>
+<RETURNS>const gchar         *</RETURNS>
+NMAMobileProvider *provider
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_provider_get_methods</NAME>
+<RETURNS>GSList              *</RETURNS>
+NMAMobileProvider *provider
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_provider_get_3gpp_mcc_mnc</NAME>
+<RETURNS>const gchar        **</RETURNS>
+NMAMobileProvider *provider
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_provider_get_cdma_sid</NAME>
+<RETURNS>const guint32       *</RETURNS>
+NMAMobileProvider *provider
+</FUNCTION>
+<MACRO>
+<NAME>NMA_TYPE_COUNTRY_INFO</NAME>
+#define NMA_TYPE_COUNTRY_INFO (nma_country_info_get_type ())
+</MACRO>
+<FUNCTION>
+<NAME>nma_country_info_get_type</NAME>
+<RETURNS>GType            </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_country_info_ref</NAME>
+<RETURNS>NMACountryInfo  *</RETURNS>
+NMACountryInfo *country_info
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_country_info_unref</NAME>
+<RETURNS>void             </RETURNS>
+NMACountryInfo *country_info
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_country_info_get_country_code</NAME>
+<RETURNS>const gchar     *</RETURNS>
+NMACountryInfo *country_info
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_country_info_get_country_name</NAME>
+<RETURNS>const gchar     *</RETURNS>
+NMACountryInfo *country_info
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_country_info_get_providers</NAME>
+<RETURNS>GSList          *</RETURNS>
+NMACountryInfo *country_info
+</FUNCTION>
+<MACRO>
+<NAME>NMA_TYPE_MOBILE_PROVIDERS_DATABASE</NAME>
+#define NMA_TYPE_MOBILE_PROVIDERS_DATABASE            (nma_mobile_providers_database_get_type ())
+</MACRO>
+<MACRO>
+<NAME>NMA_MOBILE_PROVIDERS_DATABASE</NAME>
+#define NMA_MOBILE_PROVIDERS_DATABASE(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_MOBILE_PROVIDERS_DATABASE, NMAMobileProvidersDatabase))
+</MACRO>
+<MACRO>
+<NAME>NMA_MOBILE_PROVIDERS_DATABASE_CLASS</NAME>
+#define NMA_MOBILE_PROVIDERS_DATABASE_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), NMA_TYPE_MOBILE_PROVIDERS_DATABASE, NMAMobileProvidersDatabaseClass))
+</MACRO>
+<MACRO>
+<NAME>NMA_IS_MOBILE_PROVIDERS_DATABASE</NAME>
+#define NMA_IS_MOBILE_PROVIDERS_DATABASE(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), NMA_TYPE_MOBILE_PROVIDERS_DATABASE))
+</MACRO>
+<MACRO>
+<NAME>NMA_IS_MOBILE_PROVIDERS_DATABASE_CLASS</NAME>
+#define NMA_IS_MOBILE_PROVIDERS_DATABASE_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), NMA_TYPE_MOBILE_PROVIDERS_DATABASE))
+</MACRO>
+<MACRO>
+<NAME>NMA_MOBILE_PROVIDERS_DATABASE_GET_CLASS</NAME>
+#define NMA_MOBILE_PROVIDERS_DATABASE_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), NMA_TYPE_MOBILE_PROVIDERS_DATABASE, NMAMobileProvidersDatabaseClass))
+</MACRO>
+<STRUCT>
+<NAME>NMAMobileProvidersDatabase</NAME>
+struct _NMAMobileProvidersDatabase {
+	GObject parent;
+	NMAMobileProvidersDatabasePrivate *priv;
+};
+</STRUCT>
+<STRUCT>
+<NAME>NMAMobileProvidersDatabaseClass</NAME>
+struct _NMAMobileProvidersDatabaseClass {
+	GObjectClass parent;
+};
+</STRUCT>
+<FUNCTION>
+<NAME>nma_mobile_providers_database_get_type</NAME>
+<RETURNS>GType  </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_providers_database_new</NAME>
+<RETURNS>void                         </RETURNS>
+const gchar *country_codes, const gchar *service_providers, GCancellable *cancellable, GAsyncReadyCallback callback, gpointer user_data
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_providers_database_new_finish</NAME>
+<RETURNS>NMAMobileProvidersDatabase  *</RETURNS>
+GAsyncResult *res, GError **error
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_providers_database_new_sync</NAME>
+<RETURNS>NMAMobileProvidersDatabase  *</RETURNS>
+const gchar *country_codes, const gchar *service_providers, GCancellable *cancellable, GError **error
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_providers_database_get_countries</NAME>
+<RETURNS>GHashTable         *</RETURNS>
+NMAMobileProvidersDatabase *self
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_providers_database_dump</NAME>
+<RETURNS>void                </RETURNS>
+NMAMobileProvidersDatabase *self
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_providers_database_lookup_country</NAME>
+<RETURNS>NMACountryInfo     *</RETURNS>
+NMAMobileProvidersDatabase *self, const gchar *country_code
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_providers_database_lookup_3gpp_mcc_mnc</NAME>
+<RETURNS>NMAMobileProvider  *</RETURNS>
+NMAMobileProvidersDatabase *self, const gchar *mccmnc
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_providers_database_lookup_cdma_sid</NAME>
+<RETURNS>NMAMobileProvider  *</RETURNS>
+NMAMobileProvidersDatabase *self, guint32 sid
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_providers_split_3gpp_mcc_mnc</NAME>
+<RETURNS>gboolean  </RETURNS>
+const gchar *mccmnc, gchar **mcc, gchar **mnc
+</FUNCTION>
+<STRUCT>
+<NAME>NMACountryInfo</NAME>
+</STRUCT>
+<STRUCT>
+<NAME>NMAMobileAccessMethod</NAME>
+</STRUCT>
+<STRUCT>
+<NAME>NMAMobileProvider</NAME>
+</STRUCT>
+<STRUCT>
+<NAME>NMAMobileProvidersDatabasePrivate</NAME>
+</STRUCT>
+<STRUCT>
+<NAME>NMAMobileWizardAccessMethod</NAME>
+typedef struct {
+	char *provider_name;
+	char *plan_name;
+	NMDeviceModemCapabilities devtype;
+	char *username;
+	char *password;
+	char *gsm_apn;
+} NMAMobileWizardAccessMethod;
+</STRUCT>
+<USER_FUNCTION>
+<NAME>NMAMobileWizardCallback</NAME>
+<RETURNS>void </RETURNS>
+NMAMobileWizard *self,
+                                         gboolean canceled,
+                                         NMAMobileWizardAccessMethod *method,
+                                         gpointer user_data
+</USER_FUNCTION>
+<MACRO>
+<NAME>NMA_TYPE_MOBILE_WIZARD</NAME>
+#define NMA_TYPE_MOBILE_WIZARD            (nma_mobile_wizard_get_type ())
+</MACRO>
+<MACRO>
+<NAME>NMA_MOBILE_WIZARD</NAME>
+#define NMA_MOBILE_WIZARD(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_MOBILE_WIZARD, NMAMobileWizard))
+</MACRO>
+<MACRO>
+<NAME>NMA_MOBILE_WIZARD_CLASS</NAME>
+#define NMA_MOBILE_WIZARD_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), NMA_TYPE_MOBILE_WIZARD, NMAMobileWizardClass))
+</MACRO>
+<MACRO>
+<NAME>NMA_IS_MOBILE_WIZARD</NAME>
+#define NMA_IS_MOBILE_WIZARD(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), NMA_TYPE_MOBILE_WIZARD))
+</MACRO>
+<MACRO>
+<NAME>NMA_IS_MOBILE_WIZARD_CLASS</NAME>
+#define NMA_IS_MOBILE_WIZARD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), NMA_TYPE_MOBILE_WIZARD))
+</MACRO>
+<MACRO>
+<NAME>NMA_MOBILE_WIZARD_GET_CLASS</NAME>
+#define NMA_MOBILE_WIZARD_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), NMA_TYPE_MOBILE_WIZARD, NMAMobileWizardClass))
+</MACRO>
+<FUNCTION>
+<NAME>nma_mobile_wizard_get_type</NAME>
+<RETURNS>GType  </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_wizard_new</NAME>
+<RETURNS>NMAMobileWizard  *</RETURNS>
+GtkWindow *parent, GtkWindowGroup *window_group, NMDeviceModemCapabilities modem_caps, gboolean will_connect_after, NMAMobileWizardCallback cb, gpointer user_data
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_wizard_present</NAME>
+<RETURNS>void  </RETURNS>
+NMAMobileWizard *wizard
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_mobile_wizard_destroy</NAME>
+<RETURNS>void  </RETURNS>
+NMAMobileWizard *self
+</FUNCTION>
+<STRUCT>
+<NAME>NMAMobileWizard</NAME>
+</STRUCT>
+<STRUCT>
+<NAME>NMAMobileWizardClass</NAME>
+</STRUCT>
+<FUNCTION>
+<NAME>nma_utils_setup_password_storage</NAME>
+<RETURNS>void  </RETURNS>
+GtkWidget *passwd_entry, NMSettingSecretFlags initial_flags, NMSetting *setting, const char *password_flags_name, gboolean with_not_required, gboolean ask_mode
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_utils_menu_to_secret_flags</NAME>
+<RETURNS>NMSettingSecretFlags  </RETURNS>
+GtkWidget *passwd_entry
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_utils_update_password_storage</NAME>
+<RETURNS>void  </RETURNS>
+GtkWidget *passwd_entry, NMSettingSecretFlags secret_flags, NMSetting *setting, const char *password_flags_name
+</FUNCTION>
+<MACRO>
+<NAME>NMA_VPN_TYPE_PASSWORD_DIALOG</NAME>
+#define NMA_VPN_TYPE_PASSWORD_DIALOG            (nma_vpn_password_dialog_get_type ())
+</MACRO>
+<MACRO>
+<NAME>NMA_VPN_PASSWORD_DIALOG</NAME>
+#define NMA_VPN_PASSWORD_DIALOG(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_VPN_TYPE_PASSWORD_DIALOG, NMAVpnPasswordDialog))
+</MACRO>
+<MACRO>
+<NAME>NMA_VPN_PASSWORD_DIALOG_CLASS</NAME>
+#define NMA_VPN_PASSWORD_DIALOG_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), NMA_VPN_TYPE_PASSWORD_DIALOG, NMAVpnPasswordDialogClass))
+</MACRO>
+<MACRO>
+<NAME>NMA_VPN_IS_PASSWORD_DIALOG</NAME>
+#define NMA_VPN_IS_PASSWORD_DIALOG(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), NMA_VPN_TYPE_PASSWORD_DIALOG))
+</MACRO>
+<MACRO>
+<NAME>NMA_VPN_IS_PASSWORD_DIALOG_CLASS</NAME>
+#define NMA_VPN_IS_PASSWORD_DIALOG_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), NMA_VPN_TYPE_PASSWORD_DIALOG))
+</MACRO>
+<TYPEDEF>
+<NAME>NMAVpnPasswordDialog</NAME>
+typedef struct NMAVpnPasswordDialog        NMAVpnPasswordDialog;
+</TYPEDEF>
+<TYPEDEF>
+<NAME>NMAVpnPasswordDialogClass</NAME>
+typedef struct NMAVpnPasswordDialogClass   NMAVpnPasswordDialogClass;
+</TYPEDEF>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_get_type</NAME>
+<RETURNS>GType       </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_new</NAME>
+<RETURNS>GtkWidget * </RETURNS>
+const char *title, const char *message, const char *password
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_run_and_block</NAME>
+<RETURNS>gboolean    </RETURNS>
+NMAVpnPasswordDialog *dialog
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_set_show_password</NAME>
+<RETURNS>void  </RETURNS>
+NMAVpnPasswordDialog *dialog, gboolean              show
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_focus_password</NAME>
+<RETURNS>void  </RETURNS>
+NMAVpnPasswordDialog *dialog
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_set_password</NAME>
+<RETURNS>void  </RETURNS>
+NMAVpnPasswordDialog *dialog, const char           *password
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_set_password_label</NAME>
+<RETURNS>void  </RETURNS>
+NMAVpnPasswordDialog *dialog, const char           *label
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_set_show_password_secondary</NAME>
+<RETURNS>void  </RETURNS>
+NMAVpnPasswordDialog *dialog, gboolean              show
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_focus_password_secondary</NAME>
+<RETURNS>void  </RETURNS>
+NMAVpnPasswordDialog *dialog
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_set_password_secondary</NAME>
+<RETURNS>void  </RETURNS>
+NMAVpnPasswordDialog *dialog, const char           *password_secondary
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_set_password_secondary_label</NAME>
+<RETURNS>void  </RETURNS>
+NMAVpnPasswordDialog *dialog, const char           *label
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_set_show_password_ternary</NAME>
+<RETURNS>void  </RETURNS>
+NMAVpnPasswordDialog *dialog, gboolean              show
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_focus_password_ternary</NAME>
+<RETURNS>void  </RETURNS>
+NMAVpnPasswordDialog *dialog
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_set_password_ternary</NAME>
+<RETURNS>void  </RETURNS>
+NMAVpnPasswordDialog *dialog, const char           *password_ternary
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_set_password_ternary_label</NAME>
+<RETURNS>void  </RETURNS>
+NMAVpnPasswordDialog *dialog, const char           *label
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_get_password</NAME>
+<RETURNS>const char  *</RETURNS>
+NMAVpnPasswordDialog *dialog
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_get_password_secondary</NAME>
+<RETURNS>const char  *</RETURNS>
+NMAVpnPasswordDialog *dialog
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_vpn_password_dialog_get_password_ternary</NAME>
+<RETURNS>const char  *</RETURNS>
+NMAVpnPasswordDialog *dialog
+</FUNCTION>
+<MACRO>
+<NAME>NMA_TYPE_WIFI_DIALOG</NAME>
+#define NMA_TYPE_WIFI_DIALOG            (nma_wifi_dialog_get_type ())
+</MACRO>
+<MACRO>
+<NAME>NMA_WIFI_DIALOG</NAME>
+#define NMA_WIFI_DIALOG(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_WIFI_DIALOG, NMAWifiDialog))
+</MACRO>
+<MACRO>
+<NAME>NMA_WIFI_DIALOG_CLASS</NAME>
+#define NMA_WIFI_DIALOG_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), NMA_TYPE_WIFI_DIALOG, NMAWifiDialogClass))
+</MACRO>
+<MACRO>
+<NAME>NMA_IS_WIFI_DIALOG</NAME>
+#define NMA_IS_WIFI_DIALOG(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), NMA_TYPE_WIFI_DIALOG))
+</MACRO>
+<MACRO>
+<NAME>NMA_IS_WIFI_DIALOG_CLASS</NAME>
+#define NMA_IS_WIFI_DIALOG_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), NMA_TYPE_WIFI_DIALOG))
+</MACRO>
+<MACRO>
+<NAME>NMA_WIFI_DIALOG_GET_CLASS</NAME>
+#define NMA_WIFI_DIALOG_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), NMA_TYPE_WIFI_DIALOG, NMAWifiDialogClass))
+</MACRO>
+<STRUCT>
+<NAME>NMAWifiDialog</NAME>
+typedef struct {
+	GtkDialog parent;
+} NMAWifiDialog;
+</STRUCT>
+<STRUCT>
+<NAME>NMAWifiDialogClass</NAME>
+typedef struct {
+	GtkDialogClass parent;
+} NMAWifiDialogClass;
+</STRUCT>
+<FUNCTION>
+<NAME>nma_wifi_dialog_get_type</NAME>
+<RETURNS>GType  </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_wifi_dialog_new</NAME>
+<RETURNS>GtkWidget  *</RETURNS>
+NMClient *client, NMConnection *connection, NMDevice *device, NMAccessPoint *ap, gboolean secrets_only
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_wifi_dialog_new_for_secrets</NAME>
+<RETURNS>GtkWidget  *</RETURNS>
+NMClient *client, NMConnection *connection, const char *secrets_setting_name, const char *const*secrets_hints
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_wifi_dialog_new_for_hidden</NAME>
+<RETURNS>GtkWidget  *</RETURNS>
+NMClient *client
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_wifi_dialog_new_for_create</NAME>
+<RETURNS>GtkWidget  *</RETURNS>
+NMClient *client
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_wifi_dialog_get_connection</NAME>
+<RETURNS>NMConnection  * </RETURNS>
+NMAWifiDialog *self, NMDevice **device, NMAccessPoint **ap
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_wifi_dialog_nag_user</NAME>
+<DEPRECATED/>
+<RETURNS>GtkWidget  * </RETURNS>
+NMAWifiDialog *self
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_wifi_dialog_set_nag_ignored</NAME>
+<DEPRECATED/>
+<RETURNS>void  </RETURNS>
+NMAWifiDialog *self, gboolean ignored
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_wifi_dialog_get_nag_ignored</NAME>
+<DEPRECATED/>
+<RETURNS>gboolean  </RETURNS>
+NMAWifiDialog *self
+</FUNCTION>
+<FUNCTION>
+<NAME>nma_wifi_dialog_new_for_other</NAME>
+<DEPRECATED/>
+<RETURNS>GtkWidget  *</RETURNS>
+NMClient *client
+</FUNCTION>

@@ -1,0 +1,9 @@
+GtkBuildable GObject
+GtkOrientable GObject
+GInitable GObject
+GAsyncInitable GObject
+GIcon GObject
+GLoadableIcon GIcon GObject
+GActionGroup GObject
+GActionMap GObject
+AtkWindow AtkObject

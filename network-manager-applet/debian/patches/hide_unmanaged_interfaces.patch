@@ -1,0 +1,138 @@
+Description: Hide unmanaged interfaces
+Author: Campbell Vertesi <campbell@vertesi.com>
+Bug-Ubuntu: https://bugs.launchpad.net/bugs/1458322
+
+--- a/src/applet-device-broadband.c
++++ b/src/applet-device-broadband.c
+@@ -710,7 +710,7 @@ add_connection_item (NMDevice *device,
+ 	gtk_widget_show (item);
+ }
+ 
+-static void
++static gboolean
+ add_menu_item (NMDevice *device,
+                gboolean multiple_devices,
+                const GPtrArray *connections,
+@@ -727,7 +727,7 @@ add_menu_item (NMDevice *device,
+ 	if (!info) {
+ 		g_warning ("ModemManager is not available for modem at %s",
+ 		           nm_device_get_udi (device));
+-		return;
++		return TRUE;
+ 	}
+ 
+ 	if (multiple_devices) {
+@@ -806,6 +806,8 @@ add_menu_item (NMDevice *device,
+ 			add_connection_item (device, NULL, item, menu, applet);
+ 		}
+ 	}
++
++    return TRUE;
+ }
+ 
+ /********************************************************************/
+--- a/src/applet-device-bt.c
++++ b/src/applet-device-bt.c
+@@ -38,7 +38,7 @@ bt_new_auto_connection (NMDevice *device
+ 	return FALSE;
+ }
+ 
+-static void
++static gboolean
+ bt_add_menu_item (NMDevice *device,
+                   gboolean multiple__devices,
+                   const GPtrArray *connections,
+@@ -76,6 +76,8 @@ bt_add_menu_item (NMDevice *device,
+ 			applet_add_connection_items (device, connections, TRUE, active, NMA_ADD_INACTIVE, menu, applet);
+ 		}
+ 	}
++
++    return TRUE;
+ }
+ 
+ static void
+--- a/src/applet-device-ethernet.c
++++ b/src/applet-device-ethernet.c
+@@ -61,7 +61,7 @@ ethernet_new_auto_connection (NMDevice *
+ 	return TRUE;
+ }
+ 
+-static void
++static gboolean
+ ethernet_add_menu_item (NMDevice *device,
+                         gboolean multiple_devices,
+                         const GPtrArray *connections,
+@@ -73,6 +73,10 @@ ethernet_add_menu_item (NMDevice *device
+ 	GtkWidget *item;
+ 	gboolean carrier = TRUE;
+ 
++    if (nm_device_get_state (device) == NM_DEVICE_STATE_UNMANAGED) {
++        return FALSE;
++    }
++
+ 	if (multiple_devices) {
+ 		const char *desc;
+ 
+@@ -121,6 +125,8 @@ ethernet_add_menu_item (NMDevice *device
+ 		else
+ 			applet_add_default_connection_item (device, DEFAULT_ETHERNET_NAME, carrier, menu, applet);
+ 	}
++
++    return TRUE;
+ }
+ 
+ static void
+--- a/src/applet-device-wifi.c
++++ b/src/applet-device-wifi.c
+@@ -808,7 +808,7 @@ sort_toplevel (gconstpointer tmpa, gcons
+ 	return sort_by_name (a, b);
+ }
+ 
+-static void
++static gboolean
+ wifi_add_menu_item (NMDevice *device,
+                     gboolean multiple_devices,
+                     const GPtrArray *connections,
+@@ -951,6 +951,7 @@ wifi_add_menu_item (NMDevice *device,
+ 
+ out:
+ 	g_slist_free (menu_items);
++	return TRUE;
+ }
+ 
+ static void
+--- a/src/applet.c
++++ b/src/applet.c
+@@ -1364,6 +1364,7 @@ add_device_items (NMDeviceType type, con
+ 		NMADeviceClass *dclass;
+ 		NMConnection *active;
+ 		GPtrArray *connections;
++        gboolean added;
+ 
+ 		dclass = get_device_class (device, applet);
+ 		if (!dclass)
+@@ -1372,11 +1373,11 @@ add_device_items (NMDeviceType type, con
+ 		connections = nm_device_filter_connections (device, all_connections);
+ 		active = applet_find_active_connection_for_device (device, applet, NULL);
+ 
+-		dclass->add_menu_item (device, n_devices > 1, connections, active, menu, applet);
++		added = dclass->add_menu_item (device, n_devices > 1, connections, active, menu, applet);
+ 
+ 		g_ptr_array_unref (connections);
+ 
+-		if (INDICATOR_ENABLED (applet))
++		if (INDICATOR_ENABLED (applet) && added)
+ 			gtk_menu_shell_append (GTK_MENU_SHELL (menu), gtk_separator_menu_item_new ());
+ 	}
+ 
+--- a/src/applet.h
++++ b/src/applet.h
+@@ -189,7 +189,7 @@ struct NMADeviceClass {
+ 	                                        AppletNewAutoConnectionCallback callback,
+ 	                                        gpointer callback_data);
+ 
+-	void           (*add_menu_item)        (NMDevice *device,
++	gboolean       (*add_menu_item)        (NMDevice *device,
+ 	                                        gboolean multiple_devices,
+ 	                                        const GPtrArray *connections,
+ 	                                        NMConnection *active,

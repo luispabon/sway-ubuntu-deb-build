@@ -1,0 +1,888 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
+[
+  <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+  <!ENTITY % gtkdocentities SYSTEM "../xml/gtkdocentities.ent">
+  %gtkdocentities;
+]>
+<refentry id="NMACertChooser">
+<refmeta>
+<refentrytitle role="top_of_page" id="NMACertChooser.top_of_page">NMACertChooser</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBNMA Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>NMACertChooser</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsect1 id="NMACertChooser.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-set-cert">nma_cert_chooser_set_cert</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-set-cert-uri">nma_cert_chooser_set_cert_uri</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-get-cert">nma_cert_chooser_get_cert</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-get-cert-uri">nma_cert_chooser_get_cert_uri</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-set-cert-password">nma_cert_chooser_set_cert_password</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-get-cert-password">nma_cert_chooser_get_cert_password</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-set-key">nma_cert_chooser_set_key</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-set-key-uri">nma_cert_chooser_set_key_uri</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-get-key">nma_cert_chooser_get_key</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-get-key-uri">nma_cert_chooser_get_key_uri</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-set-key-password">nma_cert_chooser_set_key_password</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-get-key-password">nma_cert_chooser_get_key_password</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GtkWidget"><returnvalue>GtkWidget</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-new">nma_cert_chooser_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-add-to-size-group">nma_cert_chooser_add_to_size_group</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-validate">nma_cert_chooser_validate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-setup-cert-password-storage">nma_cert_chooser_setup_cert_password_storage</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-update-cert-password-storage">nma_cert_chooser_update_cert_password_storage</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="NMSettingSecretFlags"><returnvalue>NMSettingSecretFlags</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-get-cert-password-flags">nma_cert_chooser_get_cert_password_flags</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-setup-key-password-storage">nma_cert_chooser_setup_key_password_storage</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-update-key-password-storage">nma_cert_chooser_update_key_password_storage</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="NMSettingSecretFlags"><returnvalue>NMSettingSecretFlags</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-cert-chooser-get-key-password-flags">nma_cert_chooser_get_key_password_flags</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="NMACertChooser.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="guint"><type>guint</type></link></entry><entry role="property_name"><link linkend="NMACertChooser--flags">flags</link></entry><entry role="property_flags">Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="NMACertChooser--title">title</link></entry><entry role="property_flags">Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="NMACertChooser.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="GError"><returnvalue>GError</returnvalue></link>*</entry><entry role="signal_name"><link linkend="NMACertChooser-cert-password-validate">cert-password-validate</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="GError"><returnvalue>GError</returnvalue></link>*</entry><entry role="signal_name"><link linkend="NMACertChooser-cert-validate">cert-validate</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="NMACertChooser-changed">changed</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-NO-RECURSE:CAPS">No Recursion</link></entry></row>
+<row><entry role="signal_type"><link linkend="GError"><returnvalue>GError</returnvalue></link>*</entry><entry role="signal_name"><link linkend="NMACertChooser-key-password-validate">key-password-validate</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="GError"><returnvalue>GError</returnvalue></link>*</entry><entry role="signal_name"><link linkend="NMACertChooser-key-validate">key-validate</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="NMACertChooser.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="NMACertChooserFlags">NMACertChooserFlags</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="NMACertChooser.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkWidget">GtkWidget</link>
+            <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkContainer">GtkContainer</link>
+                <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkGrid">GtkGrid</link>
+                    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> NMACertChooser
+</screen>
+</refsect1>
+
+
+<refsect1 id="NMACertChooser.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Certificate chooser allows for selection of a certificate or
+various schemes optionally accompanied with a key and passwords
+or PIN.</para>
+<para>The widgets that implement this interface may allow selecting
+the certificates from various sources such as files or cryptographic
+tokens.</para>
+
+</refsect1>
+<refsect1 id="NMACertChooser.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="nma-cert-chooser-set-cert" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_set_cert&#160;()</title>
+<indexterm zone="nma-cert-chooser-set-cert" role="1.8.0"><primary>nma_cert_chooser_set_cert</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+nma_cert_chooser_set_cert (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>,
+                           <parameter>const <link linkend="gchar"><type>gchar</type></link> *value</parameter>,
+                           <parameter><link linkend="NMSetting8021xCKScheme"><type>NMSetting8021xCKScheme</type></link> scheme</parameter>);</programlisting>
+<para>Sets the certificate location for the chooser button.</para>
+<refsect3 id="nma-cert-chooser-set-cert.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the path or URI of a certificate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>scheme</para></entry>
+<entry role="parameter_description"><para>the scheme of the certificate path</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-set-cert-uri" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_set_cert_uri&#160;()</title>
+<indexterm zone="nma-cert-chooser-set-cert-uri" role="1.8.0"><primary>nma_cert_chooser_set_cert_uri</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+nma_cert_chooser_set_cert_uri (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>,
+                               <parameter>const <link linkend="gchar"><type>gchar</type></link> *uri</parameter>);</programlisting>
+<para>Sets the certificate URI for the chooser button.</para>
+<refsect3 id="nma-cert-chooser-set-cert-uri.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>uri</para></entry>
+<entry role="parameter_description"><para>the path or URI of a certificate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-get-cert" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_get_cert&#160;()</title>
+<indexterm zone="nma-cert-chooser-get-cert" role="1.8.0"><primary>nma_cert_chooser_get_cert</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+nma_cert_chooser_get_cert (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>,
+                           <parameter><link linkend="NMSetting8021xCKScheme"><type>NMSetting8021xCKScheme</type></link> *scheme</parameter>);</programlisting>
+<para>Gets the real certificate location from the chooser button along with the scheme.</para>
+<refsect3 id="nma-cert-chooser-get-cert.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>scheme</para></entry>
+<entry role="parameter_description"><para>the scheme of the returned certificate path. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="nma-cert-chooser-get-cert.returns" role="returns">
+<title>Returns</title>
+<para>the certificate path. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-get-cert-uri" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_get_cert_uri&#160;()</title>
+<indexterm zone="nma-cert-chooser-get-cert-uri" role="1.8.0"><primary>nma_cert_chooser_get_cert_uri</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+nma_cert_chooser_get_cert_uri (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>);</programlisting>
+<para>Gets the real certificate URI from the chooser button along with the scheme.</para>
+<refsect3 id="nma-cert-chooser-get-cert-uri.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="nma-cert-chooser-get-cert-uri.returns" role="returns">
+<title>Returns</title>
+<para>the certificate URI. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-set-cert-password" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_set_cert_password&#160;()</title>
+<indexterm zone="nma-cert-chooser-set-cert-password" role="1.8.0"><primary>nma_cert_chooser_set_cert_password</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+nma_cert_chooser_set_cert_password (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>,
+                                    <parameter>const <link linkend="gchar"><type>gchar</type></link> *password</parameter>);</programlisting>
+<para>Sets the password or a PIN that might be required to access the certificate.</para>
+<refsect3 id="nma-cert-chooser-set-cert-password.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>password</para></entry>
+<entry role="parameter_description"><para>the certificate PIN or password</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-get-cert-password" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_get_cert_password&#160;()</title>
+<indexterm zone="nma-cert-chooser-get-cert-password" role="1.8.0"><primary>nma_cert_chooser_get_cert_password</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+nma_cert_chooser_get_cert_password (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>);</programlisting>
+<para>Obtains the password or a PIN that was be required to access the certificate.</para>
+<refsect3 id="nma-cert-chooser-get-cert-password.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="nma-cert-chooser-get-cert-password.returns" role="returns">
+<title>Returns</title>
+<para> the certificate PIN or password</para>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-set-key" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_set_key&#160;()</title>
+<indexterm zone="nma-cert-chooser-set-key" role="1.8.0"><primary>nma_cert_chooser_set_key</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+nma_cert_chooser_set_key (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>,
+                          <parameter>const <link linkend="gchar"><type>gchar</type></link> *value</parameter>,
+                          <parameter><link linkend="NMSetting8021xCKScheme"><type>NMSetting8021xCKScheme</type></link> scheme</parameter>);</programlisting>
+<para>Sets the key location for the chooser button.</para>
+<refsect3 id="nma-cert-chooser-set-key.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the path or URI of a key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>scheme</para></entry>
+<entry role="parameter_description"><para>the scheme of the key path</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-set-key-uri" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_set_key_uri&#160;()</title>
+<indexterm zone="nma-cert-chooser-set-key-uri" role="1.8.0"><primary>nma_cert_chooser_set_key_uri</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+nma_cert_chooser_set_key_uri (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>,
+                              <parameter>const <link linkend="gchar"><type>gchar</type></link> *uri</parameter>);</programlisting>
+<para>Sets the key URI for the chooser button.</para>
+<refsect3 id="nma-cert-chooser-set-key-uri.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>uri</para></entry>
+<entry role="parameter_description"><para>the URI of a key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-get-key" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_get_key&#160;()</title>
+<indexterm zone="nma-cert-chooser-get-key" role="1.8.0"><primary>nma_cert_chooser_get_key</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+nma_cert_chooser_get_key (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>,
+                          <parameter><link linkend="NMSetting8021xCKScheme"><type>NMSetting8021xCKScheme</type></link> *scheme</parameter>);</programlisting>
+<para>Gets the real key location from the chooser button along with the scheme.</para>
+<refsect3 id="nma-cert-chooser-get-key.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>scheme</para></entry>
+<entry role="parameter_description"><para>the scheme of the returned key path. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="nma-cert-chooser-get-key.returns" role="returns">
+<title>Returns</title>
+<para>the key path. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-get-key-uri" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_get_key_uri&#160;()</title>
+<indexterm zone="nma-cert-chooser-get-key-uri" role="1.8.0"><primary>nma_cert_chooser_get_key_uri</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+nma_cert_chooser_get_key_uri (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>);</programlisting>
+<para>Gets the real key URI from the chooser button along with the scheme.</para>
+<refsect3 id="nma-cert-chooser-get-key-uri.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="nma-cert-chooser-get-key-uri.returns" role="returns">
+<title>Returns</title>
+<para>the key URI. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-set-key-password" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_set_key_password&#160;()</title>
+<indexterm zone="nma-cert-chooser-set-key-password" role="1.8.0"><primary>nma_cert_chooser_set_key_password</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+nma_cert_chooser_set_key_password (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>,
+                                   <parameter>const <link linkend="gchar"><type>gchar</type></link> *password</parameter>);</programlisting>
+<para>Sets the password or a PIN that might be required to access the key.</para>
+<refsect3 id="nma-cert-chooser-set-key-password.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>password</para></entry>
+<entry role="parameter_description"><para>the key PIN or password</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-get-key-password" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_get_key_password&#160;()</title>
+<indexterm zone="nma-cert-chooser-get-key-password" role="1.8.0"><primary>nma_cert_chooser_get_key_password</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+nma_cert_chooser_get_key_password (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>);</programlisting>
+<para>Obtains the password or a PIN that was be required to access the key.</para>
+<refsect3 id="nma-cert-chooser-get-key-password.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="nma-cert-chooser-get-key-password.returns" role="returns">
+<title>Returns</title>
+<para> the key PIN or password</para>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-new" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_new&#160;()</title>
+<indexterm zone="nma-cert-chooser-new" role="1.8.0"><primary>nma_cert_chooser_new</primary></indexterm>
+<programlisting language="C"><link linkend="GtkWidget"><returnvalue>GtkWidget</returnvalue></link>&#160;*
+nma_cert_chooser_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *title</parameter>,
+                      <parameter><link linkend="NMACertChooserFlags"><type>NMACertChooserFlags</type></link> flags</parameter>);</programlisting>
+<para>Constructs the button that is capable of selecting a certificate
+and a key.</para>
+<refsect3 id="nma-cert-chooser-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>title</para></entry>
+<entry role="parameter_description"><para>title of the certificate chooser dialog</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>the flags that configure the capabilities of the button</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="nma-cert-chooser-new.returns" role="returns">
+<title>Returns</title>
+<para>the certificate chooser button instance. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-add-to-size-group" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_add_to_size_group&#160;()</title>
+<indexterm zone="nma-cert-chooser-add-to-size-group" role="1.8.0"><primary>nma_cert_chooser_add_to_size_group</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+nma_cert_chooser_add_to_size_group (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>,
+                                    <parameter><link linkend="GtkSizeGroup"><type>GtkSizeGroup</type></link> *group</parameter>);</programlisting>
+<para>Adds the labels to the specified size group so that they are aligned
+nicely with other entries in a form.</para>
+<para>It is expected that the NMACertChooser is a GtkGrid with two columns
+with the labels in the first one.</para>
+<refsect3 id="nma-cert-chooser-add-to-size-group.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>group</para></entry>
+<entry role="parameter_description"><para>a size group</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-validate" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_validate&#160;()</title>
+<indexterm zone="nma-cert-chooser-validate" role="1.8.0"><primary>nma_cert_chooser_validate</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+nma_cert_chooser_validate (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>,
+                           <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Validates whether the chosen values make sense. The users can do further
+validation by subscribing to the "*-changed" signals and returning an
+error themselves.</para>
+<refsect3 id="nma-cert-chooser-validate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>error return location</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="nma-cert-chooser-validate.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if validation passes, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-setup-cert-password-storage" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_setup_cert_password_storage&#160;()</title>
+<indexterm zone="nma-cert-chooser-setup-cert-password-storage" role="1.8.0"><primary>nma_cert_chooser_setup_cert_password_storage</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+nma_cert_chooser_setup_cert_password_storage
+                               (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>,
+                                <parameter><link linkend="NMSettingSecretFlags"><type>NMSettingSecretFlags</type></link> initial_flags</parameter>,
+                                <parameter><link linkend="NMSetting"><type>NMSetting</type></link> *setting</parameter>,
+                                <parameter>const <link linkend="char"><type>char</type></link> *password_flags_name</parameter>,
+                                <parameter><link linkend="gboolean"><type>gboolean</type></link> with_not_required</parameter>,
+                                <parameter><link linkend="gboolean"><type>gboolean</type></link> ask_mode</parameter>);</programlisting>
+<para>This method basically calls <link linkend="nma-utils-setup-password-storage"><function>nma_utils_setup_password_storage()</function></link>
+on the certificate password entry, in case one is present.</para>
+<refsect3 id="nma-cert-chooser-setup-cert-password-storage.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>initial_flags</para></entry>
+<entry role="parameter_description"><para>initial secret flags to setup password menu from</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>setting</para></entry>
+<entry role="parameter_description"><para><link linkend="NMSetting"><type>NMSetting</type></link> containing the password, or NULL</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>password_flags_name</para></entry>
+<entry role="parameter_description"><para>name of the secret flags (like psk-flags), or NULL</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>with_not_required</para></entry>
+<entry role="parameter_description"><para>whether to include "Not required" menu item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>ask_mode</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the entry is shown in ASK mode</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-update-cert-password-storage" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_update_cert_password_storage&#160;()</title>
+<indexterm zone="nma-cert-chooser-update-cert-password-storage" role="1.8.0"><primary>nma_cert_chooser_update_cert_password_storage</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+nma_cert_chooser_update_cert_password_storage
+                               (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>,
+                                <parameter><link linkend="NMSettingSecretFlags"><type>NMSettingSecretFlags</type></link> secret_flags</parameter>,
+                                <parameter><link linkend="NMSetting"><type>NMSetting</type></link> *setting</parameter>,
+                                <parameter>const <link linkend="char"><type>char</type></link> *password_flags_name</parameter>);</programlisting>
+<para>This method basically calls <link linkend="nma-utils-update-password-storage"><function>nma_utils_update_password_storage()</function></link>
+on the certificate password entry, in case one is present.</para>
+<refsect3 id="nma-cert-chooser-update-cert-password-storage.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>secret_flags</para></entry>
+<entry role="parameter_description"><para>secret flags to set</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>setting</para></entry>
+<entry role="parameter_description"><para><link linkend="NMSetting"><type>NMSetting</type></link> containing the password, or NULL</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>password_flags_name</para></entry>
+<entry role="parameter_description"><para>name of the secret flags (like psk-flags), or NULL</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-get-cert-password-flags" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_get_cert_password_flags&#160;()</title>
+<indexterm zone="nma-cert-chooser-get-cert-password-flags" role="1.8.0"><primary>nma_cert_chooser_get_cert_password_flags</primary></indexterm>
+<programlisting language="C"><link linkend="NMSettingSecretFlags"><returnvalue>NMSettingSecretFlags</returnvalue></link>
+nma_cert_chooser_get_cert_password_flags
+                               (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>);</programlisting>
+<para>Returns secret flags corresponding to the certificate password
+if one is present. The chooser would typically call into
+<link linkend="nma-utils-menu-to-secret-flags"><function>nma_utils_menu_to_secret_flags()</function></link> for the certificate password
+entry.</para>
+<refsect3 id="nma-cert-chooser-get-cert-password-flags.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="nma-cert-chooser-get-cert-password-flags.returns" role="returns">
+<title>Returns</title>
+<para> secret flags corresponding to the certificate password</para>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-setup-key-password-storage" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_setup_key_password_storage&#160;()</title>
+<indexterm zone="nma-cert-chooser-setup-key-password-storage" role="1.8.0"><primary>nma_cert_chooser_setup_key_password_storage</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+nma_cert_chooser_setup_key_password_storage
+                               (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>,
+                                <parameter><link linkend="NMSettingSecretFlags"><type>NMSettingSecretFlags</type></link> initial_flags</parameter>,
+                                <parameter><link linkend="NMSetting"><type>NMSetting</type></link> *setting</parameter>,
+                                <parameter>const <link linkend="char"><type>char</type></link> *password_flags_name</parameter>,
+                                <parameter><link linkend="gboolean"><type>gboolean</type></link> with_not_required</parameter>,
+                                <parameter><link linkend="gboolean"><type>gboolean</type></link> ask_mode</parameter>);</programlisting>
+<para>This method basically calls <link linkend="nma-utils-setup-password-storage"><function>nma_utils_setup_password_storage()</function></link>
+on the key password entry, in case one is present.</para>
+<refsect3 id="nma-cert-chooser-setup-key-password-storage.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>initial_flags</para></entry>
+<entry role="parameter_description"><para>initial secret flags to setup password menu from</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>setting</para></entry>
+<entry role="parameter_description"><para><link linkend="NMSetting"><type>NMSetting</type></link> containing the password, or NULL</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>password_flags_name</para></entry>
+<entry role="parameter_description"><para>name of the secret flags (like psk-flags), or NULL</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>with_not_required</para></entry>
+<entry role="parameter_description"><para>whether to include "Not required" menu item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>ask_mode</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the entry is shown in ASK mode</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-update-key-password-storage" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_update_key_password_storage&#160;()</title>
+<indexterm zone="nma-cert-chooser-update-key-password-storage" role="1.8.0"><primary>nma_cert_chooser_update_key_password_storage</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+nma_cert_chooser_update_key_password_storage
+                               (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>,
+                                <parameter><link linkend="NMSettingSecretFlags"><type>NMSettingSecretFlags</type></link> secret_flags</parameter>,
+                                <parameter><link linkend="NMSetting"><type>NMSetting</type></link> *setting</parameter>,
+                                <parameter>const <link linkend="char"><type>char</type></link> *password_flags_name</parameter>);</programlisting>
+<para>This method basically calls <link linkend="nma-utils-update-password-storage"><function>nma_utils_update_password_storage()</function></link>
+on the key password entry, in case one is present.</para>
+<refsect3 id="nma-cert-chooser-update-key-password-storage.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>secret_flags</para></entry>
+<entry role="parameter_description"><para>secret flags to set</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>setting</para></entry>
+<entry role="parameter_description"><para><link linkend="NMSetting"><type>NMSetting</type></link> containing the password, or NULL</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>password_flags_name</para></entry>
+<entry role="parameter_description"><para>name of the secret flags (like psk-flags), or NULL</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+<refsect2 id="nma-cert-chooser-get-key-password-flags" role="function" condition="since:1.8.0">
+<title>nma_cert_chooser_get_key_password_flags&#160;()</title>
+<indexterm zone="nma-cert-chooser-get-key-password-flags" role="1.8.0"><primary>nma_cert_chooser_get_key_password_flags</primary></indexterm>
+<programlisting language="C"><link linkend="NMSettingSecretFlags"><returnvalue>NMSettingSecretFlags</returnvalue></link>
+nma_cert_chooser_get_key_password_flags
+                               (<parameter><link linkend="NMACertChooser"><type>NMACertChooser</type></link> *cert_chooser</parameter>);</programlisting>
+<para>Returns secret flags corresponding to the key password
+if one is present. The chooser would typically call into
+<link linkend="nma-utils-menu-to-secret-flags"><function>nma_utils_menu_to_secret_flags()</function></link> for the key password
+entry.</para>
+<refsect3 id="nma-cert-chooser-get-key-password-flags.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cert_chooser</para></entry>
+<entry role="parameter_description"><para>certificate chooser button instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="nma-cert-chooser-get-key-password-flags.returns" role="returns">
+<title>Returns</title>
+<para> secret flags corresponding to the key password</para>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="NMACertChooser.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="NMACertChooserFlags" role="enum" condition="since:1.8.0">
+<title>enum NMACertChooserFlags</title>
+<indexterm zone="NMACertChooserFlags" role="1.8.0"><primary>NMACertChooserFlags</primary></indexterm>
+<para>Flags that controls what is the certificate chooser button able to pick.
+Currently only local files are supported, but might be extended to use URIs,
+such as PKCS#11 certificate URIs in future as well.</para>
+<refsect3 id="NMACertChooserFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="NMA-CERT-CHOOSER-FLAG-NONE:CAPS">NMA_CERT_CHOOSER_FLAG_NONE</para></entry>
+<entry role="enum_member_description"><para>No flags</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="NMA-CERT-CHOOSER-FLAG-CERT:CAPS">NMA_CERT_CHOOSER_FLAG_CERT</para></entry>
+<entry role="enum_member_description"><para>Only pick a certificate, not a key</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="NMA-CERT-CHOOSER-FLAG-PASSWORDS:CAPS">NMA_CERT_CHOOSER_FLAG_PASSWORDS</para></entry>
+<entry role="enum_member_description"><para>Hide all controls but the secrets entries</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="NMA-CERT-CHOOSER-FLAG-PEM:CAPS">NMA_CERT_CHOOSER_FLAG_PEM</para></entry>
+<entry role="enum_member_description"><para>Ensure the chooser only selects regular PEM files</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="NMACertChooser.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="NMACertChooser--flags" role="property"><title>The <literal>“flags”</literal> property</title>
+<indexterm zone="NMACertChooser--flags"><primary>NMACertChooser:flags</primary></indexterm>
+<programlisting>  “flags”                    <link linkend="guint"><type>guint</type></link></programlisting>
+<para>Certificate Chooser Flags.</para><para>Flags: Write / Construct Only</para>
+<para>Allowed values: &lt;= 7</para>
+<para>Default value: 0</para>
+</refsect2>
+<refsect2 id="NMACertChooser--title" role="property"><title>The <literal>“title”</literal> property</title>
+<indexterm zone="NMACertChooser--title"><primary>NMACertChooser:title</primary></indexterm>
+<programlisting>  “title”                    <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>Certificate Chooser Title.</para><para>Flags: Write / Construct Only</para>
+<para>Default value: NULL</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="NMACertChooser.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="NMACertChooser-cert-password-validate" role="signal"><title>The <literal>“cert-password-validate”</literal> signal</title>
+<indexterm zone="NMACertChooser-cert-password-validate" role="1.8.0"><primary>NMACertChooser::cert-password-validate</primary></indexterm>
+<programlisting language="C"><link linkend="GError"><returnvalue>GError</returnvalue></link>*
+user_function (<link linkend="NMACertChooser"><type>NMACertChooser</type></link> *nmacertchooser,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when the certificate password needs validation. The handlers
+can indicate that the password is invalid by returning an error, which blocks further
+signal processing and causes a call to <link linkend="nma-cert-chooser-validate"><function>nma_cert_chooser_validate()</function></link>
+to fail.</para>
+<refsect3 id="NMACertChooser-cert-password-validate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2><refsect2 id="NMACertChooser-cert-validate" role="signal"><title>The <literal>“cert-validate”</literal> signal</title>
+<indexterm zone="NMACertChooser-cert-validate" role="1.8.0"><primary>NMACertChooser::cert-validate</primary></indexterm>
+<programlisting language="C"><link linkend="GError"><returnvalue>GError</returnvalue></link>*
+user_function (<link linkend="NMACertChooser"><type>NMACertChooser</type></link> *nmacertchooser,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when the certificate needs validation. The handlers can indicate that
+the certificate is invalid by returning an error, which blocks further
+signal processing and causes a call to <link linkend="nma-cert-chooser-validate"><function>nma_cert_chooser_validate()</function></link>
+to fail.</para>
+<refsect3 id="NMACertChooser-cert-validate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2><refsect2 id="NMACertChooser-changed" role="signal"><title>The <literal>“changed”</literal> signal</title>
+<indexterm zone="NMACertChooser-changed" role="1.8.0"><primary>NMACertChooser::changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="NMACertChooser"><type>NMACertChooser</type></link> *nmacertchooser,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when anything changes in the certificate chooser, be it a certificate,
+a key or associated passwords.</para>
+<refsect3 id="NMACertChooser-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-NO-RECURSE:CAPS">No Recursion</link></para>
+<para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2><refsect2 id="NMACertChooser-key-password-validate" role="signal"><title>The <literal>“key-password-validate”</literal> signal</title>
+<indexterm zone="NMACertChooser-key-password-validate" role="1.8.0"><primary>NMACertChooser::key-password-validate</primary></indexterm>
+<programlisting language="C"><link linkend="GError"><returnvalue>GError</returnvalue></link>*
+user_function (<link linkend="NMACertChooser"><type>NMACertChooser</type></link> *nmacertchooser,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when the key password needs validation. The handlers can indicate
+that the password is invalid by returning an error, which blocks further
+signal processing and causes a call to <link linkend="nma-cert-chooser-validate"><function>nma_cert_chooser_validate()</function></link>
+to fail.</para>
+<refsect3 id="NMACertChooser-key-password-validate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2><refsect2 id="NMACertChooser-key-validate" role="signal"><title>The <literal>“key-validate”</literal> signal</title>
+<indexterm zone="NMACertChooser-key-validate" role="1.8.0"><primary>NMACertChooser::key-validate</primary></indexterm>
+<programlisting language="C"><link linkend="GError"><returnvalue>GError</returnvalue></link>*
+user_function (<link linkend="NMACertChooser"><type>NMACertChooser</type></link> *nmacertchooser,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when the key needs validation. The handlers can indicate that
+the key is invalid by returning an error, which blocks further
+signal processing and causes a call to <link linkend="nma-cert-chooser-validate"><function>nma_cert_chooser_validate()</function></link>
+to fail.</para>
+<refsect3 id="NMACertChooser-key-validate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-1.8.0">1.8.0</link></para></refsect2>
+</refsect1>
+
+</refentry>

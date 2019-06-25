@@ -1,0 +1,78 @@
+0% symbol docs coverage.
+41 symbols documented.
+31 symbols incomplete.
+70 not documented.
+
+
+NMAMobileFamily
+NMAMobileWizardCallback (<parameters>)
+NMAVpnPasswordDialog
+NMAVpnPasswordDialogClass
+nma_country_info_get_country_code
+nma_country_info_get_country_name
+nma_country_info_get_providers
+nma_country_info_ref (<parameters>)
+nma_country_info_unref (<parameters>)
+nma_mobile_access_method_get_3gpp_apn
+nma_mobile_access_method_get_dns
+nma_mobile_access_method_get_family
+nma_mobile_access_method_get_gateway
+nma_mobile_access_method_get_name
+nma_mobile_access_method_get_password
+nma_mobile_access_method_get_username
+nma_mobile_access_method_ref (<parameters>)
+nma_mobile_access_method_unref (<parameters>)
+nma_mobile_provider_get_3gpp_mcc_mnc
+nma_mobile_provider_get_cdma_sid
+nma_mobile_provider_get_methods
+nma_mobile_provider_get_name
+nma_mobile_provider_ref (<parameters>)
+nma_mobile_provider_unref (<parameters>)
+nma_mobile_providers_database_dump
+nma_mobile_providers_database_get_countries
+nma_mobile_providers_database_lookup_3gpp_mcc_mnc
+nma_mobile_providers_database_lookup_cdma_sid
+nma_mobile_providers_database_lookup_country
+nma_mobile_providers_database_new
+nma_mobile_providers_database_new_finish
+nma_mobile_providers_database_new_sync
+nma_mobile_wizard_destroy (<parameters>)
+nma_mobile_wizard_new
+nma_mobile_wizard_present (<parameters>)
+nma_vpn_password_dialog_focus_password (<parameters>)
+nma_vpn_password_dialog_focus_password_secondary (<parameters>)
+nma_vpn_password_dialog_focus_password_ternary (<parameters>)
+nma_vpn_password_dialog_get_password (<parameters>)
+nma_vpn_password_dialog_get_password_secondary (<parameters>)
+nma_vpn_password_dialog_get_password_ternary (<parameters>)
+nma_vpn_password_dialog_new (<parameters>)
+nma_vpn_password_dialog_run_and_block (<parameters>)
+nma_vpn_password_dialog_set_password (<parameters>)
+nma_vpn_password_dialog_set_password_label (<parameters>)
+nma_vpn_password_dialog_set_password_secondary (<parameters>)
+nma_vpn_password_dialog_set_password_secondary_label (<parameters>)
+nma_vpn_password_dialog_set_password_ternary (<parameters>)
+nma_vpn_password_dialog_set_password_ternary_label (<parameters>)
+nma_vpn_password_dialog_set_show_password (<parameters>)
+nma_vpn_password_dialog_set_show_password_secondary (<parameters>)
+nma_vpn_password_dialog_set_show_password_ternary (<parameters>)
+nma_wifi_dialog_get_connection
+nma_wifi_dialog_new_for_create (<parameters>)
+nma_wifi_dialog_new_for_hidden (<parameters>)
+
+nma_wifi_dialog_get_nag_ignored (<parameters>)
+nma_wifi_dialog_nag_user
+nma_wifi_dialog_new_for_other (<parameters>)
+nma_wifi_dialog_set_nag_ignored (<parameters>)
+
+nma-cert-chooser:Short_Description
+nma-mobile-providers:Long_Description
+nma-mobile-providers:Short_Description
+nma-mobile-wizard:Long_Description
+nma-mobile-wizard:Short_Description
+nma-ui-utils:Long_Description
+nma-ui-utils:Short_Description
+nma-vpn-password-dialog:Long_Description
+nma-vpn-password-dialog:Short_Description
+nma-wifi-dialog:Long_Description
+nma-wifi-dialog:Short_Description

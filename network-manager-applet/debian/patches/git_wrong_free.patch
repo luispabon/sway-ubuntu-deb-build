@@ -1,0 +1,29 @@
+From b4c365b136e25e69c3550a9984f8f3cbec4bc073 Mon Sep 17 00:00:00 2001
+From: Beniamino Galvani <bgalvani@redhat.com>
+Date: Mon, 18 Feb 2019 09:17:45 +0100
+Subject: [PATCH] wifi-dialog: fix wrong free
+
+Fixes: 755cc5647f4ee1bb90db6fa884ff1e7105c2d321
+
+https://gitlab.gnome.org/GNOME/network-manager-applet/issues/43
+---
+ src/libnma/nma-wifi-dialog.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/libnma/nma-wifi-dialog.c b/src/libnma/nma-wifi-dialog.c
+index 009bf440..a90b20d7 100644
+--- a/src/libnma/nma-wifi-dialog.c
++++ b/src/libnma/nma-wifi-dialog.c
+@@ -1260,7 +1260,7 @@ nma_wifi_dialog_get_connection (NMAWifiDialog *self,
+ 		s_wireless = (NMSettingWireless *) nm_setting_wireless_new ();
+ 		ssid = validate_dialog_ssid (self);
+ 		g_object_set (s_wireless, NM_SETTING_WIRELESS_SSID, ssid, NULL);
+-		g_free (ssid);
++		g_bytes_unref (ssid);
+ 
+ 		if (priv->operation == OP_CREATE_ADHOC) {
+ 			NMSetting *s_ip4;
+-- 
+2.18.1
+
+

@@ -51,3 +51,31 @@ RUN yes | unminimize; \
         wayland-protocols \
         wayland-scanner++; \
     apt-get clean
+
+# Build deps for network-manager-applet
+RUN export DEBIAN_FRONTEND=noninteractive;  \
+    yes | unminimize; \
+    apt-get update; \
+    apt-get -y install --no-install-recommends \
+        libappindicator3-dev \
+        libnm-dev \
+        libmm-glib-dev \
+        libgudev-1.0-dev \
+        libjansson-dev \
+        libgcr-3-dev \
+        libgck-1-dev \
+        libgirepository1.0-dev \
+        gobject-introspection \
+        gtk-doc-tools \
+        libgtk-3-doc \
+        dh-translations \
+        mobile-broadband-provider-info \
+        libsecret-1-dev \
+        libnotify-dev \
+        network-manager-dev \
+        libnm-glib-vpn-dev \
+        libnm-glib-dev \
+        libnm-util-dev \
+        gnome-common \
+        libglib2.0-doc; \
+    apt-get clean

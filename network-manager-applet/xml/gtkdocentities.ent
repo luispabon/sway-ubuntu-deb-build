@@ -1,0 +1,7 @@
+<!ENTITY package "network-manager-applet">
+<!ENTITY package_bugreport "https://gitlab.gnome.org/GNOME/network-manager-applet/issues">
+<!ENTITY package_name "nm-applet">
+<!ENTITY package_string "nm-applet 1.8.20">
+<!ENTITY package_tarname "network-manager-applet">
+<!ENTITY package_url "">
+<!ENTITY package_version "1.8.20">

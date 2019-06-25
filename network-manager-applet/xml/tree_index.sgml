@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE screen PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
+[
+  <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+  <!ENTITY % gtkdocentities SYSTEM "../xml/gtkdocentities.ent">
+  %gtkdocentities;
+]>
+<screen>
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+    <phrase role="lineart">&#9474;</phrase>   <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkWidget">GtkWidget</link>
+    <phrase role="lineart">&#9474;</phrase>       <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkContainer">GtkContainer</link>
+    <phrase role="lineart">&#9474;</phrase>           <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GtkGrid">GtkGrid</link>
+    <phrase role="lineart">&#9474;</phrase>           <phrase role="lineart">&#9474;</phrase>   <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="NMACertChooser">NMACertChooser</link>
+    <phrase role="lineart">&#9474;</phrase>           <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkBin">GtkBin</link>
+    <phrase role="lineart">&#9474;</phrase>               <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkWindow">GtkWindow</link>
+    <phrase role="lineart">&#9474;</phrase>                   <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GtkAssistant">GtkAssistant</link>
+    <phrase role="lineart">&#9474;</phrase>                   <phrase role="lineart">&#9474;</phrase>   <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="NMAMobileWizard">NMAMobileWizard</link>
+    <phrase role="lineart">&#9474;</phrase>                   <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkDialog">GtkDialog</link>
+    <phrase role="lineart">&#9474;</phrase>                       <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="NMAVpnPasswordDialog">NMAVpnPasswordDialog</link>
+    <phrase role="lineart">&#9474;</phrase>                       <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="NMAWifiDialog">NMAWifiDialog</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="NMAMobileProvidersDatabase">NMAMobileProvidersDatabase</link>
+    <link linkend="GBoxed">GBoxed</link>
+    <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="NMACountryInfo">NMACountryInfo</link>
+    <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="NMAMobileAccessMethod">NMAMobileAccessMethod</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="NMAMobileProvider">NMAMobileProvider</link>
+</screen>

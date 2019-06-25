@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
+[
+  <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+  <!ENTITY % gtkdocentities SYSTEM "../xml/gtkdocentities.ent">
+  %gtkdocentities;
+]>
+<refentry id="libnma-nma-mobile-wizard">
+<refmeta>
+<refentrytitle role="top_of_page" id="libnma-nma-mobile-wizard.top_of_page">nma-mobile-wizard</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBNMA Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>nma-mobile-wizard</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsect1 id="libnma-nma-mobile-wizard.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="NMAMobileWizardCallback">*NMAMobileWizardCallback</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="NMAMobileWizard"><returnvalue>NMAMobileWizard</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="nma-mobile-wizard-new">nma_mobile_wizard_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-mobile-wizard-present">nma_mobile_wizard_present</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="nma-mobile-wizard-destroy">nma_mobile_wizard_destroy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<anchor id="NMAMobileWizard"/><refsect1 id="libnma-nma-mobile-wizard.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="NMAMobileWizardAccessMethod">NMAMobileWizardAccessMethod</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="libnma-nma-mobile-wizard.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkWidget">GtkWidget</link>
+            <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkContainer">GtkContainer</link>
+                <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkBin">GtkBin</link>
+                    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkWindow">GtkWindow</link>
+                        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkAssistant">GtkAssistant</link>
+                            <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> NMAMobileWizard
+</screen>
+</refsect1>
+
+
+<refsect1 id="libnma-nma-mobile-wizard.description" role="desc">
+<title role="desc.title">Description</title>
+
+</refsect1>
+<refsect1 id="libnma-nma-mobile-wizard.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="NMAMobileWizardCallback" role="function">
+<title>NMAMobileWizardCallback&#160;()</title>
+<indexterm zone="NMAMobileWizardCallback"><primary>NMAMobileWizardCallback</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*NMAMobileWizardCallback<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="NMAMobileWizard"><type>NMAMobileWizard</type></link> *self</parameter>,
+                            <parameter><link linkend="gboolean"><type>gboolean</type></link> canceled</parameter>,
+                            <parameter><link linkend="NMAMobileWizardAccessMethod"><type>NMAMobileWizardAccessMethod</type></link> *method</parameter>,
+                            <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+</refsect2>
+<refsect2 id="nma-mobile-wizard-new" role="function">
+<title>nma_mobile_wizard_new&#160;()</title>
+<indexterm zone="nma-mobile-wizard-new"><primary>nma_mobile_wizard_new</primary></indexterm>
+<programlisting language="C"><link linkend="NMAMobileWizard"><returnvalue>NMAMobileWizard</returnvalue></link>&#160;*
+nma_mobile_wizard_new (<parameter><link linkend="GtkWindow"><type>GtkWindow</type></link> *parent</parameter>,
+                       <parameter><link linkend="GtkWindowGroup"><type>GtkWindowGroup</type></link> *window_group</parameter>,
+                       <parameter><link linkend="NMDeviceModemCapabilities"><type>NMDeviceModemCapabilities</type></link> modem_caps</parameter>,
+                       <parameter><link linkend="gboolean"><type>gboolean</type></link> will_connect_after</parameter>,
+                       <parameter><link linkend="NMAMobileWizardCallback"><type>NMAMobileWizardCallback</type></link> cb</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="nma-mobile-wizard-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cb</para></entry>
+<entry role="parameter_description"><para>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="nma-mobile-wizard-new.returns" role="returns">
+<title>Returns</title>
+<para> the newly created <link linkend="NMAMobileWizard"><type>NMAMobileWizard</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="nma-mobile-wizard-present" role="function">
+<title>nma_mobile_wizard_present&#160;()</title>
+<indexterm zone="nma-mobile-wizard-present"><primary>nma_mobile_wizard_present</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+nma_mobile_wizard_present (<parameter><link linkend="NMAMobileWizard"><type>NMAMobileWizard</type></link> *wizard</parameter>);</programlisting>
+</refsect2>
+<refsect2 id="nma-mobile-wizard-destroy" role="function">
+<title>nma_mobile_wizard_destroy&#160;()</title>
+<indexterm zone="nma-mobile-wizard-destroy"><primary>nma_mobile_wizard_destroy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+nma_mobile_wizard_destroy (<parameter><link linkend="NMAMobileWizard"><type>NMAMobileWizard</type></link> *self</parameter>);</programlisting>
+</refsect2>
+
+</refsect1>
+<refsect1 id="libnma-nma-mobile-wizard.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="NMAMobileWizardAccessMethod" role="struct">
+<title>NMAMobileWizardAccessMethod</title>
+<indexterm zone="NMAMobileWizardAccessMethod"><primary>NMAMobileWizardAccessMethod</primary></indexterm>
+<programlisting language="C">typedef struct {
+	char *provider_name;
+	char *plan_name;
+	NMDeviceModemCapabilities devtype;
+	char *username;
+	char *password;
+	char *gsm_apn;
+} NMAMobileWizardAccessMethod;
+</programlisting>
+<para>Network access method details.</para>
+<refsect3 id="NMAMobileWizardAccessMethod.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="char"><type>char</type></link>&#160;*<structfield id="NMAMobileWizardAccessMethod.provider-name">provider_name</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The mobile network provider name</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="char"><type>char</type></link>&#160;*<structfield id="NMAMobileWizardAccessMethod.plan-name">plan_name</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The provided network access billing plan</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="NMDeviceModemCapabilities"><type>NMDeviceModemCapabilities</type></link>&#160;<structfield id="NMAMobileWizardAccessMethod.devtype">devtype</structfield>;</para></entry>
+<entry role="struct_member_description"><para>Required NetworkManager device capabilities</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="char"><type>char</type></link>&#160;*<structfield id="NMAMobileWizardAccessMethod.username">username</structfield>;</para></entry>
+<entry role="struct_member_description"><para>User login</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="char"><type>char</type></link>&#160;*<structfield id="NMAMobileWizardAccessMethod.password">password</structfield>;</para></entry>
+<entry role="struct_member_description"><para>User secret</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="char"><type>char</type></link>&#160;*<structfield id="NMAMobileWizardAccessMethod.gsm-apn">gsm_apn</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The GSM Access Point Name</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+
+</refentry>

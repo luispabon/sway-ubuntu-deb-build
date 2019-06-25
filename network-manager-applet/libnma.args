@@ -1,0 +1,40 @@
+<ARG>
+<NAME>NMACertChooser::flags</NAME>
+<TYPE>guint</TYPE>
+<RANGE><= 7</RANGE>
+<FLAGS>wX</FLAGS>
+<NICK>Flags</NICK>
+<BLURB>Certificate Chooser Flags.</BLURB>
+<DEFAULT>0</DEFAULT>
+</ARG>
+
+<ARG>
+<NAME>NMACertChooser::title</NAME>
+<TYPE>gchar*</TYPE>
+<RANGE></RANGE>
+<FLAGS>wX</FLAGS>
+<NICK>Title</NICK>
+<BLURB>Certificate Chooser Title.</BLURB>
+<DEFAULT>NULL</DEFAULT>
+</ARG>
+
+<ARG>
+<NAME>NMAMobileProvidersDatabase::country-codes</NAME>
+<TYPE>gchar*</TYPE>
+<RANGE></RANGE>
+<FLAGS>rwX</FLAGS>
+<NICK>Country Codes</NICK>
+<BLURB>Path to the country codes file.</BLURB>
+<DEFAULT>NULL</DEFAULT>
+</ARG>
+
+<ARG>
+<NAME>NMAMobileProvidersDatabase::service-providers</NAME>
+<TYPE>gchar*</TYPE>
+<RANGE></RANGE>
+<FLAGS>rwX</FLAGS>
+<NICK>Service Providers</NICK>
+<BLURB>Path to the service providers file.</BLURB>
+<DEFAULT>NULL</DEFAULT>
+</ARG>
+

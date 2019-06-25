@@ -65,6 +65,10 @@ wl-clipboard-build-deb:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd wl-clipboard; debuild -b -uc -us"
 	make fix-permissions
 
+nm-applet-build:
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build sh -c "cd network-manager-applet; debuild -b -uc -us"
+	make fix-permissions
+
 clipman-install:
 	cd clipman; go install; ln -s ~/go/bin/clipman ~/bin/
 

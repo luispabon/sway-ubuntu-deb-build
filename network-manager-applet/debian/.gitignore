@@ -1,0 +1,15 @@
+tmp/
+usr/
+debhelper-build-stamp
+files
+*.log
+*.substvars
+.debhelper
+
+network-manager-gnome
+libnma0*
+libnm-gtk*
+libnma-dev
+gir1.2*
+.debhelper
+
