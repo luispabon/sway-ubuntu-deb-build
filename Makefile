@@ -1,10 +1,10 @@
-build-everything: build-image json-c-build scdoc-build wlroots-build-deb sway-build-deb swaylock-build-deb swayidle-build-deb swaybg-build-deb xdg-desktop-portal-wlr-build-deb mako-build-deb kanshi-build-deb waybar-build-deb grim-build-deb slurp-build-deb
+build-everything: build-image json-c-build scdoc-build wlroots-build-deb sway-build-deb swaylock-build-deb swayidle-build-deb swaybg-build-deb xdg-desktop-portal-wlr-build-deb mako-build-deb kanshi-build-deb waybar-build-deb grim-build-deb slurp-build-deb clipman-install
 
 build-image:
 	docker build -t sway_build .
 
 install-all-debs:
-	ls -1  | tr '\n' '\0' | xargs -0 -n 1 basename | grep deb | grep -v ddeb | grep -v dev | grep -v skele | grep -v udeb | xargs sudo dpkg -i
+	cd debs/; ls -1 | tr '\n' '\0' | xargs -0 -n 1 basename | grep deb | grep -v ddeb | grep -v dev | grep -v skele | grep -v udeb | xargs sudo dpkg -i
 
 yolo: build-everything install-all-debs
 	echo "YOLO"
