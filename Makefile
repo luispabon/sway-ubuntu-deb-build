@@ -70,7 +70,7 @@ nm-applet-build:
 	make fix-permissions tidy
 
 clipman-install:
-	cd clipman; go install; ln -s ~/go/bin/clipman ~/bin/
+	cd clipman; go install; ln -sf ~/go/bin/clipman ~/bin/
 
 tidy:
 	mkdir -p debs
