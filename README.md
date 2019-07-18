@@ -2,7 +2,7 @@
 
 Ubuntu 19.04 build system for sway and related tools. Docker based.
 
-You do need `docker.io` and `make` installed. If you want `clipman` for clipboard, and your user on the docker group (otherwise you need to sudo the make commands).
+You do need `docker.io` and `make` installed, and your user on the docker group (otherwise you need to sudo the make commands).
 
 If you want `clipman` for clipboard management, you also need go.
 
