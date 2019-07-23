@@ -1,9 +1,9 @@
-network-manager-applet (1.8.20-1ubuntu1) disco; urgency=medium
+network-manager-applet (1.8.20-disco-patched2) disco; urgency=medium
 
   * Resynchronize on Debian
   * The new version includes
     -  connection-editor: re-enable launcher in GNOME and KDE,
-       it's needed for some sort of configurion which are not handled 
+       it's needed for some sort of configurion which are not handled
        by the desktop settings interfaces (lp: #1812697)
   * debian/patches/git_wrong_free.patch:
     - wifi-dialog: fix wrong free
@@ -12,7 +12,7 @@ network-manager-applet (1.8.20-1ubuntu1) disco; urgency=medium
   * debian/patches/git_password_entry.patch:
     - nma/pkcs11-cert-chooser: show the password entries when it makes sense
   * debian/rules:
-    - build with --with-libnm-gtk, the default is now to disable it 
+    - build with --with-libnm-gtk, the default is now to disable it
       upstream but we still have unity-control-center depending on it.
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 04 Mar 2019 16:17:00 +0100
@@ -204,7 +204,7 @@ network-manager-applet (1.8.12-1) unstable; urgency=medium
 network-manager-applet (1.8.10-5ubuntu4) cosmic; urgency=medium
 
   * debian/control, debian/rules:
-    - use libappindicator for now, it is tested and in main and the 
+    - use libappindicator for now, it is tested and in main and the
       new ayatana variant from Debian hasn't been reviewed yet.
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 03 Jul 2018 09:53:01 +0200
@@ -1287,7 +1287,7 @@ network-manager-applet (0.7.0-1) experimental; urgency=low
     - The nm-editor tool has been replaced by nm-connection-editor.
       (Closes: #494148, #482107, #485651)
     - Show the correct configuration for WPA Enterprise setups in
-      nm-connection-editor (Closes: #480039)  
+      nm-connection-editor (Closes: #480039)
 
   [ Sjoerd Simons ]
   * debian/patches/02-nm-api-update.patch:
@@ -1377,9 +1377,9 @@ network-manager-applet (0.6.6-1) unstable; urgency=low
     - Better handling of VPN and WPA Enterprise security. (Closes: #444977)
   * debian/control
     - The Vcs-* fields are now officially supported, so remove the XS- prefix.
-    - Bump Standards-Version to 3.7.3. No further changes required. 
+    - Bump Standards-Version to 3.7.3. No further changes required.
     - Fix Xfce spelling error in the package description.
-    - Bump Build-Depends on libnm-util-dev and network-manager-dev to 
+    - Bump Build-Depends on libnm-util-dev and network-manager-dev to
       (>= 0.6.6).
   * Removed patches
     - debian/patches/10-po_fr.patch (merged upstream)
@@ -1410,7 +1410,7 @@ network-manager-applet (0.6.5-3) unstable; urgency=low
 network-manager-applet (0.6.5-2) unstable; urgency=low
 
   * debian/patches/30-connection_info_hide_on_delete_event.patch
-    - Patch from Ubuntu. Hide connection info dialog on delete-event. 
+    - Patch from Ubuntu. Hide connection info dialog on delete-event.
       (Closes: #406073)
 
  -- Michael Biebl <biebl@debian.org>  Wed, 19 Sep 2007 22:34:18 +0200
@@ -1434,4 +1434,3 @@ network-manager-applet (0.6.5-1) unstable; urgency=low
   * Add debian/watch to track new upstream releases.
 
  -- Michael Biebl <biebl@debian.org>  Mon, 27 Aug 2007 08:03:06 +0200
-
