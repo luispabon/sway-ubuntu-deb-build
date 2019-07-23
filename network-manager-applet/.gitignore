@@ -1,0 +1,6 @@
+autom4te.cache/
+config.log
+debian/autoreconf*
+po/.intl*
+po/nm-applet.pot
+
