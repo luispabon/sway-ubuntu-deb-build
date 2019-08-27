@@ -7,3 +7,5 @@ files
 *.log
 *.substvars
 .debhelper
+*.dirs
+*.install
