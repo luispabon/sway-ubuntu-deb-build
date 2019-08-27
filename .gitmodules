@@ -40,6 +40,3 @@
 [submodule "grim"]
 	path = grim
 	url = git@github.com:luispabon/grim.git
-[submodule "rofi"]
-	path = rofi
-	url = git@github.com:luispabon/rofi.git
