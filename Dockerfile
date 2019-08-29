@@ -1,4 +1,4 @@
-FROM ubuntu:disco
+FROM ubuntu:disco AS meson-builder
 
 RUN yes | unminimize; \
     apt-get update; \
@@ -79,3 +79,15 @@ RUN export DEBIAN_FRONTEND=noninteractive;  \
         gnome-common \
         libglib2.0-doc; \
     apt-get clean
+
+FROM ubuntu:disco AS rust-builder
+
+RUN export DEBIAN_FRONTEND=noninteractive;  \
+    yes | unminimize; \
+    apt-get update; \
+    apt-get -y install --no-install-recommends \
+        ca-certificates \
+        rustc \
+        cargo \
+        librust-libdbus-sys-dev \
+        libpulse0
