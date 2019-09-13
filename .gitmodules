@@ -55,3 +55,6 @@
 [submodule "gtk-layer-shell"]
 	path = gtk-layer-shell
 	url = git@github.com:luispabon/gtk-layer-shell.git
+[submodule "wcm"]
+	path = wcm
+	url = git@github.com:luispabon/wcm.git
