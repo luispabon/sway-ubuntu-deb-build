@@ -85,11 +85,17 @@ RUN export DEBIAN_FRONTEND=noninteractive;  \
     yes | unminimize; \
     apt-get update; \
     apt-get -y install --no-install-recommends \
-                          libegl1-mesa-dev,
-                      libgles2-mesa-dev,
         libglm-dev; \
     apt-get clean
 
+
+# Build deps for gtk-layer-shell
+RUN export DEBIAN_FRONTEND=noninteractive;  \
+    yes | unminimize; \
+    apt-get update; \
+    apt-get -y install --no-install-recommends \
+        gobject-introspection; \
+    apt-get clean
 
 # Rust apps builder
 

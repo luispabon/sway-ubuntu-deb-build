@@ -80,8 +80,16 @@ wldash-install:
 	make fix-permissions tidy
 	ln -sf $(shell pwd)/wldash/target/release/wldash ~/bin
 
+gtk-layer-shell-build-deb:
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'cd gtk-layer-shell; debuild -b -uc -us'
+	make fix-permissions tidy
+
 wfconfig-build-deb:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb; dpkg -i debs/libwlroots-dev*.deb; apt-get -f install; cd wf-config; debuild -b -uc -us'
+	make fix-permissions tidy
+
+wfshell-build-deb:
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb; dpkg -i debs/libwlroots-dev*.deb; dpkg -i debs/libwf-config*.deb; dpkg -i debs/libgtk-layer-shell*.deb; apt-get -f install; cd wf-shell; debuild -b -uc -us'
 	make fix-permissions tidy
 
 wayfire-build-deb:

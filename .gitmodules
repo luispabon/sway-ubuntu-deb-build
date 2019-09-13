@@ -49,3 +49,9 @@
 [submodule "wf-config"]
 	path = wf-config
 	url = git@github.com:luispabon/wf-config.git
+[submodule "wf-shell"]
+	path = wf-shell
+	url = git@github.com:luispabon/wf-shell.git
+[submodule "gtk-layer-shell"]
+	path = gtk-layer-shell
+	url = git@github.com:luispabon/gtk-layer-shell.git
