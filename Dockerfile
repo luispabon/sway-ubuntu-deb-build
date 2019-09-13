@@ -80,6 +80,19 @@ RUN export DEBIAN_FRONTEND=noninteractive;  \
         libglib2.0-doc; \
     apt-get clean
 
+# Build deps for wayfire
+RUN export DEBIAN_FRONTEND=noninteractive;  \
+    yes | unminimize; \
+    apt-get update; \
+    apt-get -y install --no-install-recommends \
+                          libegl1-mesa-dev,
+                      libgles2-mesa-dev,
+        libglm-dev; \
+    apt-get clean
+
+
+# Rust apps builder
+
 FROM ubuntu:disco AS rust-builder
 
 RUN export DEBIAN_FRONTEND=noninteractive;  \

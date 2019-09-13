@@ -46,3 +46,6 @@
 [submodule "wayfire"]
 	path = wayfire
 	url = git@github.com:luispabon/wayfire.git
+[submodule "wf-config"]
+	path = wf-config
+	url = git@github.com:luispabon/wf-config.git
