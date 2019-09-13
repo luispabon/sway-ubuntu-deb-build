@@ -43,3 +43,6 @@
 [submodule "wldash"]
 	path = wldash
 	url = git@github.com:kennylevinsen/wldash.git
+[submodule "wayfire"]
+	path = wayfire
+	url = git@github.com:luispabon/wayfire.git

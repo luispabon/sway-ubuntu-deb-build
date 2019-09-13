@@ -80,6 +80,10 @@ wldash-install:
 	make fix-permissions tidy
 	ln -sf $(shell pwd)/wldash/target/release/wldash ~/bin
 
+wayfire-build-deb:
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb; dpkg -i debs/libwlroots-dev*.deb; apt-get -f install; cd wayfire; debuild -b -uc -us'
+	make fix-permissions tidy
+
 tidy:
 	mkdir -p debs
 	mkdir -p ddebs
