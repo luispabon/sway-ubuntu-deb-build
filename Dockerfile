@@ -85,6 +85,13 @@ RUN export DEBIAN_FRONTEND=noninteractive;  \
     yes | unminimize; \
     apt-get update; \
     apt-get -y install --no-install-recommends \
+        libglib2.0-dev \
+        libgtk-3-dev \
+        libjson-glib-dev \
+        libgudev-1.0-dev \
+        libdazzle-1.0-dev \
+        libgnome-desktop-3-dev \
+        valac \
         gobject-introspection \
         libxml2-dev \
         libglm-dev; \

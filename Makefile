@@ -72,6 +72,11 @@ nm-applet-build:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd network-manager-applet; debuild -b -uc -us"
 	make fix-permissions tidy
 
+wofi-build-install:
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd wofi/Release; make clean wofi"
+	make fix-permissions tidy
+	ln -sf $(shell pwd)/wofi/Release/wofi ~/bin/
+
 clipman-install:
 	cd clipman; go install; ln -sf ~/go/bin/clipman ~/bin/
 
@@ -97,7 +102,11 @@ wfshell-build-deb:
 	make fix-permissions tidy
 
 wayfire-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb debs/libwf-config*.deb; apt-get -f install; cd wayfire; debuild -b -uc -us; cd ../wcm;  debuild -b -uc -us'
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb debs/libwf-config*.deb; apt-get -f install; cd wayfire; debuild -b -uc -us'
+	make fix-permissions tidy
+
+carbonshell-build-deb:
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb debs/libwf-config*.deb debs/wayfire*.deb debs/libgtk-layer-shell*.deb; apt-get -f install; cd carbonshell; debuild -b -uc -us'
 	make fix-permissions tidy
 
 tidy:

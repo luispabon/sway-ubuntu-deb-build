@@ -58,3 +58,6 @@
 [submodule "wcm"]
 	path = wcm
 	url = git@github.com:luispabon/wcm.git
+[submodule "carbonshell"]
+	path = carbonshell
+	url = git@bitbucket.org:carbonOS/carbonshell.git
