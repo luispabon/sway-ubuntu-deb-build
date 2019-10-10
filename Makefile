@@ -1,4 +1,4 @@
-build-everything: build-meson-image build-rust-image json-c-build scdoc-build wlroots-build-deb sway-build-deb swaylock-build-deb swayidle-build-deb swaybg-build-deb xdg-desktop-portal-wlr-build-deb mako-build-deb kanshi-build-deb waybar-build-deb grim-build-deb slurp-build-deb clipman-install wldash-install
+build-everything: build-meson-image build-rust-image scdoc-build wlroots-build-deb sway-build-deb swaylock-build-deb swayidle-build-deb swaybg-build-deb xdg-desktop-portal-wlr-build-deb mako-build-deb kanshi-build-deb waybar-build-deb grim-build-deb slurp-build-deb clipman-install wldash-install gtk-layer-shell-build-deb wfconfig-build-deb wfshell-build-deb wayfire-build-deb
 
 build-meson-image:
 	docker build --target meson-builder -t sway_build_meson .
@@ -12,10 +12,6 @@ install-all-debs:
 yolo: build-everything install-all-debs
 	echo "YOLO"
 
-json-c-build:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd json-c; debuild -b -uc -us"
-	make fix-permissions tidy
-
 scdoc-build:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd scdoc; debuild -b -uc -us"
 	make fix-permissions tidy
@@ -25,19 +21,19 @@ wlroots-build-deb:
 	make fix-permissions tidy
 
 sway-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/scdoc_1*deb; dpkg -i debs/libwlroots0_*deb; dpkg -i debs/libwlroots-dev*.deb;dpkg -i debs/libjson-c*.deb; apt-get -f install; cd sway; debuild -b -uc -us'
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/scdoc_1*deb debs/libwlroots0_*deb debs/libwlroots-dev*.deb; apt-get -f install; cd sway; debuild -b -uc -us'
 	make fix-permissions tidy
 
 swaylock-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "dpkg -i debs/scdoc_1*deb; dpkg -i debs/libwlroots0_*deb; dpkg -i debs/libwlroots-dev*.deb; cd swaylock; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "dpkg -i debs/scdoc_1*deb debs/libwlroots0_*deb debs/libwlroots-dev*.deb; cd swaylock; debuild -b -uc -us"
 	make fix-permissions tidy
 
 swayidle-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "dpkg -i debs/scdoc_1*deb; dpkg -i debs/libwlroots0_*deb; dpkg -i debs/libwlroots-dev*.deb; cd swayidle; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "dpkg -i debs/scdoc_1*deb debs/libwlroots0_*deb debs/libwlroots-dev*.deb; cd swayidle; debuild -b -uc -us"
 	make fix-permissions tidy
 
 swaybg-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "dpkg -i debs/scdoc_1*deb; dpkg -i debs/libwlroots0_*deb; dpkg -i debs/libwlroots-dev*.deb; cd swaybg; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "dpkg -i debs/scdoc_1*deb debs/libwlroots0_*deb debs/libwlroots-dev*.deb; cd swaybg; debuild -b -uc -us"
 	make fix-permissions tidy
 
 mako-build-deb:

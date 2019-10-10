@@ -1,4 +1,4 @@
-FROM ubuntu:disco AS meson-builder
+FROM ubuntu:eoan AS meson-builder
 
 RUN yes | unminimize; \
     apt-get update; \
@@ -25,6 +25,7 @@ RUN yes | unminimize; \
         libinput-dev \
         libjpeg-dev \
         libjs-jquery \
+        libjson-c-dev \
         libjsoncpp-dev \
         libmpdclient-dev \
         libnl-3-dev \
@@ -99,7 +100,7 @@ RUN export DEBIAN_FRONTEND=noninteractive;  \
 
 # Rust apps builder
 
-FROM ubuntu:disco AS rust-builder
+FROM ubuntu:eoan AS rust-builder
 
 RUN export DEBIAN_FRONTEND=noninteractive;  \
     yes | unminimize; \
