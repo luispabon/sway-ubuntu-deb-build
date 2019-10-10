@@ -12,28 +12,24 @@ install-all-debs:
 yolo: build-everything install-all-debs
 	echo "YOLO"
 
-scdoc-build:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd scdoc; debuild -b -uc -us"
-	make fix-permissions tidy
-
 wlroots-build-deb:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd wlroots; debuild -b -uc -us"
 	make fix-permissions tidy
 
 sway-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/scdoc_1*deb debs/libwlroots0_*deb debs/libwlroots-dev*.deb; apt-get -f install; cd sway; debuild -b -uc -us'
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb; apt-get -f install; cd sway; debuild -b -uc -us'
 	make fix-permissions tidy
 
 swaylock-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "dpkg -i debs/scdoc_1*deb debs/libwlroots0_*deb debs/libwlroots-dev*.deb; cd swaylock; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb; cd swaylock; debuild -b -uc -us"
 	make fix-permissions tidy
 
 swayidle-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "dpkg -i debs/scdoc_1*deb debs/libwlroots0_*deb debs/libwlroots-dev*.deb; cd swayidle; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb; cd swayidle; debuild -b -uc -us"
 	make fix-permissions tidy
 
 swaybg-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "dpkg -i debs/scdoc_1*deb debs/libwlroots0_*deb debs/libwlroots-dev*.deb; cd swaybg; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb; cd swaybg; debuild -b -uc -us"
 	make fix-permissions tidy
 
 mako-build-deb:
@@ -90,7 +86,7 @@ wfconfig-build-deb:
 	make fix-permissions tidy
 
 wcm-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/wf-config*.deb debs/wayfire*.deb; apt-get -f install; cd wcm; debuild -b -uc -us'
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/*wf-config*.deb debs/wayfire*.deb; apt-get -f install; cd wcm; debuild -b -uc -us'
 	make fix-permissions tidy
 
 wfshell-build-deb:

@@ -74,9 +74,6 @@ RUN export DEBIAN_FRONTEND=noninteractive;  \
         libsecret-1-dev \
         libnotify-dev \
         network-manager-dev \
-        libnm-glib-vpn-dev \
-        libnm-glib-dev \
-        libnm-util-dev \
         gnome-common \
         libglib2.0-doc; \
     apt-get clean
@@ -109,5 +106,6 @@ RUN export DEBIAN_FRONTEND=noninteractive;  \
         ca-certificates \
         rustc \
         cargo \
+        libasound2-dev \
         librust-libdbus-sys-dev \
         libpulse0
