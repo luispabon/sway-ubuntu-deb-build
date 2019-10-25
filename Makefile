@@ -101,6 +101,9 @@ carbonshell-build-deb:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb debs/libwf-config*.deb debs/wayfire*.deb debs/libgtk-layer-shell*.deb; apt-get -f install; cd carbonshell; debuild -b -uc -us'
 	make fix-permissions tidy
 
+install-todays-debs:
+	find debs/ -type f -newermt '$(shell date +'%Y-%m-%d')' | grep -v "\-dev" | xargs sudo dpkg -i
+
 tidy:
 	mkdir -p debs
 	mkdir -p ddebs
