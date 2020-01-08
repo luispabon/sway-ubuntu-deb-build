@@ -58,3 +58,6 @@
 [submodule "carbonshell"]
 	path = carbonshell
 	url = git@bitbucket.org:carbonOS/carbonshell.git
+[submodule "wf-recorder"]
+	path = wf-recorder
+	url = git@github.com:ammen99/wf-recorder.git
