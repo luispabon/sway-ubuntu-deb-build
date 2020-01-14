@@ -90,10 +90,28 @@ RUN export DEBIAN_FRONTEND=noninteractive;  \
         libdazzle-1.0-dev \
         libgnome-desktop-3-dev \
         valac \
+        libasound2-dev \
         gobject-introspection \
         libxml2-dev \
-        libglm-dev; \
+        libglm-dev \
+         fakeroot gdb; \
     apt-get clean
+
+# Extra deps
+RUN export DEBIAN_FRONTEND=noninteractive;  \
+    yes | unminimize; \
+    apt-get update; \
+    apt-get -y install --no-install-recommends \
+        libavutil-dev \
+        libavcodec-dev \
+        libavformat-dev \
+        libswscale-dev \
+        libavdevice-dev \
+        jq; \
+    apt-get clean
+
+# Enable source repositories
+#RUN sed -i '/deb-src/s/^# //' /etc/apt/sources.list && apt update
 
 # Rust apps builder
 

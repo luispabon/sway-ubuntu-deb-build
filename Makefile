@@ -1,3 +1,9 @@
+build_command=debuild -b -uc -us
+ifdef debug
+	build_options=-e DEB_BUILD_OPTIONS="nostrip noopt debug"
+	build_command=dpkg-buildpackage -b -uc -us
+endif
+
 build-everything: build-meson-image build-rust-image scdoc-build wlroots-build-deb sway-build-deb swaylock-build-deb swayidle-build-deb swaybg-build-deb xdg-desktop-portal-wlr-build-deb mako-build-deb kanshi-build-deb waybar-build-deb grim-build-deb slurp-build-deb clipman-install wldash-install gtk-layer-shell-build-deb wfconfig-build-deb wfshell-build-deb wayfire-build-deb
 
 build-meson-image:
@@ -13,61 +19,66 @@ yolo: build-everything install-all-debs
 	echo "YOLO"
 
 wlroots-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd wlroots; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd wlroots; $(build_command)"
 	make fix-permissions tidy
 
 sway-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb; apt-get -f install; cd sway; debuild -b -uc -us'
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb; apt-get -f install; cd sway; $(build_command)'
 	make fix-permissions tidy
 
 swaylock-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb; cd swaylock; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options) sway_build_meson sh -c "dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb; cd swaylock; $(build_command)"
 	make fix-permissions tidy
 
 swayidle-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb; cd swayidle; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb; cd swayidle; $(build_command)"
 	make fix-permissions tidy
 
 swaybg-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb; cd swaybg; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb; cd swaybg; $(build_command)"
 	make fix-permissions tidy
 
 mako-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd mako; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd mako; $(build_command)"
 	make fix-permissions tidy
 
 xdg-desktop-portal-wlr-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd xdg-desktop-portal-wlr; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd xdg-desktop-portal-wlr; $(build_command)"
 	make fix-permissions tidy
 
 kanshi-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd kanshi; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd kanshi; $(build_command)"
 	make fix-permissions tidy
 
 slurp-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd slurp; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd slurp; debuild -b -uc -us"
 	make fix-permissions tidy
 
 grim-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd grim; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd grim; $(build_command)"
 	make fix-permissions tidy
 
 waybar-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd Waybar; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "dpkg -i debs/libgtk-layer-shell_*deb; cd Waybar; $(build_command)"
 	make fix-permissions tidy
 
 wl-clipboard-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd wl-clipboard; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd wl-clipboard; $(build_command)"
 	make fix-permissions tidy
 
 nm-applet-build:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd network-manager-applet; debuild -b -uc -us"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd network-manager-applet; $(build_command)"
 	make fix-permissions tidy
 
 wofi-build-install:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c "cd wofi/Release; make clean wofi"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd wofi; meson build; $(build_command)"
 	make fix-permissions tidy
 	ln -sf $(shell pwd)/wofi/Release/wofi ~/bin/
+
+wfrecorder-build-install:
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd wf-recorder; meson build; ninja -C build"
+	make fix-permissions tidy
+	ln -sf $(shell pwd)/wf-recorder/build/wf-recorder ~/bin/
 
 clipman-install:
 	cd clipman; go install; ln -sf ~/go/bin/clipman ~/bin/
@@ -78,31 +89,34 @@ wldash-install:
 	ln -sf $(shell pwd)/wldash/target/release/wldash ~/bin
 
 gtk-layer-shell-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'cd gtk-layer-shell; debuild -b -uc -us'
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c 'cd gtk-layer-shell; $(build_command)'
 	make fix-permissions tidy
 
 wfconfig-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb; apt-get -f install; cd wf-config; debuild -b -uc -us'
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb; apt-get -f install; cd wf-config; $(build_command)'
 	make fix-permissions tidy
 
 wcm-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/*wf-config*.deb debs/wayfire*.deb; apt-get -f install; cd wcm; debuild -b -uc -us'
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/*wf-config*.deb debs/wayfire*.deb; apt-get -f install; cd wcm; $(build_command)'
 	make fix-permissions tidy
 
 wfshell-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb debs/libwf-config*.deb debs/libgtk-layer-shell*.deb; apt-get -f install; cd wf-shell; debuild -b -uc -us'
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb debs/libwf-config*.deb debs/libgtk-layer-shell*.deb debs/wayfire*.deb; apt-get -f install; cd wf-shell; $(build_command)'
 	make fix-permissions tidy
 
 wayfire-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb debs/libwf-config*.deb; apt-get -f install; cd wayfire; debuild -b -uc -us'
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb debs/libwf-config*.deb; apt-get -f install; cd wayfire; $(build_command)'
 	make fix-permissions tidy
 
 carbonshell-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb debs/libwf-config*.deb debs/wayfire*.deb debs/libgtk-layer-shell*.deb; apt-get -f install; cd carbonshell; debuild -b -uc -us'
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/libwlroots-dev*.deb debs/libwf-config*.deb debs/wayfire*.deb debs/libgtk-layer-shell*.deb; apt-get -f install; cd carbonshell; $(build_command)'
 	make fix-permissions tidy
 
 install-todays-debs:
 	find debs/ -type f -newermt '$(shell date +'%Y-%m-%d')' | grep -v "\-dev" | xargs sudo dpkg -i
+
+install-todays-ddebs:
+	find ddebs/ -type f -newermt '$(shell date +'%Y-%m-%d')' | grep -v "\-dev" | xargs sudo dpkg -i
 
 tidy:
 	mkdir -p debs
