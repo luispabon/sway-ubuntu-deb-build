@@ -71,9 +71,14 @@ nm-applet-build:
 	make fix-permissions tidy
 
 wofi-build-install:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd wofi; meson build; $(build_command)"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd wofi; meson build; ninja -C build"
 	make fix-permissions tidy
-	ln -sf $(shell pwd)/wofi/Release/wofi ~/bin/
+	ln -sf $(shell pwd)/wofi/build/wofi ~/bin/
+
+rootbar-build-install:
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd rootbar; meson build; ninja -C build"
+	make fix-permissions tidy
+	ln -sf $(shell pwd)/rootbar/build/rootbar ~/bin/
 
 wfrecorder-build-install:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd wf-recorder; meson build; ninja -C build"
