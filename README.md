@@ -8,7 +8,31 @@ You do need `docker.io` and `make` installed, and your user on the docker group 
 
 If you want `clipman` for clipboard management, you also need go.
 
-## TL;DR
+## Build your packages
+
+Checkout this repo and all its submodules:
+
+``` shell
+$ git clone https://github.com/luispabon/sway-ubuntu-build.git
+$ cd sway-ubuntu-build
+$ git submodule update --init --recursive
+```
+
+or checkout a single application (for example `mako`):
+
+``` shell
+git submodule update --init --recursive mako
+```
+
+## Build packages
+
+For example, let's build `mako`:
+
+``` shell
+make mako-build-deb
+```
+
+or build all of them
 
 ```shell
 make yolo
