@@ -7,9 +7,6 @@
 [submodule "swaylock"]
 	path = swaylock
 	url = git@github.com:luispabon/swaylock.git
-[submodule "swayidle"]
-	path = swayidle
-	url = git@github.com:luispabon/swayidle.git
 [submodule "swaybg"]
 	path = swaybg
 	url = git@github.com:luispabon/swaybg.git
@@ -49,9 +46,6 @@
 [submodule "wf-shell"]
 	path = wf-shell
 	url = git@github.com:luispabon/wf-shell.git
-[submodule "gtk-layer-shell"]
-	path = gtk-layer-shell
-	url = git@github.com:luispabon/gtk-layer-shell.git
 [submodule "wcm"]
 	path = wcm
 	url = git@github.com:luispabon/wcm.git
