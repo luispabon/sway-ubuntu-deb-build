@@ -11,6 +11,18 @@ You do need `docker.io` and `make` installed, and your user on the docker group 
 
 If you want `clipman` for clipboard management, you also need go.
 
+# Removed tools
+
+On transition to 20.04, I've removed the following builds:
+  * grim
+  * slurp
+  * swaybg
+  * swayidle
+  * gtk-layer-shell
+  * wl-clipboard
+
+These are now provided by Ubuntu itself at versions recent enough to be perfectly usable. Install these instead.
+
 ## TL;DR
 
 ```shell
