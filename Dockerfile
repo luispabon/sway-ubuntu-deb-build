@@ -1,4 +1,6 @@
-FROM ubuntu:eoan AS meson-builder
+FROM ubuntu:focal AS meson-builder
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN yes | unminimize; \
     apt-get update; \
@@ -30,6 +32,7 @@ RUN yes | unminimize; \
         libmpdclient-dev \
         libnl-3-dev \
         libnl-genl-3-dev \
+        libgtk-layer-shell-dev \
         libpam0g-dev \
         libpango1.0-dev \
         libpixman-1-dev \
@@ -50,14 +53,20 @@ RUN yes | unminimize; \
         scdoc \
         tree \
         wayland-protocols \
-        wayland-scanner++; \
-    apt-get clean
-
-# Build deps for network-manager-applet
-RUN export DEBIAN_FRONTEND=noninteractive;  \
-    yes | unminimize; \
-    apt-get update; \
-    apt-get -y install --no-install-recommends \
+        wayland-scanner++ \
+        libglib2.0-dev \
+        libgtk-3-dev \
+        libjson-glib-dev \
+        libgudev-1.0-dev \
+        libdazzle-1.0-dev \
+        libgnome-desktop-3-dev \
+        valac \
+        libasound2-dev \
+        gobject-introspection \
+        libxml2-dev \
+        libglm-dev \
+        fakeroot \
+        gdb \
         libappindicator3-dev \
         libnm-dev \
         libmm-glib-dev \
@@ -75,40 +84,16 @@ RUN export DEBIAN_FRONTEND=noninteractive;  \
         libnotify-dev \
         network-manager-dev \
         gnome-common \
-        libglib2.0-doc; \
-    apt-get clean
-
-# Build deps for wayfire and tools
-RUN export DEBIAN_FRONTEND=noninteractive;  \
-    yes | unminimize; \
-    apt-get update; \
-    apt-get -y install --no-install-recommends \
-        libglib2.0-dev \
-        libgtk-3-dev \
-        libjson-glib-dev \
-        libgudev-1.0-dev \
-        libdazzle-1.0-dev \
-        libgnome-desktop-3-dev \
-        valac \
-        libasound2-dev \
-        gobject-introspection \
-        libxml2-dev \
-        libglm-dev \
-         fakeroot gdb; \
-    apt-get clean
-
-# Extra deps
-RUN export DEBIAN_FRONTEND=noninteractive;  \
-    yes | unminimize; \
-    apt-get update; \
-    apt-get -y install --no-install-recommends \
+        libglib2.0-doc \
         libavutil-dev \
         libavcodec-dev \
         libavformat-dev \
         libswscale-dev \
         libavdevice-dev \
+        libpipewire-0.2-dev \
         jq; \
     apt-get clean
+
 
 # Enable source repositories
 #RUN sed -i '/deb-src/s/^# //' /etc/apt/sources.list && apt update
