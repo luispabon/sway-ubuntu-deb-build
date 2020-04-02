@@ -25,15 +25,6 @@
 [submodule "clipman"]
 	path = clipman
 	url = git@github.com:yory8/clipman.git
-[submodule "wl-clipboard"]
-	path = wl-clipboard
-	url = git@github.com:luispabon/wl-clipboard.git
-[submodule "slurp"]
-	path = slurp
-	url = git@github.com:luispabon/slurp.git
-[submodule "grim"]
-	path = grim
-	url = git@github.com:luispabon/grim.git
 [submodule "wldash"]
 	path = wldash
 	url = git@github.com:kennylevinsen/wldash.git
