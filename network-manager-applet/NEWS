@@ -1,4 +1,33 @@
 =======================================================
+network-manager-applet-1.8.24
+Overview of changes since network-manager-applet-1.8.22
+=======================================================
+
+* Fixed external UI mode without interactive secrets.
+* Ad-Hoc networks now support WPA2 authentication.
+* Support for SAE authentication (WPA3 Personal) was added.
+* Fixed applet operation on graphical servers other than X11 (such as
+  Wayland).
+* Various other bug fixes and enhancements.
+* Added EXPERIMENTAL libnma-gtk4 library for use with GTK4.
+  Not recommended for production use!
+* Updated translations.
+
+=======================================================
+network-manager-applet-1.8.22
+Overview of changes since network-manager-applet-1.8.20
+=======================================================
+
+* The applet's secret agent can now utilize external UI mode for VPN plugins
+  that support it.
+* The Wi-Fi-related items in the applet menu are now sorted more reasonably.
+* Various improvements to the Mobile Wizard and Certificate Chooser
+  usability.
+* Render a QR code in the applet's connection info dialog.
+* Improved the applet's info dialog appearance.
+* Updated translations.
+
+=======================================================
 network-manager-applet-1.8.20
 Overview of changes since network-manager-applet-1.8.18
 =======================================================

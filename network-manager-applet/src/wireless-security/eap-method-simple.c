@@ -1,26 +1,13 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+// SPDX-License-Identifier: GPL-2.0+
 /* NetworkManager Applet -- allow user control over networking
  *
  * Dan Williams <dcbw@redhat.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  * Copyright 2007 - 2014 Red Hat, Inc.
  */
 
 #include "nm-default.h"
+#include "nma-private.h"
 
 #include <ctype.h>
 #include <string.h>
@@ -84,7 +71,7 @@ validate (EAPMethod *parent, GError **error)
 	gboolean ret = TRUE;
 
 	if (method->username_requested) {
-		text = gtk_entry_get_text (method->username_entry);
+		text = gtk_editable_get_text (GTK_EDITABLE (method->username_entry));
 		if (!text || !strlen (text)) {
 			widget_set_error (GTK_WIDGET (method->username_entry));
 			g_set_error_literal (error, NMA_ERROR, NMA_ERROR_GENERIC, _("missing EAP username"));
@@ -98,7 +85,7 @@ validate (EAPMethod *parent, GError **error)
 		if (always_ask_selected (method->password_entry))
 			widget_unset_error (GTK_WIDGET (method->password_entry));
 		else {
-			text = gtk_entry_get_text (method->password_entry);
+			text = gtk_editable_get_text (GTK_EDITABLE (method->password_entry));
 			if (!text || !strlen (text)) {
 				widget_set_error (GTK_WIDGET (method->password_entry));
 				if (ret) {
@@ -112,7 +99,7 @@ validate (EAPMethod *parent, GError **error)
 	}
 
 	if (method->pkey_passphrase_requested) {
-		text = gtk_entry_get_text (method->pkey_passphrase_entry);
+		text = gtk_editable_get_text (GTK_EDITABLE (method->pkey_passphrase_entry));
 		if (!text || !strlen (text)) {
 			widget_set_error (GTK_WIDGET (method->pkey_passphrase_entry));
 			if (ret) {
@@ -207,8 +194,11 @@ fill_connection (EAPMethod *parent, NMConnection *connection)
 			nm_setting_802_1x_add_eap_method (s_8021x, eap_type->name);
 	}
 
-	if (method->username_requested)
-		g_object_set (s_8021x, NM_SETTING_802_1X_IDENTITY, gtk_entry_get_text (method->username_entry), NULL);
+	if (method->username_requested) {
+		g_object_set (s_8021x, NM_SETTING_802_1X_IDENTITY,
+		              gtk_editable_get_text (GTK_EDITABLE (method->username_entry)),
+		              NULL);
+	}
 
 	if (method->password_requested) {
 		/* Save the password always ask setting */
@@ -223,7 +213,8 @@ fill_connection (EAPMethod *parent, NMConnection *connection)
 		 */
 		if (!(method->flags & EAP_METHOD_SIMPLE_FLAG_IS_EDITOR) || not_saved == FALSE) {
 			g_object_set (s_8021x, NM_SETTING_802_1X_PASSWORD,
-			              gtk_entry_get_text (method->password_entry), NULL);
+			              gtk_editable_get_text (GTK_EDITABLE (method->password_entry)),
+			              NULL);
 		}
 
 		/* Update secret flags and popup when editing the connection */
@@ -239,7 +230,8 @@ fill_connection (EAPMethod *parent, NMConnection *connection)
 
 	if (method->pkey_passphrase_requested) {
 		g_object_set (s_8021x, NM_SETTING_802_1X_PRIVATE_KEY_PASSWORD,
-		              gtk_entry_get_text (method->pkey_passphrase_entry), NULL);
+		              gtk_editable_get_text (GTK_EDITABLE (method->pkey_passphrase_entry)),
+		              NULL);
 	}
 }
 
@@ -294,15 +286,19 @@ password_storage_changed (GObject *entry,
 static void
 set_userpass_ui (EAPMethodSimple *method)
 {
-	if (method->ws_parent->username)
-		gtk_entry_set_text (method->username_entry, method->ws_parent->username);
-	else
-		gtk_entry_set_text (method->username_entry, "");
+	if (method->ws_parent->username) {
+		gtk_editable_set_text (GTK_EDITABLE (method->username_entry),
+		                       method->ws_parent->username);
+	} else {
+		gtk_editable_set_text (GTK_EDITABLE (method->username_entry), "");
+	}
 
-	if (method->ws_parent->password && !method->ws_parent->always_ask)
-		gtk_entry_set_text (method->password_entry, method->ws_parent->password);
-	else
-		gtk_entry_set_text (method->password_entry, "");
+	if (method->ws_parent->password && !method->ws_parent->always_ask) {
+		gtk_editable_set_text (GTK_EDITABLE (method->password_entry),
+		                                     method->ws_parent->password);
+	} else {
+		gtk_editable_set_text (GTK_EDITABLE (method->password_entry), "");
+	}
 
 	gtk_toggle_button_set_active (method->show_password, method->ws_parent->show_password);
 	password_storage_changed (NULL, NULL, method);
@@ -318,8 +314,8 @@ static void
 widgets_unrealized (GtkWidget *widget, EAPMethodSimple *method)
 {
 	wireless_security_set_userpass (method->ws_parent,
-	                                gtk_entry_get_text (method->username_entry),
-	                                gtk_entry_get_text (method->password_entry),
+	                                gtk_editable_get_text (GTK_EDITABLE (method->username_entry)),
+	                                gtk_editable_get_text (GTK_EDITABLE (method->password_entry)),
 	                                always_ask_selected (method->password_entry),
 	                                gtk_toggle_button_get_active (method->show_password));
 }

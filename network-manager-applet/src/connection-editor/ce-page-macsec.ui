@@ -55,7 +55,9 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="halign">end</property>
-        <property name="label" translatable="yes">Device name</property>
+        <property name="label" translatable="yes">_Device name</property>
+        <property name="use_underline">True</property>
+        <property name="mnemonic_widget">macsec_name</property>
       </object>
       <packing>
         <property name="left_attach">0</property>
@@ -80,7 +82,9 @@
         <property name="can_focus">False</property>
         <property name="halign">end</property>
         <property name="hexpand">False</property>
-        <property name="label" translatable="yes">Parent device</property>
+        <property name="label" translatable="yes">_Parent device</property>
+        <property name="use_underline">True</property>
+        <property name="mnemonic_widget">macsec_parent</property>
       </object>
       <packing>
         <property name="left_attach">0</property>
@@ -107,25 +111,34 @@
       </packing>
     </child>
     <child>
-      <object class="GtkEntry" id="macsec_ckn">
+      <object class="GtkLabel">
         <property name="visible">True</property>
-        <property name="can_focus">True</property>
-        <property name="tooltip_text" translatable="yes"> The pre-shared Connectivity-association Key Name</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Keys</property>
+        <property name="xalign">1</property>
+        <attributes>
+          <attribute name="weight" value="bold"/>
+        </attributes>
       </object>
       <packing>
-        <property name="left_attach">1</property>
-        <property name="top_attach">5</property>
+        <property name="left_attach">0</property>
+        <property name="top_attach">2</property>
+        <property name="width">2</property>
       </packing>
     </child>
     <child>
-      <object class="GtkEntry" id="macsec_cak">
+      <object class="GtkLabel">
         <property name="visible">True</property>
-        <property name="can_focus">True</property>
-        <property name="tooltip_text" translatable="yes">The pre-shared Connectivity Association Key</property>
+        <property name="can_focus">False</property>
+        <property name="halign">end</property>
+        <property name="hexpand">False</property>
+        <property name="label" translatable="yes">_Mode</property>
+        <property name="use_underline">True</property>
+        <property name="mnemonic_widget">macsec_mode</property>
       </object>
       <packing>
-        <property name="left_attach">1</property>
-        <property name="top_attach">4</property>
+        <property name="left_attach">0</property>
+        <property name="top_attach">3</property>
       </packing>
     </child>
     <child>
@@ -151,23 +164,24 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="halign">end</property>
-        <property name="label" translatable="yes">CKN</property>
+        <property name="hexpand">False</property>
+        <property name="label" translatable="yes">C_AK</property>
+        <property name="use_underline">True</property>
+        <property name="mnemonic_widget">macsec_cak</property>
       </object>
       <packing>
         <property name="left_attach">0</property>
-        <property name="top_attach">5</property>
+        <property name="top_attach">4</property>
       </packing>
     </child>
     <child>
-      <object class="GtkLabel">
+      <object class="GtkEntry" id="macsec_cak">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="halign">end</property>
-        <property name="hexpand">False</property>
-        <property name="label" translatable="yes">CAK</property>
+        <property name="can_focus">True</property>
+        <property name="tooltip_text" translatable="yes">The pre-shared Connectivity Association Key</property>
       </object>
       <packing>
-        <property name="left_attach">0</property>
+        <property name="left_attach">1</property>
         <property name="top_attach">4</property>
       </packing>
     </child>
@@ -176,28 +190,24 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="halign">end</property>
-        <property name="hexpand">False</property>
-        <property name="label" translatable="yes">Mode</property>
+        <property name="label" translatable="yes">C_KN</property>
+        <property name="use_underline">True</property>
+        <property name="mnemonic_widget">macsec_ckn</property>
       </object>
       <packing>
         <property name="left_attach">0</property>
-        <property name="top_attach">3</property>
+        <property name="top_attach">5</property>
       </packing>
     </child>
     <child>
-      <object class="GtkLabel">
+      <object class="GtkEntry" id="macsec_ckn">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Keys</property>
-        <property name="xalign">1</property>
-        <attributes>
-          <attribute name="weight" value="bold"/>
-        </attributes>
+        <property name="can_focus">True</property>
+        <property name="tooltip_text" translatable="yes"> The pre-shared Connectivity-association Key Name</property>
       </object>
       <packing>
-        <property name="left_attach">0</property>
-        <property name="top_attach">2</property>
-        <property name="width">2</property>
+        <property name="left_attach">1</property>
+        <property name="top_attach">5</property>
       </packing>
     </child>
     <child>
@@ -221,23 +231,13 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="halign">end</property>
-        <property name="label" translatable="yes">Validation</property>
+        <property name="label" translatable="yes">_Validation</property>
+        <property name="use_underline">True</property>
+        <property name="mnemonic_widget">macsec_validation</property>
       </object>
       <packing>
         <property name="left_attach">0</property>
         <property name="top_attach">7</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkLabel">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="halign">end</property>
-        <property name="label" translatable="yes">SCI port</property>
-      </object>
-      <packing>
-        <property name="left_attach">0</property>
-        <property name="top_attach">8</property>
       </packing>
     </child>
     <child>
@@ -259,17 +259,17 @@
       </packing>
     </child>
     <child>
-      <object class="GtkCheckButton" id="macsec_encryption">
-        <property name="label" translatable="yes">Encrypt</property>
+      <object class="GtkLabel">
         <property name="visible">True</property>
-        <property name="can_focus">True</property>
-        <property name="receives_default">False</property>
-        <property name="tooltip_text" translatable="yes">Whether the transmitted traffic must be encrypted</property>
-        <property name="draw_indicator">True</property>
+        <property name="can_focus">False</property>
+        <property name="halign">end</property>
+        <property name="label" translatable="yes">_SCI port</property>
+        <property name="use_underline">True</property>
+        <property name="mnemonic_widget">macsec_sci_port</property>
       </object>
       <packing>
-        <property name="left_attach">1</property>
-        <property name="top_attach">9</property>
+        <property name="left_attach">0</property>
+        <property name="top_attach">8</property>
       </packing>
     </child>
     <child>
@@ -284,6 +284,21 @@
       <packing>
         <property name="left_attach">1</property>
         <property name="top_attach">8</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkCheckButton" id="macsec_encryption">
+        <property name="label" translatable="yes">_Encrypt</property>
+        <property name="use_underline">True</property>
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="receives_default">False</property>
+        <property name="tooltip_text" translatable="yes">Whether the transmitted traffic must be encrypted</property>
+        <property name="draw_indicator">True</property>
+      </object>
+      <packing>
+        <property name="left_attach">1</property>
+        <property name="top_attach">9</property>
       </packing>
     </child>
     <child>

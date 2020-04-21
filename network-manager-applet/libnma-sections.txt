@@ -1,5 +1,44 @@
 <SECTION>
+<FILE>nma-bar-code</FILE>
+<TITLE>NMABarCode</TITLE>
+NMA_BAR_CODE_TEXT
+NMA_BAR_CODE_SIZE
+nma_bar_code_new
+nma_bar_code_set_text
+nma_bar_code_get_size
+nma_bar_code_draw
+<SUBSECTION Standard>
+NMABarCode
+NMABarCodeClass
+NMA_BAR_CODE
+NMA_BAR_CODE_CLASS
+NMA_BAR_CODE_GET_CLASS
+NMA_IS_BAR_CODE
+NMA_IS_BAR_CODE_CLASS
+NMA_TYPE_BAR_CODE
+nma_bar_code_get_type
+</SECTION>
+
+<SECTION>
+<FILE>nma-bar-code-widget</FILE>
+<TITLE>NMABarCodeWidget</TITLE>
+NMA_BAR_CODE_WIDGET_CONNECTION
+nma_bar_code_widget_new
+<SUBSECTION Standard>
+NMABarCodeWidget
+NMABarCodeWidgetClass
+NMA_BAR_CODE_WIDGET
+NMA_BAR_CODE_WIDGET_CLASS
+NMA_BAR_CODE_WIDGET_GET_CLASS
+NMA_IS_BAR_CODE_WIDGET
+NMA_IS_BAR_CODE_WIDGET_CLASS
+NMA_TYPE_BAR_CODE_WIDGET
+nma_bar_code_widget_get_type
+</SECTION>
+
+<SECTION>
 <FILE>nma-cert-chooser</FILE>
+<TITLE>NMACertChooser</TITLE>
 NMACertChooserFlags
 nma_cert_chooser_set_cert
 nma_cert_chooser_set_cert_uri
@@ -29,6 +68,7 @@ NMA_CERT_CHOOSER
 NMA_CERT_CHOOSER_CLASS
 NMA_CERT_CHOOSER_GET_CLASS
 NMA_IS_CERT_CHOOSER
+NMA_IS_CERT_CHOOSER_CLASS
 NMA_TYPE_CERT_CHOOSER
 nma_cert_chooser_get_type
 </SECTION>
@@ -74,6 +114,7 @@ NMAMobileProvidersDatabase
 NMAMobileProvidersDatabaseClass
 NMAMobileProvidersDatabasePrivate
 NMA_IS_MOBILE_PROVIDERS_DATABASE
+NMA_IS_MOBILE_PROVIDERS_DATABASE_CLASS
 NMA_MOBILE_PROVIDERS_DATABASE
 NMA_MOBILE_PROVIDERS_DATABASE_CLASS
 NMA_MOBILE_PROVIDERS_DATABASE_GET_CLASS
@@ -89,6 +130,7 @@ nma_mobile_providers_database_get_type
 
 <SECTION>
 <FILE>nma-mobile-wizard</FILE>
+<TITLE>NMAMobileWizard</TITLE>
 NMAMobileWizardAccessMethod
 NMAMobileWizardCallback
 nma_mobile_wizard_new
@@ -98,6 +140,7 @@ nma_mobile_wizard_destroy
 NMAMobileWizard
 NMAMobileWizardClass
 NMA_IS_MOBILE_WIZARD
+NMA_IS_MOBILE_WIZARD_CLASS
 NMA_MOBILE_WIZARD
 NMA_MOBILE_WIZARD_CLASS
 NMA_MOBILE_WIZARD_GET_CLASS
@@ -136,6 +179,7 @@ nma_vpn_password_dialog_get_password_secondary
 nma_vpn_password_dialog_get_password_ternary
 <SUBSECTION Standard>
 NMA_VPN_IS_PASSWORD_DIALOG
+NMA_VPN_IS_PASSWORD_DIALOG_CLASS
 NMA_VPN_PASSWORD_DIALOG
 NMA_VPN_PASSWORD_DIALOG_CLASS
 NMA_VPN_TYPE_PASSWORD_DIALOG
@@ -158,10 +202,36 @@ nma_wifi_dialog_new_for_other
 NMAWifiDialog
 NMAWifiDialogClass
 NMA_IS_WIFI_DIALOG
+NMA_IS_WIFI_DIALOG_CLASS
 NMA_TYPE_WIFI_DIALOG
 NMA_WIFI_DIALOG
 NMA_WIFI_DIALOG_CLASS
 NMA_WIFI_DIALOG_GET_CLASS
 nma_wifi_dialog_get_type
+</SECTION>
+
+<SECTION>
+<FILE>qrcodegen</FILE>
+qrcodegen_Ecc
+qrcodegen_Mask
+qrcodegen_Mode
+qrcodegen_Segment
+qrcodegen_VERSION_MIN
+qrcodegen_VERSION_MAX
+qrcodegen_BUFFER_LEN_FOR_VERSION
+qrcodegen_BUFFER_LEN_MAX
+qrcodegen_encodeText
+qrcodegen_encodeBinary
+qrcodegen_encodeSegments
+qrcodegen_encodeSegmentsAdvanced
+qrcodegen_isAlphanumeric
+qrcodegen_isNumeric
+qrcodegen_calcSegmentBufferSize
+qrcodegen_makeBytes
+qrcodegen_makeNumeric
+qrcodegen_makeAlphanumeric
+qrcodegen_makeEci
+qrcodegen_getSize
+qrcodegen_getModule
 </SECTION>
 

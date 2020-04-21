@@ -1,27 +1,13 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+// SPDX-License-Identifier: GPL-2.0+
 /* NetworkManager Applet -- allow user control over networking
  *
  * Dan Williams <dcbw@redhat.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  * Copyright 2010 - 2017 Red Hat, Inc.
  */
 
 #include "nm-default.h"
-
+#include "nma-private.h"
 #include <ctype.h>
 
 #include <libsecret/secret.h>
@@ -483,7 +469,7 @@ ask_for_pin (GtkEntry **out_secret_entry)
 	w = gtk_entry_new ();
 	*out_secret_entry = GTK_ENTRY (w);
 	gtk_entry_set_max_length (GTK_ENTRY (w), 8);
-	gtk_entry_set_width_chars (GTK_ENTRY (w), 8);
+	gtk_editable_set_width_chars (GTK_EDITABLE (w), 8);
 	gtk_entry_set_activates_default (GTK_ENTRY (w), TRUE);
 	gtk_entry_set_visibility (GTK_ENTRY (w), FALSE);
 	gtk_box_pack_start (box, w, FALSE, FALSE, 0);

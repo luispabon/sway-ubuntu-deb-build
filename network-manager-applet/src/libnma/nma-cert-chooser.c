@@ -1,21 +1,7 @@
+// SPDX-License-Identifier: LGPL-2.1+
 /* NetworkManager Applet -- allow user control over networking
  *
  * Lubomir Rintel <lkundrak@v3.sk>
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the
- * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA 02110-1301 USA.
  *
  * Copyright (C) 2017 Red Hat, Inc.
  */
@@ -611,7 +597,7 @@ constructor (GType type, guint n_construct_properties, GObjectConstructParam *co
 			flags |= g_value_get_uint (construct_properties[i].value);
 	}
 	priv->vtable = &nma_cert_chooser_vtable_file;
-#if LIBNM_BUILD && WITH_GCR
+#if LIBNM_BUILD && (GTK_CHECK_VERSION(3,90,0) ? WITH_GCR_GTK4 : WITH_GCR)
 	if ((flags & NMA_CERT_CHOOSER_FLAG_PEM) == 0)
 		priv->vtable = &nma_cert_chooser_vtable_pkcs11;
 #endif

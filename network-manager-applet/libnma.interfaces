@@ -1,5 +1,7 @@
 GtkWidget AtkImplementorIface GtkBuildable
 GtkContainer AtkImplementorIface GtkBuildable
+GtkBox AtkImplementorIface GtkBuildable GtkOrientable
+NMABarCodeWidget AtkImplementorIface GtkBuildable GtkOrientable
 GtkGrid AtkImplementorIface GtkBuildable GtkOrientable
 NMACertChooser AtkImplementorIface GtkBuildable GtkOrientable
 GtkBin AtkImplementorIface GtkBuildable
@@ -17,5 +19,3 @@ GtkAssistantAccessible AtkComponent AtkWindow
 GdkPixbuf GIcon GLoadableIcon
 GApplication GActionGroup GActionMap
 GtkApplication GActionGroup GActionMap
-NMObject GInitable GAsyncInitable
-NMDevice GInitable GAsyncInitable

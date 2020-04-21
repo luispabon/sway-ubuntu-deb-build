@@ -1,4 +1,5 @@
 option('libnm_gtk', type: 'boolean', value: false, description: 'build legacy library libnm-gtk which depends on libnm-glib/libnm-util/dbus-glib')
+option('libnma_gtk4', type: 'boolean', value: false, description: 'build EXPERIMENTAL library libnma-gtk4 for use with GTK4')
 option('appindicator', type: 'string', value: 'no', description: 'Build with lib(ayatana-)appindicator support in addition to xembed systray support (no|yes|auto|ayatana|ubuntu). Default is "no", "yes" is an alias for "auto".')
 option('wwan', type: 'boolean', value: true, description: 'Enable WWAN support.')
 option('selinux', type: 'boolean', value: true, description: 'Enable support for adjusting SELinux labels in configuration editor.')

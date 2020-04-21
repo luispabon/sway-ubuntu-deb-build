@@ -4,14 +4,14 @@
   <id>nm-connection-editor.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
-  <_name>NetworkManager</_name>
-  <_summary>NetworkManager connection editor</_summary>
+  <name>NetworkManager</name>
+  <summary>NetworkManager connection editor</summary>
 
   <description>
-    <_p>NetworkManager is a system service for managing and configuring your
-    network connections and devices.</_p>
-    <_p>The nm-connection-editor program works with NetworkManager to create
-    and edit existing connection profiles for NetworkManager.</_p>
+    <p>NetworkManager is a system service for managing and configuring your
+    network connections and devices.</p>
+    <p>The nm-connection-editor program works with NetworkManager to create
+    and edit existing connection profiles for NetworkManager.</p>
   </description>
 
   <screenshots>
@@ -24,5 +24,5 @@
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/network-manager-applet/issues</url>
   <update_contact>networkmanager-maint@gnome.bugs</update_contact>
   <translation type="gettext">nm-applet</translation>
-  <_developer_name>The NetworkManager Developers</_developer_name>
+  <developer_name>The NetworkManager Developers</developer_name>
 </component>

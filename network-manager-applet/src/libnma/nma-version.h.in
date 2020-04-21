@@ -1,19 +1,5 @@
+// SPDX-License-Identifier: LGPL-2.1+
 /* NetworkManager Applet -- allow user control over networking
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the
- * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA 02110-1301 USA.
  *
  * Copyright (C) 2011-2017 Red Hat, Inc.
  */
@@ -72,9 +58,10 @@
 #define NMA_VERSION_1_8_8  (NMA_ENCODE_VERSION (1, 8, 8))
 #define NMA_VERSION_1_8_10 (NMA_ENCODE_VERSION (1, 8, 10))
 #define NMA_VERSION_1_8_12 (NMA_ENCODE_VERSION (1, 8, 12))
+#define NMA_VERSION_1_8_22 (NMA_ENCODE_VERSION (1, 8, 22))
 
 #define NMA_VERSION_CUR_STABLE  NMA_VERSION_1_8_10
-#define NMA_VERSION_NEXT_STABLE NMA_VERSION_1_8_12
+#define NMA_VERSION_NEXT_STABLE NMA_VERSION_1_8_22
 
 #define NMA_VERSION NMA_ENCODE_VERSION (NMA_MAJOR_VERSION, NMA_MINOR_VERSION, NMA_MICRO_VERSION)
 
@@ -121,6 +108,12 @@
 # define NMA_AVAILABLE_IN_1_8            G_UNAVAILABLE(1,8)
 #else
 # define NMA_AVAILABLE_IN_1_8
+#endif
+
+#if NMA_VERSION_MAX_ALLOWED < NMA_VERSION_1_8_22
+# define NMA_AVAILABLE_IN_1_8_22            G_UNAVAILABLE(1.8,22)
+#else
+# define NMA_AVAILABLE_IN_1_8_22
 #endif
 
 #endif  /* NMA_VERSION_H */

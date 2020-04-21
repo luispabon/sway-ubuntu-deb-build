@@ -52,6 +52,7 @@
     <xi:include href="xml/nma-vpn-password-dialog.xml"/>
     <xi:include href="xml/nma-wifi-dialog.xml"/>
     <xi:include href="xml/nma-cert-chooser.xml"/>
+    <xi:include href="xml/nma-bar-code.xml"/>
   </chapter>
 
   <chapter id="object-tree">

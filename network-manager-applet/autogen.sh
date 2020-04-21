@@ -15,9 +15,7 @@ PKG_NAME=nm-applet
 
 (cd $srcdir;
     gtkdocize &&
-    autoreconf --install --symlink &&
-    intltoolize --force &&
-    autoreconf
+    autoreconf --force --install --symlink
 )
 
 if test -z "$NOCONFIGURE"; then

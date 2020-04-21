@@ -7,6 +7,19 @@
   %gtkdocentities;
 ]>
 <indexdiv id="api-index-full">
+<indexdiv><title>B</title>
+<indexentry><primaryie linkends="NMABarCode--size"><link linkend="NMABarCode--size">NMABarCode:size</link>, object property in <link linkend="NMABarCode">NMABarCode</link></primaryie></indexentry>
+<indexentry><primaryie linkends="NMABarCode--text"><link linkend="NMABarCode--text">NMABarCode:text</link>, object property in <link linkend="NMABarCode">NMABarCode</link></primaryie></indexentry>
+<indexentry><primaryie linkends="NMABarCodeWidget--connection"><link linkend="NMABarCodeWidget--connection">NMABarCodeWidget:connection</link>, object property in <link linkend="NMABarCodeWidget">NMABarCodeWidget</link></primaryie></indexentry>
+<indexentry><primaryie linkends="nma-bar-code-draw"><link linkend="nma-bar-code-draw">nma_bar_code_draw</link>, function in <link linkend="NMABarCode">NMABarCode</link></primaryie></indexentry>
+<indexentry><primaryie linkends="nma-bar-code-get-size"><link linkend="nma-bar-code-get-size">nma_bar_code_get_size</link>, function in <link linkend="NMABarCode">NMABarCode</link></primaryie></indexentry>
+<indexentry><primaryie linkends="nma-bar-code-new"><link linkend="nma-bar-code-new">nma_bar_code_new</link>, function in <link linkend="NMABarCode">NMABarCode</link></primaryie></indexentry>
+<indexentry><primaryie linkends="nma-bar-code-set-text"><link linkend="nma-bar-code-set-text">nma_bar_code_set_text</link>, function in <link linkend="NMABarCode">NMABarCode</link></primaryie></indexentry>
+<indexentry><primaryie linkends="NMA-BAR-CODE-SIZE:CAPS"><link linkend="NMA-BAR-CODE-SIZE:CAPS">NMA_BAR_CODE_SIZE</link>, macro in <link linkend="NMABarCode">NMABarCode</link></primaryie></indexentry>
+<indexentry><primaryie linkends="NMA-BAR-CODE-TEXT:CAPS"><link linkend="NMA-BAR-CODE-TEXT:CAPS">NMA_BAR_CODE_TEXT</link>, macro in <link linkend="NMABarCode">NMABarCode</link></primaryie></indexentry>
+<indexentry><primaryie linkends="NMA-BAR-CODE-WIDGET-CONNECTION:CAPS"><link linkend="NMA-BAR-CODE-WIDGET-CONNECTION:CAPS">NMA_BAR_CODE_WIDGET_CONNECTION</link>, macro in <link linkend="NMABarCodeWidget">NMABarCodeWidget</link></primaryie></indexentry>
+<indexentry><primaryie linkends="nma-bar-code-widget-new"><link linkend="nma-bar-code-widget-new">nma_bar_code_widget_new</link>, function in <link linkend="NMABarCodeWidget">NMABarCodeWidget</link></primaryie></indexentry>
+</indexdiv>
 <indexdiv><title>C</title>
 <indexentry><primaryie linkends="NMACertChooser-cert-password-validate"><link linkend="NMACertChooser-cert-password-validate">NMACertChooser::cert-password-validate</link>, object signal in <link linkend="NMACertChooser">NMACertChooser</link></primaryie></indexentry>
 <indexentry><primaryie linkends="NMACertChooser-cert-validate"><link linkend="NMACertChooser-cert-validate">NMACertChooser::cert-validate</link>, object signal in <link linkend="NMACertChooser">NMACertChooser</link></primaryie></indexentry>
@@ -47,8 +60,8 @@
 <indexentry><primaryie linkends="NMAMobileFamily"><link linkend="NMAMobileFamily">NMAMobileFamily</link>, enum in <link linkend="NMAMobileProvidersDatabase">NMAMobileProvidersDatabase</link></primaryie></indexentry>
 <indexentry><primaryie linkends="NMAMobileProvidersDatabase--country-codes"><link linkend="NMAMobileProvidersDatabase--country-codes">NMAMobileProvidersDatabase:country-codes</link>, object property in <link linkend="NMAMobileProvidersDatabase">NMAMobileProvidersDatabase</link></primaryie></indexentry>
 <indexentry><primaryie linkends="NMAMobileProvidersDatabase--service-providers"><link linkend="NMAMobileProvidersDatabase--service-providers">NMAMobileProvidersDatabase:service-providers</link>, object property in <link linkend="NMAMobileProvidersDatabase">NMAMobileProvidersDatabase</link></primaryie></indexentry>
-<indexentry><primaryie linkends="NMAMobileWizardAccessMethod"><link linkend="NMAMobileWizardAccessMethod">NMAMobileWizardAccessMethod</link>, struct in <link linkend="libnma-nma-mobile-wizard">nma-mobile-wizard</link></primaryie></indexentry>
-<indexentry><primaryie linkends="NMAMobileWizardCallback"><link linkend="NMAMobileWizardCallback">NMAMobileWizardCallback</link>, user_function in <link linkend="libnma-nma-mobile-wizard">nma-mobile-wizard</link></primaryie></indexentry>
+<indexentry><primaryie linkends="NMAMobileWizardAccessMethod"><link linkend="NMAMobileWizardAccessMethod">NMAMobileWizardAccessMethod</link>, struct in <link linkend="NMAMobileWizard">NMAMobileWizard</link></primaryie></indexentry>
+<indexentry><primaryie linkends="NMAMobileWizardCallback"><link linkend="NMAMobileWizardCallback">NMAMobileWizardCallback</link>, user_function in <link linkend="NMAMobileWizard">NMAMobileWizard</link></primaryie></indexentry>
 <indexentry><primaryie linkends="nma-mobile-access-method-get-3gpp-apn"><link linkend="nma-mobile-access-method-get-3gpp-apn">nma_mobile_access_method_get_3gpp_apn</link>, function in <link linkend="NMAMobileProvidersDatabase">NMAMobileProvidersDatabase</link></primaryie></indexentry>
 <indexentry><primaryie linkends="nma-mobile-access-method-get-dns"><link linkend="nma-mobile-access-method-get-dns">nma_mobile_access_method_get_dns</link>, function in <link linkend="NMAMobileProvidersDatabase">NMAMobileProvidersDatabase</link></primaryie></indexentry>
 <indexentry><primaryie linkends="nma-mobile-access-method-get-family"><link linkend="nma-mobile-access-method-get-family">nma_mobile_access_method_get_family</link>, function in <link linkend="NMAMobileProvidersDatabase">NMAMobileProvidersDatabase</link></primaryie></indexentry>
@@ -73,9 +86,32 @@
 <indexentry><primaryie linkends="nma-mobile-provider-get-name"><link linkend="nma-mobile-provider-get-name">nma_mobile_provider_get_name</link>, function in <link linkend="NMAMobileProvidersDatabase">NMAMobileProvidersDatabase</link></primaryie></indexentry>
 <indexentry><primaryie linkends="nma-mobile-provider-ref"><link linkend="nma-mobile-provider-ref">nma_mobile_provider_ref</link>, function in <link linkend="NMAMobileProvidersDatabase">NMAMobileProvidersDatabase</link></primaryie></indexentry>
 <indexentry><primaryie linkends="nma-mobile-provider-unref"><link linkend="nma-mobile-provider-unref">nma_mobile_provider_unref</link>, function in <link linkend="NMAMobileProvidersDatabase">NMAMobileProvidersDatabase</link></primaryie></indexentry>
-<indexentry><primaryie linkends="nma-mobile-wizard-destroy"><link linkend="nma-mobile-wizard-destroy">nma_mobile_wizard_destroy</link>, function in <link linkend="libnma-nma-mobile-wizard">nma-mobile-wizard</link></primaryie></indexentry>
-<indexentry><primaryie linkends="nma-mobile-wizard-new"><link linkend="nma-mobile-wizard-new">nma_mobile_wizard_new</link>, function in <link linkend="libnma-nma-mobile-wizard">nma-mobile-wizard</link></primaryie></indexentry>
-<indexentry><primaryie linkends="nma-mobile-wizard-present"><link linkend="nma-mobile-wizard-present">nma_mobile_wizard_present</link>, function in <link linkend="libnma-nma-mobile-wizard">nma-mobile-wizard</link></primaryie></indexentry>
+<indexentry><primaryie linkends="nma-mobile-wizard-destroy"><link linkend="nma-mobile-wizard-destroy">nma_mobile_wizard_destroy</link>, function in <link linkend="NMAMobileWizard">NMAMobileWizard</link></primaryie></indexentry>
+<indexentry><primaryie linkends="nma-mobile-wizard-new"><link linkend="nma-mobile-wizard-new">nma_mobile_wizard_new</link>, function in <link linkend="NMAMobileWizard">NMAMobileWizard</link></primaryie></indexentry>
+<indexentry><primaryie linkends="nma-mobile-wizard-present"><link linkend="nma-mobile-wizard-present">nma_mobile_wizard_present</link>, function in <link linkend="NMAMobileWizard">NMAMobileWizard</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>Q</title>
+<indexentry><primaryie linkends="qrcodegen-BUFFER-LEN-FOR-VERSION"><link linkend="qrcodegen-BUFFER-LEN-FOR-VERSION">qrcodegen_BUFFER_LEN_FOR_VERSION</link>, macro in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-BUFFER-LEN-MAX"><link linkend="qrcodegen-BUFFER-LEN-MAX">qrcodegen_BUFFER_LEN_MAX</link>, macro in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-calcSegmentBufferSize"><link linkend="qrcodegen-calcSegmentBufferSize">qrcodegen_calcSegmentBufferSize</link>, function in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-Ecc"><link linkend="qrcodegen-Ecc">qrcodegen_Ecc</link>, enum in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-encodeBinary"><link linkend="qrcodegen-encodeBinary">qrcodegen_encodeBinary</link>, function in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-encodeSegments"><link linkend="qrcodegen-encodeSegments">qrcodegen_encodeSegments</link>, function in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-encodeSegmentsAdvanced"><link linkend="qrcodegen-encodeSegmentsAdvanced">qrcodegen_encodeSegmentsAdvanced</link>, function in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-encodeText"><link linkend="qrcodegen-encodeText">qrcodegen_encodeText</link>, function in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-getModule"><link linkend="qrcodegen-getModule">qrcodegen_getModule</link>, function in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-getSize"><link linkend="qrcodegen-getSize">qrcodegen_getSize</link>, function in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-isAlphanumeric"><link linkend="qrcodegen-isAlphanumeric">qrcodegen_isAlphanumeric</link>, function in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-isNumeric"><link linkend="qrcodegen-isNumeric">qrcodegen_isNumeric</link>, function in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-makeAlphanumeric"><link linkend="qrcodegen-makeAlphanumeric">qrcodegen_makeAlphanumeric</link>, function in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-makeBytes"><link linkend="qrcodegen-makeBytes">qrcodegen_makeBytes</link>, function in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-makeEci"><link linkend="qrcodegen-makeEci">qrcodegen_makeEci</link>, function in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-makeNumeric"><link linkend="qrcodegen-makeNumeric">qrcodegen_makeNumeric</link>, function in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-Mask"><link linkend="qrcodegen-Mask">qrcodegen_Mask</link>, enum in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-Mode"><link linkend="qrcodegen-Mode">qrcodegen_Mode</link>, enum in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-Segment"><link linkend="qrcodegen-Segment">qrcodegen_Segment</link>, struct in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-VERSION-MAX"><link linkend="qrcodegen-VERSION-MAX">qrcodegen_VERSION_MAX</link>, macro in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="qrcodegen-VERSION-MIN"><link linkend="qrcodegen-VERSION-MIN">qrcodegen_VERSION_MIN</link>, macro in <link linkend="libnma-qrcodegen">qrcodegen</link></primaryie></indexentry>
 </indexdiv>
 <indexdiv><title>U</title>
 <indexentry><primaryie linkends="nma-utils-menu-to-secret-flags"><link linkend="nma-utils-menu-to-secret-flags">nma_utils_menu_to_secret_flags</link>, function in <link linkend="libnma-nma-ui-utils">nma-ui-utils</link></primaryie></indexentry>

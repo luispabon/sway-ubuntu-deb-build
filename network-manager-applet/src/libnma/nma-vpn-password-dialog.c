@@ -1,4 +1,3 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
 /* nma-vpn-password-dialog.c - A password prompting dialog widget.
  *
  * This program is free software; you can redistribute it and/or
@@ -11,10 +10,6 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
- *
  * Copyright (C) 1999, 2000 Eazel, Inc.
  * Copyright (C) 2011 - 2018 Red Hat, Inc.
  *
@@ -24,7 +19,7 @@
  */
 
 #include "nm-default.h"
-
+#include "nma-private.h"
 #include "nma-vpn-password-dialog.h"
 
 typedef struct {
@@ -88,7 +83,7 @@ nma_vpn_password_dialog_class_init (NMAVpnPasswordDialogClass *klass)
 
 	gtk_widget_class_bind_template_callback (widget_class, dialog_close_callback);
 	gtk_widget_class_bind_template_callback (widget_class, dialog_show_callback);
-	gtk_widget_class_bind_template_callback (widget_class, gtk_window_activate_default);
+	gtk_widget_class_bind_template_callback (widget_class, nma_gtk_widget_activate_default);
 	gtk_widget_class_bind_template_callback (widget_class, show_passwords_toggled_cb);
 }
 
@@ -104,13 +99,20 @@ dialog_show_callback (GtkWidget *widget, gpointer callback_data)
 {
 	NMAVpnPasswordDialog *dialog = NMA_VPN_PASSWORD_DIALOG (callback_data);
 	NMAVpnPasswordDialogPrivate *priv = NMA_VPN_PASSWORD_DIALOG_GET_PRIVATE (dialog);
+	GtkWidget *to_focus = NULL;
 
-	if (gtk_widget_get_visible (priv->password_entry))
-		gtk_widget_grab_focus (priv->password_entry);
-	else if (gtk_widget_get_visible (priv->password_entry_secondary))
-		gtk_widget_grab_focus (priv->password_entry_secondary);
-	else if (gtk_widget_get_visible (priv->password_entry_tertiary))
-		gtk_widget_grab_focus (priv->password_entry_tertiary);
+
+	if (   gtk_widget_get_visible (priv->password_entry)
+	    && gtk_entry_get_text_length (GTK_ENTRY (priv->password_entry)) == 0)
+		to_focus = priv->password_entry;
+	else if (   gtk_widget_get_visible (priv->password_entry_secondary)
+	         && gtk_entry_get_text_length (GTK_ENTRY (priv->password_entry_secondary)) == 0)
+		to_focus = priv->password_entry_secondary;
+	else if (   gtk_widget_get_visible (priv->password_entry_tertiary)
+	         && gtk_entry_get_text_length (GTK_ENTRY (priv->password_entry_tertiary)) == 0)
+		to_focus = priv->password_entry_tertiary;
+
+	gtk_widget_grab_focus (to_focus ?: priv->password_entry);
 }
 
 static void
@@ -166,7 +168,7 @@ nma_vpn_password_dialog_set_password (NMAVpnPasswordDialog	*dialog,
 	g_return_if_fail (NMA_VPN_IS_PASSWORD_DIALOG (dialog));
 
 	priv = NMA_VPN_PASSWORD_DIALOG_GET_PRIVATE (dialog);
-	gtk_entry_set_text (GTK_ENTRY (priv->password_entry), password ? password : "");
+	gtk_editable_set_text (GTK_EDITABLE (priv->password_entry), password ? password : "");
 }
 
 void
@@ -178,7 +180,7 @@ nma_vpn_password_dialog_set_password_secondary (NMAVpnPasswordDialog *dialog,
 	g_return_if_fail (NMA_VPN_IS_PASSWORD_DIALOG (dialog));
 
 	priv = NMA_VPN_PASSWORD_DIALOG_GET_PRIVATE (dialog);
-	gtk_entry_set_text (GTK_ENTRY (priv->password_entry_secondary),
+	gtk_editable_set_text (GTK_EDITABLE (priv->password_entry_secondary),
 	                    password_secondary ? password_secondary : "");
 }
 
@@ -191,7 +193,7 @@ nma_vpn_password_dialog_set_password_ternary (NMAVpnPasswordDialog *dialog,
 	g_return_if_fail (NMA_VPN_IS_PASSWORD_DIALOG (dialog));
 
 	priv = NMA_VPN_PASSWORD_DIALOG_GET_PRIVATE (dialog);
-	gtk_entry_set_text (GTK_ENTRY (priv->password_entry_tertiary),
+	gtk_editable_set_text (GTK_EDITABLE (priv->password_entry_tertiary),
 	                    password_tertiary ? password_tertiary : "");
 }
 
@@ -283,7 +285,7 @@ nma_vpn_password_dialog_get_password (NMAVpnPasswordDialog *dialog)
 	g_return_val_if_fail (NMA_VPN_IS_PASSWORD_DIALOG (dialog), NULL);
 
 	priv = NMA_VPN_PASSWORD_DIALOG_GET_PRIVATE (dialog);
-	return gtk_entry_get_text (GTK_ENTRY (priv->password_entry));
+	return gtk_editable_get_text (GTK_EDITABLE (priv->password_entry));
 }
 
 const char *
@@ -294,7 +296,7 @@ nma_vpn_password_dialog_get_password_secondary (NMAVpnPasswordDialog *dialog)
 	g_return_val_if_fail (NMA_VPN_IS_PASSWORD_DIALOG (dialog), NULL);
 
 	priv = NMA_VPN_PASSWORD_DIALOG_GET_PRIVATE (dialog);
-	return gtk_entry_get_text (GTK_ENTRY (priv->password_entry_secondary));
+	return gtk_editable_get_text (GTK_EDITABLE (priv->password_entry_secondary));
 }
 
 const char *
@@ -305,7 +307,7 @@ nma_vpn_password_dialog_get_password_ternary (NMAVpnPasswordDialog *dialog)
 	g_return_val_if_fail (NMA_VPN_IS_PASSWORD_DIALOG (dialog), NULL);
 
 	priv = NMA_VPN_PASSWORD_DIALOG_GET_PRIVATE (dialog);
-	return gtk_entry_get_text (GTK_ENTRY (priv->password_entry_tertiary));
+	return gtk_editable_get_text (GTK_EDITABLE (priv->password_entry_tertiary));
 }
 
 void nma_vpn_password_dialog_set_password_label (NMAVpnPasswordDialog *dialog,

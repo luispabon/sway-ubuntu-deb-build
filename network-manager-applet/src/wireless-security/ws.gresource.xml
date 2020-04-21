@@ -3,6 +3,7 @@
 	<gresource prefix="/org/freedesktop/network-manager-applet">
 		<file preprocess="xml-stripblanks">ws-dynamic-wep.ui</file>
 		<file preprocess="xml-stripblanks">ws-leap.ui</file>
+		<file preprocess="xml-stripblanks">ws-sae.ui</file>
 		<file preprocess="xml-stripblanks">ws-wep-key.ui</file>
 		<file preprocess="xml-stripblanks">ws-wpa-eap.ui</file>
 		<file preprocess="xml-stripblanks">ws-wpa-psk.ui</file>

@@ -8,11 +8,11 @@ Subject: lp341684_device_sensitive_disconnect_notify
  src/applet.h             |   5 +-
  3 files changed, 143 insertions(+), 6 deletions(-)
 
-Index: network-manager-applet-1.8.20/src/applet-device-wifi.c
+Index: network-manager-applet-1.8.24/src/applet-device-wifi.c
 ===================================================================
---- network-manager-applet-1.8.20.orig/src/applet-device-wifi.c
-+++ network-manager-applet-1.8.20/src/applet-device-wifi.c
-@@ -1322,6 +1322,8 @@ wifi_notify_connected (NMDevice *device,
+--- network-manager-applet-1.8.24.orig/src/applet-device-wifi.c
++++ network-manager-applet-1.8.24/src/applet-device-wifi.c
+@@ -1305,6 +1305,8 @@ wifi_notify_connected (NMDevice *device,
  
  	ap = _active_ap_get (applet, device);
  
@@ -21,11 +21,11 @@ Index: network-manager-applet-1.8.20/src/applet-device-wifi.c
  	esc_ssid = get_ssid_utf8 (ap);
  
  	if (!ap)
-Index: network-manager-applet-1.8.20/src/applet.c
+Index: network-manager-applet-1.8.24/src/applet.c
 ===================================================================
---- network-manager-applet-1.8.20.orig/src/applet.c
-+++ network-manager-applet-1.8.20/src/applet.c
-@@ -155,6 +155,19 @@ get_device_class_from_connection (NMConn
+--- network-manager-applet-1.8.24.orig/src/applet.c
++++ network-manager-applet-1.8.24/src/applet.c
+@@ -141,6 +141,19 @@ get_device_class_from_connection (NMConn
  	return NULL;
  }
  
@@ -45,7 +45,7 @@ Index: network-manager-applet-1.8.20/src/applet.c
  static NMActiveConnection *
  applet_get_best_activating_connection (NMApplet *applet, NMDevice **device)
  {
-@@ -2143,6 +2156,64 @@ applet_get_exported_connection_for_devic
+@@ -2127,6 +2140,64 @@ applet_get_exported_connection_for_devic
  	return NULL;
  }
  
@@ -110,7 +110,7 @@ Index: network-manager-applet-1.8.20/src/applet.c
  static void
  applet_common_device_state_changed (NMDevice *device,
                                      NMDeviceState new_state,
-@@ -2157,6 +2228,54 @@ applet_common_device_state_changed (NMDe
+@@ -2141,6 +2212,54 @@ applet_common_device_state_changed (NMDe
  
  
  	switch (new_state) {
@@ -165,7 +165,7 @@ Index: network-manager-applet-1.8.20/src/applet.c
  	case NM_DEVICE_STATE_PREPARE:
  	case NM_DEVICE_STATE_CONFIG:
  	case NM_DEVICE_STATE_NEED_AUTH:
-@@ -2243,13 +2362,26 @@ foo_client_state_changed_cb (NMClient *c
+@@ -2227,13 +2346,26 @@ foo_client_state_changed_cb (NMClient *c
  {
  	NMApplet *applet = NM_APPLET (user_data);
  
@@ -197,11 +197,11 @@ Index: network-manager-applet-1.8.20/src/applet.c
  	default:
  		break;
  	}
-Index: network-manager-applet-1.8.20/src/applet.h
+Index: network-manager-applet-1.8.24/src/applet.h
 ===================================================================
---- network-manager-applet-1.8.20.orig/src/applet.h
-+++ network-manager-applet-1.8.20/src/applet.h
-@@ -149,8 +149,11 @@ typedef struct {
+--- network-manager-applet-1.8.24.orig/src/applet.h
++++ network-manager-applet-1.8.24/src/applet.h
+@@ -135,8 +135,11 @@ typedef struct {
  
  	/* Tracker objects for secrets requests */
  	GSList *        secrets_reqs;

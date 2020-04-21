@@ -1,36 +1,62 @@
-/ap_hash/infra_adhoc/open: OK
-/ap_hash/infra_adhoc/wep: OK
-/ap_hash/infra_adhoc/wpa: OK
-/ap_hash/infra_adhoc/rsn: OK
-/ap_hash/infra_adhoc/wpa_rsn: OK
-/ap_hash/infra_open/wep: OK
-/ap_hash/infra_open/wpa: OK
-/ap_hash/infra_open/rsn: OK
-/ap_hash/infra_open/wpa_rsn: OK
-/ap_hash/infra_wep/wpa: OK
-/ap_hash/infra_wep/rsn: OK
-/ap_hash/infra_wep/wpa_rsn: OK
-/ap_hash/adhoc_open/wep: OK
-/ap_hash/adhoc_open/wpa: OK
-/ap_hash/adhoc_open/rsn: OK
-/ap_hash/adhoc_open/wpa_rsn: OK
-/ap_hash/adhoc_wep/wpa: OK
-/ap_hash/adhoc_wep/rsn: OK
-/ap_hash/adhoc_wep/wpa_rsn: OK
-/ap_hash/infra_wpa/rsn: OK
-/ap_hash/infra_wpa/wpa_rsn: OK
-/ap_hash/infra_rsn/wpa_rsn: OK
-/ap_hash/adhoc/rsn: OK
-/ap_hash/adhoc_wpa/wpa_rsn: OK
-/ap_hash/adhoc_rsn/wpa_rsn: OK
-/ap_hash/foobar_asdf11/infra_open: OK
-/ap_hash/foobar_asdf11/infra_wep: OK
-/ap_hash/foobar_asdf11/infra_wpa: OK
-/ap_hash/foobar_asdf11/infra_rsn: OK
-/ap_hash/foobar_asdf11/infra_wpa_rsn: OK
-/ap_hash/foobar_asdf11/adhoc_open: OK
-/ap_hash/foobar_asdf11/adhoc_wep: OK
-/ap_hash/foobar_asdf11/adhoc_wpa: OK
-/ap_hash/foobar_asdf11/adhoc_rsn: OK
-/ap_hash/foobar_asdf11/adhoc_wpa_rsn: OK
+# random seed: R02S55c52e7d79459437f778b3c6239dd80f
+1..35
+# Start of ap_hash tests
+# Start of infra_adhoc tests
+ok 1 /ap_hash/infra_adhoc/open
+ok 2 /ap_hash/infra_adhoc/wep
+ok 3 /ap_hash/infra_adhoc/wpa
+ok 4 /ap_hash/infra_adhoc/rsn
+ok 5 /ap_hash/infra_adhoc/wpa_rsn
+# End of infra_adhoc tests
+# Start of infra_open tests
+ok 6 /ap_hash/infra_open/wep
+ok 7 /ap_hash/infra_open/wpa
+ok 8 /ap_hash/infra_open/rsn
+ok 9 /ap_hash/infra_open/wpa_rsn
+# End of infra_open tests
+# Start of infra_wep tests
+ok 10 /ap_hash/infra_wep/wpa
+ok 11 /ap_hash/infra_wep/rsn
+ok 12 /ap_hash/infra_wep/wpa_rsn
+# End of infra_wep tests
+# Start of adhoc_open tests
+ok 13 /ap_hash/adhoc_open/wep
+ok 14 /ap_hash/adhoc_open/wpa
+ok 15 /ap_hash/adhoc_open/rsn
+ok 16 /ap_hash/adhoc_open/wpa_rsn
+# End of adhoc_open tests
+# Start of adhoc_wep tests
+ok 17 /ap_hash/adhoc_wep/wpa
+ok 18 /ap_hash/adhoc_wep/rsn
+ok 19 /ap_hash/adhoc_wep/wpa_rsn
+# End of adhoc_wep tests
+# Start of infra_wpa tests
+ok 20 /ap_hash/infra_wpa/rsn
+ok 21 /ap_hash/infra_wpa/wpa_rsn
+# End of infra_wpa tests
+# Start of infra_rsn tests
+ok 22 /ap_hash/infra_rsn/wpa_rsn
+# End of infra_rsn tests
+# Start of adhoc tests
+ok 23 /ap_hash/adhoc/rsn
+# End of adhoc tests
+# Start of adhoc_wpa tests
+ok 24 /ap_hash/adhoc_wpa/wpa_rsn
+# End of adhoc_wpa tests
+# Start of adhoc_rsn tests
+ok 25 /ap_hash/adhoc_rsn/wpa_rsn
+# End of adhoc_rsn tests
+# Start of foobar_asdf11 tests
+ok 26 /ap_hash/foobar_asdf11/infra_open
+ok 27 /ap_hash/foobar_asdf11/infra_wep
+ok 28 /ap_hash/foobar_asdf11/infra_wpa
+ok 29 /ap_hash/foobar_asdf11/infra_rsn
+ok 30 /ap_hash/foobar_asdf11/infra_wpa_rsn
+ok 31 /ap_hash/foobar_asdf11/adhoc_open
+ok 32 /ap_hash/foobar_asdf11/adhoc_wep
+ok 33 /ap_hash/foobar_asdf11/adhoc_wpa
+ok 34 /ap_hash/foobar_asdf11/adhoc_rsn
+ok 35 /ap_hash/foobar_asdf11/adhoc_wpa_rsn
+# End of foobar_asdf11 tests
+# End of ap_hash tests
 PASS src/utils/tests/test-utils (exit status: 0)

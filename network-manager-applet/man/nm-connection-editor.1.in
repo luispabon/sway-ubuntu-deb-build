@@ -21,7 +21,7 @@
 .\"
 .\" Copyright (C) 2013 Red Hat, Inc.
 .\"
-.TH NM-CONNECTION-EDITOR "1" "15 February 2013"
+.TH NM-CONNECTION-EDITOR "1" "" "network-manager-applet @VERSION@"
 
 .SH NAME
 nm\-connection\-editor \- network connection editor for NetworkManager

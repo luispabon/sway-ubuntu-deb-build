@@ -6,23 +6,23 @@
   <!ENTITY % gtkdocentities SYSTEM "../xml/gtkdocentities.ent">
   %gtkdocentities;
 ]>
-<refentry id="libnma-nma-mobile-wizard">
+<refentry id="NMAMobileWizard">
 <refmeta>
-<refentrytitle role="top_of_page" id="libnma-nma-mobile-wizard.top_of_page">nma-mobile-wizard</refentrytitle>
+<refentrytitle role="top_of_page" id="NMAMobileWizard.top_of_page">NMAMobileWizard</refentrytitle>
 <manvolnum>3</manvolnum>
 <refmiscinfo>LIBNMA Library</refmiscinfo>
 </refmeta>
 <refnamediv>
-<refname>nma-mobile-wizard</refname>
+<refname>NMAMobileWizard</refname>
 <refpurpose></refpurpose>
 </refnamediv>
 
-<refsect1 id="libnma-nma-mobile-wizard.functions" role="functions_proto">
+<refsect1 id="NMAMobileWizard.functions" role="functions_proto">
 <title role="functions_proto.title">Functions</title>
 <informaltable pgwide="1" frame="none">
 <tgroup cols="2">
-<colspec colname="functions_return" colwidth="150px"/>
-<colspec colname="functions_name"/>
+<colspec colname="functions_proto_type" colwidth="150px"/>
+<colspec colname="functions_proto_name"/>
 <tbody>
 <row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
 </entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="NMAMobileWizardCallback">*NMAMobileWizardCallback</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
@@ -37,12 +37,12 @@
 </tgroup>
 </informaltable>
 </refsect1>
-<anchor id="NMAMobileWizard"/><refsect1 id="libnma-nma-mobile-wizard.other" role="other_proto">
+<refsect1 id="NMAMobileWizard.other" role="other_proto">
 <title role="other_proto.title">Types and Values</title>
-<informaltable role="enum_members_table" pgwide="1" frame="none">
+<informaltable pgwide="1" frame="none">
 <tgroup cols="2">
-<colspec colname="name" colwidth="150px"/>
-<colspec colname="description"/>
+<colspec colname="other_proto_type" colwidth="150px"/>
+<colspec colname="other_proto_name"/>
 <tbody>
 <row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="NMAMobileWizardAccessMethod">NMAMobileWizardAccessMethod</link></entry></row>
 
@@ -50,7 +50,7 @@
 </tgroup>
 </informaltable>
 </refsect1>
-<refsect1 id="libnma-nma-mobile-wizard.object-hierarchy" role="object_hierarchy">
+<refsect1 id="NMAMobileWizard.object-hierarchy" role="object_hierarchy">
 <title role="object_hierarchy.title">Object Hierarchy</title>
 <screen>    <link linkend="GObject">GObject</link>
     <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
@@ -64,11 +64,11 @@
 </refsect1>
 
 
-<refsect1 id="libnma-nma-mobile-wizard.description" role="desc">
+<refsect1 id="NMAMobileWizard.description" role="desc">
 <title role="desc.title">Description</title>
 
 </refsect1>
-<refsect1 id="libnma-nma-mobile-wizard.functions_details" role="details">
+<refsect1 id="NMAMobileWizard.functions_details" role="details">
 <title role="details.title">Functions</title>
 <refsect2 id="NMAMobileWizardCallback" role="function">
 <title>NMAMobileWizardCallback&#160;()</title>
@@ -120,7 +120,7 @@ nma_mobile_wizard_destroy (<parameter><link linkend="NMAMobileWizard"><type>NMAM
 </refsect2>
 
 </refsect1>
-<refsect1 id="libnma-nma-mobile-wizard.other_details" role="details">
+<refsect1 id="NMAMobileWizard.other_details" role="details">
 <title role="details.title">Types and Values</title>
 <refsect2 id="NMAMobileWizardAccessMethod" role="struct">
 <title>NMAMobileWizardAccessMethod</title>

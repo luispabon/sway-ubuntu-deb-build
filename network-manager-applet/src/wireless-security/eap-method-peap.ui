@@ -88,6 +88,7 @@
             <property name="can_focus">False</property>
             <property name="label" translatable="yes">PEAP _version</property>
             <property name="use_underline">True</property>
+            <property name="mnemonic_widget">eap_peap_version_combo</property>
             <property name="xalign">1</property>
           </object>
           <packing>
@@ -119,6 +120,7 @@
             <property name="can_focus">False</property>
             <property name="label" translatable="yes">_Inner authentication</property>
             <property name="use_underline">True</property>
+            <property name="mnemonic_widget">eap_peap_inner_auth_combo</property>
             <property name="xalign">1</property>
           </object>
           <packing>

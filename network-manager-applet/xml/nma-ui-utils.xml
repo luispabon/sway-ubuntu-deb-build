@@ -21,8 +21,8 @@
 <title role="functions_proto.title">Functions</title>
 <informaltable pgwide="1" frame="none">
 <tgroup cols="2">
-<colspec colname="functions_return" colwidth="150px"/>
-<colspec colname="functions_name"/>
+<colspec colname="functions_proto_type" colwidth="150px"/>
+<colspec colname="functions_proto_name"/>
 <tbody>
 <row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
 </entry><entry role="function_name"><link linkend="nma-utils-setup-password-storage">nma_utils_setup_password_storage</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
@@ -156,10 +156,6 @@ in the <parameter>setting</parameter>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
 </refsect3></refsect2>
-
-</refsect1>
-<refsect1 id="libnma-nma-ui-utils.other_details" role="details">
-<title role="details.title">Types and Values</title>
 
 </refsect1>
 

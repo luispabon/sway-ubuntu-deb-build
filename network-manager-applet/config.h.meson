@@ -50,6 +50,9 @@
 /* Define if Gcr is available */
 #mesondefine WITH_GCR
 
+/* Define if GTK4 Gcr is available */
+#mesondefine WITH_GCR_GTK4
+
 /* Define if Jansson is available */
 #mesondefine WITH_JANSSON
 

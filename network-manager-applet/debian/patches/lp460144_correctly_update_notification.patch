@@ -6,11 +6,11 @@ Subject: lp460144_correctly_update_notification
  src/applet.c | 38 +++++++++++++++++---------------------
  1 file changed, 17 insertions(+), 21 deletions(-)
 
-Index: network-manager-applet-1.8.18/src/applet.c
+Index: network-manager-applet-1.8.24/src/applet.c
 ===================================================================
---- network-manager-applet-1.8.18.orig/src/applet.c
-+++ network-manager-applet-1.8.18/src/applet.c
-@@ -687,17 +687,6 @@ applet_menu_item_create_device_item_help
+--- network-manager-applet-1.8.24.orig/src/applet.c
++++ network-manager-applet-1.8.24/src/applet.c
+@@ -673,17 +673,6 @@ applet_menu_item_create_device_item_help
  	return item;
  }
  
@@ -28,7 +28,7 @@ Index: network-manager-applet-1.8.18/src/applet.c
  static gboolean
  applet_notify_server_has_actions (void)
  {
-@@ -754,19 +743,28 @@ applet_do_notify (NMApplet *applet,
+@@ -740,19 +729,28 @@ applet_do_notify (NMApplet *applet,
  	if (!applet->agent)
  		return;
  
@@ -65,7 +65,7 @@ Index: network-manager-applet-1.8.18/src/applet.c
  
  #if HAVE_LIBNOTIFY_07
  	notify_notification_set_hint (notify, "transient", g_variant_new_boolean (TRUE));
-@@ -3281,7 +3279,6 @@ status_icon_activate_cb (GtkStatusIcon *
+@@ -3265,7 +3263,6 @@ status_icon_activate_cb (GtkStatusIcon *
  	/* Have clicking on the applet act also as acknowledgement
  	 * of the notification.
  	 */
@@ -73,7 +73,7 @@ Index: network-manager-applet-1.8.18/src/applet.c
  
  	applet_start_wifi_scan (applet, NULL);
  
-@@ -3313,7 +3310,6 @@ status_icon_popup_menu_cb (GtkStatusIcon
+@@ -3297,7 +3294,6 @@ status_icon_popup_menu_cb (GtkStatusIcon
  	/* Have clicking on the applet act also as acknowledgement
  	 * of the notification.
  	 */

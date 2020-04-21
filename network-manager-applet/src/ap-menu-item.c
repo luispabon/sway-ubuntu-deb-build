@@ -1,22 +1,8 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+// SPDX-License-Identifier: GPL-2.0+
 /* ap-menu-item.c - Class to represent a Wifi access point 
  *
  * Jonathan Blandford <jrb@redhat.com>
  * Dan Williams <dcbw@redhat.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  * Copyright 2005 - 2014 Red Hat, Inc.
  */
@@ -32,6 +18,8 @@
 #include "nm-access-point.h"
 #include "mobile-helpers.h"
 
+/* Only to get the NMU_SEC_SAE compat constant. */
+#include "wireless-security.h"
 
 G_DEFINE_TYPE (NMNetworkMenuItem, nm_network_menu_item, GTK_TYPE_MENU_ITEM);
 
@@ -181,14 +169,15 @@ update_label (NMNetworkMenuItem *item, gboolean use_bold)
 {
 	NMNetworkMenuItemPrivate *priv = NM_NETWORK_MENU_ITEM_GET_PRIVATE (item);
 
-	gtk_label_set_use_markup (GTK_LABEL (priv->ssid), use_bold);
 	if (use_bold) {
 		char *markup = g_markup_printf_escaped ("<b>%s</b>", priv->ssid_string);
 
 		gtk_label_set_markup (GTK_LABEL (priv->ssid), markup);
 		g_free (markup);
-	} else
+	} else {
+		gtk_label_set_use_markup (GTK_LABEL (priv->ssid), FALSE);
 		gtk_label_set_text (GTK_LABEL (priv->ssid), priv->ssid_string);
+	}
 }
 
 void
@@ -281,13 +270,14 @@ nm_network_menu_item_new (NMAccessPoint *ap,
 
 	/* Don't enable the menu item the device can't even connect to the AP */
 	if (   !nm_utils_security_valid (NMU_SEC_NONE, dev_caps, TRUE, priv->is_adhoc, ap_flags, ap_wpa, ap_rsn)
-        && !nm_utils_security_valid (NMU_SEC_STATIC_WEP, dev_caps, TRUE, priv->is_adhoc, ap_flags, ap_wpa, ap_rsn)
+	    && !nm_utils_security_valid (NMU_SEC_STATIC_WEP, dev_caps, TRUE, priv->is_adhoc, ap_flags, ap_wpa, ap_rsn)
 	    && !nm_utils_security_valid (NMU_SEC_LEAP, dev_caps, TRUE, priv->is_adhoc, ap_flags, ap_wpa, ap_rsn)
 	    && !nm_utils_security_valid (NMU_SEC_DYNAMIC_WEP, dev_caps, TRUE, priv->is_adhoc, ap_flags, ap_wpa, ap_rsn)
 	    && !nm_utils_security_valid (NMU_SEC_WPA_PSK, dev_caps, TRUE, priv->is_adhoc, ap_flags, ap_wpa, ap_rsn)
 	    && !nm_utils_security_valid (NMU_SEC_WPA2_PSK, dev_caps, TRUE, priv->is_adhoc, ap_flags, ap_wpa, ap_rsn)
 	    && !nm_utils_security_valid (NMU_SEC_WPA_ENTERPRISE, dev_caps, TRUE, priv->is_adhoc, ap_flags, ap_wpa, ap_rsn)
-	    && !nm_utils_security_valid (NMU_SEC_WPA2_ENTERPRISE, dev_caps, TRUE, priv->is_adhoc, ap_flags, ap_wpa, ap_rsn)) {
+	    && !nm_utils_security_valid (NMU_SEC_WPA2_ENTERPRISE, dev_caps, TRUE, priv->is_adhoc, ap_flags, ap_wpa, ap_rsn)
+	    && !nm_utils_security_valid (NMU_SEC_SAE, dev_caps, TRUE, priv->is_adhoc, ap_flags, ap_wpa, ap_rsn)) {
 		gtk_widget_set_sensitive (GTK_WIDGET (item), FALSE);
 	}
 

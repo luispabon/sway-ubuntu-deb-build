@@ -13,3 +13,4 @@ libnma-dev
 gir1.2*
 .debhelper
 
+autoreconf.*

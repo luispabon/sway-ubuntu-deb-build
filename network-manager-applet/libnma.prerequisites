@@ -2,6 +2,7 @@ GtkBuildable GObject
 GtkOrientable GObject
 GInitable GObject
 GAsyncInitable GObject
+NMConnection GObject
 GIcon GObject
 GLoadableIcon GIcon GObject
 GActionGroup GObject

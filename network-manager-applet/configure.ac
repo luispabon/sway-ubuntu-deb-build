@@ -2,7 +2,7 @@ AC_PREREQ([2.63])
 
 m4_define([nma_major_version], [1])
 m4_define([nma_minor_version], [8])
-m4_define([nma_micro_version], [20])
+m4_define([nma_micro_version], [24])
 m4_define([nma_version],
           [nma_major_version.nma_minor_version.nma_micro_version])
 
@@ -61,12 +61,12 @@ AC_TYPE_PID_T
 dnl
 dnl translation support
 dnl
-IT_PROG_INTLTOOL([0.50.1])
+AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.18])
 
 GETTEXT_PACKAGE=nm-applet
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
-AM_GLIB_GNU_GETTEXT
 
 # Check for iso-codes for country names translation
 AC_MSG_CHECKING([whether to disable iso-codes at build-time])
@@ -163,7 +163,21 @@ fi
 PKG_CHECK_MODULES(NOTIFY, [libnotify >= 0.4.3])
 
 PKG_CHECK_MODULES(GTK3, gtk+-3.0 >= 3.10)
-GTK3_CFLAGS="$GTK3_CFLAGS -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_4 -DGTK_VERSION_MAX_ALLOWED=GTK_VERSION_3_4"
+GTK3_CFLAGS="$GTK3_CFLAGS -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_10 -DGDK_VERSION_MAX_ALLOWED=GDK_VERSION_3_10"
+
+AC_ARG_WITH(libnma-gtk4, AS_HELP_STRING([--with-libnma-gtk4], [build EXPERIMENTAL libnma-gtk4 library for use with GTK4]))
+if test "$with_libnma_gtk4" == yes; then
+	PKG_CHECK_MODULES(GTK4, gtk4 >= 3.94)
+	GTK4_CFLAGS="$GTK4_CFLAGS -DGTK_VERSION_MIN_REQUIRED=GTK_VERSION_3_96 -DGTK_VERSION_MAX_ALLOWED=GTK_VERSION_3_96"
+else
+	with_libnma_gtk4=no
+fi
+AM_CONDITIONAL(WITH_LIBNMA_GTK4, test "$with_libnma_gtk4" != "no")
+
+# No such thing yet, just same lame duck placeholders.
+# it may actually end up being called differently.
+AC_DEFINE(WITH_GCR_GTK4, 0, [Define if GTK4 Gcr is available])
+AM_CONDITIONAL(WITH_GCR_GTK4, false)
 
 AC_ARG_WITH([appindicator],
             AS_HELP_STRING([--with-appindicator=no|yes|auto|ayatana|ubuntu], [Build with lib(ayatana-)appindicator support in addition to xembed systray support.]),
@@ -318,6 +332,15 @@ NM_COMPILER_WARNINGS(CFLAGS, [yes])
 NM_LTO
 NM_LD_GC
 
+# Disable extra compiler warning until GTK4 doesn't trigger it via graphene
+# https://github.com/ebassi/graphene/issues/134
+if test "$with_libnma_gtk4" == yes; then
+	_CFLAGS_SAVED="$CFLAGS"
+	CFLAGS="$CFLAGS $GTK4_CFLAGS"
+	NM_COMPILER_WARNING([_CFLAGS], [float-equal], [#include <gtk/gtk.h>])
+	CFLAGS="$_CFLAGS_SAVED $_CFLAGS"
+fi
+
 AC_ARG_WITH(more-asserts,
             AS_HELP_STRING([--with-more-asserts=level], [Enable more assertions for debugging (default: 0)]),
             [more_asserts=${with_more_asserts}],
@@ -336,6 +359,7 @@ AC_CONFIG_FILES([
 Makefile
 src/libnm-gtk/libnm-gtk.pc
 src/libnma/libnma.pc
+src/libnma/libnma-gtk4.pc
 po/Makefile.in
 man/nm-applet.1
 man/nm-connection-editor.1
@@ -346,6 +370,7 @@ AC_OUTPUT
 
 echo ""
 echo "  Build legacy library libnm-gtk: --with-libnm-gtk=${with_libnm_gtk}"
+echo "  Build EXPERIMENTAL libnma-gtk4 library for use with GTK4: --with-libnma-gtk4=${with_libnma_gtk4}"
 echo "  GCR: --with-gcr=$have_gcr"
 echo "  LTO: --enable-lto=$enable_lto"
 echo "  Linker garbage collection: --enable-ld-gc=$enable_ld_gc"

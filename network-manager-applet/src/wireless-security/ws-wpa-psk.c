@@ -1,26 +1,13 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+// SPDX-License-Identifier: GPL-2.0+
 /* NetworkManager Applet -- allow user control over networking
  *
  * Dan Williams <dcbw@redhat.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  * Copyright 2007 - 2014 Red Hat, Inc.
  */
 
 #include "nm-default.h"
+#include "nma-private.h"
 
 #include <ctype.h>
 #include <string.h>
@@ -65,7 +52,7 @@ validate (WirelessSecurity *parent, GError **error)
 	g_assert (entry);
 
 	secret_flags = nma_utils_menu_to_secret_flags (entry);
-	key = gtk_entry_get_text (GTK_ENTRY (entry));
+	key = gtk_editable_get_text (GTK_EDITABLE (entry));
 	len = key ? strlen (key) : 0;
 
         if (   secret_flags & NM_SETTING_SECRET_FLAG_NOT_SAVED
@@ -129,7 +116,7 @@ fill_connection (WirelessSecurity *parent, NMConnection *connection)
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "wpa_psk_entry"));
 	passwd_entry = widget;
-	key = gtk_entry_get_text (GTK_ENTRY (widget));
+	key = gtk_editable_get_text (GTK_EDITABLE (widget));
 	g_object_set (s_wireless_sec, NM_SETTING_WIRELESS_SECURITY_PSK, key, NULL);
 
 	/* Save PSK_FLAGS to the connection */
@@ -145,14 +132,10 @@ fill_connection (WirelessSecurity *parent, NMConnection *connection)
 	wireless_security_clear_ciphers (connection);
 	if (is_adhoc) {
 		/* Ad-Hoc settings as specified by the supplicant */
-		g_object_set (s_wireless_sec, NM_SETTING_WIRELESS_SECURITY_KEY_MGMT, "wpa-none", NULL);
-		nm_setting_wireless_security_add_proto (s_wireless_sec, "wpa");
-		nm_setting_wireless_security_add_pairwise (s_wireless_sec, "none");
-
-		/* Ad-hoc can only have _one_ group cipher... default to TKIP to be more
-		 * compatible for now.  Maybe we'll support selecting CCMP later.
-		 */
-		nm_setting_wireless_security_add_group (s_wireless_sec, "tkip");
+		g_object_set (s_wireless_sec, NM_SETTING_WIRELESS_SECURITY_KEY_MGMT, "wpa-psk", NULL);
+		nm_setting_wireless_security_add_proto (s_wireless_sec, "rsn");
+		nm_setting_wireless_security_add_pairwise (s_wireless_sec, "ccmp");
+		nm_setting_wireless_security_add_group (s_wireless_sec, "ccmp");
 	} else {
 		g_object_set (s_wireless_sec, NM_SETTING_WIRELESS_SECURITY_KEY_MGMT, "wpa-psk", NULL);
 
@@ -192,7 +175,7 @@ ws_wpa_psk_new (NMConnection *connection, gboolean secrets_only)
 	if (!parent)
 		return NULL;
 
-	parent->adhoc_compatible = FALSE;
+	parent->adhoc_compatible = TRUE;
 	sec = (WirelessSecurityWPAPSK *) parent;
 	sec->editing_connection = secrets_only ? FALSE : TRUE;
 	sec->password_flags_name = NM_SETTING_WIRELESS_SECURITY_PSK;
@@ -202,7 +185,7 @@ ws_wpa_psk_new (NMConnection *connection, gboolean secrets_only)
 	g_signal_connect (G_OBJECT (widget), "changed",
 	                  (GCallback) wireless_security_changed_cb,
 	                  sec);
-	gtk_entry_set_width_chars (GTK_ENTRY (widget), 28);
+	gtk_editable_set_width_chars (GTK_EDITABLE (widget), 28);
 
 	/* Create password-storage popup menu for password entry under entry's secondary icon */
 	if (connection)

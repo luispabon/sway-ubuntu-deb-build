@@ -8,7 +8,7 @@
 <link rel="up" href="api-reference.html" title="libnma API reference">
 <link rel="prev" href="NMAVpnPasswordDialog.html" title="NMAVpnPasswordDialog">
 <link rel="next" href="NMACertChooser.html" title="NMACertChooser">
-<meta name="generator" content="GTK-Doc V1.28 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.32 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -36,8 +36,8 @@
 <a name="NMAWifiDialog.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -74,7 +74,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="../libnm-util/NMConnection.html#NMConnection-struct"><span class="returnvalue">NMConnection</span></a> *
+<span class="returnvalue">NMConnection</span> *
 </td>
 <td class="function_name">
 <a class="link" href="NMAWifiDialog.html#nma-wifi-dialog-get-connection" title="nma_wifi_dialog_get_connection ()">nma_wifi_dialog_get_connection</a> <span class="c_punctuation">()</span>
@@ -135,10 +135,10 @@
 <div class="refsect2">
 <a name="nma-wifi-dialog-new"></a><h3>nma_wifi_dialog_new ()</h3>
 <pre class="programlisting"><a href="../gtk3/GtkWidget.html#GtkWidget-struct"><span class="returnvalue">GtkWidget</span></a> *
-nma_wifi_dialog_new (<em class="parameter"><code><a href="../libnm/NMClient.html#NMClient-struct"><span class="type">NMClient</span></a> *client</code></em>,
-                     <em class="parameter"><code><a href="../libnm-util/NMConnection.html#NMConnection-struct"><span class="type">NMConnection</span></a> *connection</code></em>,
-                     <em class="parameter"><code><a href="../libnm/NMDevice.html#NMDevice-struct"><span class="type">NMDevice</span></a> *device</code></em>,
-                     <em class="parameter"><code><a href="../libnm/NMAccessPoint.html#NMAccessPoint-struct"><span class="type">NMAccessPoint</span></a> *ap</code></em>,
+nma_wifi_dialog_new (<em class="parameter"><code><span class="type">NMClient</span> *client</code></em>,
+                     <em class="parameter"><code><span class="type">NMConnection</span> *connection</code></em>,
+                     <em class="parameter"><code><span class="type">NMDevice</span> *device</code></em>,
+                     <em class="parameter"><code><span class="type">NMAccessPoint</span> *ap</code></em>,
                      <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> secrets_only</code></em>);</pre>
 <p>Creates a wifi connection dialog and populates it with settings from
 <em class="parameter"><code>connection</code></em>
@@ -198,8 +198,8 @@ will be editable.</p>
 <div class="refsect2">
 <a name="nma-wifi-dialog-new-for-secrets"></a><h3>nma_wifi_dialog_new_for_secrets ()</h3>
 <pre class="programlisting"><a href="../gtk3/GtkWidget.html#GtkWidget-struct"><span class="returnvalue">GtkWidget</span></a> *
-nma_wifi_dialog_new_for_secrets (<em class="parameter"><code><a href="../libnm/NMClient.html#NMClient-struct"><span class="type">NMClient</span></a> *client</code></em>,
-                                 <em class="parameter"><code><a href="../libnm-util/NMConnection.html#NMConnection-struct"><span class="type">NMConnection</span></a> *connection</code></em>,
+nma_wifi_dialog_new_for_secrets (<em class="parameter"><code><span class="type">NMClient</span> *client</code></em>,
+                                 <em class="parameter"><code><span class="type">NMConnection</span> *connection</code></em>,
                                  <em class="parameter"><code>const <span class="type">char</span> *secrets_setting_name</code></em>,
                                  <em class="parameter"><code>const <span class="type">char</span> *const*secrets_hints</code></em>);</pre>
 <p>Creates a wifi secrets dialog and populates it with setting values from
@@ -263,21 +263,21 @@ which are requested or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><co
 <div class="refsect2">
 <a name="nma-wifi-dialog-new-for-hidden"></a><h3>nma_wifi_dialog_new_for_hidden ()</h3>
 <pre class="programlisting"><a href="../gtk3/GtkWidget.html#GtkWidget-struct"><span class="returnvalue">GtkWidget</span></a> *
-nma_wifi_dialog_new_for_hidden (<em class="parameter"><code><a href="../libnm/NMClient.html#NMClient-struct"><span class="type">NMClient</span></a> *client</code></em>);</pre>
+nma_wifi_dialog_new_for_hidden (<em class="parameter"><code><span class="type">NMClient</span> *client</code></em>);</pre>
 </div>
 <hr>
 <div class="refsect2">
 <a name="nma-wifi-dialog-new-for-create"></a><h3>nma_wifi_dialog_new_for_create ()</h3>
 <pre class="programlisting"><a href="../gtk3/GtkWidget.html#GtkWidget-struct"><span class="returnvalue">GtkWidget</span></a> *
-nma_wifi_dialog_new_for_create (<em class="parameter"><code><a href="../libnm/NMClient.html#NMClient-struct"><span class="type">NMClient</span></a> *client</code></em>);</pre>
+nma_wifi_dialog_new_for_create (<em class="parameter"><code><span class="type">NMClient</span> *client</code></em>);</pre>
 </div>
 <hr>
 <div class="refsect2">
 <a name="nma-wifi-dialog-get-connection"></a><h3>nma_wifi_dialog_get_connection ()</h3>
-<pre class="programlisting"><a href="../libnm-util/NMConnection.html#NMConnection-struct"><span class="returnvalue">NMConnection</span></a> *
+<pre class="programlisting"><span class="returnvalue">NMConnection</span> *
 nma_wifi_dialog_get_connection (<em class="parameter"><code><a class="link" href="NMAWifiDialog.html" title="NMAWifiDialog"><span class="type">NMAWifiDialog</span></a> *self</code></em>,
-                                <em class="parameter"><code><a href="../libnm/NMDevice.html#NMDevice-struct"><span class="type">NMDevice</span></a> **device</code></em>,
-                                <em class="parameter"><code><a href="../libnm/NMAccessPoint.html#NMAccessPoint-struct"><span class="type">NMAccessPoint</span></a> **ap</code></em>);</pre>
+                                <em class="parameter"><code><span class="type">NMDevice</span> **device</code></em>,
+                                <em class="parameter"><code><span class="type">NMAccessPoint</span> **ap</code></em>);</pre>
 <div class="refsect3">
 <a name="nma-wifi-dialog-get-connection.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -342,15 +342,12 @@ nma_wifi_dialog_get_nag_ignored (<em class="parameter"><code><a class="link" hre
 <div class="refsect2">
 <a name="nma-wifi-dialog-new-for-other"></a><h3>nma_wifi_dialog_new_for_other ()</h3>
 <pre class="programlisting"><a href="../gtk3/GtkWidget.html#GtkWidget-struct"><span class="returnvalue">GtkWidget</span></a> *
-nma_wifi_dialog_new_for_other (<em class="parameter"><code><a href="../libnm/NMClient.html#NMClient-struct"><span class="type">NMClient</span></a> *client</code></em>);</pre>
+nma_wifi_dialog_new_for_other (<em class="parameter"><code><span class="type">NMClient</span> *client</code></em>);</pre>
 <div class="warning"><p><code class="literal">nma_wifi_dialog_new_for_other</code> is deprecated and should not be used in newly-written code.</p></div>
 </div>
 </div>
-<div class="refsect1">
-<a name="NMAWifiDialog.other_details"></a><h2>Types and Values</h2>
-</div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.28</div>
+<hr>Generated by GTK-Doc V1.32</div>
 </body>
 </html>

@@ -1,27 +1,14 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+// SPDX-License-Identifier: GPL-2.0+
 /* NetworkManager Applet -- allow user control over networking
  *
  * Dan Williams <dcbw@redhat.com>
  * Lubomir Rintel <lkundrak@v3.sk>
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
- *
  * Copyright 2007 - 2017 Red Hat, Inc.
  */
 
 #include "nm-default.h"
+#include "nma-private.h"
 
 #include <ctype.h>
 #include <string.h>
@@ -58,7 +45,7 @@ validate (EAPMethod *parent, GError **error)
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_tls_identity_entry"));
 	g_assert (widget);
-	identity = gtk_entry_get_text (GTK_ENTRY (widget));
+	identity = gtk_editable_get_text (GTK_EDITABLE (widget));
 	if (!identity || !strlen (identity)) {
 		widget_set_error (widget);
 		g_set_error_literal (error, NMA_ERROR, NMA_ERROR_GENERIC, _("missing EAP-TLS identity"));
@@ -128,14 +115,14 @@ fill_connection (EAPMethod *parent, NMConnection *connection)
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_tls_identity_entry"));
 	g_assert (widget);
-	g_object_set (s_8021x, NM_SETTING_802_1X_IDENTITY, gtk_entry_get_text (GTK_ENTRY (widget)), NULL);
+	g_object_set (s_8021x, NM_SETTING_802_1X_IDENTITY, gtk_editable_get_text (GTK_EDITABLE (widget)), NULL);
 
 #if LIBNM_BUILD
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_tls_domain_entry"));
 	g_assert (widget);
 	g_object_set (s_8021x,
 	              parent->phase2 ? NM_SETTING_802_1X_PHASE2_DOMAIN_SUFFIX_MATCH : NM_SETTING_802_1X_DOMAIN_SUFFIX_MATCH,
-	              gtk_entry_get_text (GTK_ENTRY (widget)), NULL);
+	              gtk_editable_get_text (GTK_EDITABLE (widget)), NULL);
 #endif
 
 	/* TLS private key */
@@ -412,7 +399,7 @@ eap_method_tls_new (WirelessSecurity *ws_parent,
 	                  (GCallback) wireless_security_changed_cb,
 	                  ws_parent);
 	if (s_8021x && nm_setting_802_1x_get_identity (s_8021x))
-		gtk_entry_set_text (GTK_ENTRY (widget), nm_setting_802_1x_get_identity (s_8021x));
+		gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_802_1x_get_identity (s_8021x));
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_tls_domain_entry"));
 	g_assert (widget);
@@ -422,10 +409,10 @@ eap_method_tls_new (WirelessSecurity *ws_parent,
 	                  ws_parent);
 	if (phase2) {
 		if (s_8021x && nm_setting_802_1x_get_phase2_domain_suffix_match (s_8021x))
-			gtk_entry_set_text (GTK_ENTRY (widget), nm_setting_802_1x_get_phase2_domain_suffix_match (s_8021x));
+			gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_802_1x_get_phase2_domain_suffix_match (s_8021x));
 	} else {
 		if (s_8021x && nm_setting_802_1x_get_domain_suffix_match (s_8021x))
-			gtk_entry_set_text (GTK_ENTRY (widget), nm_setting_802_1x_get_domain_suffix_match (s_8021x));
+			gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_802_1x_get_domain_suffix_match (s_8021x));
 	}
 #else
 	gtk_widget_hide (widget);

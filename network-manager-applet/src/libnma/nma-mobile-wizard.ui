@@ -50,7 +50,6 @@
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="type_hint">dialog</property>
-    <property name="skip_taskbar_hint">True</property>
     <property name="use_header_bar">1</property>
     <signal name="cancel" handler="assistant_cancel" swapped="no"/>
     <signal name="close" handler="assistant_closed" swapped="no"/>
@@ -137,8 +136,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel">
-            <property name="visible">True</property>
+          <object class="GtkLabel" id="dev_combo_label">
             <property name="can_focus">False</property>
             <property name="valign">end</property>
             <property name="vexpand">True</property>
@@ -154,7 +152,6 @@
         </child>
         <child>
           <object class="GtkComboBox" id="dev_combo">
-            <property name="visible">True</property>
             <property name="sensitive">False</property>
             <property name="can_focus">False</property>
             <property name="model">dev_store</property>
@@ -188,7 +185,7 @@
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Country or Region List:</property>
+            <property name="label" translatable="yes">Country or region:</property>
             <property name="xalign">0</property>
           </object>
           <packing>
@@ -211,6 +208,7 @@
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
                 <property name="model">country_sort</property>
+                <property name="headers_visible">False</property>
                 <property name="search_column">0</property>
                 <signal name="row-activated" handler="country_update_continue" swapped="yes"/>
                 <child internal-child="selection">
@@ -272,6 +270,7 @@
                 <property name="can_focus">True</property>
                 <property name="model">providers_sort</property>
                 <property name="search_column">0</property>
+                <signal name="row-activated" handler="providers_update_continue" swapped="yes"/>
                 <child internal-child="selection">
                   <object class="GtkTreeSelection"/>
                 </child>
@@ -568,9 +567,9 @@ If you are unsure of your plan please ask your provider for your plan’s APN.</
         </child>
         <child>
           <object class="GtkLabel" id="confirm_connect_after_label">
+            <property name="visible">False</property>
             <property name="width_request">500</property>
             <property name="can_focus">False</property>
-            <property name="no_show_all">True</property>
             <property name="valign">end</property>
             <property name="vexpand">True</property>
             <property name="label" translatable="yes">A connection will now be made to your mobile broadband provider using the settings you selected. If the connection fails or you cannot access network resources, double-check your settings. To modify your mobile broadband connection settings, choose “Network Connections” from the System → Preferences menu.</property>

@@ -1,7 +1,10 @@
 GObject
+  NMABarCode
   GInitiallyUnowned
     GtkWidget
       GtkContainer
+        GtkBox
+          NMABarCodeWidget
         GtkGrid
           NMACertChooser
         GtkBin
@@ -38,6 +41,7 @@ GInterface
   GInitable
   GAsyncInitable
   AtkComponent
+  NMConnection
   GIcon
   GLoadableIcon
   GActionGroup

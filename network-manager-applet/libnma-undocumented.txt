@@ -1,13 +1,22 @@
-0% symbol docs coverage.
-41 symbols documented.
-31 symbols incomplete.
-70 not documented.
+29% symbol docs coverage.
+43 symbols documented.
+49 symbols incomplete.
+104 not documented.
 
 
+NMABarCode:size
+NMABarCode:text
+NMABarCodeWidget:connection
 NMAMobileFamily
 NMAMobileWizardCallback (<parameters>)
 NMAVpnPasswordDialog
 NMAVpnPasswordDialogClass
+NMA_BAR_CODE_SIZE
+NMA_BAR_CODE_TEXT
+NMA_BAR_CODE_WIDGET_CONNECTION
+nma_bar_code_get_size
+nma_bar_code_new
+nma_bar_code_widget_new
 nma_country_info_get_country_code
 nma_country_info_get_country_name
 nma_country_info_get_providers
@@ -59,20 +68,45 @@ nma_vpn_password_dialog_set_show_password_ternary (<parameters>)
 nma_wifi_dialog_get_connection
 nma_wifi_dialog_new_for_create (<parameters>)
 nma_wifi_dialog_new_for_hidden (<parameters>)
+qrcodegen_BUFFER_LEN_FOR_VERSION (<parameters>)
+qrcodegen_BUFFER_LEN_MAX
+qrcodegen_Ecc (<items>)
+qrcodegen_Mask (<items>)
+qrcodegen_Mode (<items>)
+qrcodegen_Segment (<items>)
+qrcodegen_VERSION_MAX
+qrcodegen_VERSION_MIN
+qrcodegen_calcSegmentBufferSize (<parameters>)
+qrcodegen_encodeBinary (<parameters>)
+qrcodegen_encodeSegments (<parameters>)
+qrcodegen_encodeSegmentsAdvanced (<parameters>)
+qrcodegen_encodeText (<parameters>)
+qrcodegen_getModule (<parameters>)
+qrcodegen_getSize (<parameters>)
+qrcodegen_isAlphanumeric (<parameters>)
+qrcodegen_isNumeric (<parameters>)
+qrcodegen_makeAlphanumeric (<parameters>)
+qrcodegen_makeBytes (<parameters>)
+qrcodegen_makeEci (<parameters>)
+qrcodegen_makeNumeric (<parameters>)
 
 nma_wifi_dialog_get_nag_ignored (<parameters>)
 nma_wifi_dialog_nag_user
 nma_wifi_dialog_new_for_other (<parameters>)
 nma_wifi_dialog_set_nag_ignored (<parameters>)
 
-nma-cert-chooser:Short_Description
-nma-mobile-providers:Long_Description
-nma-mobile-providers:Short_Description
-nma-mobile-wizard:Long_Description
-nma-mobile-wizard:Short_Description
-nma-ui-utils:Long_Description
-nma-ui-utils:Short_Description
-nma-vpn-password-dialog:Long_Description
-nma-vpn-password-dialog:Short_Description
-nma-wifi-dialog:Long_Description
-nma-wifi-dialog:Short_Description
+nma-bar-code-widget:short_description
+nma-bar-code:short_description
+nma-cert-chooser:short_description
+nma-mobile-providers:long_description
+nma-mobile-providers:short_description
+nma-mobile-wizard:long_description
+nma-mobile-wizard:short_description
+nma-ui-utils:long_description
+nma-ui-utils:short_description
+nma-vpn-password-dialog:long_description
+nma-vpn-password-dialog:short_description
+nma-wifi-dialog:long_description
+nma-wifi-dialog:short_description
+qrcodegen:long_description
+qrcodegen:short_description

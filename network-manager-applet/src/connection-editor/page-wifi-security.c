@@ -1,21 +1,7 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+// SPDX-License-Identifier: GPL-2.0+
 /* NetworkManager Connection editor -- Connection editor for NetworkManager
  *
  * Dan Williams <dcbw@redhat.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  * Copyright 2008 - 2014 Red Hat, Inc.
  */
@@ -142,6 +128,9 @@ get_default_type_for_security (NMSettingWirelessSecurity *sec)
 		else
 			return NMU_SEC_WPA_ENTERPRISE;
 	}
+
+	if (!strcmp (key_mgmt, "sae"))
+		return NMU_SEC_SAE;
 
 	return NMU_SEC_INVALID;
 }
@@ -278,6 +267,8 @@ security_valid (NMUtilsSecurityType sectype, NM80211Mode mode)
 
 	switch (mode) {
 	case NM_802_11_MODE_AP:
+		if (sectype == NMU_SEC_SAE)
+			return TRUE;
 		return nm_utils_ap_mode_security_valid (sectype, NM_WIFI_DEVICE_CAP_AP);
 	case NM_802_11_MODE_ADHOC:
 	case NM_802_11_MODE_INFRA:
@@ -401,7 +392,7 @@ finish_setup (CEPageWifiSecurity *self, gpointer user_data)
 		ws_wpa_psk = ws_wpa_psk_new (connection, FALSE);
 		if (ws_wpa_psk) {
 			add_security_item (self, WIRELESS_SECURITY (ws_wpa_psk), sec_model,
-			                   &iter, _("WPA & WPA2 Personal"), FALSE, TRUE);
+			                   &iter, _("WPA & WPA2 Personal"), TRUE, TRUE);
 			if ((active < 0) && ((default_type == NMU_SEC_WPA_PSK) || (default_type == NMU_SEC_WPA2_PSK)))
 				active = item;
 			item++;
@@ -416,6 +407,19 @@ finish_setup (CEPageWifiSecurity *self, gpointer user_data)
 			add_security_item (self, WIRELESS_SECURITY (ws_wpa_eap), sec_model,
 			                   &iter, _("WPA & WPA2 Enterprise"), FALSE, FALSE);
 			if ((active < 0) && ((default_type == NMU_SEC_WPA_ENTERPRISE) || (default_type == NMU_SEC_WPA2_ENTERPRISE)))
+				active = item;
+			item++;
+		}
+	}
+
+	if (security_valid (NMU_SEC_SAE, mode)) {
+		WirelessSecuritySAE *ws_sae;
+
+		ws_sae = ws_sae_new (connection, FALSE);
+		if (ws_sae) {
+			add_security_item (self, WIRELESS_SECURITY (ws_sae), sec_model,
+			                   &iter, _("WPA3 Personal"), TRUE, TRUE);
+			if ((active < 0) && ((default_type == NMU_SEC_SAE)))
 				active = item;
 			item++;
 		}
@@ -485,6 +489,7 @@ ce_page_wifi_security_new (NMConnectionEditor *editor,
 	/* Get secrets if the connection is not 802.1X enabled */
 	if (   default_type == NMU_SEC_STATIC_WEP
 	    || default_type == NMU_SEC_LEAP
+	    || default_type == NMU_SEC_SAE
 	    || default_type == NMU_SEC_WPA_PSK
 	    || default_type == NMU_SEC_WPA2_PSK) {
 		*out_secrets_setting_name = NM_SETTING_WIRELESS_SECURITY_SETTING_NAME;
@@ -533,10 +538,6 @@ ce_page_validate_v (CEPage *page, NMConnection *connection, GError **error)
 	s_wireless = nm_connection_get_setting_wireless (connection);
 	g_assert (s_wireless);
 
-	/* Kernel Ad-Hoc WPA support is busted; it creates open networks.  Disable
-	 * WPA when Ad-Hoc is selected.  set_sensitive() will pick up priv->mode
-	 * and do the right thing.
-	 */
 	mode = nm_setting_wireless_get_mode (s_wireless);
 	if (g_strcmp0 (mode, NM_SETTING_WIRELESS_MODE_ADHOC) == 0)
 		priv->mode = NM_802_11_MODE_ADHOC;

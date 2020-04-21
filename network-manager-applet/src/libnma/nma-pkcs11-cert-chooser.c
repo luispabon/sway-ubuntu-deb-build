@@ -1,26 +1,13 @@
+// SPDX-License-Identifier: LGPL-2.1+
 /* NetworkManager Applet -- allow user control over networking
  *
  * Lubomir Rintel <lkundrak@v3.sk>
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the
- * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA 02110-1301 USA.
  *
  * Copyright (C) 2017,2018 Red Hat, Inc.
  */
 
 #include "nm-default.h"
+#include "nma-private.h"
 #include "nma-cert-chooser-private.h"
 #include "nma-cert-chooser-button.h"
 #include "nma-ui-utils.h"
@@ -41,7 +28,7 @@ set_key_password (NMACertChooser *cert_chooser, const gchar *password)
 
 	g_return_if_fail (priv->key_password != NULL);
 	if (password)
-		gtk_entry_set_text (GTK_ENTRY (priv->key_password), password);
+		gtk_editable_set_text (GTK_EDITABLE (priv->key_password), password);
 }
 
 static const gchar *
@@ -51,7 +38,7 @@ get_key_password (NMACertChooser *cert_chooser)
 	const gchar *text;
 
 	g_return_val_if_fail (priv->key_password != NULL, NULL);
-	text = gtk_entry_get_text (GTK_ENTRY (priv->key_password));
+	text = gtk_editable_get_text (GTK_EDITABLE (priv->key_password));
 
 	return text && text[0] ? text : NULL;
 }
@@ -65,6 +52,9 @@ set_key_uri (NMACertChooser *cert_chooser, const gchar *uri)
 	gtk_widget_set_sensitive (priv->key_button_label, TRUE);
 	gtk_widget_set_sensitive (priv->key_password, TRUE);
 	gtk_widget_set_sensitive (priv->key_password_label, TRUE);
+	gtk_widget_show (priv->key_password);
+	gtk_widget_show (priv->key_password_label);
+	gtk_widget_show (priv->show_password);
 	nma_cert_chooser_button_set_uri (NMA_CERT_CHOOSER_BUTTON (priv->key_button), uri);
 }
 
@@ -83,7 +73,7 @@ set_cert_password (NMACertChooser *cert_chooser, const gchar *password)
 
 	g_return_if_fail (priv->cert_password != NULL);
 	if (password)
-		gtk_entry_set_text (GTK_ENTRY (priv->cert_password), password);
+		gtk_editable_set_text (GTK_EDITABLE (priv->cert_password), password);
 }
 
 static const gchar *
@@ -93,7 +83,7 @@ get_cert_password (NMACertChooser *cert_chooser)
 	const gchar *text;
 
 	g_return_val_if_fail (priv->cert_password != NULL, NULL);
-	text = gtk_entry_get_text (GTK_ENTRY (priv->cert_password));
+	text = gtk_editable_get_text (GTK_EDITABLE (priv->cert_password));
 
 	return text && text[0] ? text : NULL;
 }
@@ -109,6 +99,9 @@ set_cert_uri (NMACertChooser *cert_chooser, const gchar *uri)
 	} else if (g_str_has_prefix (uri, NM_SETTING_802_1X_CERT_SCHEME_PREFIX_PKCS11)) {
 		gtk_widget_set_sensitive (priv->cert_password, TRUE);
 		gtk_widget_set_sensitive (priv->cert_password_label, TRUE);
+		gtk_widget_show (priv->cert_password);
+		gtk_widget_show (priv->cert_password_label);
+		gtk_widget_show (priv->show_password);
 	} else {
 		g_warning ("The certificate '%s' uses an unknown scheme\n", uri);
 		return;
@@ -289,7 +282,7 @@ cert_changed_cb (NMACertChooserButton *button, gpointer user_data)
 	if (nma_cert_chooser_button_get_remember_pin (button))
 		pin = nma_cert_chooser_button_get_pin (button);
 	if (pin)
-		gtk_entry_set_text (GTK_ENTRY (priv->cert_password), pin);
+		gtk_editable_set_text (GTK_EDITABLE (priv->cert_password), pin);
 
 	gtk_widget_set_sensitive (priv->cert_password, uri_data != NULL);
 	gtk_widget_set_sensitive (priv->cert_password_label, uri_data != NULL);
@@ -305,7 +298,7 @@ cert_changed_cb (NMACertChooserButton *button, gpointer user_data)
 				gtk_widget_set_sensitive (priv->key_password, TRUE);
 				gtk_widget_set_sensitive (priv->key_password_label, TRUE);
 				if (pin)
-					gtk_entry_set_text (GTK_ENTRY (priv->key_password), pin);
+					gtk_editable_set_text (GTK_EDITABLE (priv->key_password), pin);
 			}
 		}
 	}
@@ -327,7 +320,7 @@ key_changed_cb (NMACertChooserButton *button, gpointer user_data)
 	if (nma_cert_chooser_button_get_remember_pin (button))
 		pin = nma_cert_chooser_button_get_pin (button);
 	if (pin) {
-		gtk_entry_set_text (GTK_ENTRY (priv->key_password), pin);
+		gtk_editable_set_text (GTK_EDITABLE (priv->key_password), pin);
 		g_free (pin);
 	}
 
@@ -365,17 +358,23 @@ static void
 set_title (NMACertChooser *cert_chooser, const gchar *title)
 {
 	NMAPkcs11CertChooserPrivate *priv = NMA_PKCS11_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
+	gs_free gchar *mnemonic_escaped = NULL;
 	gchar *text;
+	char **split;
+
+	split = g_strsplit (title, "_", -1);
+	mnemonic_escaped = g_strjoinv("__", split);
+	g_strfreev (split);
 
 	text = g_strdup_printf (_("Choose a key for %s Certificate"), title);
 	nma_cert_chooser_button_set_title (NMA_CERT_CHOOSER_BUTTON (priv->key_button), text);
 	g_free (text);
 
-	text = g_strdup_printf (_("%s private _key"), title);
+	text = g_strdup_printf (_("%s private _key"), mnemonic_escaped);
 	gtk_label_set_text_with_mnemonic (GTK_LABEL (priv->key_button_label), text);
 	g_free (text);
 
-	text = g_strdup_printf (_("%s key _password"), title);
+	text = g_strdup_printf (_("%s key _password"), mnemonic_escaped);
 	gtk_label_set_text_with_mnemonic (GTK_LABEL (priv->key_password_label), text);
 	g_free (text);
 
@@ -383,11 +382,11 @@ set_title (NMACertChooser *cert_chooser, const gchar *title)
 	nma_cert_chooser_button_set_title (NMA_CERT_CHOOSER_BUTTON (priv->cert_button), text);
 	g_free (text);
 
-	text = g_strdup_printf (_("%s _certificate"), title);
+	text = g_strdup_printf (_("%s _certificate"), mnemonic_escaped);
 	gtk_label_set_text_with_mnemonic (GTK_LABEL (priv->cert_button_label), text);
 	g_free (text);
 
-	text = g_strdup_printf (_("%s certificate _password"), title);
+	text = g_strdup_printf (_("%s certificate _password"), mnemonic_escaped);
 	gtk_label_set_text_with_mnemonic (GTK_LABEL (priv->cert_password_label), text);
 	g_free (text);
 }
@@ -410,8 +409,9 @@ set_flags (NMACertChooser *cert_chooser, NMACertChooserFlags flags)
 		gtk_widget_hide (priv->key_button);
 		gtk_widget_hide (priv->key_button_label);
 
-		/* If these are not sensitive now, the cannot possibly be made
-		 * sensitive and there's no point in showing them. */
+		/* With FLAG_PASSWORDS the user can't pick a different key or a
+		 * certificate, so there's no point in showing inactive password
+		 * inputs. */
 		if (!gtk_widget_get_sensitive (priv->cert_password)) {
 			gtk_widget_hide (priv->cert_password);
 			gtk_widget_hide (priv->cert_password_label);

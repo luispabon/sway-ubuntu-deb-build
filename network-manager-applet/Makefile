@@ -117,29 +117,50 @@ build_triplet = x86_64-pc-linux-gnu
 host_triplet = x86_64-pc-linux-gnu
 bin_PROGRAMS = src/connection-editor/nm-connection-editor$(EXEEXT) \
 	src/nm-applet$(EXEEXT)
-noinst_PROGRAMS = $(am__EXEEXT_3)
+noinst_PROGRAMS = $(am__EXEEXT_4)
 check_PROGRAMS = $(am__EXEEXT_2)
 TESTS = $(am__EXEEXT_2)
-am__append_1 = src/utils/libutils-libnm-glib.la
-am__append_2 = src/wireless-security/libwireless-security-libnm-glib.la
-am__append_3 = \
-	$(libnm_gtk_h_priv_gen) \
-	$(libnm_gtk_c_gen)
+#am__append_1 = --with-libnm-gtk
+#am__append_2 = src/utils/libutils-libnm-glib.la
+#am__append_3 = src/utils/libutils-libnm-gtk4.la
+#am__append_4 = src/wireless-security/libwireless-security-libnm-glib.la
+#am__append_5 = src/wireless-security/libwireless-security-libnm-gtk4.la
+#am__append_6 = \
+#	$(libnm_gtk_h_priv_gen) \
+#	$(libnm_gtk_c_gen)
 
-am__append_4 = src/libnm-gtk/libnm-gtk.la
-am__append_5 = check-local-exports-libnm-gtk
-am__append_6 = src/libnm-gtk/libnm-gtk.pc
-am__append_7 = src/libnm-gtk/NMGtk-1.0.gir
-am__append_8 = src/libnm-gtk/tests/test-mobile-providers
-am__append_9 = \
+#am__append_7 = src/libnm-gtk/libnm-gtk.la
+#am__append_8 = check-local-exports-libnm-gtk
+#am__append_9 = src/libnm-gtk/libnm-gtk.pc
+#am__append_10 = src/libnm-gtk/NMGtk-1.0.gir
+#am__append_11 = src/libnm-gtk/tests/test-mobile-providers
+am__append_12 = \
 	$(libnma_h_priv_gcr) \
 	$(libnma_c_gcr)
 
-am__append_10 = \
+am__append_13 = \
 	$(libnma_c_gcr)
 
-am__append_11 = src/libnma/NMA-1.0.gir
-am__append_12 = \
+am__append_14 = src/libnma/NMA-1.0.gir
+#am__append_15 = src/libnma/libnma-gtk4.la
+##am__append_16 = \
+##	$(libnma_h_priv_gcr) \
+##	$(libnma_c_gcr)
+
+#am__append_17 = src/libnma/libnma-gtk4.pc
+##am__append_18 = \
+##	$(libnma_c_gcr)
+
+#am__append_19 = src/libnma/NMA4-1.0.gir
+#am__append_20 =  \
+#	src/libnma/tests/mobile-wizard-gtk4 \
+#	src/libnma/tests/vpn-password-dialog-gtk4 \
+#	src/libnma/tests/wifi-dialog-gtk4 \
+#	src/libnma/tests/wifi-dialog-secrets-gtk4 \
+#	src/libnma/tests/run-vpn-gtk4 \
+#	src/libnma/tests/cert-chooser-gtk4 \
+#	src/libnma/tests/bar-code-gtk4
+am__append_21 = \
 	src/applet-device-broadband.h \
 	src/applet-device-broadband.c
 
@@ -147,12 +168,16 @@ subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/attributes.m4 \
 	$(top_srcdir)/m4/compiler_options.m4 \
-	$(top_srcdir)/m4/git-sha-record.m4 \
+	$(top_srcdir)/m4/gettext.m4 $(top_srcdir)/m4/git-sha-record.m4 \
 	$(top_srcdir)/m4/glib-makefile.m4 $(top_srcdir)/m4/gtk-doc.m4 \
-	$(top_srcdir)/m4/intltool.m4 $(top_srcdir)/m4/introspection.m4 \
+	$(top_srcdir)/m4/iconv.m4 $(top_srcdir)/m4/intlmacosx.m4 \
+	$(top_srcdir)/m4/introspection.m4 $(top_srcdir)/m4/lib-ld.m4 \
+	$(top_srcdir)/m4/lib-link.m4 $(top_srcdir)/m4/lib-prefix.m4 \
 	$(top_srcdir)/m4/libtool.m4 $(top_srcdir)/m4/ltoptions.m4 \
 	$(top_srcdir)/m4/ltsugar.m4 $(top_srcdir)/m4/ltversion.m4 \
-	$(top_srcdir)/m4/lt~obsolete.m4 $(top_srcdir)/configure.ac
+	$(top_srcdir)/m4/lt~obsolete.m4 $(top_srcdir)/m4/nls.m4 \
+	$(top_srcdir)/m4/po.m4 $(top_srcdir)/m4/progtest.m4 \
+	$(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 DIST_COMMON = $(srcdir)/Makefile.am $(top_srcdir)/configure \
@@ -164,8 +189,9 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = config.h
 CONFIG_CLEAN_FILES = src/libnm-gtk/libnm-gtk.pc src/libnma/libnma.pc \
-	man/nm-applet.1 man/nm-connection-editor.1 \
-	org.gnome.nm-applet.gschema.xml src/libnma/nma-version.h
+	src/libnma/libnma-gtk4.pc man/nm-applet.1 \
+	man/nm-connection-editor.1 org.gnome.nm-applet.gschema.xml \
+	src/libnma/nma-version.h
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(libdir)" \
 	"$(DESTDIR)$(man1dir)" "$(DESTDIR)$(appdatadir)" \
@@ -177,13 +203,22 @@ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(libdir)" \
 	"$(DESTDIR)$(pkgconfigdir)" "$(DESTDIR)$(typelibdir)" \
 	"$(DESTDIR)$(src_libnm_gtk_libnmgtkdir)" \
 	"$(DESTDIR)$(src_libnma_libnmadir)"
-am__EXEEXT_1 = src/libnm-gtk/tests/test-mobile-providers$(EXEEXT)
+#am__EXEEXT_1 = src/libnm-gtk/tests/test-mobile-providers$(EXEEXT)
 am__EXEEXT_2 = src/utils/tests/test-utils$(EXEEXT) $(am__EXEEXT_1)
-am__EXEEXT_3 = src/libnma/tests/mobile-wizard$(EXEEXT) \
+#am__EXEEXT_3 = src/libnma/tests/mobile-wizard-gtk4$(EXEEXT) \
+#	src/libnma/tests/vpn-password-dialog-gtk4$(EXEEXT) \
+#	src/libnma/tests/wifi-dialog-gtk4$(EXEEXT) \
+#	src/libnma/tests/wifi-dialog-secrets-gtk4$(EXEEXT) \
+#	src/libnma/tests/run-vpn-gtk4$(EXEEXT) \
+#	src/libnma/tests/cert-chooser-gtk4$(EXEEXT) \
+#	src/libnma/tests/bar-code-gtk4$(EXEEXT)
+am__EXEEXT_4 = src/libnma/tests/mobile-wizard$(EXEEXT) \
 	src/libnma/tests/vpn-password-dialog$(EXEEXT) \
 	src/libnma/tests/wifi-dialog$(EXEEXT) \
 	src/libnma/tests/wifi-dialog-secrets$(EXEEXT) \
-	src/libnma/tests/run-vpn$(EXEEXT)
+	src/libnma/tests/run-vpn$(EXEEXT) \
+	src/libnma/tests/cert-chooser$(EXEEXT) \
+	src/libnma/tests/bar-code$(EXEEXT) $(am__EXEEXT_3)
 PROGRAMS = $(bin_PROGRAMS) $(noinst_PROGRAMS)
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
@@ -214,10 +249,10 @@ am__uninstall_files_from_dir = { \
   }
 LTLIBRARIES = $(lib_LTLIBRARIES) $(noinst_LTLIBRARIES)
 am__DEPENDENCIES_1 =
-src_libnm_gtk_libnm_gtk_la_DEPENDENCIES = src/wireless-security/libwireless-security-libnm-glib.la \
-	$(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1)
+#src_libnm_gtk_libnm_gtk_la_DEPENDENCIES = src/wireless-security/libwireless-security-libnm-glib.la \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1)
 am__src_libnm_gtk_libnm_gtk_la_SOURCES_DIST =  \
 	src/libnm-gtk/nm-wifi-dialog.c \
 	src/libnm-gtk/nm-wireless-dialog.c \
@@ -227,20 +262,20 @@ am__src_libnm_gtk_libnm_gtk_la_SOURCES_DIST =  \
 	src/libnma/nma-cert-chooser.c \
 	src/libnma/nma-file-cert-chooser.c src/libnm-gtk/init.c
 am__dirstamp = $(am__leading_dot)dirstamp
-am__objects_1 = src/libnm-gtk/libnm_gtk_la-nm-wifi-dialog.lo \
-	src/libnm-gtk/libnm_gtk_la-nm-wireless-dialog.lo \
-	src/libnm-gtk/libnm_gtk_la-nm-mobile-wizard.lo \
-	src/libnm-gtk/libnm_gtk_la-nm-ui-utils.lo \
-	src/libnm-gtk/libnm_gtk_la-nm-mobile-providers.lo \
-	src/libnm-gtk/libnm_gtk_la-nm-vpn-password-dialog.lo \
-	src/libnma/libnm_gtk_libnm_gtk_la-nma-cert-chooser.lo \
-	src/libnma/libnm_gtk_libnm_gtk_la-nma-file-cert-chooser.lo \
-	src/libnm-gtk/libnm_gtk_la-init.lo
-am_src_libnm_gtk_libnm_gtk_la_OBJECTS =  \
-	$(am__objects_1)
-am__objects_2 = src/libnm-gtk/libnm_gtk_la-nm-resources.lo
-nodist_src_libnm_gtk_libnm_gtk_la_OBJECTS =  \
-	$(am__objects_2)
+#am__objects_1 = src/libnm-gtk/libnm_gtk_la-nm-wifi-dialog.lo \
+#	src/libnm-gtk/libnm_gtk_la-nm-wireless-dialog.lo \
+#	src/libnm-gtk/libnm_gtk_la-nm-mobile-wizard.lo \
+#	src/libnm-gtk/libnm_gtk_la-nm-ui-utils.lo \
+#	src/libnm-gtk/libnm_gtk_la-nm-mobile-providers.lo \
+#	src/libnm-gtk/libnm_gtk_la-nm-vpn-password-dialog.lo \
+#	src/libnma/libnm_gtk_libnm_gtk_la-nma-cert-chooser.lo \
+#	src/libnma/libnm_gtk_libnm_gtk_la-nma-file-cert-chooser.lo \
+#	src/libnm-gtk/libnm_gtk_la-init.lo
+#am_src_libnm_gtk_libnm_gtk_la_OBJECTS =  \
+#	$(am__objects_1)
+#am__objects_2 = src/libnm-gtk/libnm_gtk_la-nm-resources.lo
+#nodist_src_libnm_gtk_libnm_gtk_la_OBJECTS =  \
+#	$(am__objects_2)
 src_libnm_gtk_libnm_gtk_la_OBJECTS =  \
 	$(am_src_libnm_gtk_libnm_gtk_la_OBJECTS) \
 	$(nodist_src_libnm_gtk_libnm_gtk_la_OBJECTS)
@@ -252,19 +287,20 @@ src_libnm_gtk_libnm_gtk_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(src_libnm_gtk_libnm_gtk_la_CFLAGS) $(CFLAGS) \
 	$(src_libnm_gtk_libnm_gtk_la_LDFLAGS) $(LDFLAGS) -o $@
-am_src_libnm_gtk_libnm_gtk_la_rpath = -rpath \
-	$(libdir)
-src_libnma_libnma_la_DEPENDENCIES =  \
-	src/wireless-security/libwireless-security-libnm.la \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
-am__src_libnma_libnma_la_SOURCES_DIST =  \
-	src/libnma/nma-cert-chooser-private.h \
+#am_src_libnm_gtk_libnm_gtk_la_rpath = -rpath \
+#	$(libdir)
+#src_libnma_libnma_gtk4_la_DEPENDENCIES = src/wireless-security/libwireless-security-libnm-gtk4.la \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1)
+am__src_libnma_libnma_gtk4_la_SOURCES_DIST =  \
+	src/libnma/nma-cert-chooser-private.h src/libnma/nma-private.h \
 	src/libnma/nma-wifi-dialog.c src/libnma/nma-mobile-wizard.c \
 	src/libnma/nma-mobile-providers.c \
 	src/libnma/nma-vpn-password-dialog.c src/libnma/nma-ui-utils.c \
 	src/libnma/init.c src/libnma/nma-cert-chooser.c \
 	src/libnma/nma-file-cert-chooser.c \
+	src/libnma/nma-bar-code-widget.c src/libnma/nma-bar-code.c \
 	src/libnma/nma-pkcs11-token-login-dialog.h \
 	src/libnma/nma-pkcs11-cert-chooser-dialog.h \
 	src/libnma/nma-cert-chooser-button.h \
@@ -273,58 +309,128 @@ am__src_libnma_libnma_la_SOURCES_DIST =  \
 	src/libnma/nma-cert-chooser-button.c \
 	src/libnma/nma-pkcs11-cert-chooser.c
 am__objects_3 =
-am__objects_4 = src/libnma/libnma_la-nma-wifi-dialog.lo \
+am__objects_4 = src/libnma/libnma_gtk4_la-nma-wifi-dialog.lo \
+	src/libnma/libnma_gtk4_la-nma-mobile-wizard.lo \
+	src/libnma/libnma_gtk4_la-nma-mobile-providers.lo \
+	src/libnma/libnma_gtk4_la-nma-vpn-password-dialog.lo \
+	src/libnma/libnma_gtk4_la-nma-ui-utils.lo \
+	src/libnma/libnma_gtk4_la-init.lo \
+	src/libnma/libnma_gtk4_la-nma-cert-chooser.lo \
+	src/libnma/libnma_gtk4_la-nma-file-cert-chooser.lo \
+	src/libnma/libnma_gtk4_la-nma-bar-code-widget.lo \
+	src/libnma/libnma_gtk4_la-nma-bar-code.lo
+am__objects_5 =  \
+	src/libnma/libnma_gtk4_la-nma-pkcs11-token-login-dialog.lo \
+	src/libnma/libnma_gtk4_la-nma-pkcs11-cert-chooser-dialog.lo \
+	src/libnma/libnma_gtk4_la-nma-cert-chooser-button.lo \
+	src/libnma/libnma_gtk4_la-nma-pkcs11-cert-chooser.lo
+##am__objects_6 =  \
+##	$(am__objects_3) \
+##	$(am__objects_5)
+#am_src_libnma_libnma_gtk4_la_OBJECTS =  \
+#	$(am__objects_3) $(am__objects_4) \
+#	$(am__objects_6)
+am__objects_7 =  \
+	src/libnma-gtk4/libnma_libnma_gtk4_la-nma-resources.lo
+#nodist_src_libnma_libnma_gtk4_la_OBJECTS =  \
+#	$(am__objects_3) $(am__objects_7)
+src_libnma_libnma_gtk4_la_OBJECTS =  \
+	$(am_src_libnma_libnma_gtk4_la_OBJECTS) \
+	$(nodist_src_libnma_libnma_gtk4_la_OBJECTS)
+src_libnma_libnma_gtk4_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
+	$(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) \
+	$(src_libnma_libnma_gtk4_la_LDFLAGS) $(LDFLAGS) -o $@
+#am_src_libnma_libnma_gtk4_la_rpath = -rpath \
+#	$(libdir)
+src_libnma_libnma_la_DEPENDENCIES =  \
+	src/wireless-security/libwireless-security-libnm.la \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+am__src_libnma_libnma_la_SOURCES_DIST =  \
+	src/libnma/nma-cert-chooser-private.h src/libnma/nma-private.h \
+	src/libnma/nma-wifi-dialog.c src/libnma/nma-mobile-wizard.c \
+	src/libnma/nma-mobile-providers.c \
+	src/libnma/nma-vpn-password-dialog.c src/libnma/nma-ui-utils.c \
+	src/libnma/init.c src/libnma/nma-cert-chooser.c \
+	src/libnma/nma-file-cert-chooser.c \
+	src/libnma/nma-bar-code-widget.c src/libnma/nma-bar-code.c \
+	src/libnma/nma-pkcs11-token-login-dialog.h \
+	src/libnma/nma-pkcs11-cert-chooser-dialog.h \
+	src/libnma/nma-cert-chooser-button.h \
+	src/libnma/nma-pkcs11-token-login-dialog.c \
+	src/libnma/nma-pkcs11-cert-chooser-dialog.c \
+	src/libnma/nma-cert-chooser-button.c \
+	src/libnma/nma-pkcs11-cert-chooser.c
+am__objects_8 = src/libnma/libnma_la-nma-wifi-dialog.lo \
 	src/libnma/libnma_la-nma-mobile-wizard.lo \
 	src/libnma/libnma_la-nma-mobile-providers.lo \
 	src/libnma/libnma_la-nma-vpn-password-dialog.lo \
 	src/libnma/libnma_la-nma-ui-utils.lo \
 	src/libnma/libnma_la-init.lo \
 	src/libnma/libnma_la-nma-cert-chooser.lo \
-	src/libnma/libnma_la-nma-file-cert-chooser.lo
-am__objects_5 = src/libnma/libnma_la-nma-pkcs11-token-login-dialog.lo \
+	src/libnma/libnma_la-nma-file-cert-chooser.lo \
+	src/libnma/libnma_la-nma-bar-code-widget.lo \
+	src/libnma/libnma_la-nma-bar-code.lo
+am__objects_9 = src/libnma/libnma_la-nma-pkcs11-token-login-dialog.lo \
 	src/libnma/libnma_la-nma-pkcs11-cert-chooser-dialog.lo \
 	src/libnma/libnma_la-nma-cert-chooser-button.lo \
 	src/libnma/libnma_la-nma-pkcs11-cert-chooser.lo
-am__objects_6 = $(am__objects_3) $(am__objects_5)
-am_src_libnma_libnma_la_OBJECTS = $(am__objects_3) $(am__objects_4) \
-	$(am__objects_6)
-am__objects_7 = src/libnma/libnma_la-nma-resources.lo
+am__objects_10 = $(am__objects_3) $(am__objects_9)
+am_src_libnma_libnma_la_OBJECTS = $(am__objects_3) $(am__objects_8) \
+	$(am__objects_10)
+am__objects_11 = src/libnma/libnma_la-nma-resources.lo
 nodist_src_libnma_libnma_la_OBJECTS = $(am__objects_3) \
-	$(am__objects_7)
+	$(am__objects_11)
 src_libnma_libnma_la_OBJECTS = $(am_src_libnma_libnma_la_OBJECTS) \
 	$(nodist_src_libnma_libnma_la_OBJECTS)
 src_libnma_libnma_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(src_libnma_libnma_la_CFLAGS) $(CFLAGS) \
 	$(src_libnma_libnma_la_LDFLAGS) $(LDFLAGS) -o $@
-src_utils_libutils_libnm_glib_la_DEPENDENCIES =  \
-	$(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1)
+#src_utils_libutils_libnm_glib_la_DEPENDENCIES =  \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1)
 am__src_utils_libutils_libnm_glib_la_SOURCES_DIST =  \
 	shared/nm-utils/nm-shared-utils.c \
 	shared/nm-utils/nm-shared-utils.h src/utils/utils.c \
 	src/utils/utils.h
-am__objects_8 = shared/nm-utils/src_utils_libutils_libnm_glib_la-nm-shared-utils.lo
-am_src_utils_libutils_libnm_glib_la_OBJECTS =  \
-	$(am__objects_8) \
-	src/utils/libutils_libnm_glib_la-utils.lo
+am__objects_12 = shared/nm-utils/src_utils_libutils_libnm_glib_la-nm-shared-utils.lo
+#am_src_utils_libutils_libnm_glib_la_OBJECTS =  \
+#	$(am__objects_12) \
+#	src/utils/libutils_libnm_glib_la-utils.lo
 src_utils_libutils_libnm_glib_la_OBJECTS =  \
 	$(am_src_utils_libutils_libnm_glib_la_OBJECTS)
-am_src_utils_libutils_libnm_glib_la_rpath =
+#am_src_utils_libutils_libnm_glib_la_rpath =
+#src_utils_libutils_libnm_gtk4_la_DEPENDENCIES =  \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1)
+am__src_utils_libutils_libnm_gtk4_la_SOURCES_DIST =  \
+	shared/nm-utils/nm-shared-utils.c \
+	shared/nm-utils/nm-shared-utils.h src/utils/utils.c \
+	src/utils/utils.h
+am__objects_13 = shared/nm-utils/src_utils_libutils_libnm_gtk4_la-nm-shared-utils.lo
+#am_src_utils_libutils_libnm_gtk4_la_OBJECTS =  \
+#	$(am__objects_13) \
+#	src/utils/libutils_libnm_gtk4_la-utils.lo
+src_utils_libutils_libnm_gtk4_la_OBJECTS =  \
+	$(am_src_utils_libutils_libnm_gtk4_la_OBJECTS)
+#am_src_utils_libutils_libnm_gtk4_la_rpath =
 src_utils_libutils_libnm_la_DEPENDENCIES = $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1)
-am__objects_9 = shared/nm-utils/src_utils_libutils_libnm_la-nm-shared-utils.lo
-am_src_utils_libutils_libnm_la_OBJECTS = $(am__objects_9) \
+am__objects_14 = shared/nm-utils/src_utils_libutils_libnm_la-nm-shared-utils.lo
+am_src_utils_libutils_libnm_la_OBJECTS = $(am__objects_14) \
 	src/utils/libutils_libnm_la-utils.lo
 src_utils_libutils_libnm_la_OBJECTS =  \
 	$(am_src_utils_libutils_libnm_la_OBJECTS)
-src_wireless_security_libwireless_security_libnm_glib_la_DEPENDENCIES =  \
-	src/utils/libutils-libnm-glib.la \
-	$(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1)
+#src_wireless_security_libwireless_security_libnm_glib_la_DEPENDENCIES =  \
+#	src/utils/libutils-libnm-glib.la \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1)
 am__src_wireless_security_libwireless_security_libnm_glib_la_SOURCES_DIST =  \
 	src/wireless-security/wireless-security.h \
 	src/wireless-security/wireless-security.c \
+	src/wireless-security/ws-sae.h src/wireless-security/ws-sae.c \
 	src/wireless-security/ws-wep-key.h \
 	src/wireless-security/ws-wep-key.c \
 	src/wireless-security/ws-wpa-psk.h \
@@ -351,7 +457,8 @@ am__src_wireless_security_libwireless_security_libnm_glib_la_SOURCES_DIST =  \
 	src/wireless-security/eap-method-simple.c \
 	src/wireless-security/helpers.h \
 	src/wireless-security/helpers.c
-am__objects_10 = src/wireless-security/libwireless_security_libnm_glib_la-wireless-security.lo \
+am__objects_15 = src/wireless-security/libwireless_security_libnm_glib_la-wireless-security.lo \
+	src/wireless-security/libwireless_security_libnm_glib_la-ws-sae.lo \
 	src/wireless-security/libwireless_security_libnm_glib_la-ws-wep-key.lo \
 	src/wireless-security/libwireless_security_libnm_glib_la-ws-wpa-psk.lo \
 	src/wireless-security/libwireless_security_libnm_glib_la-ws-leap.lo \
@@ -365,18 +472,76 @@ am__objects_10 = src/wireless-security/libwireless_security_libnm_glib_la-wirele
 	src/wireless-security/libwireless_security_libnm_glib_la-eap-method-peap.lo \
 	src/wireless-security/libwireless_security_libnm_glib_la-eap-method-simple.lo \
 	src/wireless-security/libwireless_security_libnm_glib_la-helpers.lo
-am_src_wireless_security_libwireless_security_libnm_glib_la_OBJECTS =  \
-	$(am__objects_10)
-am__objects_11 = src/wireless-security/libwireless_security_libnm_glib_la-ws-resources.lo
-nodist_src_wireless_security_libwireless_security_libnm_glib_la_OBJECTS =  \
-	$(am__objects_11)
+#am_src_wireless_security_libwireless_security_libnm_glib_la_OBJECTS =  \
+#	$(am__objects_15)
+am__objects_16 = src/wireless-security/libwireless_security_libnm_glib_la-ws-resources.lo
+#nodist_src_wireless_security_libwireless_security_libnm_glib_la_OBJECTS =  \
+#	$(am__objects_16)
 src_wireless_security_libwireless_security_libnm_glib_la_OBJECTS = $(am_src_wireless_security_libwireless_security_libnm_glib_la_OBJECTS) \
 	$(nodist_src_wireless_security_libwireless_security_libnm_glib_la_OBJECTS)
-am_src_wireless_security_libwireless_security_libnm_glib_la_rpath =
+#am_src_wireless_security_libwireless_security_libnm_glib_la_rpath =
+#src_wireless_security_libwireless_security_libnm_gtk4_la_DEPENDENCIES =  \
+#	src/utils/libutils-libnm-gtk4.la \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1)
+am__src_wireless_security_libwireless_security_libnm_gtk4_la_SOURCES_DIST =  \
+	src/wireless-security/wireless-security.h \
+	src/wireless-security/wireless-security.c \
+	src/wireless-security/ws-sae.h src/wireless-security/ws-sae.c \
+	src/wireless-security/ws-wep-key.h \
+	src/wireless-security/ws-wep-key.c \
+	src/wireless-security/ws-wpa-psk.h \
+	src/wireless-security/ws-wpa-psk.c \
+	src/wireless-security/ws-leap.h \
+	src/wireless-security/ws-leap.c \
+	src/wireless-security/ws-wpa-eap.h \
+	src/wireless-security/ws-wpa-eap.c \
+	src/wireless-security/ws-dynamic-wep.h \
+	src/wireless-security/ws-dynamic-wep.c \
+	src/wireless-security/eap-method.h \
+	src/wireless-security/eap-method.c \
+	src/wireless-security/eap-method-tls.h \
+	src/wireless-security/eap-method-tls.c \
+	src/wireless-security/eap-method-leap.h \
+	src/wireless-security/eap-method-leap.c \
+	src/wireless-security/eap-method-fast.h \
+	src/wireless-security/eap-method-fast.c \
+	src/wireless-security/eap-method-ttls.h \
+	src/wireless-security/eap-method-ttls.c \
+	src/wireless-security/eap-method-peap.h \
+	src/wireless-security/eap-method-peap.c \
+	src/wireless-security/eap-method-simple.h \
+	src/wireless-security/eap-method-simple.c \
+	src/wireless-security/helpers.h \
+	src/wireless-security/helpers.c
+am__objects_17 = src/wireless-security/libwireless_security_libnm_gtk4_la-wireless-security.lo \
+	src/wireless-security/libwireless_security_libnm_gtk4_la-ws-sae.lo \
+	src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wep-key.lo \
+	src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wpa-psk.lo \
+	src/wireless-security/libwireless_security_libnm_gtk4_la-ws-leap.lo \
+	src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wpa-eap.lo \
+	src/wireless-security/libwireless_security_libnm_gtk4_la-ws-dynamic-wep.lo \
+	src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method.lo \
+	src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-tls.lo \
+	src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-leap.lo \
+	src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-fast.lo \
+	src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-ttls.lo \
+	src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-peap.lo \
+	src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-simple.lo \
+	src/wireless-security/libwireless_security_libnm_gtk4_la-helpers.lo
+#am_src_wireless_security_libwireless_security_libnm_gtk4_la_OBJECTS =  \
+#	$(am__objects_17)
+am__objects_18 = src/wireless-security/libwireless_security_libnm_gtk4_la-ws-resources.lo
+#nodist_src_wireless_security_libwireless_security_libnm_gtk4_la_OBJECTS =  \
+#	$(am__objects_18)
+src_wireless_security_libwireless_security_libnm_gtk4_la_OBJECTS = $(am_src_wireless_security_libwireless_security_libnm_gtk4_la_OBJECTS) \
+	$(nodist_src_wireless_security_libwireless_security_libnm_gtk4_la_OBJECTS)
+#am_src_wireless_security_libwireless_security_libnm_gtk4_la_rpath =
 src_wireless_security_libwireless_security_libnm_la_DEPENDENCIES =  \
 	src/utils/libutils-libnm.la $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1)
-am__objects_12 = src/wireless-security/libwireless_security_libnm_la-wireless-security.lo \
+am__objects_19 = src/wireless-security/libwireless_security_libnm_la-wireless-security.lo \
+	src/wireless-security/libwireless_security_libnm_la-ws-sae.lo \
 	src/wireless-security/libwireless_security_libnm_la-ws-wep-key.lo \
 	src/wireless-security/libwireless_security_libnm_la-ws-wpa-psk.lo \
 	src/wireless-security/libwireless_security_libnm_la-ws-leap.lo \
@@ -391,13 +556,13 @@ am__objects_12 = src/wireless-security/libwireless_security_libnm_la-wireless-se
 	src/wireless-security/libwireless_security_libnm_la-eap-method-simple.lo \
 	src/wireless-security/libwireless_security_libnm_la-helpers.lo
 am_src_wireless_security_libwireless_security_libnm_la_OBJECTS =  \
-	$(am__objects_12)
-am__objects_13 = src/wireless-security/libwireless_security_libnm_la-ws-resources.lo
+	$(am__objects_19)
+am__objects_20 = src/wireless-security/libwireless_security_libnm_la-ws-resources.lo
 nodist_src_wireless_security_libwireless_security_libnm_la_OBJECTS =  \
-	$(am__objects_13)
+	$(am__objects_20)
 src_wireless_security_libwireless_security_libnm_la_OBJECTS = $(am_src_wireless_security_libwireless_security_libnm_la_OBJECTS) \
 	$(nodist_src_wireless_security_libwireless_security_libnm_la_OBJECTS)
-am__objects_14 = src/connection-editor/nm_connection_editor-nm-connection-editor.$(OBJEXT) \
+am__objects_21 = src/connection-editor/nm_connection_editor-nm-connection-editor.$(OBJEXT) \
 	src/connection-editor/nm_connection_editor-nm-connection-list.$(OBJEXT) \
 	src/connection-editor/nm_connection_editor-main.$(OBJEXT) \
 	src/connection-editor/nm_connection_editor-ce-page.$(OBJEXT) \
@@ -434,10 +599,10 @@ am__objects_14 = src/connection-editor/nm_connection_editor-nm-connection-editor
 	src/connection-editor/nm_connection_editor-ce-utils.$(OBJEXT) \
 	src/connection-editor/nm_connection_editor-connection-helpers.$(OBJEXT)
 am_src_connection_editor_nm_connection_editor_OBJECTS =  \
-	$(am__objects_14)
-am__objects_15 = src/connection-editor/nm_connection_editor-ce-resources.$(OBJEXT)
+	$(am__objects_21)
+am__objects_22 = src/connection-editor/nm_connection_editor-ce-resources.$(OBJEXT)
 nodist_src_connection_editor_nm_connection_editor_OBJECTS =  \
-	$(am__objects_15)
+	$(am__objects_22)
 src_connection_editor_nm_connection_editor_OBJECTS =  \
 	$(am_src_connection_editor_nm_connection_editor_OBJECTS) \
 	$(nodist_src_connection_editor_nm_connection_editor_OBJECTS)
@@ -454,9 +619,42 @@ src_connection_editor_nm_connection_editor_LINK = $(LIBTOOL) \
 src_libnm_gtk_tests_test_mobile_providers_SOURCES =  \
 	src/libnm-gtk/tests/test-mobile-providers.c
 src_libnm_gtk_tests_test_mobile_providers_OBJECTS = src/libnm-gtk/tests/test_mobile_providers-test-mobile-providers.$(OBJEXT)
-src_libnm_gtk_tests_test_mobile_providers_DEPENDENCIES =  \
-	src/libnm-gtk/libnm-gtk.la \
-	$(am__DEPENDENCIES_1)
+#src_libnm_gtk_tests_test_mobile_providers_DEPENDENCIES =  \
+#	src/libnm-gtk/libnm-gtk.la \
+#	$(am__DEPENDENCIES_1)
+src_libnma_tests_bar_code_SOURCES = src/libnma/tests/bar-code.c
+src_libnma_tests_bar_code_OBJECTS =  \
+	src/libnma/tests/bar_code-bar-code.$(OBJEXT)
+src_libnma_tests_bar_code_DEPENDENCIES = $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	src/libnma/libnma.la
+am__src_libnma_tests_bar_code_gtk4_SOURCES_DIST =  \
+	src/libnma/tests/bar-code.c
+#am_src_libnma_tests_bar_code_gtk4_OBJECTS = src/libnma/tests/bar_code_gtk4-bar-code.$(OBJEXT)
+src_libnma_tests_bar_code_gtk4_OBJECTS =  \
+	$(am_src_libnma_tests_bar_code_gtk4_OBJECTS)
+#src_libnma_tests_bar_code_gtk4_DEPENDENCIES =  \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	src/libnma/libnma-gtk4.la
+src_libnma_tests_cert_chooser_SOURCES =  \
+	src/libnma/tests/cert-chooser.c
+src_libnma_tests_cert_chooser_OBJECTS =  \
+	src/libnma/tests/cert_chooser-cert-chooser.$(OBJEXT)
+src_libnma_tests_cert_chooser_DEPENDENCIES = $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	src/libnma/libnma.la
+am__src_libnma_tests_cert_chooser_gtk4_SOURCES_DIST =  \
+	src/libnma/tests/cert-chooser.c
+#am_src_libnma_tests_cert_chooser_gtk4_OBJECTS = src/libnma/tests/cert_chooser_gtk4-cert-chooser.$(OBJEXT)
+src_libnma_tests_cert_chooser_gtk4_OBJECTS =  \
+	$(am_src_libnma_tests_cert_chooser_gtk4_OBJECTS)
+#src_libnma_tests_cert_chooser_gtk4_DEPENDENCIES =  \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	src/libnma/libnma-gtk4.la
 src_libnma_tests_mobile_wizard_SOURCES =  \
 	src/libnma/tests/mobile-wizard.c
 src_libnma_tests_mobile_wizard_OBJECTS =  \
@@ -464,30 +662,80 @@ src_libnma_tests_mobile_wizard_OBJECTS =  \
 src_libnma_tests_mobile_wizard_DEPENDENCIES = $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	src/libnma/libnma.la
+am__src_libnma_tests_mobile_wizard_gtk4_SOURCES_DIST =  \
+	src/libnma/tests/mobile-wizard.c
+#am_src_libnma_tests_mobile_wizard_gtk4_OBJECTS = src/libnma/tests/mobile_wizard_gtk4-mobile-wizard.$(OBJEXT)
+src_libnma_tests_mobile_wizard_gtk4_OBJECTS =  \
+	$(am_src_libnma_tests_mobile_wizard_gtk4_OBJECTS)
+#src_libnma_tests_mobile_wizard_gtk4_DEPENDENCIES =  \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	src/libnma/libnma-gtk4.la
 src_libnma_tests_run_vpn_SOURCES = src/libnma/tests/run-vpn.c
 src_libnma_tests_run_vpn_OBJECTS =  \
 	src/libnma/tests/run_vpn-run-vpn.$(OBJEXT)
 src_libnma_tests_run_vpn_DEPENDENCIES = $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	src/libnma/libnma.la
+am__src_libnma_tests_run_vpn_gtk4_SOURCES_DIST =  \
+	src/libnma/tests/run-vpn.c
+#am_src_libnma_tests_run_vpn_gtk4_OBJECTS = src/libnma/tests/run_vpn_gtk4-run-vpn.$(OBJEXT)
+src_libnma_tests_run_vpn_gtk4_OBJECTS =  \
+	$(am_src_libnma_tests_run_vpn_gtk4_OBJECTS)
+#src_libnma_tests_run_vpn_gtk4_DEPENDENCIES =  \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	src/libnma/libnma-gtk4.la
 src_libnma_tests_vpn_password_dialog_SOURCES =  \
 	src/libnma/tests/vpn-password-dialog.c
 src_libnma_tests_vpn_password_dialog_OBJECTS = src/libnma/tests/vpn_password_dialog-vpn-password-dialog.$(OBJEXT)
 src_libnma_tests_vpn_password_dialog_DEPENDENCIES =  \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) src/libnma/libnma.la
+am__src_libnma_tests_vpn_password_dialog_gtk4_SOURCES_DIST =  \
+	src/libnma/tests/vpn-password-dialog.c
+#am_src_libnma_tests_vpn_password_dialog_gtk4_OBJECTS = src/libnma/tests/vpn_password_dialog_gtk4-vpn-password-dialog.$(OBJEXT)
+src_libnma_tests_vpn_password_dialog_gtk4_OBJECTS =  \
+	$(am_src_libnma_tests_vpn_password_dialog_gtk4_OBJECTS)
+#src_libnma_tests_vpn_password_dialog_gtk4_DEPENDENCIES =  \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	src/libnma/libnma-gtk4.la
 src_libnma_tests_wifi_dialog_SOURCES = src/libnma/tests/wifi-dialog.c
 src_libnma_tests_wifi_dialog_OBJECTS =  \
 	src/libnma/tests/wifi_dialog-wifi-dialog.$(OBJEXT)
 src_libnma_tests_wifi_dialog_DEPENDENCIES = $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	src/libnma/libnma.la
+am__src_libnma_tests_wifi_dialog_gtk4_SOURCES_DIST =  \
+	src/libnma/tests/wifi-dialog.c
+#am_src_libnma_tests_wifi_dialog_gtk4_OBJECTS = src/libnma/tests/wifi_dialog_gtk4-wifi-dialog.$(OBJEXT)
+src_libnma_tests_wifi_dialog_gtk4_OBJECTS =  \
+	$(am_src_libnma_tests_wifi_dialog_gtk4_OBJECTS)
+#src_libnma_tests_wifi_dialog_gtk4_DEPENDENCIES =  \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	src/libnma/libnma-gtk4.la
 src_libnma_tests_wifi_dialog_secrets_SOURCES =  \
 	src/libnma/tests/wifi-dialog-secrets.c
 src_libnma_tests_wifi_dialog_secrets_OBJECTS = src/libnma/tests/wifi_dialog_secrets-wifi-dialog-secrets.$(OBJEXT)
 src_libnma_tests_wifi_dialog_secrets_DEPENDENCIES =  \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) src/libnma/libnma.la
+am__src_libnma_tests_wifi_dialog_secrets_gtk4_SOURCES_DIST =  \
+	src/libnma/tests/wifi-dialog-secrets.c
+#am_src_libnma_tests_wifi_dialog_secrets_gtk4_OBJECTS = src/libnma/tests/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.$(OBJEXT)
+src_libnma_tests_wifi_dialog_secrets_gtk4_OBJECTS =  \
+	$(am_src_libnma_tests_wifi_dialog_secrets_gtk4_OBJECTS)
+#src_libnma_tests_wifi_dialog_secrets_gtk4_DEPENDENCIES =  \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1) \
+#	src/libnma/libnma-gtk4.la
 am__src_nm_applet_SOURCES_DIST = shared/nm-utils/nm-compat.c \
 	src/main.c src/applet.c src/applet.h src/applet-agent.c \
 	src/applet-agent.h src/applet-vpn-request.c \
@@ -500,8 +748,8 @@ am__src_nm_applet_SOURCES_DIST = shared/nm-utils/nm-compat.c \
 	src/mobile-helpers.h src/applet-device-bt.h \
 	src/applet-device-bt.c src/fallback-icon.h \
 	src/applet-device-broadband.h src/applet-device-broadband.c
-am__objects_16 = src/nm_applet-applet-device-broadband.$(OBJEXT)
-am__objects_17 = shared/nm-utils/src_nm_applet-nm-compat.$(OBJEXT) \
+am__objects_23 = src/nm_applet-applet-device-broadband.$(OBJEXT)
+am__objects_24 = shared/nm-utils/src_nm_applet-nm-compat.$(OBJEXT) \
 	src/nm_applet-main.$(OBJEXT) src/nm_applet-applet.$(OBJEXT) \
 	src/nm_applet-applet-agent.$(OBJEXT) \
 	src/nm_applet-applet-vpn-request.$(OBJEXT) \
@@ -512,10 +760,10 @@ am__objects_17 = shared/nm-utils/src_nm_applet-nm-compat.$(OBJEXT) \
 	src/nm_applet-ap-menu-item.$(OBJEXT) \
 	src/nm_applet-mb-menu-item.$(OBJEXT) \
 	src/nm_applet-mobile-helpers.$(OBJEXT) \
-	src/nm_applet-applet-device-bt.$(OBJEXT) $(am__objects_16)
-am_src_nm_applet_OBJECTS = $(am__objects_17)
-am__objects_18 = src/nm_applet-applet-resources.$(OBJEXT)
-nodist_src_nm_applet_OBJECTS = $(am__objects_18)
+	src/nm_applet-applet-device-bt.$(OBJEXT) $(am__objects_23)
+am_src_nm_applet_OBJECTS = $(am__objects_24)
+am__objects_25 = src/nm_applet-applet-resources.$(OBJEXT)
+nodist_src_nm_applet_OBJECTS = $(am__objects_25)
 src_nm_applet_OBJECTS = $(am_src_nm_applet_OBJECTS) \
 	$(nodist_src_nm_applet_OBJECTS)
 src_nm_applet_DEPENDENCIES =  \
@@ -551,6 +799,7 @@ am__maybe_remake_depfiles = depfiles
 am__depfiles_remade =  \
 	shared/nm-utils/$(DEPDIR)/src_nm_applet-nm-compat.Po \
 	shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_glib_la-nm-shared-utils.Plo \
+	shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_gtk4_la-nm-shared-utils.Plo \
 	shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_la-nm-shared-utils.Plo \
 	src/$(DEPDIR)/nm_applet-ap-menu-item.Po \
 	src/$(DEPDIR)/nm_applet-applet-agent.Po \
@@ -612,9 +861,26 @@ am__depfiles_remade =  \
 	src/libnm-gtk/$(DEPDIR)/libnm_gtk_la-nm-wifi-dialog.Plo \
 	src/libnm-gtk/$(DEPDIR)/libnm_gtk_la-nm-wireless-dialog.Plo \
 	src/libnm-gtk/tests/$(DEPDIR)/test_mobile_providers-test-mobile-providers.Po \
+	src/libnma-gtk4/$(DEPDIR)/libnma_libnma_gtk4_la-nma-resources.Plo \
 	src/libnma/$(DEPDIR)/libnm_gtk_libnm_gtk_la-nma-cert-chooser.Plo \
 	src/libnma/$(DEPDIR)/libnm_gtk_libnm_gtk_la-nma-file-cert-chooser.Plo \
+	src/libnma/$(DEPDIR)/libnma_gtk4_la-init.Plo \
+	src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-bar-code-widget.Plo \
+	src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-bar-code.Plo \
+	src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-cert-chooser-button.Plo \
+	src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-cert-chooser.Plo \
+	src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-file-cert-chooser.Plo \
+	src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-mobile-providers.Plo \
+	src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-mobile-wizard.Plo \
+	src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-cert-chooser-dialog.Plo \
+	src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-cert-chooser.Plo \
+	src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-token-login-dialog.Plo \
+	src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-ui-utils.Plo \
+	src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-vpn-password-dialog.Plo \
+	src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-wifi-dialog.Plo \
 	src/libnma/$(DEPDIR)/libnma_la-init.Plo \
+	src/libnma/$(DEPDIR)/libnma_la-nma-bar-code-widget.Plo \
+	src/libnma/$(DEPDIR)/libnma_la-nma-bar-code.Plo \
 	src/libnma/$(DEPDIR)/libnma_la-nma-cert-chooser-button.Plo \
 	src/libnma/$(DEPDIR)/libnma_la-nma-cert-chooser.Plo \
 	src/libnma/$(DEPDIR)/libnma_la-nma-file-cert-chooser.Plo \
@@ -627,12 +893,22 @@ am__depfiles_remade =  \
 	src/libnma/$(DEPDIR)/libnma_la-nma-ui-utils.Plo \
 	src/libnma/$(DEPDIR)/libnma_la-nma-vpn-password-dialog.Plo \
 	src/libnma/$(DEPDIR)/libnma_la-nma-wifi-dialog.Plo \
+	src/libnma/tests/$(DEPDIR)/bar_code-bar-code.Po \
+	src/libnma/tests/$(DEPDIR)/bar_code_gtk4-bar-code.Po \
+	src/libnma/tests/$(DEPDIR)/cert_chooser-cert-chooser.Po \
+	src/libnma/tests/$(DEPDIR)/cert_chooser_gtk4-cert-chooser.Po \
 	src/libnma/tests/$(DEPDIR)/mobile_wizard-mobile-wizard.Po \
+	src/libnma/tests/$(DEPDIR)/mobile_wizard_gtk4-mobile-wizard.Po \
 	src/libnma/tests/$(DEPDIR)/run_vpn-run-vpn.Po \
+	src/libnma/tests/$(DEPDIR)/run_vpn_gtk4-run-vpn.Po \
 	src/libnma/tests/$(DEPDIR)/vpn_password_dialog-vpn-password-dialog.Po \
+	src/libnma/tests/$(DEPDIR)/vpn_password_dialog_gtk4-vpn-password-dialog.Po \
 	src/libnma/tests/$(DEPDIR)/wifi_dialog-wifi-dialog.Po \
+	src/libnma/tests/$(DEPDIR)/wifi_dialog_gtk4-wifi-dialog.Po \
 	src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets-wifi-dialog-secrets.Po \
+	src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.Po \
 	src/utils/$(DEPDIR)/libutils_libnm_glib_la-utils.Plo \
+	src/utils/$(DEPDIR)/libutils_libnm_gtk4_la-utils.Plo \
 	src/utils/$(DEPDIR)/libutils_libnm_la-utils.Plo \
 	src/utils/tests/$(DEPDIR)/test_utils-test-utils.Po \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-eap-method-fast.Plo \
@@ -647,9 +923,26 @@ am__depfiles_remade =  \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-dynamic-wep.Plo \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-leap.Plo \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-resources.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-sae.Plo \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-wep-key.Plo \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-wpa-eap.Plo \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-wpa-psk.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-fast.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-leap.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-peap.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-simple.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-tls.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-ttls.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-helpers.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-wireless-security.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-dynamic-wep.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-leap.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-resources.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-sae.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wep-key.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wpa-eap.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wpa-psk.Plo \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-eap-method-fast.Plo \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-eap-method-leap.Plo \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-eap-method-peap.Plo \
@@ -662,6 +955,7 @@ am__depfiles_remade =  \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-dynamic-wep.Plo \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-leap.Plo \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-resources.Plo \
+	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-sae.Plo \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-wep-key.Plo \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-wpa-eap.Plo \
 	src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-wpa-psk.Plo
@@ -686,35 +980,63 @@ am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
 SOURCES = $(src_libnm_gtk_libnm_gtk_la_SOURCES) \
 	$(nodist_src_libnm_gtk_libnm_gtk_la_SOURCES) \
+	$(src_libnma_libnma_gtk4_la_SOURCES) \
+	$(nodist_src_libnma_libnma_gtk4_la_SOURCES) \
 	$(src_libnma_libnma_la_SOURCES) \
 	$(nodist_src_libnma_libnma_la_SOURCES) \
 	$(src_utils_libutils_libnm_glib_la_SOURCES) \
+	$(src_utils_libutils_libnm_gtk4_la_SOURCES) \
 	$(src_utils_libutils_libnm_la_SOURCES) \
 	$(src_wireless_security_libwireless_security_libnm_glib_la_SOURCES) \
 	$(nodist_src_wireless_security_libwireless_security_libnm_glib_la_SOURCES) \
+	$(src_wireless_security_libwireless_security_libnm_gtk4_la_SOURCES) \
+	$(nodist_src_wireless_security_libwireless_security_libnm_gtk4_la_SOURCES) \
 	$(src_wireless_security_libwireless_security_libnm_la_SOURCES) \
 	$(nodist_src_wireless_security_libwireless_security_libnm_la_SOURCES) \
 	$(src_connection_editor_nm_connection_editor_SOURCES) \
 	$(nodist_src_connection_editor_nm_connection_editor_SOURCES) \
 	src/libnm-gtk/tests/test-mobile-providers.c \
-	src/libnma/tests/mobile-wizard.c src/libnma/tests/run-vpn.c \
+	src/libnma/tests/bar-code.c \
+	$(src_libnma_tests_bar_code_gtk4_SOURCES) \
+	src/libnma/tests/cert-chooser.c \
+	$(src_libnma_tests_cert_chooser_gtk4_SOURCES) \
+	src/libnma/tests/mobile-wizard.c \
+	$(src_libnma_tests_mobile_wizard_gtk4_SOURCES) \
+	src/libnma/tests/run-vpn.c \
+	$(src_libnma_tests_run_vpn_gtk4_SOURCES) \
 	src/libnma/tests/vpn-password-dialog.c \
+	$(src_libnma_tests_vpn_password_dialog_gtk4_SOURCES) \
 	src/libnma/tests/wifi-dialog.c \
+	$(src_libnma_tests_wifi_dialog_gtk4_SOURCES) \
 	src/libnma/tests/wifi-dialog-secrets.c \
+	$(src_libnma_tests_wifi_dialog_secrets_gtk4_SOURCES) \
 	$(src_nm_applet_SOURCES) $(nodist_src_nm_applet_SOURCES) \
 	$(src_utils_tests_test_utils_SOURCES)
 DIST_SOURCES = $(am__src_libnm_gtk_libnm_gtk_la_SOURCES_DIST) \
+	$(am__src_libnma_libnma_gtk4_la_SOURCES_DIST) \
 	$(am__src_libnma_libnma_la_SOURCES_DIST) \
 	$(am__src_utils_libutils_libnm_glib_la_SOURCES_DIST) \
+	$(am__src_utils_libutils_libnm_gtk4_la_SOURCES_DIST) \
 	$(src_utils_libutils_libnm_la_SOURCES) \
 	$(am__src_wireless_security_libwireless_security_libnm_glib_la_SOURCES_DIST) \
+	$(am__src_wireless_security_libwireless_security_libnm_gtk4_la_SOURCES_DIST) \
 	$(src_wireless_security_libwireless_security_libnm_la_SOURCES) \
 	$(src_connection_editor_nm_connection_editor_SOURCES) \
 	src/libnm-gtk/tests/test-mobile-providers.c \
-	src/libnma/tests/mobile-wizard.c src/libnma/tests/run-vpn.c \
+	src/libnma/tests/bar-code.c \
+	$(am__src_libnma_tests_bar_code_gtk4_SOURCES_DIST) \
+	src/libnma/tests/cert-chooser.c \
+	$(am__src_libnma_tests_cert_chooser_gtk4_SOURCES_DIST) \
+	src/libnma/tests/mobile-wizard.c \
+	$(am__src_libnma_tests_mobile_wizard_gtk4_SOURCES_DIST) \
+	src/libnma/tests/run-vpn.c \
+	$(am__src_libnma_tests_run_vpn_gtk4_SOURCES_DIST) \
 	src/libnma/tests/vpn-password-dialog.c \
+	$(am__src_libnma_tests_vpn_password_dialog_gtk4_SOURCES_DIST) \
 	src/libnma/tests/wifi-dialog.c \
+	$(am__src_libnma_tests_wifi_dialog_gtk4_SOURCES_DIST) \
 	src/libnma/tests/wifi-dialog-secrets.c \
+	$(am__src_libnma_tests_wifi_dialog_secrets_gtk4_SOURCES_DIST) \
 	$(am__src_nm_applet_SOURCES_DIST) \
 	$(src_utils_tests_test_utils_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive cscopelist-recursive \
@@ -958,10 +1280,12 @@ am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in \
 	$(top_srcdir)/gtk-doc.make $(top_srcdir)/man/nm-applet.1.in \
 	$(top_srcdir)/man/nm-connection-editor.1.in \
 	$(top_srcdir)/src/libnm-gtk/libnm-gtk.pc.in \
+	$(top_srcdir)/src/libnma/libnma-gtk4.pc.in \
 	$(top_srcdir)/src/libnma/libnma.pc.in \
-	$(top_srcdir)/src/libnma/nma-version.h.in AUTHORS COPYING \
-	ChangeLog INSTALL NEWS README compile config.guess config.sub \
-	depcomp install-sh ltmain.sh missing test-driver
+	$(top_srcdir)/src/libnma/nma-version.h.in ABOUT-NLS AUTHORS \
+	COPYING ChangeLog INSTALL NEWS README compile config.guess \
+	config.rpath config.sub depcomp install-sh ltmain.sh missing \
+	test-driver
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -1005,27 +1329,23 @@ am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
 ACLOCAL = ${SHELL} /workdir/network-manager-applet/missing aclocal-1.16
-ALL_LINGUAS = 
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-APPINDICATOR_CFLAGS = -pthread -I/usr/include/libappindicator3-0.1 -I/usr/include/libdbusmenu-glib-0.4 -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/libdrm -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
-APPINDICATOR_LIBS = -lappindicator3 -ldbusmenu-glib -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
+APPINDICATOR_CFLAGS = -pthread -I/usr/include/libappindicator3-0.1 -I/usr/include/libdbusmenu-glib-0.4 -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+APPINDICATOR_LIBS = -lappindicator3 -ldbusmenu-glib -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -latk-1.0 -lcairo-gobject -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
 AR = ar
 AUTOCONF = ${SHELL} /workdir/network-manager-applet/missing autoconf
 AUTOHEADER = ${SHELL} /workdir/network-manager-applet/missing autoheader
 AUTOMAKE = ${SHELL} /workdir/network-manager-applet/missing automake-1.16
 AWK = mawk
-CATALOGS = 
-CATOBJEXT = .gmo
 CC = gcc
 CCDEPMODE = depmode=none
 CFLAGS =  -fdata-sections -ffunction-sections -Wl,--gc-sections -g -O2 -fdebug-prefix-map=/workdir/network-manager-applet=. -fstack-protector-strong -Wformat -Werror=format-security
 CPP = gcc -E
 CPPFLAGS = -Wdate-time -D_FORTIFY_SOURCE=2
 CYGPATH_W = echo
-DATADIRNAME = share
-DBUSMENU_CFLAGS = -pthread -I/usr/include/libdbusmenu-gtk3-0.4 -I/usr/include/libdbusmenu-glib-0.4 -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/libdrm -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
-DBUSMENU_LIBS = -ldbusmenu-gtk3 -ldbusmenu-glib -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
+DBUSMENU_CFLAGS = -pthread -I/usr/include/libdbusmenu-gtk3-0.4 -I/usr/include/libdbusmenu-glib-0.4 -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+DBUSMENU_LIBS = -ldbusmenu-gtk3 -ldbusmenu-glib -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -latk-1.0 -lcairo-gobject -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
 DLLTOOL = false
@@ -1037,8 +1357,9 @@ ECHO_T =
 EGREP = /usr/bin/grep -E
 EXEEXT = 
 FGREP = /usr/bin/grep -F
-GCR_CFLAGS = -pthread -I/usr/include/gcr-3 -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/libdrm -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/gcr-3 -I/usr/include/gck-1 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/p11-kit-1 -DGCR_API_SUBJECT_TO_CHANGE -DGCK_API_SUBJECT_TO_CHANGE
-GCR_LIBS = -lgcr-ui-3 -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lcairo -lgdk_pixbuf-2.0 -lgcr-base-3 -lgck-1 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lp11-kit
+GCR_CFLAGS = -pthread -I/usr/include/gcr-3 -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/gck-1 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/p11-kit-1 -DGCR_API_SUBJECT_TO_CHANGE -DGCK_API_SUBJECT_TO_CHANGE
+GCR_LIBS = -lgcr-ui-3 -lgcr-base-3 -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -latk-1.0 -lcairo-gobject -lcairo -lgdk_pixbuf-2.0 -lgck-1 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lp11-kit
+GETTEXT_MACRO_VERSION = 0.18
 GETTEXT_PACKAGE = nm-applet
 GLIB_CFLAGS = -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -DG_DISABLE_SINGLE_INCLUDES
 GLIB_COMPILE_RESOURCES = /usr/bin/glib-compile-resources
@@ -1047,12 +1368,14 @@ GLIB_GENMARSHAL = /usr/bin/glib-genmarshal
 GLIB_LIBS = -lglib-2.0
 GLIB_MAKEFILE = $(top_srcdir)/Makefile.glib
 GLIB_MKENUMS = /usr/bin/glib-mkenums
-GMOFILES = 
 GMSGFMT = /usr/bin/msgfmt
+GMSGFMT_015 = /usr/bin/msgfmt
 GREP = /usr/bin/grep
 GSETTINGS_DISABLE_SCHEMAS_COMPILE = 
-GTK3_CFLAGS = -pthread -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/libdrm -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_4 -DGTK_VERSION_MAX_ALLOWED=GTK_VERSION_3_4
-GTK3_LIBS = -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
+GTK3_CFLAGS = -pthread -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_10 -DGDK_VERSION_MAX_ALLOWED=GDK_VERSION_3_10
+GTK3_LIBS = -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -latk-1.0 -lcairo-gobject -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
+GTK4_CFLAGS = 
+GTK4_LIBS = 
 GTKDOC_CHECK = gtkdoc-check.test
 GTKDOC_CHECK_PATH = /usr/bin/gtkdoc-check
 GTKDOC_DEPS_CFLAGS = -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
@@ -1067,16 +1390,7 @@ INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
-INSTOBJEXT = .mo
 INTLLIBS = 
-INTLTOOL_EXTRACT = /usr/bin/intltool-extract
-INTLTOOL_MERGE = /usr/bin/intltool-merge
-INTLTOOL_PERL = /usr/bin/perl
-INTLTOOL_UPDATE = /usr/bin/intltool-update
-INTLTOOL_V_MERGE = $(INTLTOOL__v_MERGE_$(V))
-INTLTOOL_V_MERGE_OPTIONS = $(intltool__v_merge_options_$(V))
-INTLTOOL__v_MERGE_ = $(INTLTOOL__v_MERGE_$(AM_DEFAULT_VERBOSITY))
-INTLTOOL__v_MERGE_0 = @echo "  ITMRG " $@;
 INTL_MACOSX_LIBS = 
 INTROSPECTION_CFLAGS = -pthread -I/usr/include/gobject-introspection-1.0 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
 INTROSPECTION_COMPILER = /usr/bin/g-ir-compiler
@@ -1092,40 +1406,43 @@ JANSSON_CFLAGS =
 JANSSON_LIBS = -ljansson
 LD = /usr/bin/ld -m elf_x86_64
 LDFLAGS = -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,defs -Wl,--as-needed
-LIBNM_CFLAGS = -pthread -I/usr/include/libnm -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_38 -DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_2_38 -DNM_VERSION_MIN_REQUIRED=NM_VERSION_1_8 -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_8
-LIBNM_GLIB_CFLAGS = -pthread -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/libnm-glib -I/usr/include/NetworkManager -I/usr/include/libnm-glib -I/usr/include/NetworkManager -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_38 -DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_2_38 -DNM_VERSION_MIN_REQUIRED=NM_VERSION_1_4 -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_4
-LIBNM_GLIB_LIBS = -lgio-2.0 -lnm-glib -lnm-util -lnm-glib-vpn -ldbus-glib-1 -ldbus-1 -lgobject-2.0 -Wl,--export-dynamic -lgmodule-2.0 -pthread -lglib-2.0
+LIBICONV = -liconv
+LIBINTL = 
+LIBNM_CFLAGS = -pthread -I/usr/include/libnm -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_38 -DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_2_38 -DNM_VERSION_MIN_REQUIRED=NM_VERSION_1_8 -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_8
+LIBNM_GLIB_CFLAGS = 
+LIBNM_GLIB_LIBS = 
 LIBNM_LIBS = -lnm -lgio-2.0 -lgobject-2.0 -Wl,--export-dynamic -lgmodule-2.0 -pthread -lglib-2.0
-LIBNOTIFY_07_CFLAGS = -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+LIBNOTIFY_07_CFLAGS = -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
 LIBNOTIFY_07_LIBS = -lnotify -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
 LIBOBJS = 
 LIBS = 
-LIBSECRET_CFLAGS = -pthread -I/usr/include/libsecret-1 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+LIBSECRET_CFLAGS = -pthread -I/usr/include/libsecret-1 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
 LIBSECRET_LIBS = -lsecret-1 -lgio-2.0 -lgobject-2.0 -lglib-2.0
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
+LTLIBICONV = -liconv
+LTLIBINTL = 
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
 MAINT = #
 MAKEINFO = ${SHELL} /workdir/network-manager-applet/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/bin/mkdir -p
-MKINSTALLDIRS = ./mkinstalldirs
-MM_GLIB_CFLAGS = -pthread -I/usr/include/libmm-glib -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/ModemManager
+MM_GLIB_CFLAGS = -pthread -I/usr/include/libmm-glib -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/ModemManager
 MM_GLIB_LIBS = -lmm-glib -lgio-2.0 -lgobject-2.0 -lglib-2.0
 MOBILE_BROADBAND_PROVIDER_INFO_CFLAGS = 
 MOBILE_BROADBAND_PROVIDER_INFO_LIBS = 
 MSGFMT = /usr/bin/msgfmt
-MSGFMT_OPTS = -c
+MSGFMT_015 = /usr/bin/msgfmt
 MSGMERGE = /usr/bin/msgmerge
 NM = /usr/bin/nm -B
 NMA_MAJOR_VERSION = 1
-NMA_MICRO_VERSION = 20
+NMA_MICRO_VERSION = 24
 NMA_MINOR_VERSION = 8
-NMA_VERSION = 1.8.20
+NMA_VERSION = 1.8.24
 NMEDIT = 
-NOTIFY_CFLAGS = -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+NOTIFY_CFLAGS = -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
 NOTIFY_LIBS = -lnotify -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
 OBJDUMP = objdump
 OBJEXT = o
@@ -1134,18 +1451,15 @@ OTOOL64 =
 PACKAGE = network-manager-applet
 PACKAGE_BUGREPORT = https://gitlab.gnome.org/GNOME/network-manager-applet/issues
 PACKAGE_NAME = nm-applet
-PACKAGE_STRING = nm-applet 1.8.20
+PACKAGE_STRING = nm-applet 1.8.24
 PACKAGE_TARNAME = network-manager-applet
 PACKAGE_URL = 
-PACKAGE_VERSION = 1.8.20
+PACKAGE_VERSION = 1.8.24
 PATH_SEPARATOR = :
 PKG_CONFIG = /usr/bin/pkg-config
 PKG_CONFIG_LIBDIR = 
 PKG_CONFIG_PATH = 
-POFILES = 
 POSUB = po
-PO_IN_DATADIR_FALSE = 
-PO_IN_DATADIR_TRUE = 
 RANLIB = ranlib
 SED = /usr/bin/sed
 SELINUX_CFLAGS = 
@@ -1154,8 +1468,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = strip
 USE_NLS = yes
-VERSION = 1.8.20
+VERSION = 1.8.24
 XGETTEXT = /usr/bin/xgettext
+XGETTEXT_015 = /usr/bin/xgettext
+XGETTEXT_EXTRA_OPTIONS = 
 abs_builddir = /workdir/network-manager-applet
 abs_srcdir = /workdir/network-manager-applet
 abs_top_builddir = /workdir/network-manager-applet
@@ -1192,14 +1508,12 @@ htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${prefix}/share/info
 install_sh = ${SHELL} /workdir/network-manager-applet/install-sh
-intltool__v_merge_options_ = $(intltool__v_merge_options_$(AM_DEFAULT_VERBOSITY))
-intltool__v_merge_options_0 = -q
 libdir = ${prefix}/lib/x86_64-linux-gnu
 libexecdir = /usr/lib/NetworkManager
 localedir = ${datarootdir}/locale
 localstatedir = /var
 mandir = ${prefix}/share/man
-mkdir_p = $(MKDIR_P)
+mkdir_p = /usr/bin/mkdir -p
 oldincludedir = /usr/include
 pdfdir = ${docdir}
 prefix = /usr
@@ -1248,6 +1562,7 @@ EXTRA_DIST = $(HTML_IMAGES) $(SETUP_FILES) $(icon16_DATA) \
 	src/wireless-security/eap-method-ttls.ui \
 	src/wireless-security/ws-dynamic-wep.ui \
 	src/wireless-security/ws-leap.ui \
+	src/wireless-security/ws-sae.ui \
 	src/wireless-security/ws-wep-key.ui \
 	src/wireless-security/ws-wpa-eap.ui \
 	src/wireless-security/ws-wpa-psk.ui \
@@ -1259,9 +1574,11 @@ EXTRA_DIST = $(HTML_IMAGES) $(SETUP_FILES) $(icon16_DATA) \
 	src/libnm-gtk/tests/iso3166-test.xml \
 	src/libnm-gtk/tests/serviceproviders-test.xml \
 	src/libnm-gtk/examples/mobile-providers.js $(NULL) \
+	src/libnma/qrcodegen.c src/libnma/qrcodegen.h \
 	src/libnma/nma-version.h.in src/libnma/libnma.pc.in \
-	src/libnma/libnma.ver src/libnma/wifi.ui \
-	src/libnma/nma-mobile-wizard.ui \
+	src/libnma/libnma-gtk4.pc.in src/libnma/libnma.ver \
+	src/libnma/wifi.ui src/libnma/nma-mobile-wizard.ui \
+	src/libnma/nma-bar-code-widget.ui \
 	src/libnma/nma-pkcs11-token-login-dialog.ui \
 	src/libnma/nma-pkcs11-cert-chooser-dialog.ui \
 	src/libnma/nma-vpn-password-dialog.ui \
@@ -1307,8 +1624,7 @@ EXTRA_DIST = $(HTML_IMAGES) $(SETUP_FILES) $(icon16_DATA) \
 	shared/nm-utils/nm-vpn-editor-plugin-call.h \
 	shared/nm-default.h shared/nm-libnm-compat.h \
 	shared/meson.build $(NULL) man/meson.build \
-	linker-script-binary.ver CONTRIBUTING intltool-extract.in \
-	intltool-merge.in intltool-update.in Makefile.glib autogen.sh \
+	linker-script-binary.ver CONTRIBUTING Makefile.glib autogen.sh \
 	meson.build meson_options.txt meson_post_install.py \
 	config.h.meson gtkdocentities.ent.in po/meson.build \
 	$(convert_DATA) $(appdata_in_files) $(autostart_in_files) \
@@ -1331,8 +1647,8 @@ REPORT_FILES = \
 
 CLEANFILES = $(SCANOBJ_FILES) $(REPORT_FILES) $(DOC_STAMPS) \
 	gtkdoc-check.test $(wireless_security_h_gen) \
-	$(wireless_security_c_gen) $(am__append_3) \
-	$(libnma_h_priv_gen) $(libnma_c_gen) \
+	$(wireless_security_c_gen) $(am__append_6) \
+	$(libnma_h_priv_gen) $(libnma_c_gen) $(libnma_gtk4_c_gen) \
 	$(connection_editor_h_gen) $(connection_editor_c_gen) \
 	$(nm_applet_h_gen) $(nm_applet_c_gen) $(INTROSPECTION_GIRS) \
 	$(typelib_DATA) $(autostart_DATA) $(desktop_DATA) \
@@ -1375,37 +1691,36 @@ GTK_DOC_V_PDF_0 = @echo "  DOC   Building PDF";
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 AUTOMAKE_OPTIONS = subdir-objects
 BUILT_SOURCES = $(gir_DATA) $(typelib_DATA)
-lib_LTLIBRARIES = $(am__append_4) src/libnma/libnma.la
-noinst_LTLIBRARIES = src/utils/libutils-libnm.la $(am__append_1) \
+lib_LTLIBRARIES = $(am__append_7) src/libnma/libnma.la \
+	$(am__append_15)
+noinst_LTLIBRARIES = src/utils/libutils-libnm.la $(am__append_2) \
+	$(am__append_3) \
 	src/wireless-security/libwireless-security-libnm.la \
-	$(am__append_2)
+	$(am__append_4) $(am__append_5)
 check_PROGRAMS_norun = src/libnma/tests/mobile-wizard \
 	src/libnma/tests/vpn-password-dialog \
 	src/libnma/tests/wifi-dialog \
-	src/libnma/tests/wifi-dialog-secrets src/libnma/tests/run-vpn
-check_programs = src/utils/tests/test-utils $(am__append_8)
-check_local = $(am__append_5)
-DISTCLEANFILES = intltool-extract intltool-merge intltool-update
-DISTCHECK_CONFIGURE_FLAGS = \
-	--disable-dependency-tracking \
-	--enable-gtk-doc \
-	--enable-introspection \
-	--enable-more-warnings=error \
-	--with-libnm-gtk \
-	--with-wwan \
-	--with-team \
-	--with-gcr
-
+	src/libnma/tests/wifi-dialog-secrets src/libnma/tests/run-vpn \
+	src/libnma/tests/cert-chooser src/libnma/tests/bar-code \
+	$(am__append_20)
+check_programs = src/utils/tests/test-utils $(am__append_11)
+check_local = $(am__append_8)
+DISTCLEANFILES = 
+DISTCHECK_CONFIGURE_FLAGS = --disable-dependency-tracking \
+	--enable-gtk-doc --enable-introspection \
+	--enable-more-warnings=error --with-wwan --with-team \
+	--with-gcr $(am__append_1)
 
 ###############################################################################
 man_MANS = man/nm-applet.1 man/nm-connection-editor.1
-pkgconfig_DATA = $(am__append_6) src/libnma/libnma.pc
+pkgconfig_DATA = $(am__append_9) src/libnma/libnma.pc $(am__append_17)
 pkgconfigdir = $(libdir)/pkgconfig
 girdir = $(datadir)/gir-1.0
 gir_DATA = $(INTROSPECTION_GIRS)
 typelibdir = $(libdir)/girepository-1.0
 typelib_DATA = $(INTROSPECTION_GIRS:.gir=.typelib)
-INTROSPECTION_GIRS = $(am__append_7) $(am__append_11)
+INTROSPECTION_GIRS = $(am__append_10) $(am__append_14) \
+	$(am__append_19)
 SUBDIRS = \
 	. \
 	po
@@ -1532,21 +1847,35 @@ src_utils_libutils_libnm_la_LIBADD = \
 	$(GTK3_LIBS) \
 	$(LIBNM_LIBS)
 
-src_utils_libutils_libnm_glib_la_CPPFLAGS = \
-	$(dflt_cppflags) \
-	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY \
-	"-I$(srcdir)/shared" \
-	$(GTK3_CFLAGS) \
-	$(LIBNM_GLIB_CFLAGS)
+#src_utils_libutils_libnm_glib_la_CPPFLAGS = \
+#	$(dflt_cppflags) \
+#	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY \
+#	"-I$(srcdir)/shared" \
+#	$(GTK3_CFLAGS) \
+#	$(LIBNM_GLIB_CFLAGS)
 
-src_utils_libutils_libnm_glib_la_SOURCES = \
-	$(shared_files) \
-	src/utils/utils.c \
-	src/utils/utils.h
+#src_utils_libutils_libnm_glib_la_SOURCES = \
+#	$(shared_files) \
+#	src/utils/utils.c \
+#	src/utils/utils.h
 
-src_utils_libutils_libnm_glib_la_LIBADD = \
-	$(GTK3_LIBS) \
-	$(LIBNM_GLIB_LIBS)
+#src_utils_libutils_libnm_glib_la_LIBADD = \
+#	$(GTK3_LIBS) \
+#	$(LIBNM_GLIB_LIBS)
+
+#src_utils_libutils_libnm_gtk4_la_CPPFLAGS = \
+#	"-I$(srcdir)/shared" \
+#	$(GTK4_CFLAGS) \
+#	$(LIBNM_CFLAGS)
+
+#src_utils_libutils_libnm_gtk4_la_SOURCES = \
+#	$(shared_files) \
+#	src/utils/utils.c \
+#	src/utils/utils.h
+
+#src_utils_libutils_libnm_gtk4_la_LIBADD = \
+#	$(GTK4_LIBS) \
+#	$(LIBNM_LIBS)
 
 src_utils_tests_test_utils_SOURCES = src/utils/tests/test-utils.c
 src_utils_tests_test_utils_CPPFLAGS = \
@@ -1570,6 +1899,8 @@ wireless_security_c_gen = \
 wireless_security_c_real = \
 	src/wireless-security/wireless-security.h \
 	src/wireless-security/wireless-security.c \
+	src/wireless-security/ws-sae.h \
+	src/wireless-security/ws-sae.c \
 	src/wireless-security/ws-wep-key.h \
 	src/wireless-security/ws-wep-key.c \
 	src/wireless-security/ws-wpa-psk.h \
@@ -1617,120 +1948,142 @@ src_wireless_security_libwireless_security_libnm_la_LIBADD = \
 	$(GTK3_LIBS) \
 	$(LIBNM_LIBS)
 
-src_wireless_security_libwireless_security_libnm_glib_la_SOURCES = \
-	$(wireless_security_c_real)
+#src_wireless_security_libwireless_security_libnm_glib_la_SOURCES = \
+#	$(wireless_security_c_real)
 
-nodist_src_wireless_security_libwireless_security_libnm_glib_la_SOURCES = \
-	$(wireless_security_c_gen)
+#nodist_src_wireless_security_libwireless_security_libnm_glib_la_SOURCES = \
+#	$(wireless_security_c_gen)
 
-src_wireless_security_libwireless_security_libnm_glib_la_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GTK3_CFLAGS) \
-	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY \
-	"-I$(srcdir)/shared" \
-	"-I$(srcdir)/src/utils" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma \
-	$(LIBNM_GLIB_CFLAGS)
+#src_wireless_security_libwireless_security_libnm_glib_la_CPPFLAGS = \
+#	$(dflt_cppflags) \
+#	$(GTK3_CFLAGS) \
+#	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY \
+#	"-I$(srcdir)/shared" \
+#	"-I$(srcdir)/src/utils" \
+#	"-I$(srcdir)/src/libnma" \
+#	-Isrc/libnma \
+#	$(LIBNM_GLIB_CFLAGS)
 
-src_wireless_security_libwireless_security_libnm_glib_la_LIBADD = \
-	src/utils/libutils-libnm-glib.la \
-	$(GTK3_LIBS) \
-	$(LIBNM_GLIB_LIBS)
+#src_wireless_security_libwireless_security_libnm_glib_la_LIBADD = \
+#	src/utils/libutils-libnm-glib.la \
+#	$(GTK3_LIBS) \
+#	$(LIBNM_GLIB_LIBS)
 
-libnm_gtk_h_priv_gen = \
-	src/libnm-gtk/nm-resources.h
+#src_wireless_security_libwireless_security_libnm_gtk4_la_SOURCES = \
+#	$(wireless_security_c_real)
 
-libnm_gtk_c_gen = \
-	src/libnm-gtk/nm-resources.c
+#nodist_src_wireless_security_libwireless_security_libnm_gtk4_la_SOURCES = \
+#	$(wireless_security_c_gen)
 
-libnm_gtk_h_pub = \
-	src/libnm-gtk/nm-wifi-dialog.h \
-	src/libnm-gtk/nm-wireless-dialog.h \
-	src/libnm-gtk/nm-mobile-wizard.h \
-	src/libnm-gtk/nm-ui-utils.h \
-	src/libnm-gtk/nm-mobile-providers.h \
-	src/libnm-gtk/nm-vpn-password-dialog.h \
-	src/libnm-gtk/nm-cert-chooser.h
+#src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS = \
+#	"-I$(srcdir)/shared" \
+#	"-I$(srcdir)/src/utils" \
+#	"-I$(srcdir)/src/libnma" \
+#	-Isrc/libnma \
+#	$(GTK4_CFLAGS) \
+#	$(LIBNM_CFLAGS)
 
-libnm_gtk_c_real = \
-	src/libnm-gtk/nm-wifi-dialog.c \
-	src/libnm-gtk/nm-wireless-dialog.c \
-	src/libnm-gtk/nm-mobile-wizard.c \
-	src/libnm-gtk/nm-ui-utils.c \
-	src/libnm-gtk/nm-mobile-providers.c \
-	src/libnm-gtk/nm-vpn-password-dialog.c \
-	src/libnma/nma-cert-chooser.c \
-	src/libnma/nma-file-cert-chooser.c \
-	src/libnm-gtk/init.c
+#src_wireless_security_libwireless_security_libnm_gtk4_la_LIBADD = \
+#	src/utils/libutils-libnm-gtk4.la \
+#	$(GTK4_LIBS) \
+#	$(LIBNM_LIBS)
 
-src_libnm_gtk_libnmgtkdir = $(includedir)/libnm-gtk
-src_libnm_gtk_libnmgtk_HEADERS = \
-	$(libnm_gtk_h_pub)
+#libnm_gtk_h_priv_gen = \
+#	src/libnm-gtk/nm-resources.h
 
-src_libnm_gtk_libnm_gtk_la_SOURCES = \
-	$(libnm_gtk_c_real)
+#libnm_gtk_c_gen = \
+#	src/libnm-gtk/nm-resources.c
 
-nodist_src_libnm_gtk_libnm_gtk_la_SOURCES = \
-	$(libnm_gtk_c_gen)
+#libnm_gtk_h_pub = \
+#	src/libnm-gtk/nm-wifi-dialog.h \
+#	src/libnm-gtk/nm-wireless-dialog.h \
+#	src/libnm-gtk/nm-mobile-wizard.h \
+#	src/libnm-gtk/nm-ui-utils.h \
+#	src/libnm-gtk/nm-mobile-providers.h \
+#	src/libnm-gtk/nm-vpn-password-dialog.h \
+#	src/libnm-gtk/nm-cert-chooser.h
 
-src_libnm_gtk_libnm_gtk_la_CFLAGS = \
-	$(dflt_cppflags) \
-	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY \
-	-DICONDIR=\""$(datadir)/icons"\" \
-	-DBINDIR=\""$(bindir)"\" \
-	-DSYSCONFDIR=\""$(sysconfdir)"\" \
-	-DLIBEXECDIR=\""$(libexecdir)"\" \
-	-DDATADIR=\""$(datadir)"\" \
-	-DAUTOSTARTDIR=\""$(sysconfdir)/xdg/autostart"\" \
-	-DNMALOCALEDIR=\"$(datadir)/locale\" \
-	"-I$(srcdir)/shared" \
-	"-I$(srcdir)/src/utils" \
-	"-I$(srcdir)/src/wireless-security" \
-	"-I$(srcdir)/src/libnm-gtk" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma \
-	$(GTK3_CFLAGS) \
-	$(LIBNM_GLIB_CFLAGS) \
-	$(GUDEV_CFLAGS)
+#libnm_gtk_c_real = \
+#	src/libnm-gtk/nm-wifi-dialog.c \
+#	src/libnm-gtk/nm-wireless-dialog.c \
+#	src/libnm-gtk/nm-mobile-wizard.c \
+#	src/libnm-gtk/nm-ui-utils.c \
+#	src/libnm-gtk/nm-mobile-providers.c \
+#	src/libnm-gtk/nm-vpn-password-dialog.c \
+#	src/libnma/nma-cert-chooser.c \
+#	src/libnma/nma-file-cert-chooser.c \
+#	src/libnm-gtk/init.c
 
-src_libnm_gtk_libnm_gtk_la_LIBADD = \
-	src/wireless-security/libwireless-security-libnm-glib.la \
-	$(GTK3_LIBS) \
-	$(LIBNM_GLIB_LIBS) \
-	$(GUDEV_LIBS)
+#src_libnm_gtk_libnmgtkdir = $(includedir)/libnm-gtk
+#src_libnm_gtk_libnmgtk_HEADERS = \
+#	$(libnm_gtk_h_pub)
 
-EXTRA_src_libnm_gtk_libnm_gtk_la_DEPENDENCIES = src/libnm-gtk/libnm-gtk.ver
-src_libnm_gtk_libnm_gtk_la_LDFLAGS = \
-	-Wl,-no-undefined \
-	-Wl,--version-script=$(srcdir)/src/libnm-gtk/libnm-gtk.ver
+#src_libnm_gtk_libnm_gtk_la_SOURCES = \
+#	$(libnm_gtk_c_real)
 
-src_libnm_gtk_NMGtk_1_0_gir_INCLUDES = NMClient-1.0 NetworkManager-1.0 Gtk-3.0
-src_libnm_gtk_NMGtk_1_0_gir_EXPORT_PACKAGES = libnm-gtk
-src_libnm_gtk_NMGtk_1_0_gir_CFLAGS = $(src_libnm_gtk_libnm_gtk_la_CFLAGS)
-src_libnm_gtk_NMGtk_1_0_gir_LIBS = src/libnm-gtk/libnm-gtk.la
-src_libnm_gtk_NMGtk_1_0_gir_FILES = \
-	$(filter-out src/libnm-gtk/nm-wireless-dialog.h, $(libnm_gtk_h_pub)) \
-	$(filter-out src/libnm-gtk/nm-wireless-dialog.c, $(libnm_gtk_c_real))
+#nodist_src_libnm_gtk_libnm_gtk_la_SOURCES = \
+#	$(libnm_gtk_c_gen)
 
-src_libnm_gtk_NMGtk_1_0_gir_SCANNERFLAGS = --warn-all --identifier-prefix=NMA --symbol-prefix=nma
-src_libnm_gtk_tests_test_mobile_providers_CPPFLAGS = \
-	$(dflt_cppflags) \
-	-DTEST_DATA_DIR=\""$(abs_srcdir)/src/libnm-gtk/tests"\" \
-	"-I$(srcdir)/shared" \
-	"-I$(srcdir)/src/libnm-gtk" \
-	$(GTK3_CFLAGS) \
-	$(LIBNM_GLIB_CFLAGS)
+#src_libnm_gtk_libnm_gtk_la_CFLAGS = \
+#	$(dflt_cppflags) \
+#	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY \
+#	-DICONDIR=\""$(datadir)/icons"\" \
+#	-DBINDIR=\""$(bindir)"\" \
+#	-DSYSCONFDIR=\""$(sysconfdir)"\" \
+#	-DLIBEXECDIR=\""$(libexecdir)"\" \
+#	-DDATADIR=\""$(datadir)"\" \
+#	-DAUTOSTARTDIR=\""$(sysconfdir)/xdg/autostart"\" \
+#	-DNMALOCALEDIR=\"$(datadir)/locale\" \
+#	"-I$(srcdir)/shared" \
+#	"-I$(srcdir)/src/utils" \
+#	"-I$(srcdir)/src/wireless-security" \
+#	"-I$(srcdir)/src/libnm-gtk" \
+#	"-I$(srcdir)/src/libnma" \
+#	-Isrc/libnma \
+#	$(GTK3_CFLAGS) \
+#	$(LIBNM_GLIB_CFLAGS) \
+#	$(GUDEV_CFLAGS)
 
-src_libnm_gtk_tests_test_mobile_providers_LDADD = \
-	src/libnm-gtk/libnm-gtk.la \
-	$(LIBNM_GLIB_LIBS)
+#src_libnm_gtk_libnm_gtk_la_LIBADD = \
+#	src/wireless-security/libwireless-security-libnm-glib.la \
+#	$(GTK3_LIBS) \
+#	$(LIBNM_GLIB_LIBS) \
+#	$(GUDEV_LIBS)
+
+#EXTRA_src_libnm_gtk_libnm_gtk_la_DEPENDENCIES = src/libnm-gtk/libnm-gtk.ver
+#src_libnm_gtk_libnm_gtk_la_LDFLAGS = \
+#	-Wl,-no-undefined \
+#	-Wl,--version-script=$(srcdir)/src/libnm-gtk/libnm-gtk.ver
+
+#src_libnm_gtk_NMGtk_1_0_gir_INCLUDES = NMClient-1.0 NetworkManager-1.0 Gtk-3.0
+#src_libnm_gtk_NMGtk_1_0_gir_EXPORT_PACKAGES = libnm-gtk
+#src_libnm_gtk_NMGtk_1_0_gir_CFLAGS = $(src_libnm_gtk_libnm_gtk_la_CFLAGS)
+#src_libnm_gtk_NMGtk_1_0_gir_LIBS = src/libnm-gtk/libnm-gtk.la
+#src_libnm_gtk_NMGtk_1_0_gir_FILES = \
+#	$(filter-out src/libnm-gtk/nm-wireless-dialog.h, $(libnm_gtk_h_pub)) \
+#	$(filter-out src/libnm-gtk/nm-wireless-dialog.c, $(libnm_gtk_c_real))
+
+#src_libnm_gtk_NMGtk_1_0_gir_SCANNERFLAGS = --warn-all --identifier-prefix=NMA --symbol-prefix=nma
+#src_libnm_gtk_tests_test_mobile_providers_CPPFLAGS = \
+#	$(dflt_cppflags) \
+#	-DTEST_DATA_DIR=\""$(abs_srcdir)/src/libnm-gtk/tests"\" \
+#	"-I$(srcdir)/shared" \
+#	"-I$(srcdir)/src/libnm-gtk" \
+#	$(GTK3_CFLAGS) \
+#	$(LIBNM_GLIB_CFLAGS)
+
+#src_libnm_gtk_tests_test_mobile_providers_LDADD = \
+#	src/libnm-gtk/libnm-gtk.la \
+#	$(LIBNM_GLIB_LIBS)
 
 libnma_h_priv_gen = \
 	src/libnma/nma-resources.h
 
 libnma_c_gen = \
 	src/libnma/nma-resources.c
+
+libnma_gtk4_c_gen = \
+	src/libnma-gtk4/nma-resources.c
 
 libnma_h_pub = \
 	src/libnma/nma-version.h \
@@ -1739,7 +2092,9 @@ libnma_h_pub = \
 	src/libnma/nma-mobile-providers.h \
 	src/libnma/nma-vpn-password-dialog.h \
 	src/libnma/nma-ui-utils.h \
-	src/libnma/nma-cert-chooser.h
+	src/libnma/nma-cert-chooser.h \
+	src/libnma/nma-bar-code-widget.h \
+	src/libnma/nma-bar-code.h
 
 libnma_c_real = \
 	src/libnma/nma-wifi-dialog.c \
@@ -1749,10 +2104,13 @@ libnma_c_real = \
 	src/libnma/nma-ui-utils.c \
 	src/libnma/init.c \
 	src/libnma/nma-cert-chooser.c \
-	src/libnma/nma-file-cert-chooser.c
+	src/libnma/nma-file-cert-chooser.c \
+	src/libnma/nma-bar-code-widget.c \
+	src/libnma/nma-bar-code.c
 
 libnma_h_priv_real = \
-	src/libnma/nma-cert-chooser-private.h
+	src/libnma/nma-cert-chooser-private.h \
+	src/libnma/nma-private.h
 
 libnma_h_priv_gcr = \
 	src/libnma/nma-pkcs11-token-login-dialog.h \
@@ -1770,7 +2128,7 @@ src_libnma_libnma_HEADERS = \
 	$(libnma_h_pub)
 
 src_libnma_libnma_la_SOURCES = $(libnma_h_priv_real) $(libnma_c_real) \
-	$(am__append_9)
+	$(am__append_12)
 nodist_src_libnma_libnma_la_SOURCES = \
 	$(libnma_h_priv_gen) \
 	$(libnma_c_gen)
@@ -1813,7 +2171,7 @@ src_libnma_NMA_1_0_gir_CFLAGS = $(src_libnma_libnma_la_CFLAGS)
 src_libnma_NMA_1_0_gir_LIBS = src/libnma/libnma.la
 src_libnma_NMA_1_0_gir_FILES =  \
 	$(libnma_h_pub) $(libnma_c_real) \
-	$(am__append_10)
+	$(am__append_13)
 src_libnma_NMA_1_0_gir_SCANNERFLAGS = --warn-all --identifier-prefix=NMA --symbol-prefix=nma
 src_libnma_tests_mobile_wizard_CPPFLAGS = \
 	$(dflt_cppflags) \
@@ -1889,6 +2247,208 @@ src_libnma_tests_run_vpn_LDADD = \
 	$(GTK3_LIBS) \
 	$(LIBNM_LIBS) \
 	src/libnma/libnma.la
+
+src_libnma_tests_cert_chooser_CPPFLAGS = \
+	$(dflt_cppflags) \
+	$(GLIB_CFLAGS) \
+	$(GTK3_CFLAGS) \
+	$(LIBNM_CFLAGS) \
+	"-I$(srcdir)/shared/" \
+	"-I$(srcdir)/src/libnma" \
+	-Isrc/libnma
+
+src_libnma_tests_cert_chooser_LDADD = \
+	$(GLIB_LIBS) \
+	$(GTK3_LIBS) \
+	$(LIBNM_LIBS) \
+	src/libnma/libnma.la
+
+src_libnma_tests_bar_code_CPPFLAGS = \
+	$(dflt_cppflags) \
+	$(GLIB_CFLAGS) \
+	$(GTK3_CFLAGS) \
+	$(LIBNM_CFLAGS) \
+	"-I$(srcdir)/shared/" \
+	"-I$(srcdir)/src/libnma" \
+	-Isrc/libnma
+
+src_libnma_tests_bar_code_LDADD = \
+	$(GLIB_LIBS) \
+	$(GTK3_LIBS) \
+	$(LIBNM_LIBS) \
+	src/libnma/libnma.la
+
+#src_libnma_libnma_gtk4_la_SOURCES =  \
+#	$(libnma_h_priv_real) $(libnma_c_real) \
+#	$(am__append_16)
+#nodist_src_libnma_libnma_gtk4_la_SOURCES = \
+#	$(libnma_h_priv_gen) \
+#	$(libnma_gtk4_c_gen)
+
+#src_libnma_libnma_gtk4_la_CFLAGS = \
+#	-DICONDIR=\""$(datadir)/icons"\" \
+#	-DBINDIR=\""$(bindir)"\" \
+#	-DSYSCONFDIR=\""$(sysconfdir)"\" \
+#	-DLIBEXECDIR=\""$(libexecdir)"\" \
+#	-DDATADIR=\""$(datadir)"\" \
+#	-DAUTOSTARTDIR=\""$(sysconfdir)/xdg/autostart"\" \
+#	-DNMALOCALEDIR=\"$(datadir)/locale\" \
+#	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB \
+#	"-I$(srcdir)/shared" \
+#	"-I$(srcdir)/src/utils" \
+#	"-I$(srcdir)/src/wireless-security" \
+#	"-I$(srcdir)/src/libnma" \
+#	-Isrc/libnma \
+#	$(GTK4_CFLAGS) \
+#	$(LIBNM_CFLAGS) \
+#	$(GUDEV_CFLAGS) \
+#	$(GCR_GCR4_CFLAGS)
+
+#src_libnma_libnma_gtk4_la_LIBADD = \
+#	src/wireless-security/libwireless-security-libnm-gtk4.la \
+#	$(GTK4_LIBS) \
+#	$(LIBNM_LIBS) \
+#	$(GUDEV_LIBS) \
+#	$(GCR_GCR4_LIBS)
+
+#EXTRA_src_libnma_libnma_gtk4_la_DEPENDENCIES = src/libnma/libnma.ver
+#src_libnma_libnma_gtk4_la_LDFLAGS = \
+#	-Wl,-no-undefined \
+#	-Wl,--version-script=$(srcdir)/src/libnma/libnma.ver
+
+#src_libnma_NMA4_1_0_gir_INCLUDES = NM-1.0 Gtk-4.0
+#src_libnma_NMA4_1_0_gir_EXPORT_PACKAGES = libnma-gtk4
+#src_libnma_NMA4_1_0_gir_CFLAGS = $(src_libnma_libnma_gtk4_la_CFLAGS)
+#src_libnma_NMA4_1_0_gir_LIBS = src/libnma/libnma-gtk4.la
+#src_libnma_NMA4_1_0_gir_FILES = $(libnma_h_pub) \
+#	$(libnma_c_real) \
+#	$(am__append_18)
+#src_libnma_NMA4_1_0_gir_SCANNERFLAGS = --warn-all --identifier-prefix=NMA --symbol-prefix=nma
+#src_libnma_tests_mobile_wizard_gtk4_SOURCES = \
+#	src/libnma/tests/mobile-wizard.c
+
+#src_libnma_tests_mobile_wizard_gtk4_CPPFLAGS = \
+#	$(dflt_cppflags) \
+#	$(GLIB_CFLAGS) \
+#	$(GTK4_CFLAGS) \
+#	$(LIBNM_CFLAGS) \
+#	"-I$(srcdir)/shared/" \
+#	"-I$(srcdir)/src/libnma" \
+#	-Isrc/libnma
+
+#src_libnma_tests_mobile_wizard_gtk4_LDADD = \
+#	$(GLIB_LIBS) \
+#	$(GTK4_LIBS) \
+#	$(LIBNM_LIBS) \
+#	src/libnma/libnma-gtk4.la
+
+#src_libnma_tests_vpn_password_dialog_gtk4_SOURCES = \
+#	src/libnma/tests/vpn-password-dialog.c
+
+#src_libnma_tests_vpn_password_dialog_gtk4_CPPFLAGS = \
+#	$(dflt_cppflags) \
+#	$(GLIB_CFLAGS) \
+#	$(GTK4_CFLAGS) \
+#	$(LIBNM_CFLAGS) \
+#	"-I$(srcdir)/shared/" \
+#	"-I$(srcdir)/src/libnma" \
+#	-Isrc/libnma
+
+#src_libnma_tests_vpn_password_dialog_gtk4_LDADD = \
+#	$(GLIB_LIBS) \
+#	$(GTK4_LIBS) \
+#	$(LIBNM_LIBS) \
+#	src/libnma/libnma-gtk4.la
+
+#src_libnma_tests_wifi_dialog_gtk4_SOURCES = \
+#	src/libnma/tests/wifi-dialog.c
+
+#src_libnma_tests_wifi_dialog_gtk4_CPPFLAGS = \
+#	$(dflt_cppflags) \
+#	$(GLIB_CFLAGS) \
+#	$(GTK4_CFLAGS) \
+#	$(LIBNM_CFLAGS) \
+#	"-I$(srcdir)/shared/" \
+#	"-I$(srcdir)/src/libnma" \
+#	-Isrc/libnma
+
+#src_libnma_tests_wifi_dialog_gtk4_LDADD = \
+#	$(GLIB_LIBS) \
+#	$(GTK4_LIBS) \
+#	$(LIBNM_LIBS) \
+#	src/libnma/libnma-gtk4.la
+
+#src_libnma_tests_wifi_dialog_secrets_gtk4_SOURCES = \
+#	src/libnma/tests/wifi-dialog-secrets.c
+
+#src_libnma_tests_wifi_dialog_secrets_gtk4_CPPFLAGS = \
+#	$(dflt_cppflags) \
+#	$(GLIB_CFLAGS) \
+#	$(GTK4_CFLAGS) \
+#	$(LIBNM_CFLAGS) \
+#	"-I$(srcdir)/shared/" \
+#	"-I$(srcdir)/src/libnma" \
+#	-Isrc/libnma
+
+#src_libnma_tests_wifi_dialog_secrets_gtk4_LDADD = \
+#	$(GLIB_LIBS) \
+#	$(GTK4_LIBS) \
+#	$(LIBNM_LIBS) \
+#	src/libnma/libnma-gtk4.la
+
+#src_libnma_tests_run_vpn_gtk4_SOURCES = \
+#	src/libnma/tests/run-vpn.c
+
+#src_libnma_tests_run_vpn_gtk4_CPPFLAGS = \
+#	$(dflt_cppflags) \
+#	$(GLIB_CFLAGS) \
+#	$(GTK4_CFLAGS) \
+#	$(LIBNM_CFLAGS) \
+#	"-I$(srcdir)/shared/" \
+#	"-I$(srcdir)/src/libnma" \
+#	-Isrc/libnma
+
+#src_libnma_tests_run_vpn_gtk4_LDADD = \
+#	$(GLIB_LIBS) \
+#	$(GTK4_LIBS) \
+#	$(LIBNM_LIBS) \
+#	src/libnma/libnma-gtk4.la
+
+#src_libnma_tests_cert_chooser_gtk4_SOURCES = \
+#	src/libnma/tests/cert-chooser.c
+
+#src_libnma_tests_cert_chooser_gtk4_CPPFLAGS = \
+#	$(dflt_cppflags) \
+#	$(GLIB_CFLAGS) \
+#	$(GTK4_CFLAGS) \
+#	$(LIBNM_CFLAGS) \
+#	"-I$(srcdir)/shared/" \
+#	"-I$(srcdir)/src/libnma" \
+#	-Isrc/libnma
+
+#src_libnma_tests_cert_chooser_gtk4_LDADD = \
+#	$(GLIB_LIBS) \
+#	$(GTK4_LIBS) \
+#	$(LIBNM_LIBS) \
+#	src/libnma/libnma-gtk4.la
+
+#src_libnma_tests_bar_code_gtk4_SOURCES = \
+#	src/libnma/tests/bar-code.c
+
+#src_libnma_tests_bar_code_gtk4_CPPFLAGS = \
+#	$(dflt_cppflags) \
+#	$(GLIB_CFLAGS) \
+#	$(GTK4_CFLAGS) \
+#	$(LIBNM_CFLAGS) \
+#	"-I$(srcdir)/shared/" \
+#	"-I$(srcdir)/src/libnma" \
+#	-Isrc/libnma
+
+#src_libnma_tests_bar_code_gtk4_LDADD = \
+#	$(GLIB_LIBS) \
+#	$(GTK4_LIBS) \
+#	$(LIBNM_LIBS) \
+#	src/libnma/libnma-gtk4.la
 
 connection_editor_h_gen = \
 	src/connection-editor/ce-resources.h
@@ -2022,7 +2582,7 @@ nm_applet_hc_real = shared/nm-utils/nm-compat.c src/main.c \
 	src/applet-device-wifi.c src/ap-menu-item.h src/ap-menu-item.c \
 	src/mb-menu-item.h src/mb-menu-item.c src/mobile-helpers.c \
 	src/mobile-helpers.h src/applet-device-bt.h \
-	src/applet-device-bt.c src/fallback-icon.h $(am__append_12)
+	src/applet-device-bt.c src/fallback-icon.h $(am__append_21)
 src_nm_applet_SOURCES = \
 	$(nm_applet_hc_real)
 
@@ -2078,6 +2638,7 @@ IGNORE_HFILES = \
 	nma-resources.h \
 	nma-version.h \
 	nma-cert-chooser-private.h \
+	nma-private.h \
 	nma-pkcs11-token-login-dialog.h \
 	nma-pkcs11-cert-chooser-dialog.h \
 	nma-cert-chooser-button.h
@@ -2162,6 +2723,8 @@ distclean-hdr:
 src/libnm-gtk/libnm-gtk.pc: $(top_builddir)/config.status $(top_srcdir)/src/libnm-gtk/libnm-gtk.pc.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 src/libnma/libnma.pc: $(top_builddir)/config.status $(top_srcdir)/src/libnma/libnma.pc.in
+	cd $(top_builddir) && $(SHELL) ./config.status $@
+src/libnma/libnma-gtk4.pc: $(top_builddir)/config.status $(top_srcdir)/src/libnma/libnma-gtk4.pc.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 man/nm-applet.1: $(top_builddir)/config.status $(top_srcdir)/man/nm-applet.1.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
@@ -2328,6 +2891,57 @@ src/libnm-gtk/libnm_gtk_la-nm-resources.lo:  \
 
 src/libnm-gtk/libnm-gtk.la: $(src_libnm_gtk_libnm_gtk_la_OBJECTS) $(src_libnm_gtk_libnm_gtk_la_DEPENDENCIES) $(EXTRA_src_libnm_gtk_libnm_gtk_la_DEPENDENCIES) src/libnm-gtk/$(am__dirstamp)
 	$(AM_V_CCLD)$(src_libnm_gtk_libnm_gtk_la_LINK) $(am_src_libnm_gtk_libnm_gtk_la_rpath) $(src_libnm_gtk_libnm_gtk_la_OBJECTS) $(src_libnm_gtk_libnm_gtk_la_LIBADD) $(LIBS)
+src/libnma/libnma_gtk4_la-nma-wifi-dialog.lo:  \
+	src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma/libnma_gtk4_la-nma-mobile-wizard.lo:  \
+	src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma/libnma_gtk4_la-nma-mobile-providers.lo:  \
+	src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma/libnma_gtk4_la-nma-vpn-password-dialog.lo:  \
+	src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma/libnma_gtk4_la-nma-ui-utils.lo: src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma/libnma_gtk4_la-init.lo: src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma/libnma_gtk4_la-nma-cert-chooser.lo:  \
+	src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma/libnma_gtk4_la-nma-file-cert-chooser.lo:  \
+	src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma/libnma_gtk4_la-nma-bar-code-widget.lo:  \
+	src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma/libnma_gtk4_la-nma-bar-code.lo: src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma/libnma_gtk4_la-nma-pkcs11-token-login-dialog.lo:  \
+	src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma/libnma_gtk4_la-nma-pkcs11-cert-chooser-dialog.lo:  \
+	src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma/libnma_gtk4_la-nma-cert-chooser-button.lo:  \
+	src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma/libnma_gtk4_la-nma-pkcs11-cert-chooser.lo:  \
+	src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma-gtk4/$(am__dirstamp):
+	@$(MKDIR_P) src/libnma-gtk4
+	@: > src/libnma-gtk4/$(am__dirstamp)
+src/libnma-gtk4/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) src/libnma-gtk4/$(DEPDIR)
+	@: > src/libnma-gtk4/$(DEPDIR)/$(am__dirstamp)
+src/libnma-gtk4/libnma_libnma_gtk4_la-nma-resources.lo:  \
+	src/libnma-gtk4/$(am__dirstamp) \
+	src/libnma-gtk4/$(DEPDIR)/$(am__dirstamp)
+
+src/libnma/libnma-gtk4.la: $(src_libnma_libnma_gtk4_la_OBJECTS) $(src_libnma_libnma_gtk4_la_DEPENDENCIES) $(EXTRA_src_libnma_libnma_gtk4_la_DEPENDENCIES) src/libnma/$(am__dirstamp)
+	$(AM_V_CCLD)$(src_libnma_libnma_gtk4_la_LINK) $(am_src_libnma_libnma_gtk4_la_rpath) $(src_libnma_libnma_gtk4_la_OBJECTS) $(src_libnma_libnma_gtk4_la_LIBADD) $(LIBS)
 src/libnma/libnma_la-nma-wifi-dialog.lo: src/libnma/$(am__dirstamp) \
 	src/libnma/$(DEPDIR)/$(am__dirstamp)
 src/libnma/libnma_la-nma-mobile-wizard.lo: src/libnma/$(am__dirstamp) \
@@ -2346,6 +2960,11 @@ src/libnma/libnma_la-nma-cert-chooser.lo: src/libnma/$(am__dirstamp) \
 	src/libnma/$(DEPDIR)/$(am__dirstamp)
 src/libnma/libnma_la-nma-file-cert-chooser.lo:  \
 	src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma/libnma_la-nma-bar-code-widget.lo:  \
+	src/libnma/$(am__dirstamp) \
+	src/libnma/$(DEPDIR)/$(am__dirstamp)
+src/libnma/libnma_la-nma-bar-code.lo: src/libnma/$(am__dirstamp) \
 	src/libnma/$(DEPDIR)/$(am__dirstamp)
 src/libnma/libnma_la-nma-pkcs11-token-login-dialog.lo:  \
 	src/libnma/$(am__dirstamp) \
@@ -2384,6 +3003,14 @@ src/utils/libutils_libnm_glib_la-utils.lo: src/utils/$(am__dirstamp) \
 
 src/utils/libutils-libnm-glib.la: $(src_utils_libutils_libnm_glib_la_OBJECTS) $(src_utils_libutils_libnm_glib_la_DEPENDENCIES) $(EXTRA_src_utils_libutils_libnm_glib_la_DEPENDENCIES) src/utils/$(am__dirstamp)
 	$(AM_V_CCLD)$(LINK) $(am_src_utils_libutils_libnm_glib_la_rpath) $(src_utils_libutils_libnm_glib_la_OBJECTS) $(src_utils_libutils_libnm_glib_la_LIBADD) $(LIBS)
+shared/nm-utils/src_utils_libutils_libnm_gtk4_la-nm-shared-utils.lo:  \
+	shared/nm-utils/$(am__dirstamp) \
+	shared/nm-utils/$(DEPDIR)/$(am__dirstamp)
+src/utils/libutils_libnm_gtk4_la-utils.lo: src/utils/$(am__dirstamp) \
+	src/utils/$(DEPDIR)/$(am__dirstamp)
+
+src/utils/libutils-libnm-gtk4.la: $(src_utils_libutils_libnm_gtk4_la_OBJECTS) $(src_utils_libutils_libnm_gtk4_la_DEPENDENCIES) $(EXTRA_src_utils_libutils_libnm_gtk4_la_DEPENDENCIES) src/utils/$(am__dirstamp)
+	$(AM_V_CCLD)$(LINK) $(am_src_utils_libutils_libnm_gtk4_la_rpath) $(src_utils_libutils_libnm_gtk4_la_OBJECTS) $(src_utils_libutils_libnm_gtk4_la_LIBADD) $(LIBS)
 shared/nm-utils/src_utils_libutils_libnm_la-nm-shared-utils.lo:  \
 	shared/nm-utils/$(am__dirstamp) \
 	shared/nm-utils/$(DEPDIR)/$(am__dirstamp)
@@ -2399,6 +3026,9 @@ src/wireless-security/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) src/wireless-security/$(DEPDIR)
 	@: > src/wireless-security/$(DEPDIR)/$(am__dirstamp)
 src/wireless-security/libwireless_security_libnm_glib_la-wireless-security.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_glib_la-ws-sae.lo:  \
 	src/wireless-security/$(am__dirstamp) \
 	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
 src/wireless-security/libwireless_security_libnm_glib_la-ws-wep-key.lo:  \
@@ -2446,7 +3076,61 @@ src/wireless-security/libwireless_security_libnm_glib_la-ws-resources.lo:  \
 
 src/wireless-security/libwireless-security-libnm-glib.la: $(src_wireless_security_libwireless_security_libnm_glib_la_OBJECTS) $(src_wireless_security_libwireless_security_libnm_glib_la_DEPENDENCIES) $(EXTRA_src_wireless_security_libwireless_security_libnm_glib_la_DEPENDENCIES) src/wireless-security/$(am__dirstamp)
 	$(AM_V_CCLD)$(LINK) $(am_src_wireless_security_libwireless_security_libnm_glib_la_rpath) $(src_wireless_security_libwireless_security_libnm_glib_la_OBJECTS) $(src_wireless_security_libwireless_security_libnm_glib_la_LIBADD) $(LIBS)
+src/wireless-security/libwireless_security_libnm_gtk4_la-wireless-security.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_gtk4_la-ws-sae.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wep-key.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wpa-psk.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_gtk4_la-ws-leap.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wpa-eap.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_gtk4_la-ws-dynamic-wep.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-tls.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-leap.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-fast.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-ttls.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-peap.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-simple.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_gtk4_la-helpers.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_gtk4_la-ws-resources.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+
+src/wireless-security/libwireless-security-libnm-gtk4.la: $(src_wireless_security_libwireless_security_libnm_gtk4_la_OBJECTS) $(src_wireless_security_libwireless_security_libnm_gtk4_la_DEPENDENCIES) $(EXTRA_src_wireless_security_libwireless_security_libnm_gtk4_la_DEPENDENCIES) src/wireless-security/$(am__dirstamp)
+	$(AM_V_CCLD)$(LINK) $(am_src_wireless_security_libwireless_security_libnm_gtk4_la_rpath) $(src_wireless_security_libwireless_security_libnm_gtk4_la_OBJECTS) $(src_wireless_security_libwireless_security_libnm_gtk4_la_LIBADD) $(LIBS)
 src/wireless-security/libwireless_security_libnm_la-wireless-security.lo:  \
+	src/wireless-security/$(am__dirstamp) \
+	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
+src/wireless-security/libwireless_security_libnm_la-ws-sae.lo:  \
 	src/wireless-security/$(am__dirstamp) \
 	src/wireless-security/$(DEPDIR)/$(am__dirstamp)
 src/wireless-security/libwireless_security_libnm_la-ws-wep-key.lo:  \
@@ -2634,6 +3318,34 @@ src/libnma/tests/$(am__dirstamp):
 src/libnma/tests/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) src/libnma/tests/$(DEPDIR)
 	@: > src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
+src/libnma/tests/bar_code-bar-code.$(OBJEXT):  \
+	src/libnma/tests/$(am__dirstamp) \
+	src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
+
+src/libnma/tests/bar-code$(EXEEXT): $(src_libnma_tests_bar_code_OBJECTS) $(src_libnma_tests_bar_code_DEPENDENCIES) $(EXTRA_src_libnma_tests_bar_code_DEPENDENCIES) src/libnma/tests/$(am__dirstamp)
+	@rm -f src/libnma/tests/bar-code$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(src_libnma_tests_bar_code_OBJECTS) $(src_libnma_tests_bar_code_LDADD) $(LIBS)
+src/libnma/tests/bar_code_gtk4-bar-code.$(OBJEXT):  \
+	src/libnma/tests/$(am__dirstamp) \
+	src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
+
+src/libnma/tests/bar-code-gtk4$(EXEEXT): $(src_libnma_tests_bar_code_gtk4_OBJECTS) $(src_libnma_tests_bar_code_gtk4_DEPENDENCIES) $(EXTRA_src_libnma_tests_bar_code_gtk4_DEPENDENCIES) src/libnma/tests/$(am__dirstamp)
+	@rm -f src/libnma/tests/bar-code-gtk4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(src_libnma_tests_bar_code_gtk4_OBJECTS) $(src_libnma_tests_bar_code_gtk4_LDADD) $(LIBS)
+src/libnma/tests/cert_chooser-cert-chooser.$(OBJEXT):  \
+	src/libnma/tests/$(am__dirstamp) \
+	src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
+
+src/libnma/tests/cert-chooser$(EXEEXT): $(src_libnma_tests_cert_chooser_OBJECTS) $(src_libnma_tests_cert_chooser_DEPENDENCIES) $(EXTRA_src_libnma_tests_cert_chooser_DEPENDENCIES) src/libnma/tests/$(am__dirstamp)
+	@rm -f src/libnma/tests/cert-chooser$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(src_libnma_tests_cert_chooser_OBJECTS) $(src_libnma_tests_cert_chooser_LDADD) $(LIBS)
+src/libnma/tests/cert_chooser_gtk4-cert-chooser.$(OBJEXT):  \
+	src/libnma/tests/$(am__dirstamp) \
+	src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
+
+src/libnma/tests/cert-chooser-gtk4$(EXEEXT): $(src_libnma_tests_cert_chooser_gtk4_OBJECTS) $(src_libnma_tests_cert_chooser_gtk4_DEPENDENCIES) $(EXTRA_src_libnma_tests_cert_chooser_gtk4_DEPENDENCIES) src/libnma/tests/$(am__dirstamp)
+	@rm -f src/libnma/tests/cert-chooser-gtk4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(src_libnma_tests_cert_chooser_gtk4_OBJECTS) $(src_libnma_tests_cert_chooser_gtk4_LDADD) $(LIBS)
 src/libnma/tests/mobile_wizard-mobile-wizard.$(OBJEXT):  \
 	src/libnma/tests/$(am__dirstamp) \
 	src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
@@ -2641,6 +3353,13 @@ src/libnma/tests/mobile_wizard-mobile-wizard.$(OBJEXT):  \
 src/libnma/tests/mobile-wizard$(EXEEXT): $(src_libnma_tests_mobile_wizard_OBJECTS) $(src_libnma_tests_mobile_wizard_DEPENDENCIES) $(EXTRA_src_libnma_tests_mobile_wizard_DEPENDENCIES) src/libnma/tests/$(am__dirstamp)
 	@rm -f src/libnma/tests/mobile-wizard$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(src_libnma_tests_mobile_wizard_OBJECTS) $(src_libnma_tests_mobile_wizard_LDADD) $(LIBS)
+src/libnma/tests/mobile_wizard_gtk4-mobile-wizard.$(OBJEXT):  \
+	src/libnma/tests/$(am__dirstamp) \
+	src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
+
+src/libnma/tests/mobile-wizard-gtk4$(EXEEXT): $(src_libnma_tests_mobile_wizard_gtk4_OBJECTS) $(src_libnma_tests_mobile_wizard_gtk4_DEPENDENCIES) $(EXTRA_src_libnma_tests_mobile_wizard_gtk4_DEPENDENCIES) src/libnma/tests/$(am__dirstamp)
+	@rm -f src/libnma/tests/mobile-wizard-gtk4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(src_libnma_tests_mobile_wizard_gtk4_OBJECTS) $(src_libnma_tests_mobile_wizard_gtk4_LDADD) $(LIBS)
 src/libnma/tests/run_vpn-run-vpn.$(OBJEXT):  \
 	src/libnma/tests/$(am__dirstamp) \
 	src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
@@ -2648,6 +3367,13 @@ src/libnma/tests/run_vpn-run-vpn.$(OBJEXT):  \
 src/libnma/tests/run-vpn$(EXEEXT): $(src_libnma_tests_run_vpn_OBJECTS) $(src_libnma_tests_run_vpn_DEPENDENCIES) $(EXTRA_src_libnma_tests_run_vpn_DEPENDENCIES) src/libnma/tests/$(am__dirstamp)
 	@rm -f src/libnma/tests/run-vpn$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(src_libnma_tests_run_vpn_OBJECTS) $(src_libnma_tests_run_vpn_LDADD) $(LIBS)
+src/libnma/tests/run_vpn_gtk4-run-vpn.$(OBJEXT):  \
+	src/libnma/tests/$(am__dirstamp) \
+	src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
+
+src/libnma/tests/run-vpn-gtk4$(EXEEXT): $(src_libnma_tests_run_vpn_gtk4_OBJECTS) $(src_libnma_tests_run_vpn_gtk4_DEPENDENCIES) $(EXTRA_src_libnma_tests_run_vpn_gtk4_DEPENDENCIES) src/libnma/tests/$(am__dirstamp)
+	@rm -f src/libnma/tests/run-vpn-gtk4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(src_libnma_tests_run_vpn_gtk4_OBJECTS) $(src_libnma_tests_run_vpn_gtk4_LDADD) $(LIBS)
 src/libnma/tests/vpn_password_dialog-vpn-password-dialog.$(OBJEXT):  \
 	src/libnma/tests/$(am__dirstamp) \
 	src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
@@ -2655,6 +3381,13 @@ src/libnma/tests/vpn_password_dialog-vpn-password-dialog.$(OBJEXT):  \
 src/libnma/tests/vpn-password-dialog$(EXEEXT): $(src_libnma_tests_vpn_password_dialog_OBJECTS) $(src_libnma_tests_vpn_password_dialog_DEPENDENCIES) $(EXTRA_src_libnma_tests_vpn_password_dialog_DEPENDENCIES) src/libnma/tests/$(am__dirstamp)
 	@rm -f src/libnma/tests/vpn-password-dialog$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(src_libnma_tests_vpn_password_dialog_OBJECTS) $(src_libnma_tests_vpn_password_dialog_LDADD) $(LIBS)
+src/libnma/tests/vpn_password_dialog_gtk4-vpn-password-dialog.$(OBJEXT):  \
+	src/libnma/tests/$(am__dirstamp) \
+	src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
+
+src/libnma/tests/vpn-password-dialog-gtk4$(EXEEXT): $(src_libnma_tests_vpn_password_dialog_gtk4_OBJECTS) $(src_libnma_tests_vpn_password_dialog_gtk4_DEPENDENCIES) $(EXTRA_src_libnma_tests_vpn_password_dialog_gtk4_DEPENDENCIES) src/libnma/tests/$(am__dirstamp)
+	@rm -f src/libnma/tests/vpn-password-dialog-gtk4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(src_libnma_tests_vpn_password_dialog_gtk4_OBJECTS) $(src_libnma_tests_vpn_password_dialog_gtk4_LDADD) $(LIBS)
 src/libnma/tests/wifi_dialog-wifi-dialog.$(OBJEXT):  \
 	src/libnma/tests/$(am__dirstamp) \
 	src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
@@ -2662,6 +3395,13 @@ src/libnma/tests/wifi_dialog-wifi-dialog.$(OBJEXT):  \
 src/libnma/tests/wifi-dialog$(EXEEXT): $(src_libnma_tests_wifi_dialog_OBJECTS) $(src_libnma_tests_wifi_dialog_DEPENDENCIES) $(EXTRA_src_libnma_tests_wifi_dialog_DEPENDENCIES) src/libnma/tests/$(am__dirstamp)
 	@rm -f src/libnma/tests/wifi-dialog$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(src_libnma_tests_wifi_dialog_OBJECTS) $(src_libnma_tests_wifi_dialog_LDADD) $(LIBS)
+src/libnma/tests/wifi_dialog_gtk4-wifi-dialog.$(OBJEXT):  \
+	src/libnma/tests/$(am__dirstamp) \
+	src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
+
+src/libnma/tests/wifi-dialog-gtk4$(EXEEXT): $(src_libnma_tests_wifi_dialog_gtk4_OBJECTS) $(src_libnma_tests_wifi_dialog_gtk4_DEPENDENCIES) $(EXTRA_src_libnma_tests_wifi_dialog_gtk4_DEPENDENCIES) src/libnma/tests/$(am__dirstamp)
+	@rm -f src/libnma/tests/wifi-dialog-gtk4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(src_libnma_tests_wifi_dialog_gtk4_OBJECTS) $(src_libnma_tests_wifi_dialog_gtk4_LDADD) $(LIBS)
 src/libnma/tests/wifi_dialog_secrets-wifi-dialog-secrets.$(OBJEXT):  \
 	src/libnma/tests/$(am__dirstamp) \
 	src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
@@ -2669,6 +3409,13 @@ src/libnma/tests/wifi_dialog_secrets-wifi-dialog-secrets.$(OBJEXT):  \
 src/libnma/tests/wifi-dialog-secrets$(EXEEXT): $(src_libnma_tests_wifi_dialog_secrets_OBJECTS) $(src_libnma_tests_wifi_dialog_secrets_DEPENDENCIES) $(EXTRA_src_libnma_tests_wifi_dialog_secrets_DEPENDENCIES) src/libnma/tests/$(am__dirstamp)
 	@rm -f src/libnma/tests/wifi-dialog-secrets$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(src_libnma_tests_wifi_dialog_secrets_OBJECTS) $(src_libnma_tests_wifi_dialog_secrets_LDADD) $(LIBS)
+src/libnma/tests/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.$(OBJEXT):  \
+	src/libnma/tests/$(am__dirstamp) \
+	src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
+
+src/libnma/tests/wifi-dialog-secrets-gtk4$(EXEEXT): $(src_libnma_tests_wifi_dialog_secrets_gtk4_OBJECTS) $(src_libnma_tests_wifi_dialog_secrets_gtk4_DEPENDENCIES) $(EXTRA_src_libnma_tests_wifi_dialog_secrets_gtk4_DEPENDENCIES) src/libnma/tests/$(am__dirstamp)
+	@rm -f src/libnma/tests/wifi-dialog-secrets-gtk4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(src_libnma_tests_wifi_dialog_secrets_gtk4_OBJECTS) $(src_libnma_tests_wifi_dialog_secrets_gtk4_LDADD) $(LIBS)
 shared/nm-utils/src_nm_applet-nm-compat.$(OBJEXT):  \
 	shared/nm-utils/$(am__dirstamp) \
 	shared/nm-utils/$(DEPDIR)/$(am__dirstamp)
@@ -2733,6 +3480,8 @@ mostlyclean-compile:
 	-rm -f src/libnm-gtk/*.$(OBJEXT)
 	-rm -f src/libnm-gtk/*.lo
 	-rm -f src/libnm-gtk/tests/*.$(OBJEXT)
+	-rm -f src/libnma-gtk4/*.$(OBJEXT)
+	-rm -f src/libnma-gtk4/*.lo
 	-rm -f src/libnma/*.$(OBJEXT)
 	-rm -f src/libnma/*.lo
 	-rm -f src/libnma/tests/*.$(OBJEXT)
@@ -2747,6 +3496,7 @@ distclean-compile:
 
 #include shared/nm-utils/$(DEPDIR)/src_nm_applet-nm-compat.Po # am--include-marker
 #include shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_glib_la-nm-shared-utils.Plo # am--include-marker
+#include shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_gtk4_la-nm-shared-utils.Plo # am--include-marker
 #include shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_la-nm-shared-utils.Plo # am--include-marker
 #include src/$(DEPDIR)/nm_applet-ap-menu-item.Po # am--include-marker
 #include src/$(DEPDIR)/nm_applet-applet-agent.Po # am--include-marker
@@ -2808,9 +3558,26 @@ distclean-compile:
 #include src/libnm-gtk/$(DEPDIR)/libnm_gtk_la-nm-wifi-dialog.Plo # am--include-marker
 #include src/libnm-gtk/$(DEPDIR)/libnm_gtk_la-nm-wireless-dialog.Plo # am--include-marker
 #include src/libnm-gtk/tests/$(DEPDIR)/test_mobile_providers-test-mobile-providers.Po # am--include-marker
+#include src/libnma-gtk4/$(DEPDIR)/libnma_libnma_gtk4_la-nma-resources.Plo # am--include-marker
 #include src/libnma/$(DEPDIR)/libnm_gtk_libnm_gtk_la-nma-cert-chooser.Plo # am--include-marker
 #include src/libnma/$(DEPDIR)/libnm_gtk_libnm_gtk_la-nma-file-cert-chooser.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_gtk4_la-init.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-bar-code-widget.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-bar-code.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-cert-chooser-button.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-cert-chooser.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-file-cert-chooser.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-mobile-providers.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-mobile-wizard.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-cert-chooser-dialog.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-cert-chooser.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-token-login-dialog.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-ui-utils.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-vpn-password-dialog.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-wifi-dialog.Plo # am--include-marker
 #include src/libnma/$(DEPDIR)/libnma_la-init.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_la-nma-bar-code-widget.Plo # am--include-marker
+#include src/libnma/$(DEPDIR)/libnma_la-nma-bar-code.Plo # am--include-marker
 #include src/libnma/$(DEPDIR)/libnma_la-nma-cert-chooser-button.Plo # am--include-marker
 #include src/libnma/$(DEPDIR)/libnma_la-nma-cert-chooser.Plo # am--include-marker
 #include src/libnma/$(DEPDIR)/libnma_la-nma-file-cert-chooser.Plo # am--include-marker
@@ -2823,12 +3590,22 @@ distclean-compile:
 #include src/libnma/$(DEPDIR)/libnma_la-nma-ui-utils.Plo # am--include-marker
 #include src/libnma/$(DEPDIR)/libnma_la-nma-vpn-password-dialog.Plo # am--include-marker
 #include src/libnma/$(DEPDIR)/libnma_la-nma-wifi-dialog.Plo # am--include-marker
+#include src/libnma/tests/$(DEPDIR)/bar_code-bar-code.Po # am--include-marker
+#include src/libnma/tests/$(DEPDIR)/bar_code_gtk4-bar-code.Po # am--include-marker
+#include src/libnma/tests/$(DEPDIR)/cert_chooser-cert-chooser.Po # am--include-marker
+#include src/libnma/tests/$(DEPDIR)/cert_chooser_gtk4-cert-chooser.Po # am--include-marker
 #include src/libnma/tests/$(DEPDIR)/mobile_wizard-mobile-wizard.Po # am--include-marker
+#include src/libnma/tests/$(DEPDIR)/mobile_wizard_gtk4-mobile-wizard.Po # am--include-marker
 #include src/libnma/tests/$(DEPDIR)/run_vpn-run-vpn.Po # am--include-marker
+#include src/libnma/tests/$(DEPDIR)/run_vpn_gtk4-run-vpn.Po # am--include-marker
 #include src/libnma/tests/$(DEPDIR)/vpn_password_dialog-vpn-password-dialog.Po # am--include-marker
+#include src/libnma/tests/$(DEPDIR)/vpn_password_dialog_gtk4-vpn-password-dialog.Po # am--include-marker
 #include src/libnma/tests/$(DEPDIR)/wifi_dialog-wifi-dialog.Po # am--include-marker
+#include src/libnma/tests/$(DEPDIR)/wifi_dialog_gtk4-wifi-dialog.Po # am--include-marker
 #include src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets-wifi-dialog-secrets.Po # am--include-marker
+#include src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.Po # am--include-marker
 #include src/utils/$(DEPDIR)/libutils_libnm_glib_la-utils.Plo # am--include-marker
+#include src/utils/$(DEPDIR)/libutils_libnm_gtk4_la-utils.Plo # am--include-marker
 #include src/utils/$(DEPDIR)/libutils_libnm_la-utils.Plo # am--include-marker
 #include src/utils/tests/$(DEPDIR)/test_utils-test-utils.Po # am--include-marker
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-eap-method-fast.Plo # am--include-marker
@@ -2843,9 +3620,26 @@ distclean-compile:
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-dynamic-wep.Plo # am--include-marker
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-leap.Plo # am--include-marker
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-resources.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-sae.Plo # am--include-marker
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-wep-key.Plo # am--include-marker
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-wpa-eap.Plo # am--include-marker
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-wpa-psk.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-fast.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-leap.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-peap.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-simple.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-tls.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-ttls.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-helpers.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-wireless-security.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-dynamic-wep.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-leap.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-resources.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-sae.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wep-key.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wpa-eap.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wpa-psk.Plo # am--include-marker
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-eap-method-fast.Plo # am--include-marker
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-eap-method-leap.Plo # am--include-marker
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-eap-method-peap.Plo # am--include-marker
@@ -2858,6 +3652,7 @@ distclean-compile:
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-dynamic-wep.Plo # am--include-marker
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-leap.Plo # am--include-marker
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-resources.Plo # am--include-marker
+#include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-sae.Plo # am--include-marker
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-wep-key.Plo # am--include-marker
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-wpa-eap.Plo # am--include-marker
 #include src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-wpa-psk.Plo # am--include-marker
@@ -2962,6 +3757,111 @@ src/libnm-gtk/libnm_gtk_la-nm-resources.lo: src/libnm-gtk/nm-resources.c
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
 	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnm_gtk_libnm_gtk_la_CFLAGS) $(CFLAGS) -c -o src/libnm-gtk/libnm_gtk_la-nm-resources.lo `test -f 'src/libnm-gtk/nm-resources.c' || echo '$(srcdir)/'`src/libnm-gtk/nm-resources.c
 
+src/libnma/libnma_gtk4_la-nma-wifi-dialog.lo: src/libnma/nma-wifi-dialog.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_gtk4_la-nma-wifi-dialog.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-wifi-dialog.Tpo -c -o src/libnma/libnma_gtk4_la-nma-wifi-dialog.lo `test -f 'src/libnma/nma-wifi-dialog.c' || echo '$(srcdir)/'`src/libnma/nma-wifi-dialog.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-wifi-dialog.Tpo src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-wifi-dialog.Plo
+#	$(AM_V_CC)source='src/libnma/nma-wifi-dialog.c' object='src/libnma/libnma_gtk4_la-nma-wifi-dialog.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_gtk4_la-nma-wifi-dialog.lo `test -f 'src/libnma/nma-wifi-dialog.c' || echo '$(srcdir)/'`src/libnma/nma-wifi-dialog.c
+
+src/libnma/libnma_gtk4_la-nma-mobile-wizard.lo: src/libnma/nma-mobile-wizard.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_gtk4_la-nma-mobile-wizard.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-mobile-wizard.Tpo -c -o src/libnma/libnma_gtk4_la-nma-mobile-wizard.lo `test -f 'src/libnma/nma-mobile-wizard.c' || echo '$(srcdir)/'`src/libnma/nma-mobile-wizard.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-mobile-wizard.Tpo src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-mobile-wizard.Plo
+#	$(AM_V_CC)source='src/libnma/nma-mobile-wizard.c' object='src/libnma/libnma_gtk4_la-nma-mobile-wizard.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_gtk4_la-nma-mobile-wizard.lo `test -f 'src/libnma/nma-mobile-wizard.c' || echo '$(srcdir)/'`src/libnma/nma-mobile-wizard.c
+
+src/libnma/libnma_gtk4_la-nma-mobile-providers.lo: src/libnma/nma-mobile-providers.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_gtk4_la-nma-mobile-providers.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-mobile-providers.Tpo -c -o src/libnma/libnma_gtk4_la-nma-mobile-providers.lo `test -f 'src/libnma/nma-mobile-providers.c' || echo '$(srcdir)/'`src/libnma/nma-mobile-providers.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-mobile-providers.Tpo src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-mobile-providers.Plo
+#	$(AM_V_CC)source='src/libnma/nma-mobile-providers.c' object='src/libnma/libnma_gtk4_la-nma-mobile-providers.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_gtk4_la-nma-mobile-providers.lo `test -f 'src/libnma/nma-mobile-providers.c' || echo '$(srcdir)/'`src/libnma/nma-mobile-providers.c
+
+src/libnma/libnma_gtk4_la-nma-vpn-password-dialog.lo: src/libnma/nma-vpn-password-dialog.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_gtk4_la-nma-vpn-password-dialog.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-vpn-password-dialog.Tpo -c -o src/libnma/libnma_gtk4_la-nma-vpn-password-dialog.lo `test -f 'src/libnma/nma-vpn-password-dialog.c' || echo '$(srcdir)/'`src/libnma/nma-vpn-password-dialog.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-vpn-password-dialog.Tpo src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-vpn-password-dialog.Plo
+#	$(AM_V_CC)source='src/libnma/nma-vpn-password-dialog.c' object='src/libnma/libnma_gtk4_la-nma-vpn-password-dialog.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_gtk4_la-nma-vpn-password-dialog.lo `test -f 'src/libnma/nma-vpn-password-dialog.c' || echo '$(srcdir)/'`src/libnma/nma-vpn-password-dialog.c
+
+src/libnma/libnma_gtk4_la-nma-ui-utils.lo: src/libnma/nma-ui-utils.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_gtk4_la-nma-ui-utils.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-ui-utils.Tpo -c -o src/libnma/libnma_gtk4_la-nma-ui-utils.lo `test -f 'src/libnma/nma-ui-utils.c' || echo '$(srcdir)/'`src/libnma/nma-ui-utils.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-ui-utils.Tpo src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-ui-utils.Plo
+#	$(AM_V_CC)source='src/libnma/nma-ui-utils.c' object='src/libnma/libnma_gtk4_la-nma-ui-utils.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_gtk4_la-nma-ui-utils.lo `test -f 'src/libnma/nma-ui-utils.c' || echo '$(srcdir)/'`src/libnma/nma-ui-utils.c
+
+src/libnma/libnma_gtk4_la-init.lo: src/libnma/init.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_gtk4_la-init.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_gtk4_la-init.Tpo -c -o src/libnma/libnma_gtk4_la-init.lo `test -f 'src/libnma/init.c' || echo '$(srcdir)/'`src/libnma/init.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_gtk4_la-init.Tpo src/libnma/$(DEPDIR)/libnma_gtk4_la-init.Plo
+#	$(AM_V_CC)source='src/libnma/init.c' object='src/libnma/libnma_gtk4_la-init.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_gtk4_la-init.lo `test -f 'src/libnma/init.c' || echo '$(srcdir)/'`src/libnma/init.c
+
+src/libnma/libnma_gtk4_la-nma-cert-chooser.lo: src/libnma/nma-cert-chooser.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_gtk4_la-nma-cert-chooser.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-cert-chooser.Tpo -c -o src/libnma/libnma_gtk4_la-nma-cert-chooser.lo `test -f 'src/libnma/nma-cert-chooser.c' || echo '$(srcdir)/'`src/libnma/nma-cert-chooser.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-cert-chooser.Tpo src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-cert-chooser.Plo
+#	$(AM_V_CC)source='src/libnma/nma-cert-chooser.c' object='src/libnma/libnma_gtk4_la-nma-cert-chooser.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_gtk4_la-nma-cert-chooser.lo `test -f 'src/libnma/nma-cert-chooser.c' || echo '$(srcdir)/'`src/libnma/nma-cert-chooser.c
+
+src/libnma/libnma_gtk4_la-nma-file-cert-chooser.lo: src/libnma/nma-file-cert-chooser.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_gtk4_la-nma-file-cert-chooser.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-file-cert-chooser.Tpo -c -o src/libnma/libnma_gtk4_la-nma-file-cert-chooser.lo `test -f 'src/libnma/nma-file-cert-chooser.c' || echo '$(srcdir)/'`src/libnma/nma-file-cert-chooser.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-file-cert-chooser.Tpo src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-file-cert-chooser.Plo
+#	$(AM_V_CC)source='src/libnma/nma-file-cert-chooser.c' object='src/libnma/libnma_gtk4_la-nma-file-cert-chooser.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_gtk4_la-nma-file-cert-chooser.lo `test -f 'src/libnma/nma-file-cert-chooser.c' || echo '$(srcdir)/'`src/libnma/nma-file-cert-chooser.c
+
+src/libnma/libnma_gtk4_la-nma-bar-code-widget.lo: src/libnma/nma-bar-code-widget.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_gtk4_la-nma-bar-code-widget.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-bar-code-widget.Tpo -c -o src/libnma/libnma_gtk4_la-nma-bar-code-widget.lo `test -f 'src/libnma/nma-bar-code-widget.c' || echo '$(srcdir)/'`src/libnma/nma-bar-code-widget.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-bar-code-widget.Tpo src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-bar-code-widget.Plo
+#	$(AM_V_CC)source='src/libnma/nma-bar-code-widget.c' object='src/libnma/libnma_gtk4_la-nma-bar-code-widget.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_gtk4_la-nma-bar-code-widget.lo `test -f 'src/libnma/nma-bar-code-widget.c' || echo '$(srcdir)/'`src/libnma/nma-bar-code-widget.c
+
+src/libnma/libnma_gtk4_la-nma-bar-code.lo: src/libnma/nma-bar-code.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_gtk4_la-nma-bar-code.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-bar-code.Tpo -c -o src/libnma/libnma_gtk4_la-nma-bar-code.lo `test -f 'src/libnma/nma-bar-code.c' || echo '$(srcdir)/'`src/libnma/nma-bar-code.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-bar-code.Tpo src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-bar-code.Plo
+#	$(AM_V_CC)source='src/libnma/nma-bar-code.c' object='src/libnma/libnma_gtk4_la-nma-bar-code.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_gtk4_la-nma-bar-code.lo `test -f 'src/libnma/nma-bar-code.c' || echo '$(srcdir)/'`src/libnma/nma-bar-code.c
+
+src/libnma/libnma_gtk4_la-nma-pkcs11-token-login-dialog.lo: src/libnma/nma-pkcs11-token-login-dialog.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_gtk4_la-nma-pkcs11-token-login-dialog.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-token-login-dialog.Tpo -c -o src/libnma/libnma_gtk4_la-nma-pkcs11-token-login-dialog.lo `test -f 'src/libnma/nma-pkcs11-token-login-dialog.c' || echo '$(srcdir)/'`src/libnma/nma-pkcs11-token-login-dialog.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-token-login-dialog.Tpo src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-token-login-dialog.Plo
+#	$(AM_V_CC)source='src/libnma/nma-pkcs11-token-login-dialog.c' object='src/libnma/libnma_gtk4_la-nma-pkcs11-token-login-dialog.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_gtk4_la-nma-pkcs11-token-login-dialog.lo `test -f 'src/libnma/nma-pkcs11-token-login-dialog.c' || echo '$(srcdir)/'`src/libnma/nma-pkcs11-token-login-dialog.c
+
+src/libnma/libnma_gtk4_la-nma-pkcs11-cert-chooser-dialog.lo: src/libnma/nma-pkcs11-cert-chooser-dialog.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_gtk4_la-nma-pkcs11-cert-chooser-dialog.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-cert-chooser-dialog.Tpo -c -o src/libnma/libnma_gtk4_la-nma-pkcs11-cert-chooser-dialog.lo `test -f 'src/libnma/nma-pkcs11-cert-chooser-dialog.c' || echo '$(srcdir)/'`src/libnma/nma-pkcs11-cert-chooser-dialog.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-cert-chooser-dialog.Tpo src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-cert-chooser-dialog.Plo
+#	$(AM_V_CC)source='src/libnma/nma-pkcs11-cert-chooser-dialog.c' object='src/libnma/libnma_gtk4_la-nma-pkcs11-cert-chooser-dialog.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_gtk4_la-nma-pkcs11-cert-chooser-dialog.lo `test -f 'src/libnma/nma-pkcs11-cert-chooser-dialog.c' || echo '$(srcdir)/'`src/libnma/nma-pkcs11-cert-chooser-dialog.c
+
+src/libnma/libnma_gtk4_la-nma-cert-chooser-button.lo: src/libnma/nma-cert-chooser-button.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_gtk4_la-nma-cert-chooser-button.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-cert-chooser-button.Tpo -c -o src/libnma/libnma_gtk4_la-nma-cert-chooser-button.lo `test -f 'src/libnma/nma-cert-chooser-button.c' || echo '$(srcdir)/'`src/libnma/nma-cert-chooser-button.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-cert-chooser-button.Tpo src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-cert-chooser-button.Plo
+#	$(AM_V_CC)source='src/libnma/nma-cert-chooser-button.c' object='src/libnma/libnma_gtk4_la-nma-cert-chooser-button.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_gtk4_la-nma-cert-chooser-button.lo `test -f 'src/libnma/nma-cert-chooser-button.c' || echo '$(srcdir)/'`src/libnma/nma-cert-chooser-button.c
+
+src/libnma/libnma_gtk4_la-nma-pkcs11-cert-chooser.lo: src/libnma/nma-pkcs11-cert-chooser.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_gtk4_la-nma-pkcs11-cert-chooser.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-cert-chooser.Tpo -c -o src/libnma/libnma_gtk4_la-nma-pkcs11-cert-chooser.lo `test -f 'src/libnma/nma-pkcs11-cert-chooser.c' || echo '$(srcdir)/'`src/libnma/nma-pkcs11-cert-chooser.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-cert-chooser.Tpo src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-cert-chooser.Plo
+#	$(AM_V_CC)source='src/libnma/nma-pkcs11-cert-chooser.c' object='src/libnma/libnma_gtk4_la-nma-pkcs11-cert-chooser.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_gtk4_la-nma-pkcs11-cert-chooser.lo `test -f 'src/libnma/nma-pkcs11-cert-chooser.c' || echo '$(srcdir)/'`src/libnma/nma-pkcs11-cert-chooser.c
+
+src/libnma-gtk4/libnma_libnma_gtk4_la-nma-resources.lo: src/libnma-gtk4/nma-resources.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -MT src/libnma-gtk4/libnma_libnma_gtk4_la-nma-resources.lo -MD -MP -MF src/libnma-gtk4/$(DEPDIR)/libnma_libnma_gtk4_la-nma-resources.Tpo -c -o src/libnma-gtk4/libnma_libnma_gtk4_la-nma-resources.lo `test -f 'src/libnma-gtk4/nma-resources.c' || echo '$(srcdir)/'`src/libnma-gtk4/nma-resources.c
+#	$(AM_V_at)$(am__mv) src/libnma-gtk4/$(DEPDIR)/libnma_libnma_gtk4_la-nma-resources.Tpo src/libnma-gtk4/$(DEPDIR)/libnma_libnma_gtk4_la-nma-resources.Plo
+#	$(AM_V_CC)source='src/libnma-gtk4/nma-resources.c' object='src/libnma-gtk4/libnma_libnma_gtk4_la-nma-resources.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_gtk4_la_CFLAGS) $(CFLAGS) -c -o src/libnma-gtk4/libnma_libnma_gtk4_la-nma-resources.lo `test -f 'src/libnma-gtk4/nma-resources.c' || echo '$(srcdir)/'`src/libnma-gtk4/nma-resources.c
+
 src/libnma/libnma_la-nma-wifi-dialog.lo: src/libnma/nma-wifi-dialog.c
 #	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_la-nma-wifi-dialog.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_la-nma-wifi-dialog.Tpo -c -o src/libnma/libnma_la-nma-wifi-dialog.lo `test -f 'src/libnma/nma-wifi-dialog.c' || echo '$(srcdir)/'`src/libnma/nma-wifi-dialog.c
 #	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_la-nma-wifi-dialog.Tpo src/libnma/$(DEPDIR)/libnma_la-nma-wifi-dialog.Plo
@@ -3018,6 +3918,20 @@ src/libnma/libnma_la-nma-file-cert-chooser.lo: src/libnma/nma-file-cert-chooser.
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
 	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_la-nma-file-cert-chooser.lo `test -f 'src/libnma/nma-file-cert-chooser.c' || echo '$(srcdir)/'`src/libnma/nma-file-cert-chooser.c
 
+src/libnma/libnma_la-nma-bar-code-widget.lo: src/libnma/nma-bar-code-widget.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_la-nma-bar-code-widget.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_la-nma-bar-code-widget.Tpo -c -o src/libnma/libnma_la-nma-bar-code-widget.lo `test -f 'src/libnma/nma-bar-code-widget.c' || echo '$(srcdir)/'`src/libnma/nma-bar-code-widget.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_la-nma-bar-code-widget.Tpo src/libnma/$(DEPDIR)/libnma_la-nma-bar-code-widget.Plo
+#	$(AM_V_CC)source='src/libnma/nma-bar-code-widget.c' object='src/libnma/libnma_la-nma-bar-code-widget.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_la-nma-bar-code-widget.lo `test -f 'src/libnma/nma-bar-code-widget.c' || echo '$(srcdir)/'`src/libnma/nma-bar-code-widget.c
+
+src/libnma/libnma_la-nma-bar-code.lo: src/libnma/nma-bar-code.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_la-nma-bar-code.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_la-nma-bar-code.Tpo -c -o src/libnma/libnma_la-nma-bar-code.lo `test -f 'src/libnma/nma-bar-code.c' || echo '$(srcdir)/'`src/libnma/nma-bar-code.c
+#	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_la-nma-bar-code.Tpo src/libnma/$(DEPDIR)/libnma_la-nma-bar-code.Plo
+#	$(AM_V_CC)source='src/libnma/nma-bar-code.c' object='src/libnma/libnma_la-nma-bar-code.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_la_CFLAGS) $(CFLAGS) -c -o src/libnma/libnma_la-nma-bar-code.lo `test -f 'src/libnma/nma-bar-code.c' || echo '$(srcdir)/'`src/libnma/nma-bar-code.c
+
 src/libnma/libnma_la-nma-pkcs11-token-login-dialog.lo: src/libnma/nma-pkcs11-token-login-dialog.c
 #	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libnma_libnma_la_CFLAGS) $(CFLAGS) -MT src/libnma/libnma_la-nma-pkcs11-token-login-dialog.lo -MD -MP -MF src/libnma/$(DEPDIR)/libnma_la-nma-pkcs11-token-login-dialog.Tpo -c -o src/libnma/libnma_la-nma-pkcs11-token-login-dialog.lo `test -f 'src/libnma/nma-pkcs11-token-login-dialog.c' || echo '$(srcdir)/'`src/libnma/nma-pkcs11-token-login-dialog.c
 #	$(AM_V_at)$(am__mv) src/libnma/$(DEPDIR)/libnma_la-nma-pkcs11-token-login-dialog.Tpo src/libnma/$(DEPDIR)/libnma_la-nma-pkcs11-token-login-dialog.Plo
@@ -3067,6 +3981,20 @@ src/utils/libutils_libnm_glib_la-utils.lo: src/utils/utils.c
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
 	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_utils_libutils_libnm_glib_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/utils/libutils_libnm_glib_la-utils.lo `test -f 'src/utils/utils.c' || echo '$(srcdir)/'`src/utils/utils.c
 
+shared/nm-utils/src_utils_libutils_libnm_gtk4_la-nm-shared-utils.lo: shared/nm-utils/nm-shared-utils.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_utils_libutils_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT shared/nm-utils/src_utils_libutils_libnm_gtk4_la-nm-shared-utils.lo -MD -MP -MF shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_gtk4_la-nm-shared-utils.Tpo -c -o shared/nm-utils/src_utils_libutils_libnm_gtk4_la-nm-shared-utils.lo `test -f 'shared/nm-utils/nm-shared-utils.c' || echo '$(srcdir)/'`shared/nm-utils/nm-shared-utils.c
+#	$(AM_V_at)$(am__mv) shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_gtk4_la-nm-shared-utils.Tpo shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_gtk4_la-nm-shared-utils.Plo
+#	$(AM_V_CC)source='shared/nm-utils/nm-shared-utils.c' object='shared/nm-utils/src_utils_libutils_libnm_gtk4_la-nm-shared-utils.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_utils_libutils_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o shared/nm-utils/src_utils_libutils_libnm_gtk4_la-nm-shared-utils.lo `test -f 'shared/nm-utils/nm-shared-utils.c' || echo '$(srcdir)/'`shared/nm-utils/nm-shared-utils.c
+
+src/utils/libutils_libnm_gtk4_la-utils.lo: src/utils/utils.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_utils_libutils_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/utils/libutils_libnm_gtk4_la-utils.lo -MD -MP -MF src/utils/$(DEPDIR)/libutils_libnm_gtk4_la-utils.Tpo -c -o src/utils/libutils_libnm_gtk4_la-utils.lo `test -f 'src/utils/utils.c' || echo '$(srcdir)/'`src/utils/utils.c
+#	$(AM_V_at)$(am__mv) src/utils/$(DEPDIR)/libutils_libnm_gtk4_la-utils.Tpo src/utils/$(DEPDIR)/libutils_libnm_gtk4_la-utils.Plo
+#	$(AM_V_CC)source='src/utils/utils.c' object='src/utils/libutils_libnm_gtk4_la-utils.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_utils_libutils_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/utils/libutils_libnm_gtk4_la-utils.lo `test -f 'src/utils/utils.c' || echo '$(srcdir)/'`src/utils/utils.c
+
 shared/nm-utils/src_utils_libutils_libnm_la-nm-shared-utils.lo: shared/nm-utils/nm-shared-utils.c
 #	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_utils_libutils_libnm_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT shared/nm-utils/src_utils_libutils_libnm_la-nm-shared-utils.lo -MD -MP -MF shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_la-nm-shared-utils.Tpo -c -o shared/nm-utils/src_utils_libutils_libnm_la-nm-shared-utils.lo `test -f 'shared/nm-utils/nm-shared-utils.c' || echo '$(srcdir)/'`shared/nm-utils/nm-shared-utils.c
 #	$(AM_V_at)$(am__mv) shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_la-nm-shared-utils.Tpo shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_la-nm-shared-utils.Plo
@@ -3087,6 +4015,13 @@ src/wireless-security/libwireless_security_libnm_glib_la-wireless-security.lo: s
 #	$(AM_V_CC)source='src/wireless-security/wireless-security.c' object='src/wireless-security/libwireless_security_libnm_glib_la-wireless-security.lo' libtool=yes 
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
 	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_glib_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_glib_la-wireless-security.lo `test -f 'src/wireless-security/wireless-security.c' || echo '$(srcdir)/'`src/wireless-security/wireless-security.c
+
+src/wireless-security/libwireless_security_libnm_glib_la-ws-sae.lo: src/wireless-security/ws-sae.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_glib_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_glib_la-ws-sae.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-sae.Tpo -c -o src/wireless-security/libwireless_security_libnm_glib_la-ws-sae.lo `test -f 'src/wireless-security/ws-sae.c' || echo '$(srcdir)/'`src/wireless-security/ws-sae.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-sae.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-sae.Plo
+#	$(AM_V_CC)source='src/wireless-security/ws-sae.c' object='src/wireless-security/libwireless_security_libnm_glib_la-ws-sae.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_glib_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_glib_la-ws-sae.lo `test -f 'src/wireless-security/ws-sae.c' || echo '$(srcdir)/'`src/wireless-security/ws-sae.c
 
 src/wireless-security/libwireless_security_libnm_glib_la-ws-wep-key.lo: src/wireless-security/ws-wep-key.c
 #	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_glib_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_glib_la-ws-wep-key.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-wep-key.Tpo -c -o src/wireless-security/libwireless_security_libnm_glib_la-ws-wep-key.lo `test -f 'src/wireless-security/ws-wep-key.c' || echo '$(srcdir)/'`src/wireless-security/ws-wep-key.c
@@ -3186,12 +4121,131 @@ src/wireless-security/libwireless_security_libnm_glib_la-ws-resources.lo: src/wi
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
 	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_glib_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_glib_la-ws-resources.lo `test -f 'src/wireless-security/ws-resources.c' || echo '$(srcdir)/'`src/wireless-security/ws-resources.c
 
+src/wireless-security/libwireless_security_libnm_gtk4_la-wireless-security.lo: src/wireless-security/wireless-security.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-wireless-security.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-wireless-security.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-wireless-security.lo `test -f 'src/wireless-security/wireless-security.c' || echo '$(srcdir)/'`src/wireless-security/wireless-security.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-wireless-security.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-wireless-security.Plo
+#	$(AM_V_CC)source='src/wireless-security/wireless-security.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-wireless-security.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-wireless-security.lo `test -f 'src/wireless-security/wireless-security.c' || echo '$(srcdir)/'`src/wireless-security/wireless-security.c
+
+src/wireless-security/libwireless_security_libnm_gtk4_la-ws-sae.lo: src/wireless-security/ws-sae.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-ws-sae.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-sae.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-ws-sae.lo `test -f 'src/wireless-security/ws-sae.c' || echo '$(srcdir)/'`src/wireless-security/ws-sae.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-sae.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-sae.Plo
+#	$(AM_V_CC)source='src/wireless-security/ws-sae.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-ws-sae.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-ws-sae.lo `test -f 'src/wireless-security/ws-sae.c' || echo '$(srcdir)/'`src/wireless-security/ws-sae.c
+
+src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wep-key.lo: src/wireless-security/ws-wep-key.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wep-key.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wep-key.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wep-key.lo `test -f 'src/wireless-security/ws-wep-key.c' || echo '$(srcdir)/'`src/wireless-security/ws-wep-key.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wep-key.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wep-key.Plo
+#	$(AM_V_CC)source='src/wireless-security/ws-wep-key.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wep-key.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wep-key.lo `test -f 'src/wireless-security/ws-wep-key.c' || echo '$(srcdir)/'`src/wireless-security/ws-wep-key.c
+
+src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wpa-psk.lo: src/wireless-security/ws-wpa-psk.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wpa-psk.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wpa-psk.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wpa-psk.lo `test -f 'src/wireless-security/ws-wpa-psk.c' || echo '$(srcdir)/'`src/wireless-security/ws-wpa-psk.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wpa-psk.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wpa-psk.Plo
+#	$(AM_V_CC)source='src/wireless-security/ws-wpa-psk.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wpa-psk.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wpa-psk.lo `test -f 'src/wireless-security/ws-wpa-psk.c' || echo '$(srcdir)/'`src/wireless-security/ws-wpa-psk.c
+
+src/wireless-security/libwireless_security_libnm_gtk4_la-ws-leap.lo: src/wireless-security/ws-leap.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-ws-leap.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-leap.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-ws-leap.lo `test -f 'src/wireless-security/ws-leap.c' || echo '$(srcdir)/'`src/wireless-security/ws-leap.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-leap.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-leap.Plo
+#	$(AM_V_CC)source='src/wireless-security/ws-leap.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-ws-leap.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-ws-leap.lo `test -f 'src/wireless-security/ws-leap.c' || echo '$(srcdir)/'`src/wireless-security/ws-leap.c
+
+src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wpa-eap.lo: src/wireless-security/ws-wpa-eap.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wpa-eap.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wpa-eap.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wpa-eap.lo `test -f 'src/wireless-security/ws-wpa-eap.c' || echo '$(srcdir)/'`src/wireless-security/ws-wpa-eap.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wpa-eap.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wpa-eap.Plo
+#	$(AM_V_CC)source='src/wireless-security/ws-wpa-eap.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wpa-eap.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-ws-wpa-eap.lo `test -f 'src/wireless-security/ws-wpa-eap.c' || echo '$(srcdir)/'`src/wireless-security/ws-wpa-eap.c
+
+src/wireless-security/libwireless_security_libnm_gtk4_la-ws-dynamic-wep.lo: src/wireless-security/ws-dynamic-wep.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-ws-dynamic-wep.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-dynamic-wep.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-ws-dynamic-wep.lo `test -f 'src/wireless-security/ws-dynamic-wep.c' || echo '$(srcdir)/'`src/wireless-security/ws-dynamic-wep.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-dynamic-wep.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-dynamic-wep.Plo
+#	$(AM_V_CC)source='src/wireless-security/ws-dynamic-wep.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-ws-dynamic-wep.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-ws-dynamic-wep.lo `test -f 'src/wireless-security/ws-dynamic-wep.c' || echo '$(srcdir)/'`src/wireless-security/ws-dynamic-wep.c
+
+src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method.lo: src/wireless-security/eap-method.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method.lo `test -f 'src/wireless-security/eap-method.c' || echo '$(srcdir)/'`src/wireless-security/eap-method.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method.Plo
+#	$(AM_V_CC)source='src/wireless-security/eap-method.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method.lo `test -f 'src/wireless-security/eap-method.c' || echo '$(srcdir)/'`src/wireless-security/eap-method.c
+
+src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-tls.lo: src/wireless-security/eap-method-tls.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-tls.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-tls.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-tls.lo `test -f 'src/wireless-security/eap-method-tls.c' || echo '$(srcdir)/'`src/wireless-security/eap-method-tls.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-tls.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-tls.Plo
+#	$(AM_V_CC)source='src/wireless-security/eap-method-tls.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-tls.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-tls.lo `test -f 'src/wireless-security/eap-method-tls.c' || echo '$(srcdir)/'`src/wireless-security/eap-method-tls.c
+
+src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-leap.lo: src/wireless-security/eap-method-leap.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-leap.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-leap.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-leap.lo `test -f 'src/wireless-security/eap-method-leap.c' || echo '$(srcdir)/'`src/wireless-security/eap-method-leap.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-leap.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-leap.Plo
+#	$(AM_V_CC)source='src/wireless-security/eap-method-leap.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-leap.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-leap.lo `test -f 'src/wireless-security/eap-method-leap.c' || echo '$(srcdir)/'`src/wireless-security/eap-method-leap.c
+
+src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-fast.lo: src/wireless-security/eap-method-fast.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-fast.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-fast.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-fast.lo `test -f 'src/wireless-security/eap-method-fast.c' || echo '$(srcdir)/'`src/wireless-security/eap-method-fast.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-fast.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-fast.Plo
+#	$(AM_V_CC)source='src/wireless-security/eap-method-fast.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-fast.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-fast.lo `test -f 'src/wireless-security/eap-method-fast.c' || echo '$(srcdir)/'`src/wireless-security/eap-method-fast.c
+
+src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-ttls.lo: src/wireless-security/eap-method-ttls.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-ttls.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-ttls.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-ttls.lo `test -f 'src/wireless-security/eap-method-ttls.c' || echo '$(srcdir)/'`src/wireless-security/eap-method-ttls.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-ttls.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-ttls.Plo
+#	$(AM_V_CC)source='src/wireless-security/eap-method-ttls.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-ttls.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-ttls.lo `test -f 'src/wireless-security/eap-method-ttls.c' || echo '$(srcdir)/'`src/wireless-security/eap-method-ttls.c
+
+src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-peap.lo: src/wireless-security/eap-method-peap.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-peap.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-peap.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-peap.lo `test -f 'src/wireless-security/eap-method-peap.c' || echo '$(srcdir)/'`src/wireless-security/eap-method-peap.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-peap.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-peap.Plo
+#	$(AM_V_CC)source='src/wireless-security/eap-method-peap.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-peap.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-peap.lo `test -f 'src/wireless-security/eap-method-peap.c' || echo '$(srcdir)/'`src/wireless-security/eap-method-peap.c
+
+src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-simple.lo: src/wireless-security/eap-method-simple.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-simple.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-simple.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-simple.lo `test -f 'src/wireless-security/eap-method-simple.c' || echo '$(srcdir)/'`src/wireless-security/eap-method-simple.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-simple.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-simple.Plo
+#	$(AM_V_CC)source='src/wireless-security/eap-method-simple.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-simple.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-eap-method-simple.lo `test -f 'src/wireless-security/eap-method-simple.c' || echo '$(srcdir)/'`src/wireless-security/eap-method-simple.c
+
+src/wireless-security/libwireless_security_libnm_gtk4_la-helpers.lo: src/wireless-security/helpers.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-helpers.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-helpers.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-helpers.lo `test -f 'src/wireless-security/helpers.c' || echo '$(srcdir)/'`src/wireless-security/helpers.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-helpers.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-helpers.Plo
+#	$(AM_V_CC)source='src/wireless-security/helpers.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-helpers.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-helpers.lo `test -f 'src/wireless-security/helpers.c' || echo '$(srcdir)/'`src/wireless-security/helpers.c
+
+src/wireless-security/libwireless_security_libnm_gtk4_la-ws-resources.lo: src/wireless-security/ws-resources.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_gtk4_la-ws-resources.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-resources.Tpo -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-ws-resources.lo `test -f 'src/wireless-security/ws-resources.c' || echo '$(srcdir)/'`src/wireless-security/ws-resources.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-resources.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-resources.Plo
+#	$(AM_V_CC)source='src/wireless-security/ws-resources.c' object='src/wireless-security/libwireless_security_libnm_gtk4_la-ws-resources.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_gtk4_la-ws-resources.lo `test -f 'src/wireless-security/ws-resources.c' || echo '$(srcdir)/'`src/wireless-security/ws-resources.c
+
 src/wireless-security/libwireless_security_libnm_la-wireless-security.lo: src/wireless-security/wireless-security.c
 #	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_la-wireless-security.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-wireless-security.Tpo -c -o src/wireless-security/libwireless_security_libnm_la-wireless-security.lo `test -f 'src/wireless-security/wireless-security.c' || echo '$(srcdir)/'`src/wireless-security/wireless-security.c
 #	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-wireless-security.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-wireless-security.Plo
 #	$(AM_V_CC)source='src/wireless-security/wireless-security.c' object='src/wireless-security/libwireless_security_libnm_la-wireless-security.lo' libtool=yes 
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
 	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_la-wireless-security.lo `test -f 'src/wireless-security/wireless-security.c' || echo '$(srcdir)/'`src/wireless-security/wireless-security.c
+
+src/wireless-security/libwireless_security_libnm_la-ws-sae.lo: src/wireless-security/ws-sae.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_la-ws-sae.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-sae.Tpo -c -o src/wireless-security/libwireless_security_libnm_la-ws-sae.lo `test -f 'src/wireless-security/ws-sae.c' || echo '$(srcdir)/'`src/wireless-security/ws-sae.c
+#	$(AM_V_at)$(am__mv) src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-sae.Tpo src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-sae.Plo
+#	$(AM_V_CC)source='src/wireless-security/ws-sae.c' object='src/wireless-security/libwireless_security_libnm_la-ws-sae.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/wireless-security/libwireless_security_libnm_la-ws-sae.lo `test -f 'src/wireless-security/ws-sae.c' || echo '$(srcdir)/'`src/wireless-security/ws-sae.c
 
 src/wireless-security/libwireless_security_libnm_la-ws-wep-key.lo: src/wireless-security/ws-wep-key.c
 #	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_wireless_security_libwireless_security_libnm_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/wireless-security/libwireless_security_libnm_la-ws-wep-key.lo -MD -MP -MF src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-wep-key.Tpo -c -o src/wireless-security/libwireless_security_libnm_la-ws-wep-key.lo `test -f 'src/wireless-security/ws-wep-key.c' || echo '$(srcdir)/'`src/wireless-security/ws-wep-key.c
@@ -3823,6 +4877,62 @@ src/libnm-gtk/tests/test_mobile_providers-test-mobile-providers.obj: src/libnm-g
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
 	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnm_gtk_tests_test_mobile_providers_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnm-gtk/tests/test_mobile_providers-test-mobile-providers.obj `if test -f 'src/libnm-gtk/tests/test-mobile-providers.c'; then $(CYGPATH_W) 'src/libnm-gtk/tests/test-mobile-providers.c'; else $(CYGPATH_W) '$(srcdir)/src/libnm-gtk/tests/test-mobile-providers.c'; fi`
 
+src/libnma/tests/bar_code-bar-code.o: src/libnma/tests/bar-code.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_bar_code_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/bar_code-bar-code.o -MD -MP -MF src/libnma/tests/$(DEPDIR)/bar_code-bar-code.Tpo -c -o src/libnma/tests/bar_code-bar-code.o `test -f 'src/libnma/tests/bar-code.c' || echo '$(srcdir)/'`src/libnma/tests/bar-code.c
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/bar_code-bar-code.Tpo src/libnma/tests/$(DEPDIR)/bar_code-bar-code.Po
+#	$(AM_V_CC)source='src/libnma/tests/bar-code.c' object='src/libnma/tests/bar_code-bar-code.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_bar_code_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/bar_code-bar-code.o `test -f 'src/libnma/tests/bar-code.c' || echo '$(srcdir)/'`src/libnma/tests/bar-code.c
+
+src/libnma/tests/bar_code-bar-code.obj: src/libnma/tests/bar-code.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_bar_code_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/bar_code-bar-code.obj -MD -MP -MF src/libnma/tests/$(DEPDIR)/bar_code-bar-code.Tpo -c -o src/libnma/tests/bar_code-bar-code.obj `if test -f 'src/libnma/tests/bar-code.c'; then $(CYGPATH_W) 'src/libnma/tests/bar-code.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/bar-code.c'; fi`
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/bar_code-bar-code.Tpo src/libnma/tests/$(DEPDIR)/bar_code-bar-code.Po
+#	$(AM_V_CC)source='src/libnma/tests/bar-code.c' object='src/libnma/tests/bar_code-bar-code.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_bar_code_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/bar_code-bar-code.obj `if test -f 'src/libnma/tests/bar-code.c'; then $(CYGPATH_W) 'src/libnma/tests/bar-code.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/bar-code.c'; fi`
+
+src/libnma/tests/bar_code_gtk4-bar-code.o: src/libnma/tests/bar-code.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_bar_code_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/bar_code_gtk4-bar-code.o -MD -MP -MF src/libnma/tests/$(DEPDIR)/bar_code_gtk4-bar-code.Tpo -c -o src/libnma/tests/bar_code_gtk4-bar-code.o `test -f 'src/libnma/tests/bar-code.c' || echo '$(srcdir)/'`src/libnma/tests/bar-code.c
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/bar_code_gtk4-bar-code.Tpo src/libnma/tests/$(DEPDIR)/bar_code_gtk4-bar-code.Po
+#	$(AM_V_CC)source='src/libnma/tests/bar-code.c' object='src/libnma/tests/bar_code_gtk4-bar-code.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_bar_code_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/bar_code_gtk4-bar-code.o `test -f 'src/libnma/tests/bar-code.c' || echo '$(srcdir)/'`src/libnma/tests/bar-code.c
+
+src/libnma/tests/bar_code_gtk4-bar-code.obj: src/libnma/tests/bar-code.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_bar_code_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/bar_code_gtk4-bar-code.obj -MD -MP -MF src/libnma/tests/$(DEPDIR)/bar_code_gtk4-bar-code.Tpo -c -o src/libnma/tests/bar_code_gtk4-bar-code.obj `if test -f 'src/libnma/tests/bar-code.c'; then $(CYGPATH_W) 'src/libnma/tests/bar-code.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/bar-code.c'; fi`
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/bar_code_gtk4-bar-code.Tpo src/libnma/tests/$(DEPDIR)/bar_code_gtk4-bar-code.Po
+#	$(AM_V_CC)source='src/libnma/tests/bar-code.c' object='src/libnma/tests/bar_code_gtk4-bar-code.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_bar_code_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/bar_code_gtk4-bar-code.obj `if test -f 'src/libnma/tests/bar-code.c'; then $(CYGPATH_W) 'src/libnma/tests/bar-code.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/bar-code.c'; fi`
+
+src/libnma/tests/cert_chooser-cert-chooser.o: src/libnma/tests/cert-chooser.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_cert_chooser_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/cert_chooser-cert-chooser.o -MD -MP -MF src/libnma/tests/$(DEPDIR)/cert_chooser-cert-chooser.Tpo -c -o src/libnma/tests/cert_chooser-cert-chooser.o `test -f 'src/libnma/tests/cert-chooser.c' || echo '$(srcdir)/'`src/libnma/tests/cert-chooser.c
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/cert_chooser-cert-chooser.Tpo src/libnma/tests/$(DEPDIR)/cert_chooser-cert-chooser.Po
+#	$(AM_V_CC)source='src/libnma/tests/cert-chooser.c' object='src/libnma/tests/cert_chooser-cert-chooser.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_cert_chooser_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/cert_chooser-cert-chooser.o `test -f 'src/libnma/tests/cert-chooser.c' || echo '$(srcdir)/'`src/libnma/tests/cert-chooser.c
+
+src/libnma/tests/cert_chooser-cert-chooser.obj: src/libnma/tests/cert-chooser.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_cert_chooser_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/cert_chooser-cert-chooser.obj -MD -MP -MF src/libnma/tests/$(DEPDIR)/cert_chooser-cert-chooser.Tpo -c -o src/libnma/tests/cert_chooser-cert-chooser.obj `if test -f 'src/libnma/tests/cert-chooser.c'; then $(CYGPATH_W) 'src/libnma/tests/cert-chooser.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/cert-chooser.c'; fi`
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/cert_chooser-cert-chooser.Tpo src/libnma/tests/$(DEPDIR)/cert_chooser-cert-chooser.Po
+#	$(AM_V_CC)source='src/libnma/tests/cert-chooser.c' object='src/libnma/tests/cert_chooser-cert-chooser.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_cert_chooser_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/cert_chooser-cert-chooser.obj `if test -f 'src/libnma/tests/cert-chooser.c'; then $(CYGPATH_W) 'src/libnma/tests/cert-chooser.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/cert-chooser.c'; fi`
+
+src/libnma/tests/cert_chooser_gtk4-cert-chooser.o: src/libnma/tests/cert-chooser.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_cert_chooser_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/cert_chooser_gtk4-cert-chooser.o -MD -MP -MF src/libnma/tests/$(DEPDIR)/cert_chooser_gtk4-cert-chooser.Tpo -c -o src/libnma/tests/cert_chooser_gtk4-cert-chooser.o `test -f 'src/libnma/tests/cert-chooser.c' || echo '$(srcdir)/'`src/libnma/tests/cert-chooser.c
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/cert_chooser_gtk4-cert-chooser.Tpo src/libnma/tests/$(DEPDIR)/cert_chooser_gtk4-cert-chooser.Po
+#	$(AM_V_CC)source='src/libnma/tests/cert-chooser.c' object='src/libnma/tests/cert_chooser_gtk4-cert-chooser.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_cert_chooser_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/cert_chooser_gtk4-cert-chooser.o `test -f 'src/libnma/tests/cert-chooser.c' || echo '$(srcdir)/'`src/libnma/tests/cert-chooser.c
+
+src/libnma/tests/cert_chooser_gtk4-cert-chooser.obj: src/libnma/tests/cert-chooser.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_cert_chooser_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/cert_chooser_gtk4-cert-chooser.obj -MD -MP -MF src/libnma/tests/$(DEPDIR)/cert_chooser_gtk4-cert-chooser.Tpo -c -o src/libnma/tests/cert_chooser_gtk4-cert-chooser.obj `if test -f 'src/libnma/tests/cert-chooser.c'; then $(CYGPATH_W) 'src/libnma/tests/cert-chooser.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/cert-chooser.c'; fi`
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/cert_chooser_gtk4-cert-chooser.Tpo src/libnma/tests/$(DEPDIR)/cert_chooser_gtk4-cert-chooser.Po
+#	$(AM_V_CC)source='src/libnma/tests/cert-chooser.c' object='src/libnma/tests/cert_chooser_gtk4-cert-chooser.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_cert_chooser_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/cert_chooser_gtk4-cert-chooser.obj `if test -f 'src/libnma/tests/cert-chooser.c'; then $(CYGPATH_W) 'src/libnma/tests/cert-chooser.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/cert-chooser.c'; fi`
+
 src/libnma/tests/mobile_wizard-mobile-wizard.o: src/libnma/tests/mobile-wizard.c
 #	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_mobile_wizard_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/mobile_wizard-mobile-wizard.o -MD -MP -MF src/libnma/tests/$(DEPDIR)/mobile_wizard-mobile-wizard.Tpo -c -o src/libnma/tests/mobile_wizard-mobile-wizard.o `test -f 'src/libnma/tests/mobile-wizard.c' || echo '$(srcdir)/'`src/libnma/tests/mobile-wizard.c
 #	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/mobile_wizard-mobile-wizard.Tpo src/libnma/tests/$(DEPDIR)/mobile_wizard-mobile-wizard.Po
@@ -3836,6 +4946,20 @@ src/libnma/tests/mobile_wizard-mobile-wizard.obj: src/libnma/tests/mobile-wizard
 #	$(AM_V_CC)source='src/libnma/tests/mobile-wizard.c' object='src/libnma/tests/mobile_wizard-mobile-wizard.obj' libtool=no 
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
 	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_mobile_wizard_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/mobile_wizard-mobile-wizard.obj `if test -f 'src/libnma/tests/mobile-wizard.c'; then $(CYGPATH_W) 'src/libnma/tests/mobile-wizard.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/mobile-wizard.c'; fi`
+
+src/libnma/tests/mobile_wizard_gtk4-mobile-wizard.o: src/libnma/tests/mobile-wizard.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_mobile_wizard_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/mobile_wizard_gtk4-mobile-wizard.o -MD -MP -MF src/libnma/tests/$(DEPDIR)/mobile_wizard_gtk4-mobile-wizard.Tpo -c -o src/libnma/tests/mobile_wizard_gtk4-mobile-wizard.o `test -f 'src/libnma/tests/mobile-wizard.c' || echo '$(srcdir)/'`src/libnma/tests/mobile-wizard.c
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/mobile_wizard_gtk4-mobile-wizard.Tpo src/libnma/tests/$(DEPDIR)/mobile_wizard_gtk4-mobile-wizard.Po
+#	$(AM_V_CC)source='src/libnma/tests/mobile-wizard.c' object='src/libnma/tests/mobile_wizard_gtk4-mobile-wizard.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_mobile_wizard_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/mobile_wizard_gtk4-mobile-wizard.o `test -f 'src/libnma/tests/mobile-wizard.c' || echo '$(srcdir)/'`src/libnma/tests/mobile-wizard.c
+
+src/libnma/tests/mobile_wizard_gtk4-mobile-wizard.obj: src/libnma/tests/mobile-wizard.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_mobile_wizard_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/mobile_wizard_gtk4-mobile-wizard.obj -MD -MP -MF src/libnma/tests/$(DEPDIR)/mobile_wizard_gtk4-mobile-wizard.Tpo -c -o src/libnma/tests/mobile_wizard_gtk4-mobile-wizard.obj `if test -f 'src/libnma/tests/mobile-wizard.c'; then $(CYGPATH_W) 'src/libnma/tests/mobile-wizard.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/mobile-wizard.c'; fi`
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/mobile_wizard_gtk4-mobile-wizard.Tpo src/libnma/tests/$(DEPDIR)/mobile_wizard_gtk4-mobile-wizard.Po
+#	$(AM_V_CC)source='src/libnma/tests/mobile-wizard.c' object='src/libnma/tests/mobile_wizard_gtk4-mobile-wizard.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_mobile_wizard_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/mobile_wizard_gtk4-mobile-wizard.obj `if test -f 'src/libnma/tests/mobile-wizard.c'; then $(CYGPATH_W) 'src/libnma/tests/mobile-wizard.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/mobile-wizard.c'; fi`
 
 src/libnma/tests/run_vpn-run-vpn.o: src/libnma/tests/run-vpn.c
 #	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_run_vpn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/run_vpn-run-vpn.o -MD -MP -MF src/libnma/tests/$(DEPDIR)/run_vpn-run-vpn.Tpo -c -o src/libnma/tests/run_vpn-run-vpn.o `test -f 'src/libnma/tests/run-vpn.c' || echo '$(srcdir)/'`src/libnma/tests/run-vpn.c
@@ -3851,6 +4975,20 @@ src/libnma/tests/run_vpn-run-vpn.obj: src/libnma/tests/run-vpn.c
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
 	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_run_vpn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/run_vpn-run-vpn.obj `if test -f 'src/libnma/tests/run-vpn.c'; then $(CYGPATH_W) 'src/libnma/tests/run-vpn.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/run-vpn.c'; fi`
 
+src/libnma/tests/run_vpn_gtk4-run-vpn.o: src/libnma/tests/run-vpn.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_run_vpn_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/run_vpn_gtk4-run-vpn.o -MD -MP -MF src/libnma/tests/$(DEPDIR)/run_vpn_gtk4-run-vpn.Tpo -c -o src/libnma/tests/run_vpn_gtk4-run-vpn.o `test -f 'src/libnma/tests/run-vpn.c' || echo '$(srcdir)/'`src/libnma/tests/run-vpn.c
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/run_vpn_gtk4-run-vpn.Tpo src/libnma/tests/$(DEPDIR)/run_vpn_gtk4-run-vpn.Po
+#	$(AM_V_CC)source='src/libnma/tests/run-vpn.c' object='src/libnma/tests/run_vpn_gtk4-run-vpn.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_run_vpn_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/run_vpn_gtk4-run-vpn.o `test -f 'src/libnma/tests/run-vpn.c' || echo '$(srcdir)/'`src/libnma/tests/run-vpn.c
+
+src/libnma/tests/run_vpn_gtk4-run-vpn.obj: src/libnma/tests/run-vpn.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_run_vpn_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/run_vpn_gtk4-run-vpn.obj -MD -MP -MF src/libnma/tests/$(DEPDIR)/run_vpn_gtk4-run-vpn.Tpo -c -o src/libnma/tests/run_vpn_gtk4-run-vpn.obj `if test -f 'src/libnma/tests/run-vpn.c'; then $(CYGPATH_W) 'src/libnma/tests/run-vpn.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/run-vpn.c'; fi`
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/run_vpn_gtk4-run-vpn.Tpo src/libnma/tests/$(DEPDIR)/run_vpn_gtk4-run-vpn.Po
+#	$(AM_V_CC)source='src/libnma/tests/run-vpn.c' object='src/libnma/tests/run_vpn_gtk4-run-vpn.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_run_vpn_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/run_vpn_gtk4-run-vpn.obj `if test -f 'src/libnma/tests/run-vpn.c'; then $(CYGPATH_W) 'src/libnma/tests/run-vpn.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/run-vpn.c'; fi`
+
 src/libnma/tests/vpn_password_dialog-vpn-password-dialog.o: src/libnma/tests/vpn-password-dialog.c
 #	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_vpn_password_dialog_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/vpn_password_dialog-vpn-password-dialog.o -MD -MP -MF src/libnma/tests/$(DEPDIR)/vpn_password_dialog-vpn-password-dialog.Tpo -c -o src/libnma/tests/vpn_password_dialog-vpn-password-dialog.o `test -f 'src/libnma/tests/vpn-password-dialog.c' || echo '$(srcdir)/'`src/libnma/tests/vpn-password-dialog.c
 #	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/vpn_password_dialog-vpn-password-dialog.Tpo src/libnma/tests/$(DEPDIR)/vpn_password_dialog-vpn-password-dialog.Po
@@ -3864,6 +5002,20 @@ src/libnma/tests/vpn_password_dialog-vpn-password-dialog.obj: src/libnma/tests/v
 #	$(AM_V_CC)source='src/libnma/tests/vpn-password-dialog.c' object='src/libnma/tests/vpn_password_dialog-vpn-password-dialog.obj' libtool=no 
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
 	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_vpn_password_dialog_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/vpn_password_dialog-vpn-password-dialog.obj `if test -f 'src/libnma/tests/vpn-password-dialog.c'; then $(CYGPATH_W) 'src/libnma/tests/vpn-password-dialog.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/vpn-password-dialog.c'; fi`
+
+src/libnma/tests/vpn_password_dialog_gtk4-vpn-password-dialog.o: src/libnma/tests/vpn-password-dialog.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_vpn_password_dialog_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/vpn_password_dialog_gtk4-vpn-password-dialog.o -MD -MP -MF src/libnma/tests/$(DEPDIR)/vpn_password_dialog_gtk4-vpn-password-dialog.Tpo -c -o src/libnma/tests/vpn_password_dialog_gtk4-vpn-password-dialog.o `test -f 'src/libnma/tests/vpn-password-dialog.c' || echo '$(srcdir)/'`src/libnma/tests/vpn-password-dialog.c
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/vpn_password_dialog_gtk4-vpn-password-dialog.Tpo src/libnma/tests/$(DEPDIR)/vpn_password_dialog_gtk4-vpn-password-dialog.Po
+#	$(AM_V_CC)source='src/libnma/tests/vpn-password-dialog.c' object='src/libnma/tests/vpn_password_dialog_gtk4-vpn-password-dialog.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_vpn_password_dialog_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/vpn_password_dialog_gtk4-vpn-password-dialog.o `test -f 'src/libnma/tests/vpn-password-dialog.c' || echo '$(srcdir)/'`src/libnma/tests/vpn-password-dialog.c
+
+src/libnma/tests/vpn_password_dialog_gtk4-vpn-password-dialog.obj: src/libnma/tests/vpn-password-dialog.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_vpn_password_dialog_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/vpn_password_dialog_gtk4-vpn-password-dialog.obj -MD -MP -MF src/libnma/tests/$(DEPDIR)/vpn_password_dialog_gtk4-vpn-password-dialog.Tpo -c -o src/libnma/tests/vpn_password_dialog_gtk4-vpn-password-dialog.obj `if test -f 'src/libnma/tests/vpn-password-dialog.c'; then $(CYGPATH_W) 'src/libnma/tests/vpn-password-dialog.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/vpn-password-dialog.c'; fi`
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/vpn_password_dialog_gtk4-vpn-password-dialog.Tpo src/libnma/tests/$(DEPDIR)/vpn_password_dialog_gtk4-vpn-password-dialog.Po
+#	$(AM_V_CC)source='src/libnma/tests/vpn-password-dialog.c' object='src/libnma/tests/vpn_password_dialog_gtk4-vpn-password-dialog.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_vpn_password_dialog_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/vpn_password_dialog_gtk4-vpn-password-dialog.obj `if test -f 'src/libnma/tests/vpn-password-dialog.c'; then $(CYGPATH_W) 'src/libnma/tests/vpn-password-dialog.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/vpn-password-dialog.c'; fi`
 
 src/libnma/tests/wifi_dialog-wifi-dialog.o: src/libnma/tests/wifi-dialog.c
 #	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_wifi_dialog_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/wifi_dialog-wifi-dialog.o -MD -MP -MF src/libnma/tests/$(DEPDIR)/wifi_dialog-wifi-dialog.Tpo -c -o src/libnma/tests/wifi_dialog-wifi-dialog.o `test -f 'src/libnma/tests/wifi-dialog.c' || echo '$(srcdir)/'`src/libnma/tests/wifi-dialog.c
@@ -3879,6 +5031,20 @@ src/libnma/tests/wifi_dialog-wifi-dialog.obj: src/libnma/tests/wifi-dialog.c
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
 	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_wifi_dialog_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/wifi_dialog-wifi-dialog.obj `if test -f 'src/libnma/tests/wifi-dialog.c'; then $(CYGPATH_W) 'src/libnma/tests/wifi-dialog.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/wifi-dialog.c'; fi`
 
+src/libnma/tests/wifi_dialog_gtk4-wifi-dialog.o: src/libnma/tests/wifi-dialog.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_wifi_dialog_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/wifi_dialog_gtk4-wifi-dialog.o -MD -MP -MF src/libnma/tests/$(DEPDIR)/wifi_dialog_gtk4-wifi-dialog.Tpo -c -o src/libnma/tests/wifi_dialog_gtk4-wifi-dialog.o `test -f 'src/libnma/tests/wifi-dialog.c' || echo '$(srcdir)/'`src/libnma/tests/wifi-dialog.c
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/wifi_dialog_gtk4-wifi-dialog.Tpo src/libnma/tests/$(DEPDIR)/wifi_dialog_gtk4-wifi-dialog.Po
+#	$(AM_V_CC)source='src/libnma/tests/wifi-dialog.c' object='src/libnma/tests/wifi_dialog_gtk4-wifi-dialog.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_wifi_dialog_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/wifi_dialog_gtk4-wifi-dialog.o `test -f 'src/libnma/tests/wifi-dialog.c' || echo '$(srcdir)/'`src/libnma/tests/wifi-dialog.c
+
+src/libnma/tests/wifi_dialog_gtk4-wifi-dialog.obj: src/libnma/tests/wifi-dialog.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_wifi_dialog_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/wifi_dialog_gtk4-wifi-dialog.obj -MD -MP -MF src/libnma/tests/$(DEPDIR)/wifi_dialog_gtk4-wifi-dialog.Tpo -c -o src/libnma/tests/wifi_dialog_gtk4-wifi-dialog.obj `if test -f 'src/libnma/tests/wifi-dialog.c'; then $(CYGPATH_W) 'src/libnma/tests/wifi-dialog.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/wifi-dialog.c'; fi`
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/wifi_dialog_gtk4-wifi-dialog.Tpo src/libnma/tests/$(DEPDIR)/wifi_dialog_gtk4-wifi-dialog.Po
+#	$(AM_V_CC)source='src/libnma/tests/wifi-dialog.c' object='src/libnma/tests/wifi_dialog_gtk4-wifi-dialog.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_wifi_dialog_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/wifi_dialog_gtk4-wifi-dialog.obj `if test -f 'src/libnma/tests/wifi-dialog.c'; then $(CYGPATH_W) 'src/libnma/tests/wifi-dialog.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/wifi-dialog.c'; fi`
+
 src/libnma/tests/wifi_dialog_secrets-wifi-dialog-secrets.o: src/libnma/tests/wifi-dialog-secrets.c
 #	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_wifi_dialog_secrets_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/wifi_dialog_secrets-wifi-dialog-secrets.o -MD -MP -MF src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets-wifi-dialog-secrets.Tpo -c -o src/libnma/tests/wifi_dialog_secrets-wifi-dialog-secrets.o `test -f 'src/libnma/tests/wifi-dialog-secrets.c' || echo '$(srcdir)/'`src/libnma/tests/wifi-dialog-secrets.c
 #	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets-wifi-dialog-secrets.Tpo src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets-wifi-dialog-secrets.Po
@@ -3892,6 +5058,20 @@ src/libnma/tests/wifi_dialog_secrets-wifi-dialog-secrets.obj: src/libnma/tests/w
 #	$(AM_V_CC)source='src/libnma/tests/wifi-dialog-secrets.c' object='src/libnma/tests/wifi_dialog_secrets-wifi-dialog-secrets.obj' libtool=no 
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
 	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_wifi_dialog_secrets_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/wifi_dialog_secrets-wifi-dialog-secrets.obj `if test -f 'src/libnma/tests/wifi-dialog-secrets.c'; then $(CYGPATH_W) 'src/libnma/tests/wifi-dialog-secrets.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/wifi-dialog-secrets.c'; fi`
+
+src/libnma/tests/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.o: src/libnma/tests/wifi-dialog-secrets.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_wifi_dialog_secrets_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.o -MD -MP -MF src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.Tpo -c -o src/libnma/tests/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.o `test -f 'src/libnma/tests/wifi-dialog-secrets.c' || echo '$(srcdir)/'`src/libnma/tests/wifi-dialog-secrets.c
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.Tpo src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.Po
+#	$(AM_V_CC)source='src/libnma/tests/wifi-dialog-secrets.c' object='src/libnma/tests/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_wifi_dialog_secrets_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.o `test -f 'src/libnma/tests/wifi-dialog-secrets.c' || echo '$(srcdir)/'`src/libnma/tests/wifi-dialog-secrets.c
+
+src/libnma/tests/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.obj: src/libnma/tests/wifi-dialog-secrets.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_wifi_dialog_secrets_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libnma/tests/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.obj -MD -MP -MF src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.Tpo -c -o src/libnma/tests/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.obj `if test -f 'src/libnma/tests/wifi-dialog-secrets.c'; then $(CYGPATH_W) 'src/libnma/tests/wifi-dialog-secrets.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/wifi-dialog-secrets.c'; fi`
+#	$(AM_V_at)$(am__mv) src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.Tpo src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.Po
+#	$(AM_V_CC)source='src/libnma/tests/wifi-dialog-secrets.c' object='src/libnma/tests/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_libnma_tests_wifi_dialog_secrets_gtk4_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libnma/tests/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.obj `if test -f 'src/libnma/tests/wifi-dialog-secrets.c'; then $(CYGPATH_W) 'src/libnma/tests/wifi-dialog-secrets.c'; else $(CYGPATH_W) '$(srcdir)/src/libnma/tests/wifi-dialog-secrets.c'; fi`
 
 shared/nm-utils/src_nm_applet-nm-compat.o: shared/nm-utils/nm-compat.c
 #	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_nm_applet_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT shared/nm-utils/src_nm_applet-nm-compat.o -MD -MP -MF shared/nm-utils/$(DEPDIR)/src_nm_applet-nm-compat.Tpo -c -o shared/nm-utils/src_nm_applet-nm-compat.o `test -f 'shared/nm-utils/nm-compat.c' || echo '$(srcdir)/'`shared/nm-utils/nm-compat.c
@@ -4128,6 +5308,7 @@ clean-libtool:
 	-rm -rf src/libnm-gtk/.libs src/libnm-gtk/_libs
 	-rm -rf src/libnm-gtk/tests/.libs src/libnm-gtk/tests/_libs
 	-rm -rf src/libnma/.libs src/libnma/_libs
+	-rm -rf src/libnma-gtk4/.libs src/libnma-gtk4/_libs
 	-rm -rf src/libnma/tests/.libs src/libnma/tests/_libs
 	-rm -rf src/utils/.libs src/utils/_libs
 	-rm -rf src/utils/tests/.libs src/utils/tests/_libs
@@ -5019,6 +6200,8 @@ distclean-generic:
 	-rm -f src/libnm-gtk/$(am__dirstamp)
 	-rm -f src/libnm-gtk/tests/$(DEPDIR)/$(am__dirstamp)
 	-rm -f src/libnm-gtk/tests/$(am__dirstamp)
+	-rm -f src/libnma-gtk4/$(DEPDIR)/$(am__dirstamp)
+	-rm -f src/libnma-gtk4/$(am__dirstamp)
 	-rm -f src/libnma/$(DEPDIR)/$(am__dirstamp)
 	-rm -f src/libnma/$(am__dirstamp)
 	-rm -f src/libnma/tests/$(DEPDIR)/$(am__dirstamp)
@@ -5045,6 +6228,7 @@ distclean: distclean-recursive
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 		-rm -f shared/nm-utils/$(DEPDIR)/src_nm_applet-nm-compat.Po
 	-rm -f shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_glib_la-nm-shared-utils.Plo
+	-rm -f shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_gtk4_la-nm-shared-utils.Plo
 	-rm -f shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_la-nm-shared-utils.Plo
 	-rm -f src/$(DEPDIR)/nm_applet-ap-menu-item.Po
 	-rm -f src/$(DEPDIR)/nm_applet-applet-agent.Po
@@ -5106,9 +6290,26 @@ distclean: distclean-recursive
 	-rm -f src/libnm-gtk/$(DEPDIR)/libnm_gtk_la-nm-wifi-dialog.Plo
 	-rm -f src/libnm-gtk/$(DEPDIR)/libnm_gtk_la-nm-wireless-dialog.Plo
 	-rm -f src/libnm-gtk/tests/$(DEPDIR)/test_mobile_providers-test-mobile-providers.Po
+	-rm -f src/libnma-gtk4/$(DEPDIR)/libnma_libnma_gtk4_la-nma-resources.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnm_gtk_libnm_gtk_la-nma-cert-chooser.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnm_gtk_libnm_gtk_la-nma-file-cert-chooser.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-init.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-bar-code-widget.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-bar-code.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-cert-chooser-button.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-cert-chooser.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-file-cert-chooser.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-mobile-providers.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-mobile-wizard.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-cert-chooser-dialog.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-cert-chooser.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-token-login-dialog.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-ui-utils.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-vpn-password-dialog.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-wifi-dialog.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnma_la-init.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-bar-code-widget.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-bar-code.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-cert-chooser-button.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-cert-chooser.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-file-cert-chooser.Plo
@@ -5121,12 +6322,22 @@ distclean: distclean-recursive
 	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-ui-utils.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-vpn-password-dialog.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-wifi-dialog.Plo
+	-rm -f src/libnma/tests/$(DEPDIR)/bar_code-bar-code.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/bar_code_gtk4-bar-code.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/cert_chooser-cert-chooser.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/cert_chooser_gtk4-cert-chooser.Po
 	-rm -f src/libnma/tests/$(DEPDIR)/mobile_wizard-mobile-wizard.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/mobile_wizard_gtk4-mobile-wizard.Po
 	-rm -f src/libnma/tests/$(DEPDIR)/run_vpn-run-vpn.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/run_vpn_gtk4-run-vpn.Po
 	-rm -f src/libnma/tests/$(DEPDIR)/vpn_password_dialog-vpn-password-dialog.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/vpn_password_dialog_gtk4-vpn-password-dialog.Po
 	-rm -f src/libnma/tests/$(DEPDIR)/wifi_dialog-wifi-dialog.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/wifi_dialog_gtk4-wifi-dialog.Po
 	-rm -f src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets-wifi-dialog-secrets.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.Po
 	-rm -f src/utils/$(DEPDIR)/libutils_libnm_glib_la-utils.Plo
+	-rm -f src/utils/$(DEPDIR)/libutils_libnm_gtk4_la-utils.Plo
 	-rm -f src/utils/$(DEPDIR)/libutils_libnm_la-utils.Plo
 	-rm -f src/utils/tests/$(DEPDIR)/test_utils-test-utils.Po
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-eap-method-fast.Plo
@@ -5141,9 +6352,26 @@ distclean: distclean-recursive
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-dynamic-wep.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-leap.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-resources.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-sae.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-wep-key.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-wpa-eap.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-wpa-psk.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-fast.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-leap.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-peap.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-simple.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-tls.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-ttls.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-helpers.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-wireless-security.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-dynamic-wep.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-leap.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-resources.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-sae.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wep-key.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wpa-eap.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wpa-psk.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-eap-method-fast.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-eap-method-leap.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-eap-method-peap.Plo
@@ -5156,6 +6384,7 @@ distclean: distclean-recursive
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-dynamic-wep.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-leap.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-resources.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-sae.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-wep-key.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-wpa-eap.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-wpa-psk.Plo
@@ -5214,6 +6443,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -rf $(top_srcdir)/autom4te.cache
 		-rm -f shared/nm-utils/$(DEPDIR)/src_nm_applet-nm-compat.Po
 	-rm -f shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_glib_la-nm-shared-utils.Plo
+	-rm -f shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_gtk4_la-nm-shared-utils.Plo
 	-rm -f shared/nm-utils/$(DEPDIR)/src_utils_libutils_libnm_la-nm-shared-utils.Plo
 	-rm -f src/$(DEPDIR)/nm_applet-ap-menu-item.Po
 	-rm -f src/$(DEPDIR)/nm_applet-applet-agent.Po
@@ -5275,9 +6505,26 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f src/libnm-gtk/$(DEPDIR)/libnm_gtk_la-nm-wifi-dialog.Plo
 	-rm -f src/libnm-gtk/$(DEPDIR)/libnm_gtk_la-nm-wireless-dialog.Plo
 	-rm -f src/libnm-gtk/tests/$(DEPDIR)/test_mobile_providers-test-mobile-providers.Po
+	-rm -f src/libnma-gtk4/$(DEPDIR)/libnma_libnma_gtk4_la-nma-resources.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnm_gtk_libnm_gtk_la-nma-cert-chooser.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnm_gtk_libnm_gtk_la-nma-file-cert-chooser.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-init.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-bar-code-widget.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-bar-code.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-cert-chooser-button.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-cert-chooser.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-file-cert-chooser.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-mobile-providers.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-mobile-wizard.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-cert-chooser-dialog.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-cert-chooser.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-pkcs11-token-login-dialog.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-ui-utils.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-vpn-password-dialog.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_gtk4_la-nma-wifi-dialog.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnma_la-init.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-bar-code-widget.Plo
+	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-bar-code.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-cert-chooser-button.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-cert-chooser.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-file-cert-chooser.Plo
@@ -5290,12 +6537,22 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-ui-utils.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-vpn-password-dialog.Plo
 	-rm -f src/libnma/$(DEPDIR)/libnma_la-nma-wifi-dialog.Plo
+	-rm -f src/libnma/tests/$(DEPDIR)/bar_code-bar-code.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/bar_code_gtk4-bar-code.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/cert_chooser-cert-chooser.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/cert_chooser_gtk4-cert-chooser.Po
 	-rm -f src/libnma/tests/$(DEPDIR)/mobile_wizard-mobile-wizard.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/mobile_wizard_gtk4-mobile-wizard.Po
 	-rm -f src/libnma/tests/$(DEPDIR)/run_vpn-run-vpn.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/run_vpn_gtk4-run-vpn.Po
 	-rm -f src/libnma/tests/$(DEPDIR)/vpn_password_dialog-vpn-password-dialog.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/vpn_password_dialog_gtk4-vpn-password-dialog.Po
 	-rm -f src/libnma/tests/$(DEPDIR)/wifi_dialog-wifi-dialog.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/wifi_dialog_gtk4-wifi-dialog.Po
 	-rm -f src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets-wifi-dialog-secrets.Po
+	-rm -f src/libnma/tests/$(DEPDIR)/wifi_dialog_secrets_gtk4-wifi-dialog-secrets.Po
 	-rm -f src/utils/$(DEPDIR)/libutils_libnm_glib_la-utils.Plo
+	-rm -f src/utils/$(DEPDIR)/libutils_libnm_gtk4_la-utils.Plo
 	-rm -f src/utils/$(DEPDIR)/libutils_libnm_la-utils.Plo
 	-rm -f src/utils/tests/$(DEPDIR)/test_utils-test-utils.Po
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-eap-method-fast.Plo
@@ -5310,9 +6567,26 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-dynamic-wep.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-leap.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-resources.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-sae.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-wep-key.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-wpa-eap.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_glib_la-ws-wpa-psk.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-fast.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-leap.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-peap.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-simple.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-tls.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method-ttls.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-eap-method.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-helpers.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-wireless-security.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-dynamic-wep.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-leap.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-resources.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-sae.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wep-key.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wpa-eap.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_gtk4_la-ws-wpa-psk.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-eap-method-fast.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-eap-method-leap.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-eap-method-peap.Plo
@@ -5325,6 +6599,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-dynamic-wep.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-leap.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-resources.Plo
+	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-sae.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-wep-key.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-wpa-eap.Plo
 	-rm -f src/wireless-security/$(DEPDIR)/libwireless_security_libnm_la-ws-wpa-psk.Plo
@@ -5609,22 +6884,24 @@ src/wireless-security/ws-resources.c: src/wireless-security/ws.gresource.xml $(s
 
 $(src_wireless_security_libwireless_security_libnm_la_OBJECTS): $(wireless_security_h_gen)
 
-$(src_wireless_security_libwireless_security_libnm_glib_la_OBJECTS): $(wireless_security_h_gen)
+#$(src_wireless_security_libwireless_security_libnm_glib_la_OBJECTS): $(wireless_security_h_gen)
+
+#$(src_wireless_security_libwireless_security_libnm_gtk4_la_OBJECTS): $(wireless_security_h_gen)
 
 ###############################################################################
 
-src/libnm-gtk/nm-resources.h: src/libnm-gtk/nm.gresource.xml
-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/src/libnm-gtk --generate-header --internal
+#src/libnm-gtk/nm-resources.h: src/libnm-gtk/nm.gresource.xml
+#	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/src/libnm-gtk --generate-header --internal
 
-src/libnm-gtk/nm-resources.c: src/libnm-gtk/nm.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(srcdir)/src/libnm-gtk --generate-dependencies $(srcdir)/src/libnm-gtk/nm.gresource.xml)
-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/src/libnm-gtk --generate-source --internal
+#src/libnm-gtk/nm-resources.c: src/libnm-gtk/nm.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(srcdir)/src/libnm-gtk --generate-dependencies $(srcdir)/src/libnm-gtk/nm.gresource.xml)
+#	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/src/libnm-gtk --generate-source --internal
 
-$(src_libnm_gtk_libnm_gtk_la_OBJECTS): $(libnm_gtk_h_priv_gen)
+#$(src_libnm_gtk_libnm_gtk_la_OBJECTS): $(libnm_gtk_h_priv_gen)
 
-check-local-exports-libnm-gtk:
-	$(srcdir)/src/libnm-gtk/check-exports.sh $(builddir)/src/libnm-gtk/.libs/libnm-gtk.so $(srcdir)/src/libnm-gtk/libnm-gtk.ver
+#check-local-exports-libnm-gtk:
+#	$(srcdir)/src/libnm-gtk/check-exports.sh $(builddir)/src/libnm-gtk/.libs/libnm-gtk.so $(srcdir)/src/libnm-gtk/libnm-gtk.ver
 
-src/libnm-gtk/NMGtk-1.0.gir: src/libnm-gtk/libnm-gtk.la
+#src/libnm-gtk/NMGtk-1.0.gir: src/libnm-gtk/libnm-gtk.la
 
 ###############################################################################
 
@@ -5634,7 +6911,17 @@ src/libnma/nma-resources.h: src/libnma/nma.gresource.xml
 src/libnma/nma-resources.c: src/libnma/nma.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(srcdir)/src/libnma --generate-dependencies $(srcdir)/src/libnma/nma.gresource.xml)
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/src/libnma --generate-source --internal
 
+src/libnma-gtk4/nma-resources.c: src/libnma/nma.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies $(srcdir)/src/libnma/nma.gresource.xml |sed "s,^,$(builddir)/src/libnma-gtk4/,")
+	@mkdir -p $(builddir)/src/libnma-gtk4
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(builddir)/src/libnma-gtk4 --generate-source --internal
+
+src/libnma-gtk4/%.ui: src/libnma/%.ui
+	@mkdir -p $(builddir)/src/libnma-gtk4
+	gtk4-builder-tool simplify --3to4 $< >$@
+
 src/libnma/NMA-1.0.gir: src/libnma/libnma.la
+
+#src/libnma/NMA4-1.0.gir: src/libnma/libnma-gtk4.la
 
 ###############################################################################
 
@@ -5659,7 +6946,12 @@ $(src_nm_applet_OBJECTS): $(nm_applet_h_gen)
 scan-build.stamp: $(GTKDOC_LIBS)
 
 check-local: $(check_local)
-%.desktop:   %.desktop.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_V_MERGE)LC_ALL=C $(INTLTOOL_MERGE) $(INTLTOOL_V_MERGE_OPTIONS) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
+
+nm-applet.desktop: nm-applet.desktop.in
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
+
+nm-connection-editor.desktop: nm-connection-editor.desktop.in
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 .PHONY : uninstall-gsettings-schemas install-gsettings-schemas clean-gsettings-schemas
 
@@ -5701,7 +6993,9 @@ $(gsettings__enum_file): $(gsettings_ENUM_FILES)
 	$(AM_V_GEN) glib-mkenums --comments '<!-- @comment@ -->' --fhead "<schemalist>" --vhead "  <@type@ id='$(gsettings_ENUM_NAMESPACE).@EnumName@'>" --vprod "    <value nick='@valuenick@' value='@valuenum@'/>" --vtail "  </@type@>" --ftail "</schemalist>" $^ > $@.tmp && mv $@.tmp $@
 endif
 
-%.xml:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_V_MERGE)LC_ALL=C $(INTLTOOL_MERGE) $(INTLTOOL_V_MERGE_OPTIONS) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
+
+nm-connection-editor.appdata.xml: nm-connection-editor.appdata.xml.in
+	$(AM_V_GEN)$(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

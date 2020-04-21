@@ -21,8 +21,8 @@
 <title role="functions_proto.title">Functions</title>
 <informaltable pgwide="1" frame="none">
 <tgroup cols="2">
-<colspec colname="functions_return" colwidth="150px"/>
-<colspec colname="functions_name"/>
+<colspec colname="functions_proto_type" colwidth="150px"/>
+<colspec colname="functions_proto_name"/>
 <tbody>
 <row><entry role="function_type"><link linkend="NMAMobileAccessMethod"><returnvalue>NMAMobileAccessMethod</returnvalue></link>&#160;*
 </entry><entry role="function_name"><link linkend="nma-mobile-access-method-ref">nma_mobile_access_method_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
@@ -95,8 +95,8 @@
 <colspec colname="properties_name" colwidth="300px"/>
 <colspec colname="properties_flags" colwidth="200px"/>
 <tbody>
-<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="NMAMobileProvidersDatabase--country-codes">country-codes</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
-<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="NMAMobileProvidersDatabase--service-providers">service-providers</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="NMAMobileProvidersDatabase--country-codes">country-codes</link></entry><entry role="property_flags">Read / Write / Construct&#160;Only</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="NMAMobileProvidersDatabase--service-providers">service-providers</link></entry><entry role="property_flags">Read / Write / Construct&#160;Only</entry></row>
 
 </tbody>
 </tgroup>
@@ -104,10 +104,10 @@
 </refsect1>
 <anchor id="NMACountryInfo"/><anchor id="NMAMobileAccessMethod"/><anchor id="NMAMobileProvider"/><refsect1 id="NMAMobileProvidersDatabase.other" role="other_proto">
 <title role="other_proto.title">Types and Values</title>
-<informaltable role="enum_members_table" pgwide="1" frame="none">
+<informaltable pgwide="1" frame="none">
 <tgroup cols="2">
-<colspec colname="name" colwidth="150px"/>
-<colspec colname="description"/>
+<colspec colname="other_proto_type" colwidth="150px"/>
+<colspec colname="other_proto_name"/>
 <tbody>
 <row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="NMAMobileFamily">NMAMobileFamily</link></entry></row>
 
@@ -774,13 +774,15 @@ are set; <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</
 <refsect2 id="NMAMobileProvidersDatabase--country-codes" role="property"><title>The <literal>“country-codes”</literal> property</title>
 <indexterm zone="NMAMobileProvidersDatabase--country-codes"><primary>NMAMobileProvidersDatabase:country-codes</primary></indexterm>
 <programlisting>  “country-codes”            <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
-<para>Path to the country codes file.</para><para>Flags: Read / Write / Construct Only</para>
+<para>Path to the country codes file.</para><para>Owner: NMAMobileProvidersDatabase</para>
+<para>Flags: Read / Write / Construct&#160;Only</para>
 <para>Default value: NULL</para>
 </refsect2>
 <refsect2 id="NMAMobileProvidersDatabase--service-providers" role="property"><title>The <literal>“service-providers”</literal> property</title>
 <indexterm zone="NMAMobileProvidersDatabase--service-providers"><primary>NMAMobileProvidersDatabase:service-providers</primary></indexterm>
 <programlisting>  “service-providers”        <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
-<para>Path to the service providers file.</para><para>Flags: Read / Write / Construct Only</para>
+<para>Path to the service providers file.</para><para>Owner: NMAMobileProvidersDatabase</para>
+<para>Flags: Read / Write / Construct&#160;Only</para>
 <para>Default value: NULL</para>
 </refsect2>
 

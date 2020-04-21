@@ -103,3 +103,12 @@ libnma_1_8_12 {
 libnma_1_8_20 {
 	nma_wifi_dialog_new_for_secrets;
 } libnma_1_8_12;
+
+libnma_1_8_22 {
+	nma_bar_code_draw;
+	nma_bar_code_get_size;
+	nma_bar_code_get_type;
+	nma_bar_code_new;
+	nma_bar_code_widget_get_type;
+	nma_bar_code_widget_new;
+} libnma_1_8_12;

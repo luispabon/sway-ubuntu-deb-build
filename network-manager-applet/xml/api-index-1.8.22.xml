@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE indexdiv PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
+[
+  <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+  <!ENTITY % gtkdocentities SYSTEM "../xml/gtkdocentities.ent">
+  %gtkdocentities;
+]>
+<indexdiv id="api-index-1.8.22">
+<indexdiv><title>B</title>
+<indexentry><primaryie linkends="nma-bar-code-draw"><link linkend="nma-bar-code-draw">nma_bar_code_draw</link>, function in <link linkend="NMABarCode">NMABarCode</link></primaryie></indexentry>
+<indexentry><primaryie linkends="nma-bar-code-get-size"><link linkend="nma-bar-code-get-size">nma_bar_code_get_size</link>, function in <link linkend="NMABarCode">NMABarCode</link></primaryie></indexentry>
+<indexentry><primaryie linkends="nma-bar-code-new"><link linkend="nma-bar-code-new">nma_bar_code_new</link>, function in <link linkend="NMABarCode">NMABarCode</link></primaryie></indexentry>
+<indexentry><primaryie linkends="nma-bar-code-set-text"><link linkend="nma-bar-code-set-text">nma_bar_code_set_text</link>, function in <link linkend="NMABarCode">NMABarCode</link></primaryie></indexentry>
+<indexentry><primaryie linkends="nma-bar-code-widget-new"><link linkend="nma-bar-code-widget-new">nma_bar_code_widget_new</link>, function in <link linkend="NMABarCodeWidget">NMABarCodeWidget</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

@@ -1,21 +1,7 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+// SPDX-License-Identifier: GPL-2.0+
 /* NetworkManager Applet -- allow user control over networking
  *
  * Dan Williams <dcbw@redhat.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  * Copyright 2007 - 2015 Red Hat, Inc.
  */
@@ -332,10 +318,19 @@ utils_override_bg_color (GtkWidget *widget, GdkRGBA *rgba)
 	if (rgba) {
 		css = g_strdup_printf ("* { background-color: %s; background-image: none; }",
 		                       gdk_rgba_to_string (rgba));
+#if GTK_CHECK_VERSION(3,90,0)
+		gtk_css_provider_load_from_data (provider, css, -1);
+#else
 		gtk_css_provider_load_from_data (provider, css, -1, NULL);
+#endif
 		g_free (css);
-	} else
+	} else {
+#if GTK_CHECK_VERSION(3,90,0)
+		gtk_css_provider_load_from_data (provider, "", -1);
+#else
 		gtk_css_provider_load_from_data (provider, "", -1, NULL);
+#endif
+	}
 }
 
 void

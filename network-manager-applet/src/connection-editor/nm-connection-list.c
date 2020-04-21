@@ -1,23 +1,9 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+// SPDX-License-Identifier: GPL-2.0+
 /* NetworkManager Connection editor -- Connection editor for NetworkManager
  *
  * Rodrigo Moya <rodrigo@gnome-db.org>
  * Dan Williams <dcbw@redhat.com>
  * Lubomir Rintel <lkundrak@v3.sk>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  * Copyright 2007 - 2017 Red Hat, Inc.
  */
@@ -667,6 +653,11 @@ has_visible_children (NMConnectionList *self, GtkTreeModel *model, GtkTreeIter *
 	search = gtk_entry_get_text (GTK_ENTRY (priv->search_entry));
 	do {
 		gtk_tree_model_get (model, &iter, COL_ID, &id, -1);
+		if (!id) {
+			/* gtk_tree_store_append() inserts an empty row, ignore
+			 * it until it is fully populated. */
+			continue;
+		}
 		if (strcasestr (id, search) != NULL) {
 			g_free (id);
 			return TRUE;
@@ -976,7 +967,6 @@ connection_added (NMClient *client,
 		gtk_tree_path_free (path);
 	}
 
-	g_signal_connect (client, NM_CLIENT_CONNECTION_REMOVED, G_CALLBACK (connection_removed), self);
 	g_signal_connect (connection, NM_CONNECTION_CHANGED, G_CALLBACK (connection_changed), self);
 	gtk_tree_model_filter_refilter (priv->filter);
 }
@@ -1005,6 +995,10 @@ nm_connection_list_new (void)
 	g_signal_connect (priv->client,
 	                  NM_CLIENT_CONNECTION_ADDED,
 	                  G_CALLBACK (connection_added),
+	                  list);
+	g_signal_connect (priv->client,
+	                  NM_CLIENT_CONNECTION_REMOVED,
+	                  G_CALLBACK (connection_removed),
 	                  list);
 
 	add_connection_buttons (list);

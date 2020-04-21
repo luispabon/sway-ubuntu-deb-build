@@ -1,21 +1,7 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+// SPDX-License-Identifier: GPL-2.0+
 /* NetworkManager Connection editor -- Connection editor for NetworkManager
  *
  * Dan Williams <dcbw@redhat.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  * Copyright 2008 - 2014 Red Hat, Inc.
  */
@@ -42,6 +28,11 @@ G_DEFINE_TYPE (CEPageIP6, ce_page_ip6, CE_TYPE_PAGE)
 #define COL_PREFIX 1
 #define COL_GATEWAY 2
 #define COL_LAST COL_GATEWAY
+
+/* Disabled method was added in NM 1.20 */
+#ifndef NM_SETTING_IP6_CONFIG_METHOD_DISABLED
+#define NM_SETTING_IP6_CONFIG_METHOD_DISABLED "disabled"
+#endif
 
 typedef struct {
 	NMSettingIPConfig *setting;
@@ -105,6 +96,7 @@ typedef struct {
 #define IP6_METHOD_MANUAL          4
 #define IP6_METHOD_LINK_LOCAL      5
 #define IP6_METHOD_SHARED          6
+#define IP6_METHOD_DISABLED        7
 
 #define IP6_PRIVACY_DISABLED       0
 #define IP6_PRIVACY_PREFER_PUBLIC  1
@@ -215,6 +207,13 @@ ip6_private_init (CEPageIP6 *self, NMConnection *connection)
 		                    -1);
 	}
 
+	gtk_list_store_append (priv->method_store, &iter);
+	gtk_list_store_set (priv->method_store, &iter,
+	                    METHOD_COL_NAME, _("Disabled"),
+	                    METHOD_COL_NUM, IP6_METHOD_DISABLED,
+	                    METHOD_COL_ENABLED, TRUE,
+	                    -1);
+
 	gtk_combo_box_set_model (priv->method, GTK_TREE_MODEL (priv->method_store));
 
 	priv->addr_label = GTK_WIDGET (gtk_builder_get_object (builder, "ip6_addr_label"));
@@ -300,6 +299,7 @@ method_changed (GtkComboBox *combo, gpointer user_data)
 		label = CE_LABEL_ADDR_SHARED;
 		break;
 	case IP6_METHOD_IGNORE:
+	case IP6_METHOD_DISABLED:
 		ip6_required_enabled = FALSE;
 		ip6_addr_gen_mode_enabled = FALSE;
 		break;
@@ -414,6 +414,8 @@ populate_ui (CEPageIP6 *self)
 			method = IP6_METHOD_MANUAL;
 		else if (!strcmp (str_method, NM_SETTING_IP6_CONFIG_METHOD_SHARED))
 			method = IP6_METHOD_SHARED;
+		else if (!strcmp (str_method, NM_SETTING_IP6_CONFIG_METHOD_DISABLED))
+			method = IP6_METHOD_DISABLED;
 	}
 
 	if (method == IP6_METHOD_AUTO && nm_setting_ip_config_get_ignore_auto_dns (setting))
@@ -1252,6 +1254,9 @@ ui_to_setting (CEPageIP6 *self, GError **error)
 	case IP6_METHOD_IGNORE:
 		method = NM_SETTING_IP6_CONFIG_METHOD_IGNORE;
 		break;
+	case IP6_METHOD_DISABLED:
+		method = NM_SETTING_IP6_CONFIG_METHOD_DISABLED;
+		break;
 	case IP6_METHOD_LINK_LOCAL:
 		method = NM_SETTING_IP6_CONFIG_METHOD_LINK_LOCAL;
 		break;
@@ -1481,9 +1486,12 @@ change_method_combo (CEPage *page, gboolean is_hotspot)
 	if (is_hotspot) {
 		if (priv->hotspot_method_idx == -1) {
 			int method = IP6_METHOD_SHARED;
-			if (g_strcmp0 (nm_setting_ip_config_get_method (priv->setting),
-			               NM_SETTING_IP6_CONFIG_METHOD_IGNORE) == 0)
+			if (nm_streq0 (nm_setting_ip_config_get_method (priv->setting),
+			               NM_SETTING_IP6_CONFIG_METHOD_IGNORE))
 				method = IP6_METHOD_IGNORE;
+			else if (nm_streq0 (nm_setting_ip_config_get_method (priv->setting),
+			                    NM_SETTING_IP6_CONFIG_METHOD_DISABLED))
+				method = IP6_METHOD_DISABLED;
 			gtk_combo_box_set_active (priv->method, method);
 		} else
 			gtk_combo_box_set_active (priv->method, priv->hotspot_method_idx);

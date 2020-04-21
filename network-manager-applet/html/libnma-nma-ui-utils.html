@@ -7,8 +7,8 @@
 <link rel="home" href="index.html" title="libnma Reference Manual">
 <link rel="up" href="api-reference.html" title="libnma API reference">
 <link rel="prev" href="api-reference.html" title="libnma API reference">
-<link rel="next" href="libnma-nma-mobile-wizard.html" title="nma-mobile-wizard">
-<meta name="generator" content="GTK-Doc V1.28 (XML mode)">
+<link rel="next" href="NMAMobileWizard.html" title="NMAMobileWizard">
+<meta name="generator" content="GTK-Doc V1.32 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -20,7 +20,7 @@
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
 <td><a accesskey="u" href="api-reference.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
 <td><a accesskey="p" href="api-reference.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
-<td><a accesskey="n" href="libnma-nma-mobile-wizard.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="NMAMobileWizard.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="libnma-nma-ui-utils"></a><div class="titlepage"></div>
@@ -35,8 +35,8 @@
 <a name="libnma-nma-ui-utils.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -49,7 +49,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="../libnm-util/NMSetting.html#NMSettingSecretFlags"><span class="returnvalue">NMSettingSecretFlags</span></a>
+<a href="../libnm/NMSetting.html#NMSettingSecretFlags"><span class="returnvalue">NMSettingSecretFlags</span></a>
 </td>
 <td class="function_name">
 <a class="link" href="libnma-nma-ui-utils.html#nma-utils-menu-to-secret-flags" title="nma_utils_menu_to_secret_flags ()">nma_utils_menu_to_secret_flags</a> <span class="c_punctuation">()</span>
@@ -75,8 +75,8 @@
 <a name="nma-utils-setup-password-storage"></a><h3>nma_utils_setup_password_storage ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 nma_utils_setup_password_storage (<em class="parameter"><code><a href="../gtk3/GtkWidget.html#GtkWidget-struct"><span class="type">GtkWidget</span></a> *passwd_entry</code></em>,
-                                  <em class="parameter"><code><a href="../libnm-util/NMSetting.html#NMSettingSecretFlags"><span class="type">NMSettingSecretFlags</span></a> initial_flags</code></em>,
-                                  <em class="parameter"><code><a href="../libnm-util/NMSetting.html#NMSetting-struct"><span class="type">NMSetting</span></a> *setting</code></em>,
+                                  <em class="parameter"><code><a href="../libnm/NMSetting.html#NMSettingSecretFlags"><span class="type">NMSettingSecretFlags</span></a> initial_flags</code></em>,
+                                  <em class="parameter"><code><a href="../libnm/NMSetting.html#NMSetting-struct"><span class="type">NMSetting</span></a> *setting</code></em>,
                                   <em class="parameter"><code>const <span class="type">char</span> *password_flags_name</code></em>,
                                   <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> with_not_required</code></em>,
                                   <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> ask_mode</code></em>);</pre>
@@ -110,7 +110,7 @@ be automatically updated in the setting when menu is changed.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>setting</p></td>
-<td class="parameter_description"><p><a href="../libnm-util/NMSetting.html#NMSetting-struct"><span class="type">NMSetting</span></a> containing the password, or NULL</p></td>
+<td class="parameter_description"><p><a href="../libnm/NMSetting.html#NMSetting-struct"><span class="type">NMSetting</span></a> containing the password, or NULL</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -143,7 +143,7 @@ location.</p></td>
 <hr>
 <div class="refsect2">
 <a name="nma-utils-menu-to-secret-flags"></a><h3>nma_utils_menu_to_secret_flags ()</h3>
-<pre class="programlisting"><a href="../libnm-util/NMSetting.html#NMSettingSecretFlags"><span class="returnvalue">NMSettingSecretFlags</span></a>
+<pre class="programlisting"><a href="../libnm/NMSetting.html#NMSettingSecretFlags"><span class="returnvalue">NMSettingSecretFlags</span></a>
 nma_utils_menu_to_secret_flags (<em class="parameter"><code><a href="../gtk3/GtkWidget.html#GtkWidget-struct"><span class="type">GtkWidget</span></a> *passwd_entry</code></em>);</pre>
 <p>Returns secret flags corresponding to the selected password storage menu
 in the attached icon</p>
@@ -172,8 +172,8 @@ in the attached icon</p>
 <a name="nma-utils-update-password-storage"></a><h3>nma_utils_update_password_storage ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 nma_utils_update_password_storage (<em class="parameter"><code><a href="../gtk3/GtkWidget.html#GtkWidget-struct"><span class="type">GtkWidget</span></a> *passwd_entry</code></em>,
-                                   <em class="parameter"><code><a href="../libnm-util/NMSetting.html#NMSettingSecretFlags"><span class="type">NMSettingSecretFlags</span></a> secret_flags</code></em>,
-                                   <em class="parameter"><code><a href="../libnm-util/NMSetting.html#NMSetting-struct"><span class="type">NMSetting</span></a> *setting</code></em>,
+                                   <em class="parameter"><code><a href="../libnm/NMSetting.html#NMSettingSecretFlags"><span class="type">NMSettingSecretFlags</span></a> secret_flags</code></em>,
+                                   <em class="parameter"><code><a href="../libnm/NMSetting.html#NMSetting-struct"><span class="type">NMSetting</span></a> *setting</code></em>,
                                    <em class="parameter"><code>const <span class="type">char</span> *password_flags_name</code></em>);</pre>
 <p>Updates secret flags in the password storage popup menu and also
 in the <em class="parameter"><code>setting</code></em>
@@ -201,7 +201,7 @@ in the <em class="parameter"><code>setting</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>setting</p></td>
-<td class="parameter_description"><p><a href="../libnm-util/NMSetting.html#NMSetting-struct"><span class="type">NMSetting</span></a> containing the password, or NULL</p></td>
+<td class="parameter_description"><p><a href="../libnm/NMSetting.html#NMSetting-struct"><span class="type">NMSetting</span></a> containing the password, or NULL</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -214,11 +214,8 @@ in the <em class="parameter"><code>setting</code></em>
 </div>
 </div>
 </div>
-<div class="refsect1">
-<a name="libnma-nma-ui-utils.other_details"></a><h2>Types and Values</h2>
-</div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.28</div>
+<hr>Generated by GTK-Doc V1.32</div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 [Desktop Entry]
-_Name=Network
-_Comment=Manage your network connections
+Name=Network
+Comment=Manage your network connections
 Icon=nm-device-wireless
 Exec=nm-applet
 Terminal=false

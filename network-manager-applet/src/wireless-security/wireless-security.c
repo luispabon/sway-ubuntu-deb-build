@@ -1,21 +1,7 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+// SPDX-License-Identifier: GPL-2.0+
 /* NetworkManager Applet -- allow user control over networking
  *
  * Dan Williams <dcbw@redhat.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  * Copyright 2007 - 2014 Red Hat, Inc.
  */
@@ -499,14 +485,14 @@ ws_802_1x_auth_combo_init (WirelessSecurity *sec,
 		active = item;
 	item++;
 
-	if (secrets_hints) {
+	if (secrets_hints && secrets_hints[0]) {
 		EAPMethodSimple *em_hints;
 
 		em_hints = eap_method_simple_new (sec, connection, EAP_METHOD_SIMPLE_TYPE_UNKNOWN,
 		                                  simple_flags, secrets_hints);
 		gtk_list_store_append (auth_model, &iter);
 		gtk_list_store_set (auth_model, &iter,
-		                    AUTH_NAME_COLUMN, "Unknown",
+		                    AUTH_NAME_COLUMN, _("Unknown"),
 		                    AUTH_METHOD_COLUMN, em_hints,
 		                    -1);
 		eap_method_unref (EAP_METHOD (em_hints));
@@ -606,4 +592,3 @@ ws_802_1x_update_secrets (WirelessSecurity *sec,
 		} while (gtk_tree_model_iter_next (model, &iter));
 	}
 }
-

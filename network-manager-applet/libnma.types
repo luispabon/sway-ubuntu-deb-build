@@ -1,3 +1,5 @@
+nma_bar_code_get_type
+nma_bar_code_widget_get_type
 nma_cert_chooser_get_type
 nma_country_info_get_type
 nma_mobile_access_method_get_type

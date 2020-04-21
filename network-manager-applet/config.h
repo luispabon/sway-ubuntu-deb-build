@@ -1,24 +1,23 @@
 /* config.h.  Generated from config.h.in by configure.  */
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
-/* always defined to indicate that i18n is enabled */
+/* Define to 1 if translation of program messages to the user's native
+   language is requested. */
 #define ENABLE_NLS 1
 
 /* Gettext package */
 #define GETTEXT_PACKAGE "nm-applet"
 
-/* Define to 1 if you have the `bind_textdomain_codeset' function. */
-#define HAVE_BIND_TEXTDOMAIN_CODESET 1
-
-/* Define to 1 if you have the Mac OS X function CFLocaleCopyCurrent in the
+/* Define to 1 if you have the MacOS X function CFLocaleCopyCurrent in the
    CoreFoundation framework. */
 /* #undef HAVE_CFLOCALECOPYCURRENT */
 
-/* Define to 1 if you have the Mac OS X function CFPreferencesCopyAppValue in
+/* Define to 1 if you have the MacOS X function CFPreferencesCopyAppValue in
    the CoreFoundation framework. */
 /* #undef HAVE_CFPREFERENCESCOPYAPPVALUE */
 
-/* Define to 1 if you have the `dcgettext' function. */
+/* Define if the GNU dcgettext() function is already present or preinstalled.
+   */
 #define HAVE_DCGETTEXT 1
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
@@ -27,17 +26,14 @@
 /* Define if the GNU gettext() function is already present or preinstalled. */
 #define HAVE_GETTEXT 1
 
+/* Define if you have the iconv() function and it works. */
+/* #undef HAVE_ICONV */
+
 /* Define to 1 if you have the <inttypes.h> header file. */
 #define HAVE_INTTYPES_H 1
 
-/* Define if your <locale.h> file defines LC_MESSAGES. */
-#define HAVE_LC_MESSAGES 1
-
 /* Define if you have libnotify 0.7 or later */
 #define HAVE_LIBNOTIFY_07 1
-
-/* Define to 1 if you have the <locale.h> header file. */
-#define HAVE_LOCALE_H 1
 
 /* Define to 1 if you have the <memory.h> header file. */
 #define HAVE_MEMORY_H 1
@@ -88,7 +84,7 @@
 #define PACKAGE_NAME "nm-applet"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "nm-applet 1.8.20"
+#define PACKAGE_STRING "nm-applet 1.8.24"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "network-manager-applet"
@@ -97,7 +93,7 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "1.8.20"
+#define PACKAGE_VERSION "1.8.24"
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
@@ -128,13 +124,16 @@
 
 
 /* Version number of package */
-#define VERSION "1.8.20"
+#define VERSION "1.8.24"
 
 /* Enable AppIndicator support and use Ubuntu AppIndicator */
 #define WITH_APPINDICATOR 1
 
 /* Define if Gcr is available */
 #define WITH_GCR 1
+
+/* Define if GTK4 Gcr is available */
+#define WITH_GCR_GTK4 0
 
 /* Define if Jansson is available */
 #define WITH_JANSSON 1

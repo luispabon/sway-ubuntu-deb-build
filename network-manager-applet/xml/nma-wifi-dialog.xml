@@ -21,8 +21,8 @@
 <title role="functions_proto.title">Functions</title>
 <informaltable pgwide="1" frame="none">
 <tgroup cols="2">
-<colspec colname="functions_return" colwidth="150px"/>
-<colspec colname="functions_name"/>
+<colspec colname="functions_proto_type" colwidth="150px"/>
+<colspec colname="functions_proto_name"/>
 <tbody>
 <row><entry role="function_type"><link linkend="GtkWidget"><returnvalue>GtkWidget</returnvalue></link>&#160;*
 </entry><entry role="function_name"><link linkend="nma-wifi-dialog-new">nma_wifi_dialog_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
@@ -244,10 +244,6 @@ nma_wifi_dialog_get_nag_ignored (<parameter><link linkend="NMAWifiDialog"><type>
 nma_wifi_dialog_new_for_other (<parameter><link linkend="NMClient"><type>NMClient</type></link> *client</parameter>);</programlisting>
 <warning><para><literal>nma_wifi_dialog_new_for_other</literal> is deprecated and should not be used in newly-written code.</para></warning>
 </refsect2>
-
-</refsect1>
-<refsect1 id="NMAWifiDialog.other_details" role="details">
-<title role="details.title">Types and Values</title>
 
 </refsect1>
 

@@ -21,8 +21,8 @@
 <title role="functions_proto.title">Functions</title>
 <informaltable pgwide="1" frame="none">
 <tgroup cols="2">
-<colspec colname="functions_return" colwidth="150px"/>
-<colspec colname="functions_name"/>
+<colspec colname="functions_proto_type" colwidth="150px"/>
+<colspec colname="functions_proto_name"/>
 <tbody>
 <row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
 </entry><entry role="function_name"><link linkend="nma-cert-chooser-set-cert">nma_cert_chooser_set_cert</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
@@ -79,8 +79,8 @@
 <colspec colname="properties_name" colwidth="300px"/>
 <colspec colname="properties_flags" colwidth="200px"/>
 <tbody>
-<row><entry role="property_type"><link linkend="guint"><type>guint</type></link></entry><entry role="property_name"><link linkend="NMACertChooser--flags">flags</link></entry><entry role="property_flags">Write / Construct Only</entry></row>
-<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="NMACertChooser--title">title</link></entry><entry role="property_flags">Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="guint"><type>guint</type></link></entry><entry role="property_name"><link linkend="NMACertChooser--flags">flags</link></entry><entry role="property_flags">Write / Construct&#160;Only</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="NMACertChooser--title">title</link></entry><entry role="property_flags">Write / Construct&#160;Only</entry></row>
 
 </tbody>
 </tgroup>
@@ -90,9 +90,9 @@
 <title role="signal_proto.title">Signals</title>
 <informaltable frame="none">
 <tgroup cols="3">
-<colspec colname="signals_return" colwidth="150px"/>
-<colspec colname="signals_name" colwidth="300px"/>
-<colspec colname="signals_flags" colwidth="200px"/>
+<colspec colname="signal_proto_type" colwidth="150px"/>
+<colspec colname="signal_proto_name" colwidth="300px"/>
+<colspec colname="signal_proto_flags" colwidth="200px"/>
 <tbody>
 <row><entry role="signal_type"><link linkend="GError"><returnvalue>GError</returnvalue></link>*</entry><entry role="signal_name"><link linkend="NMACertChooser-cert-password-validate">cert-password-validate</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
 <row><entry role="signal_type"><link linkend="GError"><returnvalue>GError</returnvalue></link>*</entry><entry role="signal_name"><link linkend="NMACertChooser-cert-validate">cert-validate</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
@@ -106,10 +106,10 @@
 </refsect1>
 <refsect1 id="NMACertChooser.other" role="other_proto">
 <title role="other_proto.title">Types and Values</title>
-<informaltable role="enum_members_table" pgwide="1" frame="none">
+<informaltable pgwide="1" frame="none">
 <tgroup cols="2">
-<colspec colname="name" colwidth="150px"/>
-<colspec colname="description"/>
+<colspec colname="other_proto_type" colwidth="150px"/>
+<colspec colname="other_proto_name"/>
 <tbody>
 <row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="NMACertChooserFlags">NMACertChooserFlags</link></entry></row>
 
@@ -760,14 +760,16 @@ such as PKCS#11 certificate URIs in future as well.</para>
 <refsect2 id="NMACertChooser--flags" role="property"><title>The <literal>“flags”</literal> property</title>
 <indexterm zone="NMACertChooser--flags"><primary>NMACertChooser:flags</primary></indexterm>
 <programlisting>  “flags”                    <link linkend="guint"><type>guint</type></link></programlisting>
-<para>Certificate Chooser Flags.</para><para>Flags: Write / Construct Only</para>
+<para>Certificate Chooser Flags.</para><para>Owner: NMACertChooser</para>
+<para>Flags: Write / Construct&#160;Only</para>
 <para>Allowed values: &lt;= 7</para>
 <para>Default value: 0</para>
 </refsect2>
 <refsect2 id="NMACertChooser--title" role="property"><title>The <literal>“title”</literal> property</title>
 <indexterm zone="NMACertChooser--title"><primary>NMACertChooser:title</primary></indexterm>
 <programlisting>  “title”                    <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
-<para>Certificate Chooser Title.</para><para>Flags: Write / Construct Only</para>
+<para>Certificate Chooser Title.</para><para>Owner: NMACertChooser</para>
+<para>Flags: Write / Construct&#160;Only</para>
 <para>Default value: NULL</para>
 </refsect2>
 

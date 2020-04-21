@@ -1,26 +1,13 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+// SPDX-License-Identifier: GPL-2.0+
 /* NetworkManager Applet -- allow user control over networking
  *
  * Dan Williams <dcbw@redhat.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  * Copyright 2007 - 2017 Red Hat, Inc.
  */
 
 #include "nm-default.h"
+#include "nma-private.h"
 
 #include <string.h>
 #include <netinet/ether.h>
@@ -233,7 +220,7 @@ validate_dialog_ssid (NMAWifiDialog *self)
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "network_name_entry"));
 
-	ssid = gtk_entry_get_text (GTK_ENTRY (widget));
+	ssid = gtk_editable_get_text (GTK_EDITABLE (widget));
 
 	if (!ssid || strlen (ssid) == 0 || strlen (ssid) > 32)
 		return NULL;
@@ -379,10 +366,10 @@ connection_combo_changed (GtkWidget *combo,
 		s_wireless = nm_connection_get_setting_wireless (priv->connection);
 		ssid = nm_setting_wireless_get_ssid (s_wireless);
 		utf8_ssid = nm_utils_ssid_to_utf8 (g_bytes_get_data (ssid, NULL), g_bytes_get_size (ssid));
-		gtk_entry_set_text (GTK_ENTRY (widget), utf8_ssid);
+		gtk_editable_set_text (GTK_EDITABLE (widget), utf8_ssid);
 		g_free (utf8_ssid);
 	} else {
-		gtk_entry_set_text (GTK_ENTRY (widget), "");
+		gtk_editable_set_text (GTK_EDITABLE (widget), "");
 	}
 
 	gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (priv->builder, "network_name_entry")), is_new);
@@ -532,7 +519,9 @@ connection_combo_init (NMAWifiDialog *self)
 	gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (widget), renderer, TRUE);
 	gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (widget), renderer,
 	                               "text", C_NAME_COLUMN);
+#if !GTK_CHECK_VERSION(3,96,0)
 	gtk_combo_box_set_wrap_width (GTK_COMBO_BOX (widget), 1);
+#endif
 
 	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), priv->connection_model);
 
@@ -703,6 +692,9 @@ get_default_type_for_security (NMSettingWirelessSecurity *sec,
 		return NMU_SEC_DYNAMIC_WEP;
 	}
 
+	if (!strcmp (key_mgmt, "sae"))
+		return NMU_SEC_SAE;
+
 	if (   !strcmp (key_mgmt, "wpa-none")
 	    || !strcmp (key_mgmt, "wpa-psk")) {
 		if (!have_ap || (ap_flags & NM_802_11_AP_FLAGS_PRIVACY)) {
@@ -840,6 +832,8 @@ security_valid (NMUtilsSecurityType sectype,
 {
 	switch (mode) {
 	case NM_802_11_MODE_AP:
+		if (sectype == NMU_SEC_SAE)
+			return TRUE;
 		return nm_utils_ap_mode_security_valid (sectype, wifi_caps);
 	case NM_802_11_MODE_ADHOC:
 	case NM_802_11_MODE_INFRA:
@@ -1021,6 +1015,19 @@ security_combo_init (NMAWifiDialog *self, gboolean secrets_only,
 		}
 	}
 
+	if (security_valid (NMU_SEC_SAE, mode, dev_caps, !!priv->ap, ap_flags, ap_wpa, ap_rsn)) {
+		WirelessSecuritySAE *ws_sae;
+
+		ws_sae = ws_sae_new (priv->connection, secrets_only);
+		if (ws_sae) {
+			add_security_item (self, WIRELESS_SECURITY (ws_sae), sec_model,
+			                   &iter, _("WPA3 Personal"));
+			if (active < 0 && default_type == NMU_SEC_SAE)
+				active = item;
+			item++;
+		}
+	}
+
 	gtk_combo_box_set_model (GTK_COMBO_BOX (priv->sec_combo), GTK_TREE_MODEL (sec_model));
 	gtk_combo_box_set_active (GTK_COMBO_BOX (priv->sec_combo), active < 0 ? 0 : (guint32) active);
 	g_object_unref (G_OBJECT (sec_model));
@@ -1097,7 +1104,11 @@ internal_init (NMAWifiDialog *self,
 
 	gtk_window_set_icon_name (GTK_WINDOW (self), icon_name);
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "image1"));
+#if GTK_CHECK_VERSION(3,90,0)
+	gtk_image_set_from_icon_name (GTK_IMAGE (widget), icon_name);
+#else
 	gtk_image_set_from_icon_name (GTK_IMAGE (widget), icon_name, GTK_ICON_SIZE_DIALOG);
+#endif
 
 	gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (self))), 2);
 
@@ -1111,8 +1122,10 @@ internal_init (NMAWifiDialog *self,
 		priv->ok_response_button = widget;
 	}
 
+#if !GTK_CHECK_VERSION(3,96,0)
 	g_object_set (G_OBJECT (widget), "can-default", TRUE, NULL);
 	gtk_widget_grab_default (widget);
+#endif
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "wifi_dialog"));
 	if (!widget) {
@@ -1260,7 +1273,7 @@ nma_wifi_dialog_get_connection (NMAWifiDialog *self,
 		s_wireless = (NMSettingWireless *) nm_setting_wireless_new ();
 		ssid = validate_dialog_ssid (self);
 		g_object_set (s_wireless, NM_SETTING_WIRELESS_SSID, ssid, NULL);
-		g_free (ssid);
+		g_bytes_unref (ssid);
 
 		if (priv->operation == OP_CREATE_ADHOC) {
 			NMSetting *s_ip4;

@@ -19,14 +19,12 @@ override_dh_auto_configure:
 		--enable-gtk-doc \
 		--with-appindicator=ubuntu \
 		--with-gcr \
-		--with-libnm-gtk \
 		--with-selinux \
-		--with-wwan
+		--with-wwan \
+		--without-libnm-gtk
 
 override_dh_install:
 	find debian/tmp -name '*.la' -print -delete
-	# Let's drop the gir1.2-nmgtk-1.0 package now
-	find debian/tmp -name NMGtk-1.0.* -print -delete
 	dh_install
 
 override_dh_missing:

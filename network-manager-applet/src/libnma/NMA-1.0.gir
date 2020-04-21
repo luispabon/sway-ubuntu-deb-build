@@ -14,6 +14,271 @@ and/or use gtk-doc annotations.  -->
              shared-library="libnma.so.0"
              c:identifier-prefixes="NMA"
              c:symbol-prefixes="nma">
+    <function-macro name="BAR_CODE"
+                    c:identifier="NMA_BAR_CODE"
+                    introspectable="0">
+      <source-position filename="nma-bar-code.h" line="27"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="BAR_CODE_CLASS"
+                    c:identifier="NMA_BAR_CODE_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-bar-code.h" line="28"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="BAR_CODE_GET_CLASS"
+                    c:identifier="NMA_BAR_CODE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-bar-code.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="BAR_CODE_SIZE" value="size" c:type="NMA_BAR_CODE_SIZE">
+      <source-position filename="nma-bar-code.h" line="34"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="BAR_CODE_TEXT" value="text" c:type="NMA_BAR_CODE_TEXT">
+      <source-position filename="nma-bar-code.h" line="33"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="BAR_CODE_WIDGET"
+                    c:identifier="NMA_BAR_CODE_WIDGET"
+                    introspectable="0">
+      <source-position filename="nma-bar-code-widget.h" line="26"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="BAR_CODE_WIDGET_CLASS"
+                    c:identifier="NMA_BAR_CODE_WIDGET_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-bar-code-widget.h" line="27"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="BAR_CODE_WIDGET_CONNECTION"
+              value="connection"
+              c:type="NMA_BAR_CODE_WIDGET_CONNECTION">
+      <source-position filename="nma-bar-code-widget.h" line="32"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="BAR_CODE_WIDGET_GET_CLASS"
+                    c:identifier="NMA_BAR_CODE_WIDGET_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-bar-code-widget.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="BarCode"
+           c:symbol-prefix="bar_code"
+           c:type="NMABarCode"
+           parent="GObject.Object"
+           glib:type-name="NMABarCode"
+           glib:get-type="nma_bar_code_get_type"
+           glib:type-struct="BarCodeClass">
+      <source-position filename="nma-bar-code.h" line="37"/>
+      <constructor name="new" c:identifier="nma_bar_code_new" version="1.8.22">
+        <source-position filename="nma-bar-code.h" line="43"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="nma-bar-code.c"
+               line="194">the bar code instance</doc>
+          <type name="BarCode" c:type="NMABarCode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="nma-bar-code.c"
+                 line="192">set the bar code text</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="draw" c:identifier="nma_bar_code_draw" version="1.8.22">
+        <doc xml:space="preserve"
+             filename="nma-bar-code.c"
+             line="110">Draws the QR code onto the given context.</doc>
+        <source-position filename="nma-bar-code.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="nma-bar-code.c"
+                 line="112">bar code instance</doc>
+            <type name="BarCode" c:type="NMABarCode*"/>
+          </instance-parameter>
+          <parameter name="cr" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="nma-bar-code.c"
+                 line="113">cairo context</doc>
+            <type name="cairo.Context" c:type="cairo_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_size"
+              c:identifier="nma_bar_code_get_size"
+              version="1.8.22">
+        <source-position filename="nma-bar-code.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="nma-bar-code.c"
+               line="96">the side of a QR code square.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="nma-bar-code.c"
+                 line="94">bar code instance</doc>
+            <type name="BarCode" c:type="NMABarCode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_text"
+              c:identifier="nma_bar_code_set_text"
+              version="1.8.22">
+        <doc xml:space="preserve"
+             filename="nma-bar-code.c"
+             line="76">Regenerates the QR code for a different text.</doc>
+        <source-position filename="nma-bar-code.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="nma-bar-code.c"
+                 line="78">bar code instance</doc>
+            <type name="BarCode" c:type="NMABarCode*"/>
+          </instance-parameter>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="nma-bar-code.c"
+                 line="79">new bar code text</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="size" transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="text"
+                readable="0"
+                writable="1"
+                transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="BarCodeClass"
+            c:type="NMABarCodeClass"
+            disguised="1"
+            glib:is-gtype-struct-for="BarCode">
+      <source-position filename="nma-bar-code.h" line="37"/>
+    </record>
+    <class name="BarCodeWidget"
+           c:symbol-prefix="bar_code_widget"
+           c:type="NMABarCodeWidget"
+           parent="Gtk.Box"
+           glib:type-name="NMABarCodeWidget"
+           glib:get-type="nma_bar_code_widget_get_type"
+           glib:type-struct="BarCodeWidgetClass">
+      <source-position filename="nma-bar-code-widget.h" line="35"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new"
+                   c:identifier="nma_bar_code_widget_new"
+                   version="1.8.22">
+        <source-position filename="nma-bar-code-widget.h" line="41"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="nma-bar-code-widget.c"
+               line="417">the bar code widget instance</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="connection" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="nma-bar-code-widget.c"
+                 line="415">connection to get network details from</doc>
+            <type name="NM.Connection" c:type="NMConnection*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="connection" writable="1" transfer-ownership="none">
+        <type name="NM.Connection"/>
+      </property>
+    </class>
+    <record name="BarCodeWidgetClass"
+            c:type="NMABarCodeWidgetClass"
+            disguised="1"
+            glib:is-gtype-struct-for="BarCodeWidget">
+      <source-position filename="nma-bar-code-widget.h" line="35"/>
+    </record>
+    <function-macro name="CERT_CHOOSER"
+                    c:identifier="NMA_CERT_CHOOSER"
+                    introspectable="0">
+      <source-position filename="nma-cert-chooser.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CERT_CHOOSER_CLASS"
+                    c:identifier="NMA_CERT_CHOOSER_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-cert-chooser.h" line="42"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CERT_CHOOSER_GET_CLASS"
+                    c:identifier="NMA_CERT_CHOOSER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-cert-chooser.h" line="45"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="NMA_CHECK_VERSION"
+                    introspectable="0">
+      <source-position filename="nma-version.h" line="45"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="nma-version.h"
+               line="38">major version (e.g. 1 for version 1.2.5)</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="nma-version.h"
+               line="39">minor version (e.g. 2 for version 1.2.5)</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="nma-version.h"
+               line="40">micro version (e.g. 5 for version 1.2.5)</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
     <class name="CertChooser"
            c:symbol-prefix="cert_chooser"
            c:type="NMACertChooser"
@@ -21,7 +286,7 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="NMACertChooser"
            glib:get-type="nma_cert_chooser_get_type"
            glib:type-struct="CertChooserClass">
-      <source-position filename="nma-cert-chooser.h" line="65"/>
+      <source-position filename="nma-cert-chooser.h" line="51"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.Orientable"/>
@@ -30,26 +295,26 @@ and/or use gtk-doc annotations.  -->
                    version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="783">Constructs the button that is capable of selecting a certificate
+             line="769">Constructs the button that is capable of selecting a certificate
 and a key.</doc>
-        <source-position filename="nma-cert-chooser.h" line="117"/>
+        <source-position filename="nma-cert-chooser.h" line="103"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="nma-cert-chooser.c"
-               line="791">the certificate chooser button instance</doc>
+               line="777">the certificate chooser button instance</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="785">title of the certificate chooser dialog</doc>
+                 line="771">title of the certificate chooser dialog</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="786">the flags that configure the capabilities of the button</doc>
+                 line="772">the flags that configure the capabilities of the button</doc>
             <type name="CertChooserFlags" c:type="NMACertChooserFlags"/>
           </parameter>
         </parameters>
@@ -59,12 +324,12 @@ and a key.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="373">Adds the labels to the specified size group so that they are aligned
+             line="359">Adds the labels to the specified size group so that they are aligned
 nicely with other entries in a form.
 
 It is expected that the NMACertChooser is a GtkGrid with two columns
 with the labels in the first one.</doc>
-        <source-position filename="nma-cert-chooser.h" line="122"/>
+        <source-position filename="nma-cert-chooser.h" line="108"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -72,13 +337,13 @@ with the labels in the first one.</doc>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="375">certificate chooser button instance</doc>
+                 line="361">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="376">a size group</doc>
+                 line="362">a size group</doc>
             <type name="Gtk.SizeGroup" c:type="GtkSizeGroup*"/>
           </parameter>
         </parameters>
@@ -88,19 +353,19 @@ with the labels in the first one.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="184">Gets the real certificate location from the chooser button along with the scheme.</doc>
-        <source-position filename="nma-cert-chooser.h" line="80"/>
+             line="170">Gets the real certificate location from the chooser button along with the scheme.</doc>
+        <source-position filename="nma-cert-chooser.h" line="66"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="nma-cert-chooser.c"
-               line="191">the certificate path</doc>
+               line="177">the certificate path</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="186">certificate chooser button instance</doc>
+                 line="172">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
           <parameter name="scheme"
@@ -109,7 +374,7 @@ with the labels in the first one.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="187">the scheme of the returned certificate path</doc>
+                 line="173">the scheme of the returned certificate path</doc>
             <type name="NM.Setting8021xCKScheme"
                   c:type="NMSetting8021xCKScheme*"/>
           </parameter>
@@ -120,19 +385,19 @@ with the labels in the first one.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="230">Obtains the password or a PIN that was be required to access the certificate.</doc>
-        <source-position filename="nma-cert-chooser.h" line="91"/>
+             line="216">Obtains the password or a PIN that was be required to access the certificate.</doc>
+        <source-position filename="nma-cert-chooser.h" line="77"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-cert-chooser.c"
-               line="236">the certificate PIN or password</doc>
+               line="222">the certificate PIN or password</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="232">certificate chooser button instance</doc>
+                 line="218">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
         </parameters>
@@ -142,22 +407,22 @@ with the labels in the first one.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="483">Returns secret flags corresponding to the certificate password
+             line="469">Returns secret flags corresponding to the certificate password
 if one is present. The chooser would typically call into
 nma_utils_menu_to_secret_flags() for the certificate password
 entry.</doc>
-        <source-position filename="nma-cert-chooser.h" line="144"/>
+        <source-position filename="nma-cert-chooser.h" line="130"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-cert-chooser.c"
-               line="492">secret flags corresponding to the certificate password</doc>
+               line="478">secret flags corresponding to the certificate password</doc>
           <type name="NM.SettingSecretFlags" c:type="NMSettingSecretFlags"/>
         </return-value>
         <parameters>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="485">certificate chooser button instance</doc>
+                 line="471">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
         </parameters>
@@ -167,19 +432,19 @@ entry.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="166">Gets the real certificate URI from the chooser button along with the scheme.</doc>
-        <source-position filename="nma-cert-chooser.h" line="84"/>
+             line="152">Gets the real certificate URI from the chooser button along with the scheme.</doc>
+        <source-position filename="nma-cert-chooser.h" line="70"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="nma-cert-chooser.c"
-               line="172">the certificate URI</doc>
+               line="158">the certificate URI</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="168">certificate chooser button instance</doc>
+                 line="154">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
         </parameters>
@@ -189,19 +454,19 @@ entry.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="297">Gets the real key location from the chooser button along with the scheme.</doc>
-        <source-position filename="nma-cert-chooser.h" line="103"/>
+             line="283">Gets the real key location from the chooser button along with the scheme.</doc>
+        <source-position filename="nma-cert-chooser.h" line="89"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="nma-cert-chooser.c"
-               line="304">the key path</doc>
+               line="290">the key path</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="299">certificate chooser button instance</doc>
+                 line="285">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
           <parameter name="scheme"
@@ -210,7 +475,7 @@ entry.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="300">the scheme of the returned key path</doc>
+                 line="286">the scheme of the returned key path</doc>
             <type name="NM.Setting8021xCKScheme"
                   c:type="NMSetting8021xCKScheme*"/>
           </parameter>
@@ -221,19 +486,19 @@ entry.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="355">Obtains the password or a PIN that was be required to access the key.</doc>
-        <source-position filename="nma-cert-chooser.h" line="114"/>
+             line="341">Obtains the password or a PIN that was be required to access the key.</doc>
+        <source-position filename="nma-cert-chooser.h" line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-cert-chooser.c"
-               line="361">the key PIN or password</doc>
+               line="347">the key PIN or password</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="357">certificate chooser button instance</doc>
+                 line="343">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
         </parameters>
@@ -243,22 +508,22 @@ entry.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="569">Returns secret flags corresponding to the key password
+             line="555">Returns secret flags corresponding to the key password
 if one is present. The chooser would typically call into
 nma_utils_menu_to_secret_flags() for the key password
 entry.</doc>
-        <source-position filename="nma-cert-chooser.h" line="161"/>
+        <source-position filename="nma-cert-chooser.h" line="147"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-cert-chooser.c"
-               line="578">secret flags corresponding to the key password</doc>
+               line="564">secret flags corresponding to the key password</doc>
           <type name="NM.SettingSecretFlags" c:type="NMSettingSecretFlags"/>
         </return-value>
         <parameters>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="571">certificate chooser button instance</doc>
+                 line="557">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
         </parameters>
@@ -268,19 +533,19 @@ entry.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="319">Gets the real key URI from the chooser button along with the scheme.</doc>
-        <source-position filename="nma-cert-chooser.h" line="107"/>
+             line="305">Gets the real key URI from the chooser button along with the scheme.</doc>
+        <source-position filename="nma-cert-chooser.h" line="93"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="nma-cert-chooser.c"
-               line="325">the key URI</doc>
+               line="311">the key URI</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="321">certificate chooser button instance</doc>
+                 line="307">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
         </parameters>
@@ -290,8 +555,8 @@ entry.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="140">Sets the certificate location for the chooser button.</doc>
-        <source-position filename="nma-cert-chooser.h" line="71"/>
+             line="126">Sets the certificate location for the chooser button.</doc>
+        <source-position filename="nma-cert-chooser.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -299,19 +564,19 @@ entry.</doc>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="142">certificate chooser button instance</doc>
+                 line="128">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="143">the path or URI of a certificate</doc>
+                 line="129">the path or URI of a certificate</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="scheme" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="144">the scheme of the certificate path</doc>
+                 line="130">the scheme of the certificate path</doc>
             <type name="NM.Setting8021xCKScheme"
                   c:type="NMSetting8021xCKScheme"/>
           </parameter>
@@ -322,8 +587,8 @@ entry.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="206">Sets the password or a PIN that might be required to access the certificate.</doc>
-        <source-position filename="nma-cert-chooser.h" line="87"/>
+             line="192">Sets the password or a PIN that might be required to access the certificate.</doc>
+        <source-position filename="nma-cert-chooser.h" line="73"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -331,13 +596,13 @@ entry.</doc>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="208">certificate chooser button instance</doc>
+                 line="194">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
           <parameter name="password" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="209">the certificate PIN or password</doc>
+                 line="195">the certificate PIN or password</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -347,8 +612,8 @@ entry.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="122">Sets the certificate URI for the chooser button.</doc>
-        <source-position filename="nma-cert-chooser.h" line="76"/>
+             line="108">Sets the certificate URI for the chooser button.</doc>
+        <source-position filename="nma-cert-chooser.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -356,13 +621,13 @@ entry.</doc>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="124">certificate chooser button instance</doc>
+                 line="110">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="125">the path or URI of a certificate</doc>
+                 line="111">the path or URI of a certificate</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -372,8 +637,8 @@ entry.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="271">Sets the key location for the chooser button.</doc>
-        <source-position filename="nma-cert-chooser.h" line="94"/>
+             line="257">Sets the key location for the chooser button.</doc>
+        <source-position filename="nma-cert-chooser.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -381,19 +646,19 @@ entry.</doc>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="273">certificate chooser button instance</doc>
+                 line="259">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="274">the path or URI of a key</doc>
+                 line="260">the path or URI of a key</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="scheme" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="275">the scheme of the key path</doc>
+                 line="261">the scheme of the key path</doc>
             <type name="NM.Setting8021xCKScheme"
                   c:type="NMSetting8021xCKScheme"/>
           </parameter>
@@ -404,8 +669,8 @@ entry.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="337">Sets the password or a PIN that might be required to access the key.</doc>
-        <source-position filename="nma-cert-chooser.h" line="110"/>
+             line="323">Sets the password or a PIN that might be required to access the key.</doc>
+        <source-position filename="nma-cert-chooser.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -413,13 +678,13 @@ entry.</doc>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="339">certificate chooser button instance</doc>
+                 line="325">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
           <parameter name="password" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="340">the key PIN or password</doc>
+                 line="326">the key PIN or password</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -429,8 +694,8 @@ entry.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="253">Sets the key URI for the chooser button.</doc>
-        <source-position filename="nma-cert-chooser.h" line="99"/>
+             line="239">Sets the key URI for the chooser button.</doc>
+        <source-position filename="nma-cert-chooser.h" line="85"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -438,13 +703,13 @@ entry.</doc>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="255">certificate chooser button instance</doc>
+                 line="241">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="256">the URI of a key</doc>
+                 line="242">the URI of a key</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -454,9 +719,9 @@ entry.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="415">This method basically calls nma_utils_setup_password_storage()
+             line="401">This method basically calls nma_utils_setup_password_storage()
 on the certificate password entry, in case one is present.</doc>
-        <source-position filename="nma-cert-chooser.h" line="130"/>
+        <source-position filename="nma-cert-chooser.h" line="116"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -464,37 +729,37 @@ on the certificate password entry, in case one is present.</doc>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="417">certificate chooser button instance</doc>
+                 line="403">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
           <parameter name="initial_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="418">initial secret flags to setup password menu from</doc>
+                 line="404">initial secret flags to setup password menu from</doc>
             <type name="NM.SettingSecretFlags" c:type="NMSettingSecretFlags"/>
           </parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="419">#NMSetting containing the password, or NULL</doc>
+                 line="405">#NMSetting containing the password, or NULL</doc>
             <type name="NM.Setting" c:type="NMSetting*"/>
           </parameter>
           <parameter name="password_flags_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="420">name of the secret flags (like psk-flags), or NULL</doc>
+                 line="406">name of the secret flags (like psk-flags), or NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="with_not_required" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="421">whether to include "Not required" menu item</doc>
+                 line="407">whether to include "Not required" menu item</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="ask_mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="422">%TRUE if the entry is shown in ASK mode</doc>
+                 line="408">%TRUE if the entry is shown in ASK mode</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -504,9 +769,9 @@ on the certificate password entry, in case one is present.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="511">This method basically calls nma_utils_setup_password_storage()
+             line="497">This method basically calls nma_utils_setup_password_storage()
 on the key password entry, in case one is present.</doc>
-        <source-position filename="nma-cert-chooser.h" line="147"/>
+        <source-position filename="nma-cert-chooser.h" line="133"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -514,37 +779,37 @@ on the key password entry, in case one is present.</doc>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="513">certificate chooser button instance</doc>
+                 line="499">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
           <parameter name="initial_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="514">initial secret flags to setup password menu from</doc>
+                 line="500">initial secret flags to setup password menu from</doc>
             <type name="NM.SettingSecretFlags" c:type="NMSettingSecretFlags"/>
           </parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="515">#NMSetting containing the password, or NULL</doc>
+                 line="501">#NMSetting containing the password, or NULL</doc>
             <type name="NM.Setting" c:type="NMSetting*"/>
           </parameter>
           <parameter name="password_flags_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="516">name of the secret flags (like psk-flags), or NULL</doc>
+                 line="502">name of the secret flags (like psk-flags), or NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="with_not_required" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="517">whether to include "Not required" menu item</doc>
+                 line="503">whether to include "Not required" menu item</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="ask_mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="518">%TRUE if the entry is shown in ASK mode</doc>
+                 line="504">%TRUE if the entry is shown in ASK mode</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -554,9 +819,9 @@ on the key password entry, in case one is present.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="452">This method basically calls nma_utils_update_password_storage()
+             line="438">This method basically calls nma_utils_update_password_storage()
 on the certificate password entry, in case one is present.</doc>
-        <source-position filename="nma-cert-chooser.h" line="138"/>
+        <source-position filename="nma-cert-chooser.h" line="124"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -564,25 +829,25 @@ on the certificate password entry, in case one is present.</doc>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="454">certificate chooser button instance</doc>
+                 line="440">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
           <parameter name="secret_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="455">secret flags to set</doc>
+                 line="441">secret flags to set</doc>
             <type name="NM.SettingSecretFlags" c:type="NMSettingSecretFlags"/>
           </parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="456">#NMSetting containing the password, or NULL</doc>
+                 line="442">#NMSetting containing the password, or NULL</doc>
             <type name="NM.Setting" c:type="NMSetting*"/>
           </parameter>
           <parameter name="password_flags_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="457">name of the secret flags (like psk-flags), or NULL</doc>
+                 line="443">name of the secret flags (like psk-flags), or NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -592,9 +857,9 @@ on the certificate password entry, in case one is present.</doc>
               version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="543">This method basically calls nma_utils_update_password_storage()
+             line="529">This method basically calls nma_utils_update_password_storage()
 on the key password entry, in case one is present.</doc>
-        <source-position filename="nma-cert-chooser.h" line="155"/>
+        <source-position filename="nma-cert-chooser.h" line="141"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -602,25 +867,25 @@ on the key password entry, in case one is present.</doc>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="545">certificate chooser button instance</doc>
+                 line="531">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
           <parameter name="secret_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="546">secret flags to set</doc>
+                 line="532">secret flags to set</doc>
             <type name="NM.SettingSecretFlags" c:type="NMSettingSecretFlags"/>
           </parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="547">#NMSetting containing the password, or NULL</doc>
+                 line="533">#NMSetting containing the password, or NULL</doc>
             <type name="NM.Setting" c:type="NMSetting*"/>
           </parameter>
           <parameter name="password_flags_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="548">name of the secret flags (like psk-flags), or NULL</doc>
+                 line="534">name of the secret flags (like psk-flags), or NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -631,21 +896,21 @@ on the key password entry, in case one is present.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="394">Validates whether the chosen values make sense. The users can do further
+             line="380">Validates whether the chosen values make sense. The users can do further
 validation by subscribing to the "*-changed" signals and returning an
 error themselves.</doc>
-        <source-position filename="nma-cert-chooser.h" line="126"/>
+        <source-position filename="nma-cert-chooser.h" line="112"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-cert-chooser.c"
-               line="403">%TRUE if validation passes, %FALSE otherwise</doc>
+               line="389">%TRUE if validation passes, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="cert_chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-cert-chooser.c"
-                 line="396">certificate chooser button instance</doc>
+                 line="382">certificate chooser button instance</doc>
             <type name="CertChooser" c:type="NMACertChooser*"/>
           </instance-parameter>
         </parameters>
@@ -667,7 +932,7 @@ error themselves.</doc>
       <glib:signal name="cert-password-validate" when="last" version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="710">Emitted when the certificate password needs validation. The handlers
+             line="696">Emitted when the certificate password needs validation. The handlers
 can indicate that the password is invalid by returning an error, which blocks further
 signal processing and causes a call to nma_cert_chooser_validate()
 to fail.</doc>
@@ -678,7 +943,7 @@ to fail.</doc>
       <glib:signal name="cert-validate" when="last" version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="693">Emitted when the certificate needs validation. The handlers can indicate that
+             line="679">Emitted when the certificate needs validation. The handlers can indicate that
 the certificate is invalid by returning an error, which blocks further
 signal processing and causes a call to nma_cert_chooser_validate()
 to fail.</doc>
@@ -689,7 +954,7 @@ to fail.</doc>
       <glib:signal name="changed" when="last" no-recurse="1" version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="761">Emitted when anything changes in the certificate chooser, be it a certificate,
+             line="747">Emitted when anything changes in the certificate chooser, be it a certificate,
 a key or associated passwords.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -698,7 +963,7 @@ a key or associated passwords.</doc>
       <glib:signal name="key-password-validate" when="last" version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="744">Emitted when the key password needs validation. The handlers can indicate
+             line="730">Emitted when the key password needs validation. The handlers can indicate
 that the password is invalid by returning an error, which blocks further
 signal processing and causes a call to nma_cert_chooser_validate()
 to fail.</doc>
@@ -709,7 +974,7 @@ to fail.</doc>
       <glib:signal name="key-validate" when="last" version="1.8.0">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.c"
-             line="727">Emitted when the key needs validation. The handlers can indicate that
+             line="713">Emitted when the key needs validation. The handlers can indicate that
 the key is invalid by returning an error, which blocks further
 signal processing and causes a call to nma_cert_chooser_validate()
 to fail.</doc>
@@ -722,38 +987,38 @@ to fail.</doc>
             c:type="NMACertChooserClass"
             disguised="1"
             glib:is-gtype-struct-for="CertChooser">
-      <source-position filename="nma-cert-chooser.h" line="65"/>
+      <source-position filename="nma-cert-chooser.h" line="51"/>
     </record>
     <enumeration name="CertChooserFlags"
                  version="1.8.0"
                  c:type="NMACertChooserFlags">
       <doc xml:space="preserve"
            filename="nma-cert-chooser.h"
-           line="33">Flags that controls what is the certificate chooser button able to pick.
+           line="19">Flags that controls what is the certificate chooser button able to pick.
 Currently only local files are supported, but might be extended to use URIs,
 such as PKCS\#11 certificate URIs in future as well.</doc>
-      <source-position filename="nma-cert-chooser.h" line="52"/>
+      <source-position filename="nma-cert-chooser.h" line="38"/>
       <member name="none" value="0" c:identifier="NMA_CERT_CHOOSER_FLAG_NONE">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.h"
-             line="35">No flags</doc>
+             line="21">No flags</doc>
       </member>
       <member name="cert" value="1" c:identifier="NMA_CERT_CHOOSER_FLAG_CERT">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.h"
-             line="36">Only pick a certificate, not a key</doc>
+             line="22">Only pick a certificate, not a key</doc>
       </member>
       <member name="passwords"
               value="2"
               c:identifier="NMA_CERT_CHOOSER_FLAG_PASSWORDS">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.h"
-             line="37">Hide all controls but the secrets entries</doc>
+             line="23">Hide all controls but the secrets entries</doc>
       </member>
       <member name="pem" value="4" c:identifier="NMA_CERT_CHOOSER_FLAG_PEM">
         <doc xml:space="preserve"
              filename="nma-cert-chooser.h"
-             line="38">Ensure the chooser only selects regular PEM files</doc>
+             line="24">Ensure the chooser only selects regular PEM files</doc>
       </member>
     </enumeration>
     <record name="CountryInfo"
@@ -761,50 +1026,50 @@ such as PKCS\#11 certificate URIs in future as well.</doc>
             glib:type-name="NMACountryInfo"
             glib:get-type="nma_country_info_get_type"
             c:symbol-prefix="country_info">
-      <source-position filename="nma-mobile-providers.h" line="82"/>
+      <source-position filename="nma-mobile-providers.h" line="67"/>
       <method name="get_country_code"
               c:identifier="nma_country_info_get_country_code">
-        <source-position filename="nma-mobile-providers.h" line="87"/>
+        <source-position filename="nma-mobile-providers.h" line="72"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="386">the code of the country or %NULL for "Unknown".</doc>
+               line="371">the code of the country or %NULL for "Unknown".</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="country_info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="384">a #NMACountryInfo</doc>
+                 line="369">a #NMACountryInfo</doc>
             <type name="CountryInfo" c:type="NMACountryInfo*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_country_name"
               c:identifier="nma_country_info_get_country_name">
-        <source-position filename="nma-mobile-providers.h" line="88"/>
+        <source-position filename="nma-mobile-providers.h" line="73"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="403">the name of the country.</doc>
+               line="388">the name of the country.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="country_info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="401">a #NMACountryInfo</doc>
+                 line="386">a #NMACountryInfo</doc>
             <type name="CountryInfo" c:type="NMACountryInfo*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_providers"
               c:identifier="nma_country_info_get_providers">
-        <source-position filename="nma-mobile-providers.h" line="89"/>
+        <source-position filename="nma-mobile-providers.h" line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="417">the
+               line="402">the
  list of #NMAMobileProvider this country exposes.</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="MobileProvider"/>
@@ -814,13 +1079,13 @@ such as PKCS\#11 certificate URIs in future as well.</doc>
           <instance-parameter name="country_info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="415">a #NMACountryInfo</doc>
+                 line="400">a #NMACountryInfo</doc>
             <type name="CountryInfo" c:type="NMACountryInfo*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="ref" c:identifier="nma_country_info_ref">
-        <source-position filename="nma-mobile-providers.h" line="85"/>
+        <source-position filename="nma-mobile-providers.h" line="70"/>
         <return-value transfer-ownership="full">
           <type name="CountryInfo" c:type="NMACountryInfo*"/>
         </return-value>
@@ -831,7 +1096,7 @@ such as PKCS\#11 certificate URIs in future as well.</doc>
         </parameters>
       </method>
       <method name="unref" c:identifier="nma_country_info_unref">
-        <source-position filename="nma-mobile-providers.h" line="86"/>
+        <source-position filename="nma-mobile-providers.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -842,60 +1107,253 @@ such as PKCS\#11 certificate URIs in future as well.</doc>
         </parameters>
       </method>
     </record>
+    <function-macro name="DEPRECATED_IN_1_2_FOR"
+                    c:identifier="NMA_DEPRECATED_IN_1_2_FOR"
+                    introspectable="0">
+      <source-position filename="nma-version.h" line="93"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_1_8_FOR"
+                    c:identifier="NMA_DEPRECATED_IN_1_8_FOR"
+                    introspectable="0">
+      <source-position filename="nma-version.h" line="101"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ENCODE_VERSION"
+                    c:identifier="NMA_ENCODE_VERSION"
+                    introspectable="0">
+      <source-position filename="nma-version.h" line="50"/>
+      <parameters>
+        <parameter name="major">
+        </parameter>
+        <parameter name="minor">
+        </parameter>
+        <parameter name="micro">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_BAR_CODE"
+                    c:identifier="NMA_IS_BAR_CODE"
+                    introspectable="0">
+      <source-position filename="nma-bar-code.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_BAR_CODE_CLASS"
+                    c:identifier="NMA_IS_BAR_CODE_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-bar-code.h" line="30"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_BAR_CODE_WIDGET"
+                    c:identifier="NMA_IS_BAR_CODE_WIDGET"
+                    introspectable="0">
+      <source-position filename="nma-bar-code-widget.h" line="28"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_BAR_CODE_WIDGET_CLASS"
+                    c:identifier="NMA_IS_BAR_CODE_WIDGET_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-bar-code-widget.h" line="29"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CERT_CHOOSER"
+                    c:identifier="NMA_IS_CERT_CHOOSER"
+                    introspectable="0">
+      <source-position filename="nma-cert-chooser.h" line="43"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CERT_CHOOSER_CLASS"
+                    c:identifier="NMA_IS_CERT_CHOOSER_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-cert-chooser.h" line="44"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MOBILE_PROVIDERS_DATABASE"
+                    c:identifier="NMA_IS_MOBILE_PROVIDERS_DATABASE"
+                    introspectable="0">
+      <source-position filename="nma-mobile-providers.h" line="82"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MOBILE_PROVIDERS_DATABASE_CLASS"
+                    c:identifier="NMA_IS_MOBILE_PROVIDERS_DATABASE_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-mobile-providers.h" line="83"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MOBILE_WIZARD"
+                    c:identifier="NMA_IS_MOBILE_WIZARD"
+                    introspectable="0">
+      <source-position filename="nma-mobile-wizard.h" line="48"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MOBILE_WIZARD_CLASS"
+                    c:identifier="NMA_IS_MOBILE_WIZARD_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-mobile-wizard.h" line="49"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_WIFI_DIALOG"
+                    c:identifier="NMA_IS_WIFI_DIALOG"
+                    introspectable="0">
+      <source-position filename="nma-wifi-dialog.h" line="23"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_WIFI_DIALOG_CLASS"
+                    c:identifier="NMA_IS_WIFI_DIALOG_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-wifi-dialog.h" line="24"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
     <constant name="MAJOR_VERSION" value="1" c:type="NMA_MAJOR_VERSION">
       <doc xml:space="preserve"
            filename="nma-version.h"
-           line="26">Evaluates to the major version number of NetworkManager which this source
+           line="12">Evaluates to the major version number of NetworkManager which this source
 is compiled against.</doc>
-      <source-position filename="nma-version.h" line="32"/>
+      <source-position filename="nma-version.h" line="18"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="20" c:type="NMA_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="24" c:type="NMA_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="nma-version.h"
-           line="42">Evaluates to the micro version number of NetworkManager which this source
+           line="28">Evaluates to the micro version number of NetworkManager which this source
 compiled against.</doc>
-      <source-position filename="nma-version.h" line="48"/>
+      <source-position filename="nma-version.h" line="34"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION" value="8" c:type="NMA_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="nma-version.h"
-           line="34">Evaluates to the minor version number of NetworkManager which this source
+           line="20">Evaluates to the minor version number of NetworkManager which this source
 is compiled against.</doc>
-      <source-position filename="nma-version.h" line="40"/>
+      <source-position filename="nma-version.h" line="26"/>
       <type name="gint" c:type="gint"/>
     </constant>
+    <function-macro name="MOBILE_PROVIDERS_DATABASE"
+                    c:identifier="NMA_MOBILE_PROVIDERS_DATABASE"
+                    introspectable="0">
+      <source-position filename="nma-mobile-providers.h" line="80"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MOBILE_PROVIDERS_DATABASE_CLASS"
+                    c:identifier="NMA_MOBILE_PROVIDERS_DATABASE_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-mobile-providers.h" line="81"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MOBILE_PROVIDERS_DATABASE_GET_CLASS"
+                    c:identifier="NMA_MOBILE_PROVIDERS_DATABASE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-mobile-providers.h" line="84"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MOBILE_WIZARD"
+                    c:identifier="NMA_MOBILE_WIZARD"
+                    introspectable="0">
+      <source-position filename="nma-mobile-wizard.h" line="46"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MOBILE_WIZARD_CLASS"
+                    c:identifier="NMA_MOBILE_WIZARD_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-mobile-wizard.h" line="47"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MOBILE_WIZARD_GET_CLASS"
+                    c:identifier="NMA_MOBILE_WIZARD_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-mobile-wizard.h" line="50"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
     <record name="MobileAccessMethod"
             c:type="NMAMobileAccessMethod"
             glib:type-name="NMAMobileAccessMethod"
             glib:get-type="nma_mobile_access_method_get_type"
             c:symbol-prefix="mobile_access_method">
-      <source-position filename="nma-mobile-providers.h" line="49"/>
+      <source-position filename="nma-mobile-providers.h" line="34"/>
       <method name="get_3gpp_apn"
               c:identifier="nma_mobile_access_method_get_3gpp_apn">
-        <source-position filename="nma-mobile-providers.h" line="59"/>
+        <source-position filename="nma-mobile-providers.h" line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="182">the 3GPP APN.</doc>
+               line="167">the 3GPP APN.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="180">a #NMAMobileAccessMethod</doc>
+                 line="165">a #NMAMobileAccessMethod</doc>
             <type name="MobileAccessMethod" c:type="NMAMobileAccessMethod*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_dns" c:identifier="nma_mobile_access_method_get_dns">
-        <source-position filename="nma-mobile-providers.h" line="58"/>
+        <source-position filename="nma-mobile-providers.h" line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="168">the list of DNS.</doc>
+               line="153">the list of DNS.</doc>
           <array c:type="const gchar**">
             <type name="utf8"/>
           </array>
@@ -904,102 +1362,102 @@ is compiled against.</doc>
           <instance-parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="166">a #NMAMobileAccessMethod</doc>
+                 line="151">a #NMAMobileAccessMethod</doc>
             <type name="MobileAccessMethod" c:type="NMAMobileAccessMethod*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_family"
               c:identifier="nma_mobile_access_method_get_family">
-        <source-position filename="nma-mobile-providers.h" line="60"/>
+        <source-position filename="nma-mobile-providers.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="196">a #NMAMobileFamily.</doc>
+               line="181">a #NMAMobileFamily.</doc>
           <type name="MobileFamily" c:type="NMAMobileFamily"/>
         </return-value>
         <parameters>
           <instance-parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="194">a #NMAMobileAccessMethod</doc>
+                 line="179">a #NMAMobileAccessMethod</doc>
             <type name="MobileAccessMethod" c:type="NMAMobileAccessMethod*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_gateway"
               c:identifier="nma_mobile_access_method_get_gateway">
-        <source-position filename="nma-mobile-providers.h" line="57"/>
+        <source-position filename="nma-mobile-providers.h" line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="154">the gateway.</doc>
+               line="139">the gateway.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="152">a #NMAMobileAccessMethod</doc>
+                 line="137">a #NMAMobileAccessMethod</doc>
             <type name="MobileAccessMethod" c:type="NMAMobileAccessMethod*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_name" c:identifier="nma_mobile_access_method_get_name">
-        <source-position filename="nma-mobile-providers.h" line="54"/>
+        <source-position filename="nma-mobile-providers.h" line="39"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="112">the name of the method.</doc>
+               line="97">the name of the method.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="110">a #NMAMobileAccessMethod</doc>
+                 line="95">a #NMAMobileAccessMethod</doc>
             <type name="MobileAccessMethod" c:type="NMAMobileAccessMethod*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_password"
               c:identifier="nma_mobile_access_method_get_password">
-        <source-position filename="nma-mobile-providers.h" line="56"/>
+        <source-position filename="nma-mobile-providers.h" line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="140">the password.</doc>
+               line="125">the password.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="138">a #NMAMobileAccessMethod</doc>
+                 line="123">a #NMAMobileAccessMethod</doc>
             <type name="MobileAccessMethod" c:type="NMAMobileAccessMethod*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_username"
               c:identifier="nma_mobile_access_method_get_username">
-        <source-position filename="nma-mobile-providers.h" line="55"/>
+        <source-position filename="nma-mobile-providers.h" line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="126">the username.</doc>
+               line="111">the username.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="124">a #NMAMobileAccessMethod</doc>
+                 line="109">a #NMAMobileAccessMethod</doc>
             <type name="MobileAccessMethod" c:type="NMAMobileAccessMethod*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="ref" c:identifier="nma_mobile_access_method_ref">
-        <source-position filename="nma-mobile-providers.h" line="52"/>
+        <source-position filename="nma-mobile-providers.h" line="37"/>
         <return-value transfer-ownership="full">
           <type name="MobileAccessMethod" c:type="NMAMobileAccessMethod*"/>
         </return-value>
@@ -1010,7 +1468,7 @@ is compiled against.</doc>
         </parameters>
       </method>
       <method name="unref" c:identifier="nma_mobile_access_method_unref">
-        <source-position filename="nma-mobile-providers.h" line="53"/>
+        <source-position filename="nma-mobile-providers.h" line="38"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1022,23 +1480,23 @@ is compiled against.</doc>
       </method>
     </record>
     <enumeration name="MobileFamily" c:type="NMAMobileFamily">
-      <source-position filename="nma-mobile-providers.h" line="45"/>
+      <source-position filename="nma-mobile-providers.h" line="30"/>
       <member name="unknown"
               value="0"
               c:identifier="NMA_MOBILE_FAMILY_UNKNOWN">
         <doc xml:space="preserve"
              filename="nma-mobile-providers.h"
-             line="37">Unknown or invalid network access method</doc>
+             line="22">Unknown or invalid network access method</doc>
       </member>
       <member name="3gpp" value="1" c:identifier="NMA_MOBILE_FAMILY_3GPP">
         <doc xml:space="preserve"
              filename="nma-mobile-providers.h"
-             line="38">3rd Generation Partnership Project (3GPP) network</doc>
+             line="23">3rd Generation Partnership Project (3GPP) network</doc>
       </member>
       <member name="cdma" value="2" c:identifier="NMA_MOBILE_FAMILY_CDMA">
         <doc xml:space="preserve"
              filename="nma-mobile-providers.h"
-             line="39">A CDMA network</doc>
+             line="24">A CDMA network</doc>
       </member>
     </enumeration>
     <record name="MobileProvider"
@@ -1046,17 +1504,38 @@ is compiled against.</doc>
             glib:type-name="NMAMobileProvider"
             glib:get-type="nma_mobile_provider_get_type"
             c:symbol-prefix="mobile_provider">
-      <source-position filename="nma-mobile-providers.h" line="67"/>
+      <source-position filename="nma-mobile-providers.h" line="52"/>
       <method name="get_3gpp_mcc_mnc"
               c:identifier="nma_mobile_provider_get_3gpp_mcc_mnc">
-        <source-position filename="nma-mobile-providers.h" line="74"/>
+        <source-position filename="nma-mobile-providers.h" line="59"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="304">a
+               line="289">a
  list of strings with the MCC and MNC codes this provider exposes.</doc>
           <array c:type="const gchar**">
             <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="nma-mobile-providers.c"
+                 line="287">a #NMAMobileProvider</doc>
+            <type name="MobileProvider" c:type="NMAMobileProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_cdma_sid"
+              c:identifier="nma_mobile_provider_get_cdma_sid">
+        <source-position filename="nma-mobile-providers.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="nma-mobile-providers.c"
+               line="304">the
+ list of CDMA SIDs this provider exposes</doc>
+          <array c:type="const guint32*">
+            <type name="guint32"/>
           </array>
         </return-value>
         <parameters>
@@ -1068,34 +1547,13 @@ is compiled against.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_cdma_sid"
-              c:identifier="nma_mobile_provider_get_cdma_sid">
-        <source-position filename="nma-mobile-providers.h" line="75"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="nma-mobile-providers.c"
-               line="319">the
- list of CDMA SIDs this provider exposes</doc>
-          <array c:type="const guint32*">
-            <type name="guint32"/>
-          </array>
-        </return-value>
-        <parameters>
-          <instance-parameter name="provider" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="nma-mobile-providers.c"
-                 line="317">a #NMAMobileProvider</doc>
-            <type name="MobileProvider" c:type="NMAMobileProvider*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
       <method name="get_methods"
               c:identifier="nma_mobile_provider_get_methods">
-        <source-position filename="nma-mobile-providers.h" line="73"/>
+        <source-position filename="nma-mobile-providers.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="289">the
+               line="274">the
  list of #NMAMobileAccessMethod this provider exposes.</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="MobileAccessMethod"/>
@@ -1105,30 +1563,30 @@ is compiled against.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="287">a #NMAMobileProvider</doc>
+                 line="272">a #NMAMobileProvider</doc>
             <type name="MobileProvider" c:type="NMAMobileProvider*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_name" c:identifier="nma_mobile_provider_get_name">
-        <source-position filename="nma-mobile-providers.h" line="72"/>
+        <source-position filename="nma-mobile-providers.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="275">the name of the provider.</doc>
+               line="260">the name of the provider.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="273">a #NMAMobileProvider</doc>
+                 line="258">a #NMAMobileProvider</doc>
             <type name="MobileProvider" c:type="NMAMobileProvider*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="ref" c:identifier="nma_mobile_provider_ref">
-        <source-position filename="nma-mobile-providers.h" line="70"/>
+        <source-position filename="nma-mobile-providers.h" line="55"/>
         <return-value transfer-ownership="full">
           <type name="MobileProvider" c:type="NMAMobileProvider*"/>
         </return-value>
@@ -1139,7 +1597,7 @@ is compiled against.</doc>
         </parameters>
       </method>
       <method name="unref" c:identifier="nma_mobile_provider_unref">
-        <source-position filename="nma-mobile-providers.h" line="71"/>
+        <source-position filename="nma-mobile-providers.h" line="56"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1157,17 +1615,17 @@ is compiled against.</doc>
            glib:type-name="NMAMobileProvidersDatabase"
            glib:get-type="nma_mobile_providers_database_get_type"
            glib:type-struct="MobileProvidersDatabaseClass">
-      <source-position filename="nma-mobile-providers.h" line="112"/>
+      <source-position filename="nma-mobile-providers.h" line="97"/>
       <implements name="Gio.AsyncInitable"/>
       <implements name="Gio.Initable"/>
       <constructor name="new_finish"
                    c:identifier="nma_mobile_providers_database_new_finish"
                    throws="1">
-        <source-position filename="nma-mobile-providers.h" line="121"/>
+        <source-position filename="nma-mobile-providers.h" line="106"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="1427">The constructed object or %NULL if @error is set.</doc>
+               line="1412">The constructed object or %NULL if @error is set.</doc>
           <type name="MobileProvidersDatabase"
                 c:type="NMAMobileProvidersDatabase*"/>
         </return-value>
@@ -1175,7 +1633,7 @@ is compiled against.</doc>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1424">The #GAsyncResult obtained from the #GAsyncReadyCallback passed to nma_mobile_providers_database_new().</doc>
+                 line="1409">The #GAsyncResult obtained from the #GAsyncReadyCallback passed to nma_mobile_providers_database_new().</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1183,11 +1641,11 @@ is compiled against.</doc>
       <constructor name="new_sync"
                    c:identifier="nma_mobile_providers_database_new_sync"
                    throws="1">
-        <source-position filename="nma-mobile-providers.h" line="123"/>
+        <source-position filename="nma-mobile-providers.h" line="108"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="1450">The constructed object or %NULL if @error is set.</doc>
+               line="1435">The constructed object or %NULL if @error is set.</doc>
           <type name="MobileProvidersDatabase"
                 c:type="NMAMobileProvidersDatabase*"/>
         </return-value>
@@ -1198,7 +1656,7 @@ is compiled against.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1445">Path to the country codes file.</doc>
+                 line="1430">Path to the country codes file.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="service_providers"
@@ -1207,7 +1665,7 @@ is compiled against.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1446">Path to the service providers file.</doc>
+                 line="1431">Path to the service providers file.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1216,13 +1674,13 @@ is compiled against.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1447">A #GCancellable or %NULL.</doc>
+                 line="1432">A #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
       </constructor>
       <function name="new" c:identifier="nma_mobile_providers_database_new">
-        <source-position filename="nma-mobile-providers.h" line="116"/>
+        <source-position filename="nma-mobile-providers.h" line="101"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1233,7 +1691,7 @@ is compiled against.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1398">Path to the country codes file.</doc>
+                 line="1383">Path to the country codes file.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="service_providers"
@@ -1242,7 +1700,7 @@ is compiled against.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1399">Path to the service providers file.</doc>
+                 line="1384">Path to the service providers file.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1251,7 +1709,7 @@ is compiled against.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1400">A #GCancellable or %NULL.</doc>
+                 line="1385">A #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1262,7 +1720,7 @@ is compiled against.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1401">A #GAsyncReadyCallback to call when the request is satisfied.</doc>
+                 line="1386">A #GAsyncReadyCallback to call when the request is satisfied.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1271,13 +1729,13 @@ is compiled against.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1402">User data to pass to @callback.</doc>
+                 line="1387">User data to pass to @callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </function>
       <method name="dump" c:identifier="nma_mobile_providers_database_dump">
-        <source-position filename="nma-mobile-providers.h" line="130"/>
+        <source-position filename="nma-mobile-providers.h" line="115"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1285,7 +1743,7 @@ is compiled against.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1194">a #NMAMobileProvidersDatabase.</doc>
+                 line="1179">a #NMAMobileProvidersDatabase.</doc>
             <type name="MobileProvidersDatabase"
                   c:type="NMAMobileProvidersDatabase*"/>
           </instance-parameter>
@@ -1293,11 +1751,11 @@ is compiled against.</doc>
       </method>
       <method name="get_countries"
               c:identifier="nma_mobile_providers_database_get_countries">
-        <source-position filename="nma-mobile-providers.h" line="128"/>
+        <source-position filename="nma-mobile-providers.h" line="113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="1178">a
+               line="1163">a
  hash table where keys are country names #gchar and values are #NMACountryInfo.</doc>
           <type name="GLib.HashTable" c:type="GHashTable*">
             <type name="utf8"/>
@@ -1308,7 +1766,7 @@ is compiled against.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1176">a #NMAMobileProvidersDatabase.</doc>
+                 line="1161">a #NMAMobileProvidersDatabase.</doc>
             <type name="MobileProvidersDatabase"
                   c:type="NMAMobileProvidersDatabase*"/>
           </instance-parameter>
@@ -1316,75 +1774,75 @@ is compiled against.</doc>
       </method>
       <method name="lookup_3gpp_mcc_mnc"
               c:identifier="nma_mobile_providers_database_lookup_3gpp_mcc_mnc">
-        <source-position filename="nma-mobile-providers.h" line="134"/>
+        <source-position filename="nma-mobile-providers.h" line="119"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="1232">a #NMAMobileProvider or %NULL if not found.</doc>
+               line="1217">a #NMAMobileProvider or %NULL if not found.</doc>
           <type name="MobileProvider" c:type="NMAMobileProvider*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1229">a #NMAMobileProvidersDatabase.</doc>
+                 line="1214">a #NMAMobileProvidersDatabase.</doc>
             <type name="MobileProvidersDatabase"
                   c:type="NMAMobileProvidersDatabase*"/>
           </instance-parameter>
           <parameter name="mccmnc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1230">the MCC/MNC string to look for.</doc>
+                 line="1215">the MCC/MNC string to look for.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
       <method name="lookup_cdma_sid"
               c:identifier="nma_mobile_providers_database_lookup_cdma_sid">
-        <source-position filename="nma-mobile-providers.h" line="136"/>
+        <source-position filename="nma-mobile-providers.h" line="121"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="1330">a #NMAMobileProvider, or %NULL if not found.</doc>
+               line="1315">a #NMAMobileProvider, or %NULL if not found.</doc>
           <type name="MobileProvider" c:type="NMAMobileProvider*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1327">a #NMAMobileProvidersDatabase.</doc>
+                 line="1312">a #NMAMobileProvidersDatabase.</doc>
             <type name="MobileProvidersDatabase"
                   c:type="NMAMobileProvidersDatabase*"/>
           </instance-parameter>
           <parameter name="sid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1328">the SID to look for.</doc>
+                 line="1313">the SID to look for.</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
       </method>
       <method name="lookup_country"
               c:identifier="nma_mobile_providers_database_lookup_country">
-        <source-position filename="nma-mobile-providers.h" line="132"/>
+        <source-position filename="nma-mobile-providers.h" line="117"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="1213">a #NMACountryInfo or %NULL if not found.</doc>
+               line="1198">a #NMACountryInfo or %NULL if not found.</doc>
           <type name="CountryInfo" c:type="NMACountryInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1210">a #NMAMobileProvidersDatabase.</doc>
+                 line="1195">a #NMAMobileProvidersDatabase.</doc>
             <type name="MobileProvidersDatabase"
                   c:type="NMAMobileProvidersDatabase*"/>
           </instance-parameter>
           <parameter name="country_code" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-mobile-providers.c"
-                 line="1211">the country code string to look for.</doc>
+                 line="1196">the country code string to look for.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1412,7 +1870,7 @@ is compiled against.</doc>
     <record name="MobileProvidersDatabaseClass"
             c:type="NMAMobileProvidersDatabaseClass"
             glib:is-gtype-struct-for="MobileProvidersDatabase">
-      <source-position filename="nma-mobile-providers.h" line="112"/>
+      <source-position filename="nma-mobile-providers.h" line="97"/>
       <field name="parent">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -1420,7 +1878,7 @@ is compiled against.</doc>
     <record name="MobileProvidersDatabasePrivate"
             c:type="NMAMobileProvidersDatabasePrivate"
             disguised="1">
-      <source-position filename="nma-mobile-providers.h" line="103"/>
+      <source-position filename="nma-mobile-providers.h" line="88"/>
     </record>
     <class name="MobileWizard"
            c:symbol-prefix="mobile_wizard"
@@ -1429,17 +1887,17 @@ is compiled against.</doc>
            glib:type-name="NMAMobileWizard"
            glib:get-type="nma_mobile_wizard_get_type"
            glib:type-struct="MobileWizardClass">
-      <source-position filename="nma-mobile-wizard.h" line="31"/>
+      <source-position filename="nma-mobile-wizard.h" line="18"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Buildable"/>
       <constructor name="new"
                    c:identifier="nma_mobile_wizard_new"
                    introspectable="0">
-        <source-position filename="nma-mobile-wizard.h" line="67"/>
+        <source-position filename="nma-mobile-wizard.h" line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-wizard.c"
-               line="1463">the newly created #NMAMobileWizard</doc>
+               line="1482">the newly created #NMAMobileWizard</doc>
           <type name="MobileWizard" c:type="NMAMobileWizard*"/>
         </return-value>
         <parameters>
@@ -1472,7 +1930,7 @@ is compiled against.</doc>
         </parameters>
       </constructor>
       <method name="destroy" c:identifier="nma_mobile_wizard_destroy">
-        <source-position filename="nma-mobile-wizard.h" line="76"/>
+        <source-position filename="nma-mobile-wizard.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1483,7 +1941,7 @@ is compiled against.</doc>
         </parameters>
       </method>
       <method name="present" c:identifier="nma_mobile_wizard_present">
-        <source-position filename="nma-mobile-wizard.h" line="74"/>
+        <source-position filename="nma-mobile-wizard.h" line="61"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1498,48 +1956,48 @@ is compiled against.</doc>
             c:type="NMAMobileWizardAccessMethod">
       <doc xml:space="preserve"
            filename="nma-mobile-wizard.h"
-           line="33">Network access method details.</doc>
-      <source-position filename="nma-mobile-wizard.h" line="51"/>
+           line="20">Network access method details.</doc>
+      <source-position filename="nma-mobile-wizard.h" line="38"/>
       <field name="provider_name" writable="1">
         <doc xml:space="preserve"
              filename="nma-mobile-wizard.h"
-             line="35">The mobile network provider name</doc>
+             line="22">The mobile network provider name</doc>
         <type name="utf8" c:type="char*"/>
       </field>
       <field name="plan_name" writable="1">
         <doc xml:space="preserve"
              filename="nma-mobile-wizard.h"
-             line="36">The provided network access billing plan</doc>
+             line="23">The provided network access billing plan</doc>
         <type name="utf8" c:type="char*"/>
       </field>
       <field name="devtype" writable="1">
         <doc xml:space="preserve"
              filename="nma-mobile-wizard.h"
-             line="37">Required NetworkManager device capabilities</doc>
+             line="24">Required NetworkManager device capabilities</doc>
         <type name="NM.DeviceModemCapabilities"
               c:type="NMDeviceModemCapabilities"/>
       </field>
       <field name="username" writable="1">
         <doc xml:space="preserve"
              filename="nma-mobile-wizard.h"
-             line="38">User login</doc>
+             line="25">User login</doc>
         <type name="utf8" c:type="char*"/>
       </field>
       <field name="password" writable="1">
         <doc xml:space="preserve"
              filename="nma-mobile-wizard.h"
-             line="39">User secret</doc>
+             line="26">User secret</doc>
         <type name="utf8" c:type="char*"/>
       </field>
       <field name="gsm_apn" writable="1">
         <doc xml:space="preserve"
              filename="nma-mobile-wizard.h"
-             line="40">The GSM Access Point Name</doc>
+             line="27">The GSM Access Point Name</doc>
         <type name="utf8" c:type="char*"/>
       </field>
     </record>
     <callback name="MobileWizardCallback" c:type="NMAMobileWizardCallback">
-      <source-position filename="nma-mobile-wizard.h" line="53"/>
+      <source-position filename="nma-mobile-wizard.h" line="40"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -1567,8 +2025,44 @@ is compiled against.</doc>
             c:type="NMAMobileWizardClass"
             disguised="1"
             glib:is-gtype-struct-for="MobileWizard">
-      <source-position filename="nma-mobile-wizard.h" line="31"/>
+      <source-position filename="nma-mobile-wizard.h" line="18"/>
     </record>
+    <function-macro name="VPN_IS_PASSWORD_DIALOG"
+                    c:identifier="NMA_VPN_IS_PASSWORD_DIALOG"
+                    introspectable="0">
+      <source-position filename="nma-vpn-password-dialog.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VPN_IS_PASSWORD_DIALOG_CLASS"
+                    c:identifier="NMA_VPN_IS_PASSWORD_DIALOG_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-vpn-password-dialog.h" line="31"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VPN_PASSWORD_DIALOG"
+                    c:identifier="NMA_VPN_PASSWORD_DIALOG"
+                    introspectable="0">
+      <source-position filename="nma-vpn-password-dialog.h" line="28"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VPN_PASSWORD_DIALOG_CLASS"
+                    c:identifier="NMA_VPN_PASSWORD_DIALOG_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-vpn-password-dialog.h" line="29"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
     <class name="VpnPasswordDialog"
            c:symbol-prefix="vpn_password_dialog"
            c:type="NMAVpnPasswordDialog"
@@ -1576,11 +2070,11 @@ is compiled against.</doc>
            glib:type-name="NMAVpnPasswordDialog"
            glib:get-type="nma_vpn_password_dialog_get_type"
            glib:type-struct="VpnPasswordDialogClass">
-      <source-position filename="nma-vpn-password-dialog.h" line="47"/>
+      <source-position filename="nma-vpn-password-dialog.h" line="42"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Buildable"/>
       <constructor name="new" c:identifier="nma_vpn_password_dialog_new">
-        <source-position filename="nma-vpn-password-dialog.h" line="50"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -1598,7 +2092,7 @@ is compiled against.</doc>
       </constructor>
       <method name="focus_password"
               c:identifier="nma_vpn_password_dialog_focus_password">
-        <source-position filename="nma-vpn-password-dialog.h" line="59"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1610,7 +2104,7 @@ is compiled against.</doc>
       </method>
       <method name="focus_password_secondary"
               c:identifier="nma_vpn_password_dialog_focus_password_secondary">
-        <source-position filename="nma-vpn-password-dialog.h" line="67"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1622,7 +2116,7 @@ is compiled against.</doc>
       </method>
       <method name="focus_password_ternary"
               c:identifier="nma_vpn_password_dialog_focus_password_ternary">
-        <source-position filename="nma-vpn-password-dialog.h" line="75"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1634,7 +2128,7 @@ is compiled against.</doc>
       </method>
       <method name="get_password"
               c:identifier="nma_vpn_password_dialog_get_password">
-        <source-position filename="nma-vpn-password-dialog.h" line="82"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="77"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -1646,7 +2140,7 @@ is compiled against.</doc>
       </method>
       <method name="get_password_secondary"
               c:identifier="nma_vpn_password_dialog_get_password_secondary">
-        <source-position filename="nma-vpn-password-dialog.h" line="84"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -1658,7 +2152,7 @@ is compiled against.</doc>
       </method>
       <method name="get_password_ternary"
               c:identifier="nma_vpn_password_dialog_get_password_ternary">
-        <source-position filename="nma-vpn-password-dialog.h" line="86"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -1670,7 +2164,7 @@ is compiled against.</doc>
       </method>
       <method name="run_and_block"
               c:identifier="nma_vpn_password_dialog_run_and_block">
-        <source-position filename="nma-vpn-password-dialog.h" line="54"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="49"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1682,7 +2176,7 @@ is compiled against.</doc>
       </method>
       <method name="set_password"
               c:identifier="nma_vpn_password_dialog_set_password">
-        <source-position filename="nma-vpn-password-dialog.h" line="60"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1697,7 +2191,7 @@ is compiled against.</doc>
       </method>
       <method name="set_password_label"
               c:identifier="nma_vpn_password_dialog_set_password_label">
-        <source-position filename="nma-vpn-password-dialog.h" line="62"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1712,7 +2206,7 @@ is compiled against.</doc>
       </method>
       <method name="set_password_secondary"
               c:identifier="nma_vpn_password_dialog_set_password_secondary">
-        <source-position filename="nma-vpn-password-dialog.h" line="68"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1727,7 +2221,7 @@ is compiled against.</doc>
       </method>
       <method name="set_password_secondary_label"
               c:identifier="nma_vpn_password_dialog_set_password_secondary_label">
-        <source-position filename="nma-vpn-password-dialog.h" line="70"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1742,7 +2236,7 @@ is compiled against.</doc>
       </method>
       <method name="set_password_ternary"
               c:identifier="nma_vpn_password_dialog_set_password_ternary">
-        <source-position filename="nma-vpn-password-dialog.h" line="76"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1757,7 +2251,7 @@ is compiled against.</doc>
       </method>
       <method name="set_password_ternary_label"
               c:identifier="nma_vpn_password_dialog_set_password_ternary_label">
-        <source-position filename="nma-vpn-password-dialog.h" line="78"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="73"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1772,7 +2266,7 @@ is compiled against.</doc>
       </method>
       <method name="set_show_password"
               c:identifier="nma_vpn_password_dialog_set_show_password">
-        <source-position filename="nma-vpn-password-dialog.h" line="57"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="52"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1787,7 +2281,7 @@ is compiled against.</doc>
       </method>
       <method name="set_show_password_secondary"
               c:identifier="nma_vpn_password_dialog_set_show_password_secondary">
-        <source-position filename="nma-vpn-password-dialog.h" line="65"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="60"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1802,7 +2296,7 @@ is compiled against.</doc>
       </method>
       <method name="set_show_password_ternary"
               c:identifier="nma_vpn_password_dialog_set_show_password_ternary">
-        <source-position filename="nma-vpn-password-dialog.h" line="73"/>
+        <source-position filename="nma-vpn-password-dialog.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1822,11 +2316,38 @@ is compiled against.</doc>
     <record name="VpnPasswordDialogClass"
             c:type="NMAVpnPasswordDialogClass"
             glib:is-gtype-struct-for="VpnPasswordDialog">
-      <source-position filename="nma-vpn-password-dialog.h" line="47"/>
+      <source-position filename="nma-vpn-password-dialog.h" line="42"/>
       <field name="parent_class">
         <type name="Gtk.DialogClass" c:type="GtkDialogClass"/>
       </field>
     </record>
+    <function-macro name="WIFI_DIALOG"
+                    c:identifier="NMA_WIFI_DIALOG"
+                    introspectable="0">
+      <source-position filename="nma-wifi-dialog.h" line="21"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="WIFI_DIALOG_CLASS"
+                    c:identifier="NMA_WIFI_DIALOG_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-wifi-dialog.h" line="22"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="WIFI_DIALOG_GET_CLASS"
+                    c:identifier="NMA_WIFI_DIALOG_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="nma-wifi-dialog.h" line="25"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
     <class name="WifiDialog"
            c:symbol-prefix="wifi_dialog"
            c:type="NMAWifiDialog"
@@ -1834,62 +2355,62 @@ is compiled against.</doc>
            glib:type-name="NMAWifiDialog"
            glib:get-type="nma_wifi_dialog_get_type"
            glib:type-struct="WifiDialogClass">
-      <source-position filename="nma-wifi-dialog.h" line="46"/>
+      <source-position filename="nma-wifi-dialog.h" line="33"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Buildable"/>
       <constructor name="new" c:identifier="nma_wifi_dialog_new">
         <doc xml:space="preserve"
              filename="nma-wifi-dialog.c"
-             line="1350">Creates a wifi connection dialog and populates it with settings from
+             line="1363">Creates a wifi connection dialog and populates it with settings from
 @connection if given.  If @device is not given a device selection combo box
 will be included.  If @connection is not given a connection selection combo
 box will be included.  If @secrets_only is %FALSE a complete connection
 creator/editor dialog is returned, otherwise only wifi security secrets
 relevant to the security settings in @connection are going to be shown and
 will be editable.</doc>
-        <source-position filename="nma-wifi-dialog.h" line="50"/>
+        <source-position filename="nma-wifi-dialog.h" line="37"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-wifi-dialog.c"
-               line="1366">the dialog widget or %NULL in case of error</doc>
+               line="1379">the dialog widget or %NULL in case of error</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-wifi-dialog.c"
-                 line="1352">client to retrieve list of devices or connections from</doc>
+                 line="1365">client to retrieve list of devices or connections from</doc>
             <type name="NM.Client" c:type="NMClient*"/>
           </parameter>
           <parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-wifi-dialog.c"
-                 line="1353">connection to be shown/edited or %NULL</doc>
+                 line="1366">connection to be shown/edited or %NULL</doc>
             <type name="NM.Connection" c:type="NMConnection*"/>
           </parameter>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-wifi-dialog.c"
-                 line="1354">device to check connection compatibility against</doc>
+                 line="1367">device to check connection compatibility against</doc>
             <type name="NM.Device" c:type="NMDevice*"/>
           </parameter>
           <parameter name="ap" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-wifi-dialog.c"
-                 line="1355">AP to check connection compatibility against</doc>
+                 line="1368">AP to check connection compatibility against</doc>
             <type name="NM.AccessPoint" c:type="NMAccessPoint*"/>
           </parameter>
           <parameter name="secrets_only" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-wifi-dialog.c"
-                 line="1356">whether to only ask for secrets for given connection</doc>
+                 line="1369">whether to only ask for secrets for given connection</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
       </constructor>
       <constructor name="new_for_create"
                    c:identifier="nma_wifi_dialog_new_for_create">
-        <source-position filename="nma-wifi-dialog.h" line="63"/>
+        <source-position filename="nma-wifi-dialog.h" line="50"/>
         <return-value transfer-ownership="none">
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -1901,7 +2422,7 @@ will be editable.</doc>
       </constructor>
       <constructor name="new_for_hidden"
                    c:identifier="nma_wifi_dialog_new_for_hidden">
-        <source-position filename="nma-wifi-dialog.h" line="61"/>
+        <source-position filename="nma-wifi-dialog.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -1913,7 +2434,7 @@ will be editable.</doc>
       </constructor>
       <constructor name="new_for_other"
                    c:identifier="nma_wifi_dialog_new_for_other">
-        <source-position filename="nma-wifi-dialog.h" line="79"/>
+        <source-position filename="nma-wifi-dialog.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -1927,7 +2448,7 @@ will be editable.</doc>
                    c:identifier="nma_wifi_dialog_new_for_secrets">
         <doc xml:space="preserve"
              filename="nma-wifi-dialog.c"
-             line="1393">Creates a wifi secrets dialog and populates it with setting values from
+             line="1406">Creates a wifi secrets dialog and populates it with setting values from
 @connection.  If @secrets_setting_name and @secrets_hints are not given
 this function creates an identical dialog as nma_wifi_dialog_new() would
 create with the @secrets_only parameter %TRUE.  Otherwise
@@ -1937,37 +2458,37 @@ are shown for any other settings.
 
 Note: only a subset of all settings and setting keys is supported as
 @secrets_setting_name and @secrets_hints.</doc>
-        <source-position filename="nma-wifi-dialog.h" line="56"/>
+        <source-position filename="nma-wifi-dialog.h" line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-wifi-dialog.c"
-               line="1413">the dialog widget or %NULL in case of error</doc>
+               line="1426">the dialog widget or %NULL in case of error</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-wifi-dialog.c"
-                 line="1395">client to retrieve list of devices or connections from</doc>
+                 line="1408">client to retrieve list of devices or connections from</doc>
             <type name="NM.Client" c:type="NMClient*"/>
           </parameter>
           <parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-wifi-dialog.c"
-                 line="1396">connection for which secrets are requested</doc>
+                 line="1409">connection for which secrets are requested</doc>
             <type name="NM.Connection" c:type="NMConnection*"/>
           </parameter>
           <parameter name="secrets_setting_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-wifi-dialog.c"
-                 line="1397">setting name whose secrets are requested
+                 line="1410">setting name whose secrets are requested
   or %NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="secrets_hints" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-wifi-dialog.c"
-                 line="1399">array of setting key names within the setting given in
+                 line="1412">array of setting key names within the setting given in
   @secrets_setting_name which are requested or %NULL</doc>
             <type name="utf8" c:type="const char* const*"/>
           </parameter>
@@ -1975,7 +2496,7 @@ Note: only a subset of all settings and setting keys is supported as
       </constructor>
       <method name="get_connection"
               c:identifier="nma_wifi_dialog_get_connection">
-        <source-position filename="nma-wifi-dialog.h" line="65"/>
+        <source-position filename="nma-wifi-dialog.h" line="52"/>
         <return-value transfer-ownership="full">
           <type name="NM.Connection" c:type="NMConnection*"/>
         </return-value>
@@ -1983,7 +2504,7 @@ Note: only a subset of all settings and setting keys is supported as
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="nma-wifi-dialog.c"
-                 line="1221">an #NMAWifiDialog</doc>
+                 line="1234">an #NMAWifiDialog</doc>
             <type name="WifiDialog" c:type="NMAWifiDialog*"/>
           </instance-parameter>
           <parameter name="device"
@@ -2002,7 +2523,7 @@ Note: only a subset of all settings and setting keys is supported as
       </method>
       <method name="get_nag_ignored"
               c:identifier="nma_wifi_dialog_get_nag_ignored">
-        <source-position filename="nma-wifi-dialog.h" line="76"/>
+        <source-position filename="nma-wifi-dialog.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2013,7 +2534,7 @@ Note: only a subset of all settings and setting keys is supported as
         </parameters>
       </method>
       <method name="nag_user" c:identifier="nma_wifi_dialog_nag_user">
-        <source-position filename="nma-wifi-dialog.h" line="70"/>
+        <source-position filename="nma-wifi-dialog.h" line="57"/>
         <return-value transfer-ownership="full">
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -2025,7 +2546,7 @@ Note: only a subset of all settings and setting keys is supported as
       </method>
       <method name="set_nag_ignored"
               c:identifier="nma_wifi_dialog_set_nag_ignored">
-        <source-position filename="nma-wifi-dialog.h" line="73"/>
+        <source-position filename="nma-wifi-dialog.h" line="60"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2045,7 +2566,7 @@ Note: only a subset of all settings and setting keys is supported as
     <record name="WifiDialogClass"
             c:type="NMAWifiDialogClass"
             glib:is-gtype-struct-for="WifiDialog">
-      <source-position filename="nma-wifi-dialog.h" line="46"/>
+      <source-position filename="nma-wifi-dialog.h" line="33"/>
       <field name="parent">
         <type name="Gtk.DialogClass" c:type="GtkDialogClass"/>
       </field>
@@ -2054,19 +2575,19 @@ Note: only a subset of all settings and setting keys is supported as
               c:identifier="nma_mobile_providers_split_3gpp_mcc_mnc">
       <doc xml:space="preserve"
            filename="nma-mobile-providers.c"
-           line="1581">Splits the input MCCMNC string into separate MCC and MNC strings.</doc>
-      <source-position filename="nma-mobile-providers.h" line="142"/>
+           line="1566">Splits the input MCCMNC string into separate MCC and MNC strings.</doc>
+      <source-position filename="nma-mobile-providers.h" line="127"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="nma-mobile-providers.c"
-             line="1589">%TRUE if correctly split and @mcc and @mnc are set; %FALSE otherwise.</doc>
+             line="1574">%TRUE if correctly split and @mcc and @mnc are set; %FALSE otherwise.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="mccmnc" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="1583">input MCCMNC string.</doc>
+               line="1568">input MCCMNC string.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="mcc"
@@ -2075,7 +2596,7 @@ Note: only a subset of all settings and setting keys is supported as
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="1584">the MCC.</doc>
+               line="1569">the MCC.</doc>
           <type name="utf8" c:type="gchar**"/>
         </parameter>
         <parameter name="mnc"
@@ -2084,7 +2605,7 @@ Note: only a subset of all settings and setting keys is supported as
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="nma-mobile-providers.c"
-               line="1585">the MNC.</doc>
+               line="1570">the MNC.</doc>
           <type name="utf8" c:type="gchar**"/>
         </parameter>
       </parameters>
@@ -2093,20 +2614,20 @@ Note: only a subset of all settings and setting keys is supported as
               c:identifier="nma_utils_menu_to_secret_flags">
       <doc xml:space="preserve"
            filename="nma-ui-utils.c"
-           line="315">Returns secret flags corresponding to the selected password storage menu
+           line="331">Returns secret flags corresponding to the selected password storage menu
 in the attached icon</doc>
-      <source-position filename="nma-ui-utils.h" line="33"/>
+      <source-position filename="nma-ui-utils.h" line="19"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="nma-ui-utils.c"
-             line="322">secret flags corresponding to the active item in password menu</doc>
+             line="338">secret flags corresponding to the active item in password menu</doc>
         <type name="NM.SettingSecretFlags" c:type="NMSettingSecretFlags"/>
       </return-value>
       <parameters>
         <parameter name="passwd_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-ui-utils.c"
-               line="317">password #GtkEntry which the password icon/menu is attached to</doc>
+               line="333">password #GtkEntry which the password icon/menu is attached to</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </parameter>
       </parameters>
@@ -2115,12 +2636,12 @@ in the attached icon</doc>
               c:identifier="nma_utils_setup_password_storage">
       <doc xml:space="preserve"
            filename="nma-ui-utils.c"
-           line="236">Adds a secondary icon and creates a popup menu for password entry.
+           line="252">Adds a secondary icon and creates a popup menu for password entry.
 The active menu item is set up according to initial_flags, or
 from @setting/@password_flags_name (if they are not NULL).
 If the @setting/@password_flags_name are not NULL, secret flags will
 be automatically updated in the setting when menu is changed.</doc>
-      <source-position filename="nma-ui-utils.h" line="27"/>
+      <source-position filename="nma-ui-utils.h" line="13"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2128,37 +2649,37 @@ be automatically updated in the setting when menu is changed.</doc>
         <parameter name="passwd_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-ui-utils.c"
-               line="238">password #GtkEntry which the icon is attached to</doc>
+               line="254">password #GtkEntry which the icon is attached to</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </parameter>
         <parameter name="initial_flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-ui-utils.c"
-               line="239">initial secret flags to setup password menu from</doc>
+               line="255">initial secret flags to setup password menu from</doc>
           <type name="NM.SettingSecretFlags" c:type="NMSettingSecretFlags"/>
         </parameter>
         <parameter name="setting" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-ui-utils.c"
-               line="240">#NMSetting containing the password, or NULL</doc>
+               line="256">#NMSetting containing the password, or NULL</doc>
           <type name="NM.Setting" c:type="NMSetting*"/>
         </parameter>
         <parameter name="password_flags_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-ui-utils.c"
-               line="241">name of the secret flags (like psk-flags), or NULL</doc>
+               line="257">name of the secret flags (like psk-flags), or NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="with_not_required" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-ui-utils.c"
-               line="242">whether to include "Not required" menu item</doc>
+               line="258">whether to include "Not required" menu item</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
         <parameter name="ask_mode" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-ui-utils.c"
-               line="243">%TRUE if the entry is shown in ASK mode. That means,
+               line="259">%TRUE if the entry is shown in ASK mode. That means,
   while prompting for a password, contrary to being inside the
   editor mode.
   If %TRUE, the entry should be sensivive on selected "always-ask"
@@ -2175,9 +2696,9 @@ be automatically updated in the setting when menu is changed.</doc>
               c:identifier="nma_utils_update_password_storage">
       <doc xml:space="preserve"
            filename="nma-ui-utils.c"
-           line="361">Updates secret flags in the password storage popup menu and also
+           line="377">Updates secret flags in the password storage popup menu and also
 in the @setting (if @setting and @password_flags_name are not NULL).</doc>
-      <source-position filename="nma-ui-utils.h" line="34"/>
+      <source-position filename="nma-ui-utils.h" line="20"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2185,25 +2706,25 @@ in the @setting (if @setting and @password_flags_name are not NULL).</doc>
         <parameter name="passwd_entry" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-ui-utils.c"
-               line="363">#GtkEntry with the password</doc>
+               line="379">#GtkEntry with the password</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </parameter>
         <parameter name="secret_flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-ui-utils.c"
-               line="364">secret flags to set</doc>
+               line="380">secret flags to set</doc>
           <type name="NM.SettingSecretFlags" c:type="NMSettingSecretFlags"/>
         </parameter>
         <parameter name="setting" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-ui-utils.c"
-               line="365">#NMSetting containing the password, or NULL</doc>
+               line="381">#NMSetting containing the password, or NULL</doc>
           <type name="NM.Setting" c:type="NMSetting*"/>
         </parameter>
         <parameter name="password_flags_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="nma-ui-utils.c"
-               line="366">name of the secret flags (like psk-flags), or NULL</doc>
+               line="382">name of the secret flags (like psk-flags), or NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>

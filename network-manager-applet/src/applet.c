@@ -1,19 +1,5 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+// SPDX-License-Identifier: GPL-2.0+
 /* NetworkManager Applet -- allow user control over networking
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  * Copyright (C) 2004 - 2017 Red Hat, Inc.
  * Copyright (C) 2005 - 2008 Novell, Inc.
@@ -1458,8 +1444,6 @@ nma_menu_add_vpn_submenu (GtkWidget *menu, NMApplet *applet)
 	GPtrArray *list;
 	int i;
 
-	nma_menu_add_separator_item (menu);
-
 	vpn_menu = GTK_MENU (gtk_menu_new ());
 
 	item = GTK_MENU_ITEM (gtk_menu_item_new_with_mnemonic (_("_VPN Connections")));
@@ -1625,14 +1609,14 @@ static void nma_menu_show_cb (GtkWidget *menu, NMApplet *applet)
 	}
 
 	nma_menu_add_devices (menu, applet);
-	nma_menu_add_vpn_submenu (menu, applet);
 
 	if (has_usable_wifi (applet)) {
 		/* Add the "Hidden Wi-Fi network..." entry */
-		nma_menu_add_separator_item (menu);
 		nma_menu_add_hidden_network_item (menu, applet);
 		nma_menu_add_create_network_item (menu, applet);
+		nma_menu_add_separator_item (menu);
 	}
+	nma_menu_add_vpn_submenu (menu, applet);
 
 	if (!INDICATOR_ENABLED (applet))
 		gtk_widget_show_all (menu);
