@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN yes | unminimize; \
     apt-get update; \
     apt-get -y install \
+        curl \
         build-essential \
         checkinstall \
         clang-tidy\
@@ -91,12 +92,20 @@ RUN yes | unminimize; \
         libswscale-dev \
         libavdevice-dev \
         libpipewire-0.2-dev \
+        libxcb-xinput-dev \
+        libx11-xcb-dev \
         jq; \
     apt-get clean
 
 
 # Enable source repositories
 #RUN sed -i '/deb-src/s/^# //' /etc/apt/sources.list && apt update
+
+# Sway 1.5 and wlroots 0.11 require a newer meson than that's available in Ubuntu. Debian testing's will do the trick
+RUN curl -o meson.deb http://http.us.debian.org/debian/pool/main/m/meson/meson_0.54.3-1_all.deb; \
+    dpkg -i meson.deb; \
+    apt-get -f install; \
+    rm meson.deb
 
 # Rust apps builder
 

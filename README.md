@@ -11,6 +11,10 @@ You do need `docker.io` and `make` installed, and your user on the docker group 
 
 If you want `clipman` for clipboard management, you also need go.
 
+# Note 25-06-2010
+
+Added Sway 1.5 build, which requires extra libraries and a newer meson than what's available in Ubuntu. Make sure you rebuild the docker image via `make build-meson-image`
+
 # Removed tools
 
 On transition to 20.04, I've removed the following builds:
