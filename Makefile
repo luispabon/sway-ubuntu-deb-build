@@ -89,10 +89,6 @@ wayfire-build-deb:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c 'dpkg -i debs/libwlroots*deb debs/libwf-config*.deb; apt-get -f install; cd wayfire; $(build_command)'
 	make fix-permissions tidy
 
-carbonshell-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c 'dpkg -i debs/libwlroots*deb debs/libwf-config*.deb debs/wayfire*.deb; apt-get -f install; cd carbonshell; $(build_command)'
-	make fix-permissions tidy
-
 install-todays-debs:
 	find debs/ -type f -newermt '$(shell date +'%Y-%m-%d')' | grep -v "\-dev" | xargs sudo dpkg -i
 
