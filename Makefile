@@ -61,7 +61,7 @@ rootbar-build-install:
 	ln -sf $(shell pwd)/rootbar/build/rootbar ~/bin/
 
 wfrecorder-build-install:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd wf-recorder; meson build; ninja -C build"
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd wf-recorder; rm build -rf; meson build; ninja -C build"
 	make fix-permissions tidy
 	ln -sf $(shell pwd)/wf-recorder/build/wf-recorder ~/bin/
 
@@ -78,7 +78,7 @@ wfconfig-build-deb:
 	make fix-permissions tidy
 
 wcm-build-deb:
-	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c 'dpkg -i debs/libwlroots0_*deb debs/*wf-config*.deb debs/wayfire*.deb; apt-get -f install; cd wcm; $(build_command)'
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c 'dpkg -i debs/libwlroots*deb debs/*wf-config*.deb debs/wayfire*.deb; apt-get -f install; cd wcm; $(build_command)'
 	make fix-permissions tidy
 
 wfshell-build-deb:
