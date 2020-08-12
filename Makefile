@@ -46,6 +46,10 @@ waybar-build-deb:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd Waybar; $(build_command)"
 	make fix-permissions tidy
 
+rofi-build-deb:
+	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd rofi; $(build_command)"
+	make fix-permissions tidy
+
 nm-applet-build:
 	docker run -t --rm -v $(shell pwd):/workdir -w "/workdir" $(build_options)  sway_build_meson sh -c "cd network-manager-applet; $(build_command)"
 	make fix-permissions tidy
