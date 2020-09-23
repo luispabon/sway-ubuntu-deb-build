@@ -102,9 +102,22 @@ RUN yes | unminimize; \
 #RUN sed -i '/deb-src/s/^# //' /etc/apt/sources.list && apt update
 
 # Sway 1.5 and wlroots 0.11 require a newer meson than that's available in Ubuntu. Debian testing's will do the trick
-RUN curl -o meson.deb http://http.us.debian.org/debian/pool/main/m/meson/meson_0.54.3-1_all.deb; \
+RUN curl -o meson.deb http://http.us.debian.org/debian/pool/main/m/meson/meson_0.55.3-1_all.deb; \
     dpkg -i meson.deb; \
     apt-get -f install; \
+    apt-get install -y --no-install-recommends \
+        bison \
+        flex \
+        libstartup-notification0-dev \
+        libxkbcommon-x11-dev \
+        libxcb-xkb-dev \
+        libxcb-xinerama0-dev \
+        libxcb-ewmh-dev \
+        libxcb-randr0-dev \
+        libxcb-util0-dev \
+        librsvg2-dev \
+        libxcb-xrm-dev \
+        nvidia-opencl-dev; \
     rm meson.deb
 
 # Rust apps builder
