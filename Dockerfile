@@ -1,4 +1,4 @@
-FROM ubuntu:focal AS meson-builder
+FROM ubuntu:groovy AS meson-builder
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -91,21 +91,9 @@ RUN yes | unminimize; \
         libavformat-dev \
         libswscale-dev \
         libavdevice-dev \
-        libpipewire-0.2-dev \
+        libpipewire-0.3-dev \
         libxcb-xinput-dev \
         libx11-xcb-dev \
-        jq; \
-    apt-get clean
-
-
-# Enable source repositories
-#RUN sed -i '/deb-src/s/^# //' /etc/apt/sources.list && apt update
-
-# Sway 1.5 and wlroots 0.11 require a newer meson than that's available in Ubuntu. Debian testing's will do the trick
-RUN curl -o meson.deb http://http.us.debian.org/debian/pool/main/m/meson/meson_0.55.3-1_all.deb; \
-    dpkg -i meson.deb; \
-    apt-get -f install; \
-    apt-get install -y --no-install-recommends \
         bison \
         flex \
         libstartup-notification0-dev \
@@ -118,11 +106,18 @@ RUN curl -o meson.deb http://http.us.debian.org/debian/pool/main/m/meson/meson_0
         librsvg2-dev \
         libxcb-xrm-dev \
         nvidia-opencl-dev; \
-    rm meson.deb
+        jq; \
+    apt-get clean
+
+RUN yes | unminimize; \
+    apt-get update; \
+    apt-get -y install \
+        libpipewire-0.3; \
+    apt-get clean
 
 # Rust apps builder
 
-FROM ubuntu:eoan AS rust-builder
+FROM ubuntu:groovy AS rust-builder
 
 RUN export DEBIAN_FRONTEND=noninteractive;  \
     yes | unminimize; \
