@@ -7,7 +7,6 @@
  */
 
 #include "nm-default.h"
-#include "nma-private.h"
 
 #include <ctype.h>
 #include <string.h>
@@ -119,9 +118,7 @@ fill_connection (EAPMethod *parent, NMConnection *connection)
 	EAPMethodTTLS *method = (EAPMethodTTLS *) parent;
 	NMSetting8021x *s_8021x;
 	NMSetting8021xCKFormat format = NM_SETTING_802_1X_CK_FORMAT_UNKNOWN;
-#if LIBNM_BUILD
 	NMSettingSecretFlags secret_flags;
-#endif
 	GtkWidget *widget;
 	const char *text;
 	char *value = NULL;
@@ -139,20 +136,16 @@ fill_connection (EAPMethod *parent, NMConnection *connection)
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_ttls_anon_identity_entry"));
 	g_assert (widget);
-	text = gtk_editable_get_text (GTK_EDITABLE (widget));
+	text = gtk_entry_get_text (GTK_ENTRY (widget));
 	if (text && strlen (text))
 		g_object_set (s_8021x, NM_SETTING_802_1X_ANONYMOUS_IDENTITY, text, NULL);
 
-#if LIBNM_BUILD
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_ttls_domain_entry"));
 	g_assert (widget);
-	text = gtk_editable_get_text (GTK_EDITABLE (widget));
+	text = gtk_entry_get_text (GTK_ENTRY (widget));
 	if (text && strlen (text))
 		g_object_set (s_8021x, NM_SETTING_802_1X_DOMAIN_SUFFIX_MATCH, text, NULL);
-#endif
 
-#if LIBNM_BUILD
-/* libnm-glib doesn't support this. */
 	/* Save CA certificate PIN and its flags to the connection */
 	secret_flags = nma_cert_chooser_get_cert_password_flags (NMA_CERT_CHOOSER (method->ca_cert_chooser));
 	nm_setting_set_secret_flags (NM_SETTING (s_8021x), NM_SETTING_802_1X_CA_CERT_PASSWORD,
@@ -166,7 +159,6 @@ fill_connection (EAPMethod *parent, NMConnection *connection)
 		              nma_cert_chooser_get_cert_password (NMA_CERT_CHOOSER (method->ca_cert_chooser)),
 		              NULL);
 	}
-#endif
 
 	/* TLS CA certificate */
 	if (gtk_widget_get_sensitive (method->ca_cert_chooser))
@@ -488,23 +480,17 @@ eap_method_ttls_new (WirelessSecurity *ws_parent,
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_ttls_anon_identity_entry"));
 	if (s_8021x && nm_setting_802_1x_get_anonymous_identity (s_8021x))
-		gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_802_1x_get_anonymous_identity (s_8021x));
+		gtk_entry_set_text (GTK_ENTRY (widget), nm_setting_802_1x_get_anonymous_identity (s_8021x));
 	g_signal_connect (G_OBJECT (widget), "changed",
 	                  (GCallback) wireless_security_changed_cb,
 	                  ws_parent);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_ttls_domain_entry"));
-#if LIBNM_BUILD
 	if (s_8021x && nm_setting_802_1x_get_domain_suffix_match (s_8021x))
-		gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_802_1x_get_domain_suffix_match (s_8021x));
+		gtk_entry_set_text (GTK_ENTRY (widget), nm_setting_802_1x_get_domain_suffix_match (s_8021x));
 	g_signal_connect (G_OBJECT (widget), "changed",
 	                  (GCallback) wireless_security_changed_cb,
 	                  ws_parent);
-#else
-	gtk_widget_hide (widget);
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_ttls_domain_label"));
-	gtk_widget_hide (widget);
-#endif
 
 	widget = inner_auth_combo_init (method, connection, s_8021x, secrets_only);
 	inner_auth_combo_changed_cb (widget, (gpointer) method);
@@ -526,11 +512,9 @@ eap_method_ttls_new (WirelessSecurity *ws_parent,
 		gtk_widget_hide (widget);
 	}
 
-#if LIBNM_BUILD
 	nma_cert_chooser_setup_cert_password_storage (NMA_CERT_CHOOSER (method->ca_cert_chooser),
 	                                              0, (NMSetting *) s_8021x, NM_SETTING_802_1X_CA_CERT_PASSWORD,
 	                                              FALSE, secrets_only);
-#endif
 
 	return method;
 }

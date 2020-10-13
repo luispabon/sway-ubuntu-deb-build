@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: network-manager-applet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/network-manager-"
 "applet/\n"
-"POT-Creation-Date: 2019-10-09 15:50+0200\n"
+"POT-Creation-Date: 2020-06-22 17:23+0200\n"
 "PO-Revision-Date: 2014-08-20 18:20+0530\n"
 "Last-Translator: Nilamdyuti Goswami <ngoswami@redhat.com>\n"
 "Language-Team: Assamese <kde-i18n-doc@kde.org>\n"
@@ -21,123 +21,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: nm-applet.desktop.in:3 src/applet.c:3182 src/applet-dialogs.c:725
-#: src/libnma/nma-bar-code-widget.c:140
+#: nm-applet.desktop.in:3 src/applet-dialogs.c:724 src/applet.c:3179
 msgid "Network"
 msgstr "নেটৱৰ্ক"
 
 #: nm-applet.desktop.in:4
 msgid "Manage your network connections"
 msgstr "আপোনাৰ নেটৱৰ্ক সংযোগসমূহ ব্যৱস্থাপনা কৰক"
-
-#: nm-applet.desktop.in:5
-msgid "nm-device-wireless"
-msgstr ""
-
-#: nm-connection-editor.desktop.in:3
-#, fuzzy
-msgid "Advanced Network Configuration"
-msgstr "সক্ৰিয় নেটৱৰ্ক সংযোগসমূহ"
-
-#: nm-connection-editor.desktop.in:4
-msgid "Manage and change your network connection settings"
-msgstr "আপোনাৰ নেটৱৰ্ক সংযোগক ব্যৱস্থাপনা আৰু সলনি কৰক"
-
-#: nm-connection-editor.desktop.in:5
-msgid "preferences-system-network"
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "সংযুক্ত অধিসূচনাসমূহ অসামৰ্থবান কৰক"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-"এটা নেটৱৰ্কলে সংযোগ কৰোতে অধিসূচনাসমূহ অসামৰ্থবান কৰিবলে ইয়াক সত্যলে সংহতি কৰক।"
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "বিচ্ছিন্ন হোৱাৰ অধিসূচনা অসামৰ্থবান কৰা হ'ব"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"এটা নেটৱৰ্কৰ পৰা বিচ্ছিন্ন হওতে অধিসূচনাসমূহ অসামৰ্থবান কৰিবলে ইয়াক সত্যলে সংহতি "
-"কৰক।"
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "VPN অধিসূচনাসমূহ অসামৰ্থবান কৰক"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"এটা VPN লে সংযোগ কৰোতে অথবা তাৰ পৰা বিচ্ছিন্ন হওতে অধিসূচনাসমূহ অসামৰ্থবান কৰিবলে "
-"ইয়াক সত্যলে সংহতি কৰক।"
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "উপলব্ধ নেটৱৰ্কৰ অধিসূচনা প্ৰদৰ্শন লুকুৱা হ'ব"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"যেতিয়া Wi-Fi নেটৱৰ্কসমূহ উপলব্ধ থাকে অধিসূচনাসমূহ অসামৰ্থবান কৰিবলে ইয়াক সত্যলে "
-"সংহতি কৰক।"
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "স্টেম্প"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"নতুন সংস্কৰণত সংহতিসমূহ প্ৰব্ৰজন কৰা হ'ব নে নহয় নিৰ্ধাৰণ কৰিবলৈ ইয়াক ব্যৱহাৰ কৰা হয়।"
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-#, fuzzy
-msgid "Disable WiFi Create"
-msgstr "Wi-Fi সৃষ্টি অসামৰ্থবান কৰক"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"এপ্লেট ব্যৱহাৰ কৰি থাকোতে adhoc নেটৱৰ্কসমূহৰ সৃষ্টি অসামৰ্থবান কৰিবলে সত্যলে সংহতি "
-"কৰক।"
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "এপ্লেটক অধিসূচনা স্থানত দেখুৱাওক"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr "এপ্লেটক অধিসূচনা স্থানত প্ৰদৰ্শন অসামৰ্থবান কৰিবলে FALSE লৈ সংহত।"
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
-msgid "Ignore CA certificate"
-msgstr "CA প্ৰমাণপত্ৰ উপেক্ষা কৰক"
-
-#: org.gnome.nm-applet.gschema.xml.in:44
-msgid ""
-"Set this to true to disable warnings about CA certificates in EAP "
-"authentication."
-msgstr ""
-"EAP প্ৰমাণীকৰণত CA প্ৰমাণপত্ৰসমূহৰ বিষয়ে সতৰ্কবাৰ্তা অসামৰ্থবান কৰিবলে ইয়াক সত্যলে "
-"সংহতি কৰক।"
-
-#: org.gnome.nm-applet.gschema.xml.in:49
-msgid ""
-"Set this to true to disable warnings about CA certificates in phase 2 of EAP "
-"authentication."
-msgstr ""
-"EAP প্ৰমাণীকৰণৰ স্তৰ ২ ত CA প্ৰমাণপত্ৰসমূহৰ বিষয়ে সতৰ্কবাৰ্তাসমূহ অসামৰ্থবান কৰিবলে "
-"ইয়াক সত্যলে সংহতি কৰক।"
 
 #: nm-connection-editor.appdata.xml.in:7
 #, fuzzy
@@ -165,6 +55,15 @@ msgstr ""
 #, fuzzy
 msgid "The NetworkManager Developers"
 msgstr "NetworkManager এপ্লেট"
+
+#: nm-connection-editor.desktop.in:3
+#, fuzzy
+msgid "Advanced Network Configuration"
+msgstr "সক্ৰিয় নেটৱৰ্ক সংযোগসমূহ"
+
+#: nm-connection-editor.desktop.in:4
+msgid "Manage and change your network connection settings"
+msgstr "আপোনাৰ নেটৱৰ্ক সংযোগক ব্যৱস্থাপনা আৰু সলনি কৰক"
 
 #: shared/nm-utils/nm-shared-utils.c:793
 #, c-format
@@ -203,34 +102,32 @@ msgstr ""
 msgid "802.1X authentication"
 msgstr "802.1X প্ৰমাণীকৰণ"
 
-#: src/8021x.ui:31 src/applet-device-ethernet.c:335 src/applet-dialogs.c:1180
+#: src/8021x.ui:31 src/applet-device-ethernet.c:335 src/applet-dialogs.c:1179
 #: src/connection-editor/ce-ip4-routes.ui:30
 #: src/connection-editor/ce-ip6-routes.ui:30
 #: src/connection-editor/ce-new-connection.ui:50
 #: src/connection-editor/ce-page-dcb.ui:569
 #: src/connection-editor/ce-page-dcb.ui:1019
+#: src/connection-editor/ce-page-wireguard.ui:41
 #: src/connection-editor/ce-ppp-auth-methods.ui:28
-#: src/connection-editor/connection-helpers.c:282
-#: src/connection-editor/connection-helpers.c:745
+#: src/connection-editor/connection-helpers.c:284
+#: src/connection-editor/connection-helpers.c:747
 #: src/connection-editor/nm-connection-editor.ui:197
 #: src/connection-editor/page-bluetooth.c:293
-#: src/connection-editor/page-mobile.c:526
-#: src/connection-editor/page-proxy.c:107 src/connection-editor/page-team.c:330
+#: src/connection-editor/page-mobile.c:530
+#: src/connection-editor/page-proxy.c:107
 #: src/connection-editor/page-team-port.c:192
+#: src/connection-editor/page-team.c:330
 #: src/connection-editor/vpn-helpers.c:198 src/gsm-unlock.ui:28
-#: src/libnma/nma-pkcs11-token-login-dialog.ui:19
-#: src/libnma/nma-vpn-password-dialog.ui:23 src/libnma/nma-wifi-dialog.c:1115
-#: src/libnm-gtk/nm-vpn-password-dialog.c:204
-#: src/libnm-gtk/nm-wifi-dialog.c:1053 src/mobile-helpers.c:451
+#: src/mobile-helpers.c:451
 msgid "_Cancel"
 msgstr ""
 
-#: src/8021x.ui:46 src/libnma/nma-wifi-dialog.c:1121
-#: src/libnm-gtk/nm-wifi-dialog.c:1059
+#: src/8021x.ui:46
 msgid "C_onnect"
 msgstr "সংযোগ কৰা (_o)"
 
-#: src/8021x.ui:122 src/libnma/wifi.ui:129
+#: src/8021x.ui:122
 #, fuzzy
 msgid "_Network name"
 msgstr "নেটৱৰ্কৰ নাম (_N):"
@@ -243,323 +140,6 @@ msgstr "Ad-hoc"
 #: src/ap-menu-item.c:75
 msgid "secure."
 msgstr ""
-
-#: src/applet.c:378
-msgid "Failed to add/activate connection"
-msgstr "সংযোগ যোগ/সক্ৰিয় কৰিবলে ব্যৰ্থ"
-
-#: src/applet.c:380 src/applet.c:434 src/applet.c:469
-#: src/applet-device-wifi.c:1371 src/applet-device-wifi.c:1394
-msgid "Unknown error"
-msgstr "অজ্ঞাত ত্ৰুটি"
-
-#: src/applet.c:383 src/applet.c:472 src/applet-device-wifi.c:522
-#: src/applet-device-wifi.c:1374 src/applet-device-wifi.c:1397
-msgid "Connection failure"
-msgstr "সংযোগ ব্যৰ্থতা"
-
-#: src/applet.c:432
-msgid "Device disconnect failed"
-msgstr "ডিভাইচ বিচ্ছিন্ন কৰা ব্যৰ্থ হল"
-
-#: src/applet.c:437
-msgid "Disconnect failure"
-msgstr "বিচ্ছিন্ন কৰা ব্যৰ্থ হল"
-
-#: src/applet.c:467
-msgid "Connection activation failed"
-msgstr "সংযোগ সক্ৰিয়কৰণ ব্যৰ্থ হল"
-
-#: src/applet.c:794 src/applet-device-wifi.c:1110
-#, fuzzy
-msgid "Don’t show this message again"
-msgstr "এই বাৰ্তা আকৌ নেদেখুৱাব"
-
-#: src/applet.c:884
-#, fuzzy, c-format
-msgid ""
-"\n"
-"The VPN connection “%s” disconnected because the network connection was "
-"interrupted."
-msgstr ""
-"\n"
-"নেটৱৰ্ক সংযোগ বাধাগ্ৰস্থ হোৱা বাবে VPN সংযোগ '%s' বিচ্ছিন্ন হল।"
-
-#: src/applet.c:886
-#, fuzzy, c-format
-msgid ""
-"\n"
-"The VPN connection “%s” failed because the network connection was "
-"interrupted."
-msgstr ""
-"\n"
-"নেটৱৰ্ক সংযোগ বিঘ্নিত হোৱাৰ ফলত VPN সংযোগ '%s' বিফল হৈছে।"
-
-#: src/applet.c:888
-#, fuzzy, c-format
-msgid ""
-"\n"
-"The VPN connection “%s” failed because the VPN service stopped unexpectedly."
-msgstr ""
-"\n"
-"VPN সেৱা অপ্ৰত্যাশিতভাবে বন্ধ হোৱাৰ ফলত VPN সংযোগ '%s' বিফল হৈছে।"
-
-#: src/applet.c:890
-#, fuzzy, c-format
-msgid ""
-"\n"
-"The VPN connection “%s” failed because the VPN service returned invalid "
-"configuration."
-msgstr ""
-"\n"
-"VPN সংযোগ '%s' ব্যৰ্থ হল কাৰণ VPN সেৱায় অবৈধ সংৰূপ ঘুৰাই দিছিল।"
-
-#: src/applet.c:892
-#, fuzzy, c-format
-msgid ""
-"\n"
-"The VPN connection “%s” failed because the connection attempt timed out."
-msgstr ""
-"\n"
-"সংযোগ চেষ্টা সময় অন্ত হোৱা বাবে VPN সংযোগ '%s' ব্যৰ্থ হল।"
-
-#: src/applet.c:894
-#, fuzzy, c-format
-msgid ""
-"\n"
-"The VPN connection “%s” failed because the VPN service did not start in time."
-msgstr ""
-"\n"
-"VPN সংযোগ সময়মতে আৰম্ভ নহোৱা বাবে VPN সংযোগ '%s' ব্যৰ্থ হল।"
-
-#: src/applet.c:896
-#, fuzzy, c-format
-msgid ""
-"\n"
-"The VPN connection “%s” failed because the VPN service failed to start."
-msgstr ""
-"\n"
-"VPN সেৱা আৰম্ভ হবলে ব্যৰ্থ হোৱা বাবে VPN সংযোগ '%s' ব্যৰ্থ হল।"
-
-#: src/applet.c:898
-#, fuzzy, c-format
-msgid ""
-"\n"
-"The VPN connection “%s” failed because there were no valid VPN secrets."
-msgstr ""
-"\n"
-"কোনো বৈধ VPN গোপন তথ্য নথকা বাবে VPN সংযোগ '%s' ব্যৰ্থ হল।"
-
-#: src/applet.c:900
-#, fuzzy, c-format
-msgid ""
-"\n"
-"The VPN connection “%s” failed because of invalid VPN secrets."
-msgstr ""
-"\n"
-"অবৈধ VPN গোপন তথ্যৰ বাবে VPN সংযোগ '%s' ব্যৰ্থ হল।"
-
-#: src/applet.c:905
-#, fuzzy, c-format
-msgid ""
-"\n"
-"The VPN connection “%s” failed."
-msgstr ""
-"\n"
-"VPN সংযোগ '%s' ব্যৰ্থ হল।"
-
-#: src/applet.c:932
-#, c-format
-msgid ""
-"VPN connection has been successfully established.\n"
-"\n"
-"%s\n"
-msgstr ""
-"VPN সংযোগ সফলভাৱে স্থাপন কৰা হৈছে।\n"
-"\n"
-"%s\n"
-
-#: src/applet.c:934
-msgid "VPN connection has been successfully established.\n"
-msgstr "VPN সংযোগ সফলভাৱে স্থাপন কৰা হৈছে।\n"
-
-#: src/applet.c:936
-msgid "VPN Login Message"
-msgstr "VPN লগিন বাৰ্তা"
-
-#: src/applet.c:944 src/applet.c:984
-msgid "VPN Connection Failed"
-msgstr "VPN সংযোগ ব্যৰ্থ হল"
-
-#: src/applet.c:988
-#, fuzzy, c-format
-msgid ""
-"\n"
-"The VPN connection “%s” failed because the VPN service failed to start.\n"
-"\n"
-"%s"
-msgstr ""
-"\n"
-"VPN সেৱা আৰম্ভ হবলে ব্যৰ্থ হোৱা বাবে VPN সংযোগ '%s' ব্যৰ্থ হল।\n"
-"\n"
-"%s"
-
-#: src/applet.c:991
-#, fuzzy, c-format
-msgid ""
-"\n"
-"The VPN connection “%s” failed to start.\n"
-"\n"
-"%s"
-msgstr ""
-"\n"
-"VPN সংযোগ '%s' আৰম্ভ হবলে ব্যৰ্থ হল।\n"
-"\n"
-"%s"
-
-#: src/applet.c:1282
-msgid "device not ready (firmware missing)"
-msgstr "ডিভাইচ প্ৰস্তুত নহয় (ফাৰ্মৱেৰ সন্ধানহীন)"
-
-#: src/applet.c:1284
-msgid "device not ready"
-msgstr "ডিভাইচ প্ৰস্তুত নহয়"
-
-#. Notify user of unmanaged or unavailable device
-#: src/applet.c:1294 src/applet-device-ethernet.c:95
-msgid "disconnected"
-msgstr "বিচ্ছিন্নিত"
-
-#: src/applet.c:1310
-msgid "Disconnect"
-msgstr "বিচ্ছিন্ন কৰক"
-
-#: src/applet.c:1324
-msgid "device not managed"
-msgstr "ডিভাইচ ব্যৱস্থাপিত নহয়"
-
-#: src/applet.c:1397
-msgid "No network devices available"
-msgstr "কোনো নেটৱৰ্ক ডিভাইচ উপলব্ধ নাই"
-
-#: src/applet.c:1449
-msgid "_VPN Connections"
-msgstr "VPN সংযোগসমূহ (_V)"
-
-#: src/applet.c:1493
-#, fuzzy
-msgid "_Configure VPN…"
-msgstr "VPN সংৰূপণ কৰক (_C)..."
-
-#: src/applet.c:1496
-#, fuzzy
-msgid "_Add a VPN connection…"
-msgstr "VPN সংযোগসমূহ (_V)"
-
-#: src/applet.c:1602
-#, fuzzy
-msgid "NetworkManager is not running…"
-msgstr "NetworkManager চলি থকা নাই..."
-
-#: src/applet.c:1607 src/applet.c:2672
-msgid "Networking disabled"
-msgstr "নেটৱাৰ্কিং অসামৰ্থবান"
-
-#. 'Enable Networking' item
-#: src/applet.c:1817
-msgid "Enable _Networking"
-msgstr "নেটৱাৰ্কিং সামৰ্থবান কৰক (_N)"
-
-#. 'Enable Wi-Fi' item
-#: src/applet.c:1826
-msgid "Enable _Wi-Fi"
-msgstr "Wi-Fi সামৰ্থবান কৰক (_W)"
-
-#. 'Enable Mobile Broadband' item
-#: src/applet.c:1835
-msgid "Enable _Mobile Broadband"
-msgstr "ম'বাইল ব্ৰডবেণ্ড সক্ৰিয় কৰক (_M)"
-
-#. Toggle notifications item
-#: src/applet.c:1847
-msgid "Enable N_otifications"
-msgstr "অধিসূচনাসমূহ সামৰ্থবান কৰক (_o)"
-
-#. 'Connection Information' item
-#: src/applet.c:1859
-msgid "Connection _Information"
-msgstr "সংযোগ তথ্য (_I)"
-
-#. 'Edit Connections...' item
-#: src/applet.c:1867
-#, fuzzy
-msgid "Edit Connections…"
-msgstr "সংযোগসমূহ সম্পাদন কৰক..."
-
-#: src/applet.c:1881
-msgid "_About"
-msgstr "বিষয়ে (_A)"
-
-#: src/applet.c:2192
-#, fuzzy, c-format
-msgid "You are now connected to “%s”."
-msgstr "আপুনি এতিয়া '%s' লৈ সংযুক্ত।"
-
-#: src/applet.c:2232
-msgid "Disconnected"
-msgstr "বিচ্ছিন্নিত"
-
-#: src/applet.c:2233
-msgid "The network connection has been disconnected."
-msgstr "নেটৱৰ্ক সংযোগ বিচ্ছিন্ন কৰা হৈছে।"
-
-#: src/applet.c:2535
-#, fuzzy, c-format
-msgid "Preparing network connection “%s”…"
-msgstr "নেটৱৰ্ক সংযোগ '%s' প্ৰস্তুত কৰা হৈছে..."
-
-#: src/applet.c:2538
-#, fuzzy, c-format
-msgid "User authentication required for network connection “%s”…"
-msgstr "নেটৱৰ্ক সংযোগ '%s' ৰ বাবে ব্যৱহাৰকাৰী প্ৰমাণীকৰণৰ প্ৰয়োজন..."
-
-#: src/applet.c:2541 src/applet-device-bt.c:111 src/mobile-helpers.c:593
-#, fuzzy, c-format
-msgid "Requesting a network address for “%s”…"
-msgstr "'%s' ৰ কাৰণে নেটৱৰ্ক ঠিকনা অনুৰোধ কৰা হৈছে..."
-
-#: src/applet.c:2544
-#, fuzzy, c-format
-msgid "Network connection “%s” active"
-msgstr "নেটৱৰ্ক সংযোগ '%s' সক্ৰিয়"
-
-#: src/applet.c:2617
-#, fuzzy, c-format
-msgid "Starting VPN connection “%s”…"
-msgstr "VPN সংযোগ '%s' আৰম্ভ কৰা হৈছে..."
-
-#: src/applet.c:2620
-#, fuzzy, c-format
-msgid "User authentication required for VPN connection “%s”…"
-msgstr "VPN সংযোগ '%s' ৰ বাবে ব্যৱহাৰকাৰী প্ৰমাণীকৰণৰ প্ৰয়োজন..."
-
-#: src/applet.c:2623
-#, fuzzy, c-format
-msgid "Requesting a VPN address for “%s”…"
-msgstr "'%s' ৰ বাবে এটা VPN ঠিকনা অনুৰোধ কৰা হৈছে..."
-
-#: src/applet.c:2626
-#, fuzzy
-msgid "VPN connection active"
-msgstr "VPN সংযোগ '%s' সক্ৰিয়"
-
-#: src/applet.c:2676
-msgid "No network connection"
-msgstr "কোনো নেটৱৰ্ক সংযোগ নাই"
-
-#: src/applet.c:3283
-msgid "NetworkManager Applet"
-msgstr "NetworkManager এপ্লেট"
 
 #: src/applet-device-broadband.c:147
 msgid "Wrong PUK code; please contact your provider."
@@ -581,8 +161,8 @@ msgid "Mobile Broadband (%s)"
 msgstr "ম'বাইল ব্ৰ'ডবেণ্ড (%s)"
 
 #: src/applet-device-broadband.c:727
-#: src/connection-editor/connection-helpers.c:94
-#: src/connection-editor/page-mobile.c:291 src/libnm-gtk/nm-ui-utils.c:315
+#: src/connection-editor/connection-helpers.c:95
+#: src/connection-editor/page-mobile.c:295
 msgid "Mobile Broadband"
 msgstr "ম'বাইল ব্ৰ'ডবেণ্ড"
 
@@ -637,6 +217,11 @@ msgstr "ম'বাইল ব্ৰ'ডবেণ্ড সংযোগ '%s' স�
 msgid "User authentication required for mobile broadband connection “%s”…"
 msgstr "ম'বাইল ব্ৰ'ডবেণ্ড সংযোগ '%s' ৰ বাবে ব্যৱহাৰকাৰীৰ প্ৰমাণীকৰণৰ প্ৰয়োজন..."
 
+#: src/applet-device-bt.c:111 src/applet.c:2535 src/mobile-helpers.c:593
+#, fuzzy, c-format
+msgid "Requesting a network address for “%s”…"
+msgstr "'%s' ৰ কাৰণে নেটৱৰ্ক ঠিকনা অনুৰোধ কৰা হৈছে..."
+
 #: src/applet-device-bt.c:115 src/mobile-helpers.c:612
 #, fuzzy, c-format
 msgid "Mobile broadband connection “%s” active"
@@ -663,6 +248,11 @@ msgstr "ইথাৰনেট নেটৱৰ্কসমূহ"
 #: src/applet-device-ethernet.c:75
 msgid "Ethernet Network"
 msgstr "ইথাৰনেট নেটৱৰ্ক"
+
+#. Notify user of unmanaged or unavailable device
+#: src/applet-device-ethernet.c:95 src/applet.c:1288
+msgid "disconnected"
+msgstr "বিচ্ছিন্নিত"
 
 #: src/applet-device-ethernet.c:119
 msgid "You are now connected to the ethernet network."
@@ -697,16 +287,14 @@ msgstr "ইথাৰনেট নেটৱৰ্ক সংযোগ '%s' সক�
 msgid "DSL authentication"
 msgstr "DSL প্ৰমাণীকৰণ"
 
-#: src/applet-device-ethernet.c:336 src/applet-dialogs.c:1181
+#: src/applet-device-ethernet.c:336 src/applet-dialogs.c:1180
 #: src/connection-editor/ce-ip4-routes.ui:44
 #: src/connection-editor/ce-ip6-routes.ui:44
 #: src/connection-editor/ce-page-dcb.ui:583
 #: src/connection-editor/ce-page-dcb.ui:1033
 #: src/connection-editor/ce-ppp-auth-methods.ui:42
 #: src/connection-editor/page-bluetooth.c:295
-#: src/connection-editor/page-mobile.c:528
-#: src/libnma/nma-vpn-password-dialog.ui:39
-#: src/libnm-gtk/nm-vpn-password-dialog.c:205 src/mobile-helpers.c:452
+#: src/connection-editor/page-mobile.c:532 src/mobile-helpers.c:452
 msgid "_OK"
 msgstr ""
 
@@ -731,6 +319,11 @@ msgstr "নতুন সংযোগ যোগ কৰিবলে ব্যৰ�
 #: src/applet-device-wifi.c:520
 msgid "Insufficient privileges."
 msgstr ""
+
+#: src/applet-device-wifi.c:522 src/applet-device-wifi.c:1374
+#: src/applet-device-wifi.c:1397 src/applet.c:377 src/applet.c:466
+msgid "Connection failure"
+msgstr "সংযোগ ব্যৰ্থতা"
 
 #: src/applet-device-wifi.c:822
 #, c-format
@@ -767,6 +360,11 @@ msgstr "Wi-Fi নেটৱৰ্ক উপলব্ধ"
 #: src/applet-device-wifi.c:1107
 msgid "Use the network menu to connect to a Wi-Fi network"
 msgstr "এটা Wi-Fi নেটৱৰ্কলে সংযোগ কৰিবলে নেটৱৰ্ক মেনু ব্যৱহাৰ কৰক"
+
+#: src/applet-device-wifi.c:1110 src/applet.c:788
+#, fuzzy
+msgid "Don’t show this message again"
+msgstr "এই বাৰ্তা আকৌ নেদেখুৱাব"
 
 #: src/applet-device-wifi.c:1291
 #, fuzzy, c-format
@@ -807,12 +405,16 @@ msgstr "Wi-Fi নেটৱৰ্ক সংযোগ '%s' সক্ৰিয়"
 msgid "Failed to activate connection"
 msgstr "সংযোগ সক্ৰিয় কৰিবলে ব্যৰ্থ"
 
+#: src/applet-device-wifi.c:1371 src/applet-device-wifi.c:1394 src/applet.c:374
+#: src/applet.c:428 src/applet.c:463
+msgid "Unknown error"
+msgstr "অজ্ঞাত ত্ৰুটি"
+
 #: src/applet-dialogs.c:28
 msgid "Error displaying connection information:"
 msgstr "সঠিক তথ্য দেখুৱাওঁতে ত্ৰুটি:"
 
-#: src/applet-dialogs.c:60 src/connection-editor/page-wifi-security.c:369
-#: src/libnma/nma-wifi-dialog.c:966 src/libnm-gtk/nm-wifi-dialog.c:934
+#: src/applet-dialogs.c:60 src/connection-editor/page-wifi-security.c:374
 #: src/wireless-security/wireless-security.c:435
 msgid "LEAP"
 msgstr "LEAP"
@@ -840,7 +442,7 @@ msgid "WPA3"
 msgstr ""
 
 #: src/applet-dialogs.c:234 src/applet-dialogs.c:243
-#: src/connection-editor/page-wifi-security.c:320
+#: src/connection-editor/page-wifi-security.c:325
 msgctxt "Wi-Fi/Ethernet security"
 msgid "None"
 msgstr "কোনো নহয়"
@@ -915,7 +517,7 @@ msgid "CDMA (%s)"
 msgstr "CDMA (%s)"
 
 #. --- General ---
-#: src/applet-dialogs.c:527 src/applet-dialogs.c:862
+#: src/applet-dialogs.c:527 src/applet-dialogs.c:861
 #: src/connection-editor/ce-page-team-port.ui:394
 #: src/connection-editor/ce-page-team.ui:776
 #: src/connection-editor/page-general.c:355
@@ -945,60 +547,59 @@ msgid "Security"
 msgstr "সুৰক্ষা:"
 
 #. --- IPv4 ---
-#: src/applet-dialogs.c:629 src/applet-dialogs.c:892
+#: src/applet-dialogs.c:629 src/applet-dialogs.c:891
 #: src/connection-editor/ce-page-team.ui:493
 msgid "IPv4"
 msgstr "IPv4"
 
-#: src/applet-dialogs.c:648 src/applet-dialogs.c:697
+#: src/applet-dialogs.c:648 src/applet-dialogs.c:696
 msgid "Default Route"
 msgstr "অবিকল্পিত পথ"
 
-#: src/applet-dialogs.c:676 src/applet-dialogs.c:919
+#: src/applet-dialogs.c:676 src/applet-dialogs.c:918
 #: src/connection-editor/ce-page-team.ui:497
 msgid "IPv6"
 msgstr "IPv6"
 
-#: src/applet-dialogs.c:718 src/connection-editor/ce-page-wifi.ui:52
+#: src/applet-dialogs.c:717 src/connection-editor/ce-page-wifi.ui:52
 msgid "Hotspot"
 msgstr ""
 
-#: src/applet-dialogs.c:736 src/libnma/nma-bar-code-widget.c:157
+#: src/applet-dialogs.c:735
 #, fuzzy
 msgid "Password"
 msgstr "পাছৱৰ্ড:"
 
-#: src/applet-dialogs.c:866
+#: src/applet-dialogs.c:865
 msgid "VPN Type"
 msgstr "VPN ধৰণ"
 
-#: src/applet-dialogs.c:871
+#: src/applet-dialogs.c:870
 msgid "VPN Gateway"
 msgstr "VPN গেইটৱে"
 
-#: src/applet-dialogs.c:875
+#: src/applet-dialogs.c:874
 msgid "VPN Username"
 msgstr "VPN ব্যৱহাৰকাৰীনাম"
 
-#: src/applet-dialogs.c:879
+#: src/applet-dialogs.c:878
 msgid "VPN Banner"
 msgstr "VPN বেনাৰ"
 
-#: src/applet-dialogs.c:883
+#: src/applet-dialogs.c:882
 msgid "Base Connection"
 msgstr "ভিত্তি সংযোগ"
 
-#: src/applet-dialogs.c:884 src/libnm-gtk/nm-ui-utils.c:329
-#: src/wireless-security/wireless-security.c:495
+#: src/applet-dialogs.c:883 src/wireless-security/wireless-security.c:495
 msgid "Unknown"
 msgstr "অজ্ঞাত"
 
 #. Shouldn't really happen but ...
-#: src/applet-dialogs.c:1081
+#: src/applet-dialogs.c:1080
 msgid "No valid active connections found!"
 msgstr "কোনো বৈধ সক্ৰিয় সংযোগ চিনাক্ত কৰা নাযায়!"
 
-#: src/applet-dialogs.c:1129
+#: src/applet-dialogs.c:1128
 #, fuzzy
 msgid ""
 "Copyright © 2004-2017 Red Hat, Inc.\n"
@@ -1009,53 +610,53 @@ msgstr ""
 "স্বত্বাধিকাৰ © ২০০৫-২০০৮ Novell, Inc.\n"
 "আৰু অন্য বহুতো সম্প্ৰদায়ৰ অৱদানকাৰী আৰু অনুবাদকসকল"
 
-#: src/applet-dialogs.c:1132
+#: src/applet-dialogs.c:1131
 msgid ""
 "Notification area applet for managing your network devices and connections."
 msgstr "আপোনাৰ নেটৱৰ্ক ডিভাইচ আৰু সংযোগসমূহ ব্যৱস্থাপনাৰ বাবে অধিসূচনা স্থানৰ এপ্লেট।"
 
-#: src/applet-dialogs.c:1134
+#: src/applet-dialogs.c:1133
 msgid "NetworkManager Website"
 msgstr "NetworkManager ৱেবছাইট"
 
-#: src/applet-dialogs.c:1138
+#: src/applet-dialogs.c:1137
 msgid "translator-credits"
 msgstr "অমিতাক্ষ ফুকন (aphukan@fedoraproject.org)"
 
-#: src/applet-dialogs.c:1148
+#: src/applet-dialogs.c:1147
 msgid ""
 "The NetworkManager Applet could not find some required resources (the .ui "
 "file was not found)."
 msgstr ""
 "NetworkManager এপ্লেটে কিছুমান প্ৰয়োজনীয় সম্পদ বিচাৰি নাপায় (.ui ফাইল পোৱা নগল)।"
 
-#: src/applet-dialogs.c:1153
+#: src/applet-dialogs.c:1152
 msgid "Missing resources"
 msgstr "অনুপস্থিত সম্পদ"
 
-#: src/applet-dialogs.c:1178
+#: src/applet-dialogs.c:1177
 msgid "Mobile broadband network password"
 msgstr "ম'বাইল ব্ৰ'ডবেণ্ড নেটৱৰ্কৰ পাছৱৰ্ড"
 
-#: src/applet-dialogs.c:1187
+#: src/applet-dialogs.c:1186
 #, fuzzy, c-format
 msgid "A password is required to connect to “%s”."
 msgstr "'%s' লৈ সংযোগ কৰিবলৈ এটা পাছৱৰ্ডৰ প্ৰয়োজন।"
 
-#: src/applet-dialogs.c:1202
+#: src/applet-dialogs.c:1201
 msgid "Password:"
 msgstr "পাছৱৰ্ড:"
 
-#: src/applet-dialogs.c:1484
+#: src/applet-dialogs.c:1483
 msgid "SIM PIN unlock required"
 msgstr "SIM PIN আনলক কৰা প্ৰয়োজন"
 
-#: src/applet-dialogs.c:1485
+#: src/applet-dialogs.c:1484
 msgid "SIM PIN Unlock Required"
 msgstr "SIM PIN আনলক কৰা প্ৰয়োজন"
 
 #. FIXME: some warning about # of times you can enter incorrect PIN
-#: src/applet-dialogs.c:1487
+#: src/applet-dialogs.c:1486
 #, fuzzy, c-format
 msgid ""
 "The mobile broadband device “%s” requires a SIM PIN code before it can be "
@@ -1064,25 +665,25 @@ msgstr ""
 "'%s' ম'বাইল ব্ৰডবেণ্ড ডিভাইচ ব্যৱহাৰ কৰাৰ আগতে এটা SIM PIN ক'ড উপলব্ধ থকা আৱশ্যক।"
 
 #. Translators: PIN code entry label
-#: src/applet-dialogs.c:1489
+#: src/applet-dialogs.c:1488
 msgid "PIN code:"
 msgstr "PIN ক'ড:"
 
 #. Translators: Show/obscure PIN checkbox label
-#: src/applet-dialogs.c:1493
+#: src/applet-dialogs.c:1492
 msgid "Show PIN code"
 msgstr "PIN ক'ড দেখুৱাওক"
 
-#: src/applet-dialogs.c:1495
+#: src/applet-dialogs.c:1494
 msgid "SIM PUK unlock required"
 msgstr "SIM PUK আনলক কৰা প্ৰয়োজন"
 
-#: src/applet-dialogs.c:1496
+#: src/applet-dialogs.c:1495
 msgid "SIM PUK Unlock Required"
 msgstr "SIM PUK আনলক কৰা প্ৰয়োজন"
 
 #. FIXME: some warning about # of times you can enter incorrect PUK
-#: src/applet-dialogs.c:1498
+#: src/applet-dialogs.c:1497
 #, fuzzy, c-format
 msgid ""
 "The mobile broadband device “%s” requires a SIM PUK code before it can be "
@@ -1091,41 +692,333 @@ msgstr ""
 "'%s' ম'বাইল ব্ৰডবেণ্ড ডিভাইচ ব্যৱহাৰ কৰাৰ আগতে এটা SIM PUK ক'ড উপলব্ধ থকা আৱশ্যক।"
 
 #. Translators: PUK code entry label
-#: src/applet-dialogs.c:1500
+#: src/applet-dialogs.c:1499
 msgid "PUK code:"
 msgstr "PUK ক'ড:"
 
 #. Translators: New PIN entry label
-#: src/applet-dialogs.c:1503
+#: src/applet-dialogs.c:1502
 msgid "New PIN code:"
 msgstr "নতুন PIN ক'ড:"
 
 #. Translators: New PIN verification entry label
-#: src/applet-dialogs.c:1505
+#: src/applet-dialogs.c:1504
 msgid "Re-enter new PIN code:"
 msgstr "নতুন PIN ক'ড পুনঃ লিখক:"
 
 #. Translators: Show/obscure PIN/PUK checkbox label
-#: src/applet-dialogs.c:1510
+#: src/applet-dialogs.c:1509
 msgid "Show PIN/PUK codes"
 msgstr "PIN/PUK ক'ডসমূহ দেখুৱাওক"
 
-#: src/applet-vpn-request.c:426
+#: src/applet-vpn-request.c:427
 #, fuzzy
 msgid "Connection had no VPN setting"
 msgstr "সংযোগ তথ্য"
 
-#: src/applet-vpn-request.c:476
+#: src/applet-vpn-request.c:477
 #, fuzzy, c-format
 msgid "Failed to write connection to VPN UI: %s (%d)"
 msgstr "DUN সংযোগ সৃষ্টি কৰিবলে ব্যৰ্থ: %s"
 
-#: src/applet-vpn-request.c:484
+#: src/applet-vpn-request.c:485
 msgid "Failed to write connection to VPN UI: incomplete write"
 msgstr ""
 
-#: src/connection-editor/ce-ip4-routes.ui:92
-#: src/connection-editor/ce-ip6-routes.ui:92 src/connection-editor/ce-page.h:98
+#: src/applet.c:372
+msgid "Failed to add/activate connection"
+msgstr "সংযোগ যোগ/সক্ৰিয় কৰিবলে ব্যৰ্থ"
+
+#: src/applet.c:426
+msgid "Device disconnect failed"
+msgstr "ডিভাইচ বিচ্ছিন্ন কৰা ব্যৰ্থ হল"
+
+#: src/applet.c:431
+msgid "Disconnect failure"
+msgstr "বিচ্ছিন্ন কৰা ব্যৰ্থ হল"
+
+#: src/applet.c:461
+msgid "Connection activation failed"
+msgstr "সংযোগ সক্ৰিয়কৰণ ব্যৰ্থ হল"
+
+#: src/applet.c:878
+#, fuzzy, c-format
+msgid ""
+"\n"
+"The VPN connection “%s” disconnected because the network connection was "
+"interrupted."
+msgstr ""
+"\n"
+"নেটৱৰ্ক সংযোগ বাধাগ্ৰস্থ হোৱা বাবে VPN সংযোগ '%s' বিচ্ছিন্ন হল।"
+
+#: src/applet.c:880
+#, fuzzy, c-format
+msgid ""
+"\n"
+"The VPN connection “%s” failed because the network connection was "
+"interrupted."
+msgstr ""
+"\n"
+"নেটৱৰ্ক সংযোগ বিঘ্নিত হোৱাৰ ফলত VPN সংযোগ '%s' বিফল হৈছে।"
+
+#: src/applet.c:882
+#, fuzzy, c-format
+msgid ""
+"\n"
+"The VPN connection “%s” failed because the VPN service stopped unexpectedly."
+msgstr ""
+"\n"
+"VPN সেৱা অপ্ৰত্যাশিতভাবে বন্ধ হোৱাৰ ফলত VPN সংযোগ '%s' বিফল হৈছে।"
+
+#: src/applet.c:884
+#, fuzzy, c-format
+msgid ""
+"\n"
+"The VPN connection “%s” failed because the VPN service returned invalid "
+"configuration."
+msgstr ""
+"\n"
+"VPN সংযোগ '%s' ব্যৰ্থ হল কাৰণ VPN সেৱায় অবৈধ সংৰূপ ঘুৰাই দিছিল।"
+
+#: src/applet.c:886
+#, fuzzy, c-format
+msgid ""
+"\n"
+"The VPN connection “%s” failed because the connection attempt timed out."
+msgstr ""
+"\n"
+"সংযোগ চেষ্টা সময় অন্ত হোৱা বাবে VPN সংযোগ '%s' ব্যৰ্থ হল।"
+
+#: src/applet.c:888
+#, fuzzy, c-format
+msgid ""
+"\n"
+"The VPN connection “%s” failed because the VPN service did not start in time."
+msgstr ""
+"\n"
+"VPN সংযোগ সময়মতে আৰম্ভ নহোৱা বাবে VPN সংযোগ '%s' ব্যৰ্থ হল।"
+
+#: src/applet.c:890
+#, fuzzy, c-format
+msgid ""
+"\n"
+"The VPN connection “%s” failed because the VPN service failed to start."
+msgstr ""
+"\n"
+"VPN সেৱা আৰম্ভ হবলে ব্যৰ্থ হোৱা বাবে VPN সংযোগ '%s' ব্যৰ্থ হল।"
+
+#: src/applet.c:892
+#, fuzzy, c-format
+msgid ""
+"\n"
+"The VPN connection “%s” failed because there were no valid VPN secrets."
+msgstr ""
+"\n"
+"কোনো বৈধ VPN গোপন তথ্য নথকা বাবে VPN সংযোগ '%s' ব্যৰ্থ হল।"
+
+#: src/applet.c:894
+#, fuzzy, c-format
+msgid ""
+"\n"
+"The VPN connection “%s” failed because of invalid VPN secrets."
+msgstr ""
+"\n"
+"অবৈধ VPN গোপন তথ্যৰ বাবে VPN সংযোগ '%s' ব্যৰ্থ হল।"
+
+#: src/applet.c:899
+#, fuzzy, c-format
+msgid ""
+"\n"
+"The VPN connection “%s” failed."
+msgstr ""
+"\n"
+"VPN সংযোগ '%s' ব্যৰ্থ হল।"
+
+#: src/applet.c:926
+#, c-format
+msgid ""
+"VPN connection has been successfully established.\n"
+"\n"
+"%s\n"
+msgstr ""
+"VPN সংযোগ সফলভাৱে স্থাপন কৰা হৈছে।\n"
+"\n"
+"%s\n"
+
+#: src/applet.c:928
+msgid "VPN connection has been successfully established.\n"
+msgstr "VPN সংযোগ সফলভাৱে স্থাপন কৰা হৈছে।\n"
+
+#: src/applet.c:930
+msgid "VPN Login Message"
+msgstr "VPN লগিন বাৰ্তা"
+
+#: src/applet.c:938 src/applet.c:978
+msgid "VPN Connection Failed"
+msgstr "VPN সংযোগ ব্যৰ্থ হল"
+
+#: src/applet.c:982
+#, fuzzy, c-format
+msgid ""
+"\n"
+"The VPN connection “%s” failed because the VPN service failed to start.\n"
+"\n"
+"%s"
+msgstr ""
+"\n"
+"VPN সেৱা আৰম্ভ হবলে ব্যৰ্থ হোৱা বাবে VPN সংযোগ '%s' ব্যৰ্থ হল।\n"
+"\n"
+"%s"
+
+#: src/applet.c:985
+#, fuzzy, c-format
+msgid ""
+"\n"
+"The VPN connection “%s” failed to start.\n"
+"\n"
+"%s"
+msgstr ""
+"\n"
+"VPN সংযোগ '%s' আৰম্ভ হবলে ব্যৰ্থ হল।\n"
+"\n"
+"%s"
+
+#: src/applet.c:1276
+msgid "device not ready (firmware missing)"
+msgstr "ডিভাইচ প্ৰস্তুত নহয় (ফাৰ্মৱেৰ সন্ধানহীন)"
+
+#: src/applet.c:1278
+msgid "device not ready"
+msgstr "ডিভাইচ প্ৰস্তুত নহয়"
+
+#: src/applet.c:1304
+msgid "Disconnect"
+msgstr "বিচ্ছিন্ন কৰক"
+
+#: src/applet.c:1318
+msgid "device not managed"
+msgstr "ডিভাইচ ব্যৱস্থাপিত নহয়"
+
+#: src/applet.c:1391
+msgid "No network devices available"
+msgstr "কোনো নেটৱৰ্ক ডিভাইচ উপলব্ধ নাই"
+
+#: src/applet.c:1443
+msgid "_VPN Connections"
+msgstr "VPN সংযোগসমূহ (_V)"
+
+#: src/applet.c:1487
+#, fuzzy
+msgid "_Configure VPN…"
+msgstr "VPN সংৰূপণ কৰক (_C)..."
+
+#: src/applet.c:1490
+#, fuzzy
+msgid "_Add a VPN connection…"
+msgstr "VPN সংযোগসমূহ (_V)"
+
+#: src/applet.c:1596
+#, fuzzy
+msgid "NetworkManager is not running…"
+msgstr "NetworkManager চলি থকা নাই..."
+
+#: src/applet.c:1601 src/applet.c:2666
+msgid "Networking disabled"
+msgstr "নেটৱাৰ্কিং অসামৰ্থবান"
+
+#. 'Enable Networking' item
+#: src/applet.c:1811
+msgid "Enable _Networking"
+msgstr "নেটৱাৰ্কিং সামৰ্থবান কৰক (_N)"
+
+#. 'Enable Wi-Fi' item
+#: src/applet.c:1820
+msgid "Enable _Wi-Fi"
+msgstr "Wi-Fi সামৰ্থবান কৰক (_W)"
+
+#. 'Enable Mobile Broadband' item
+#: src/applet.c:1829
+msgid "Enable _Mobile Broadband"
+msgstr "ম'বাইল ব্ৰডবেণ্ড সক্ৰিয় কৰক (_M)"
+
+#. Toggle notifications item
+#: src/applet.c:1841
+msgid "Enable N_otifications"
+msgstr "অধিসূচনাসমূহ সামৰ্থবান কৰক (_o)"
+
+#. 'Connection Information' item
+#: src/applet.c:1853
+msgid "Connection _Information"
+msgstr "সংযোগ তথ্য (_I)"
+
+#. 'Edit Connections...' item
+#: src/applet.c:1861
+#, fuzzy
+msgid "Edit Connections…"
+msgstr "সংযোগসমূহ সম্পাদন কৰক..."
+
+#: src/applet.c:1875
+msgid "_About"
+msgstr "বিষয়ে (_A)"
+
+#: src/applet.c:2186
+#, fuzzy, c-format
+msgid "You are now connected to “%s”."
+msgstr "আপুনি এতিয়া '%s' লৈ সংযুক্ত।"
+
+#: src/applet.c:2226
+msgid "Disconnected"
+msgstr "বিচ্ছিন্নিত"
+
+#: src/applet.c:2227
+msgid "The network connection has been disconnected."
+msgstr "নেটৱৰ্ক সংযোগ বিচ্ছিন্ন কৰা হৈছে।"
+
+#: src/applet.c:2529
+#, fuzzy, c-format
+msgid "Preparing network connection “%s”…"
+msgstr "নেটৱৰ্ক সংযোগ '%s' প্ৰস্তুত কৰা হৈছে..."
+
+#: src/applet.c:2532
+#, fuzzy, c-format
+msgid "User authentication required for network connection “%s”…"
+msgstr "নেটৱৰ্ক সংযোগ '%s' ৰ বাবে ব্যৱহাৰকাৰী প্ৰমাণীকৰণৰ প্ৰয়োজন..."
+
+#: src/applet.c:2538
+#, fuzzy, c-format
+msgid "Network connection “%s” active"
+msgstr "নেটৱৰ্ক সংযোগ '%s' সক্ৰিয়"
+
+#: src/applet.c:2611
+#, fuzzy, c-format
+msgid "Starting VPN connection “%s”…"
+msgstr "VPN সংযোগ '%s' আৰম্ভ কৰা হৈছে..."
+
+#: src/applet.c:2614
+#, fuzzy, c-format
+msgid "User authentication required for VPN connection “%s”…"
+msgstr "VPN সংযোগ '%s' ৰ বাবে ব্যৱহাৰকাৰী প্ৰমাণীকৰণৰ প্ৰয়োজন..."
+
+#: src/applet.c:2617
+#, fuzzy, c-format
+msgid "Requesting a VPN address for “%s”…"
+msgstr "'%s' ৰ বাবে এটা VPN ঠিকনা অনুৰোধ কৰা হৈছে..."
+
+#: src/applet.c:2620
+#, fuzzy
+msgid "VPN connection active"
+msgstr "VPN সংযোগ '%s' সক্ৰিয়"
+
+#: src/applet.c:2670
+msgid "No network connection"
+msgstr "কোনো নেটৱৰ্ক সংযোগ নাই"
+
+#: src/applet.c:3280
+msgid "NetworkManager Applet"
+msgstr "NetworkManager এপ্লেট"
+
+#: src/connection-editor/ce-ip4-routes.ui:88
+#: src/connection-editor/ce-ip6-routes.ui:88 src/connection-editor/ce-page.h:97
 #, fuzzy
 msgid ""
 "IP addresses identify your computer on the network. Click the “Add” button "
@@ -1134,41 +1027,43 @@ msgstr ""
 "IP ঠিকনাসমূহে আপোনাৰ কমপিউটাৰক নেটৱৰ্কত চিনাক্ত কৰে। এটা IP ঠিকনা যোগ কৰিবলে "
 "\"যোগ কৰক\" বুটাম ক্লিক কৰক।"
 
-#: src/connection-editor/ce-ip4-routes.ui:113
-#: src/connection-editor/ce-ip6-routes.ui:113
+#: src/connection-editor/ce-ip4-routes.ui:109
+#: src/connection-editor/ce-ip6-routes.ui:109
 #: src/connection-editor/ce-page-bond.ui:180
 #: src/connection-editor/ce-page-bridge.ui:120
 #: src/connection-editor/ce-page-ip4.ui:150
 #: src/connection-editor/ce-page-ip6.ui:181
 #: src/connection-editor/ce-page-team.ui:234
+#: src/connection-editor/ce-page-wireguard.ui:603
 #: src/connection-editor/nm-connection-list.ui:87
 msgid "_Add"
 msgstr ""
 
-#: src/connection-editor/ce-ip4-routes.ui:128
-#: src/connection-editor/ce-ip6-routes.ui:128
+#: src/connection-editor/ce-ip4-routes.ui:124
+#: src/connection-editor/ce-ip6-routes.ui:124
 #: src/connection-editor/ce-page-bond.ui:208
 #: src/connection-editor/ce-page-bridge.ui:148
 #: src/connection-editor/ce-page-ip4.ui:165
 #: src/connection-editor/ce-page-ip6.ui:196
 #: src/connection-editor/ce-page-team.ui:262
-#: src/connection-editor/connection-helpers.c:746
+#: src/connection-editor/ce-page-wireguard.ui:617
+#: src/connection-editor/connection-helpers.c:748
 #: src/connection-editor/nm-connection-list.ui:101
 msgid "_Delete"
 msgstr "মচি পেলাওক (_D)"
 
-#: src/connection-editor/ce-ip4-routes.ui:157
-#: src/connection-editor/ce-ip6-routes.ui:157
+#: src/connection-editor/ce-ip4-routes.ui:153
+#: src/connection-editor/ce-ip6-routes.ui:153
 msgid "Ig_nore automatically obtained routes"
 msgstr "স্বচালিতভাৱে প্ৰাপ্ত পথসমূহ উপেক্ষা কৰক (_n)"
 
-#: src/connection-editor/ce-ip4-routes.ui:172
-#: src/connection-editor/ce-ip6-routes.ui:172
+#: src/connection-editor/ce-ip4-routes.ui:168
+#: src/connection-editor/ce-ip6-routes.ui:168
 msgid "_Use this connection only for resources on its network"
 msgstr "এই সংযোগক কেৱল ইয়াৰ নেটৱৰ্কৰ সম্পসমূহৰ বাবে ব্যৱহাৰ কৰক (_U)"
 
-#: src/connection-editor/ce-ip4-routes.ui:177
-#: src/connection-editor/ce-ip6-routes.ui:177
+#: src/connection-editor/ce-ip4-routes.ui:173
+#: src/connection-editor/ce-ip6-routes.ui:173
 msgid ""
 "If enabled, this connection will never be used as the default network "
 "connection."
@@ -1275,6 +1170,7 @@ msgstr "ms"
 #: src/connection-editor/ce-page-bond.ui:291
 #: src/connection-editor/ce-page-bridge.ui:192
 #: src/connection-editor/ce-page-team.ui:293
+#: src/connection-editor/ce-page-wireguard.ui:373
 #, fuzzy
 msgid "_Interface name"
 msgstr "আন্তঃপৃষ্ঠৰ নাম (_I):"
@@ -1326,6 +1222,7 @@ msgstr ""
 #: src/connection-editor/ce-page-team.ui:320
 #: src/connection-editor/ce-page-vlan.ui:87
 #: src/connection-editor/ce-page-wifi.ui:111
+#: src/connection-editor/ce-page-wireguard.ui:474
 #, fuzzy
 msgid "_MTU"
 msgstr "MTU (_M):"
@@ -1336,6 +1233,7 @@ msgstr "MTU (_M):"
 #: src/connection-editor/ce-page-team.ui:356
 #: src/connection-editor/ce-page-vlan.ui:122
 #: src/connection-editor/ce-page-wifi.ui:92
+#: src/connection-editor/ce-page-wireguard.ui:518
 msgid "bytes"
 msgstr "বাইটসমূহ"
 
@@ -1442,105 +1340,6 @@ msgid ""
 "frames and LACP."
 msgstr ""
 
-#: src/connection-editor/ce-page.c:64 src/connection-editor/ce-page.c:98
-msgid "automatic"
-msgstr "স্বচালিত"
-
-#: src/connection-editor/ce-page.c:72 src/connection-editor/ce-page.c:107
-#: src/connection-editor/ce-page-dcb.ui:419
-#: src/connection-editor/ce-page-dcb.ui:442
-#: src/connection-editor/ce-page-dcb.ui:465
-#: src/connection-editor/page-wifi.c:154 src/connection-editor/page-wifi.c:158
-#: src/connection-editor/page-wifi.c:179
-msgid "default"
-msgstr "অবিকল্পিত"
-
-#: src/connection-editor/ce-page.c:175
-msgid "unspecified error"
-msgstr ""
-
-#: src/connection-editor/ce-page.c:280
-msgid "Preserve"
-msgstr ""
-
-#: src/connection-editor/ce-page.c:281
-msgid "Permanent"
-msgstr ""
-
-#: src/connection-editor/ce-page.c:282
-msgid "Random"
-msgstr ""
-
-#: src/connection-editor/ce-page.c:283
-#, fuzzy
-msgid "Stable"
-msgstr "সামৰ্থবান কৰক"
-
-#: src/connection-editor/ce-page.c:287
-#, fuzzy
-msgid ""
-"The MAC address entered here will be used as hardware address for the "
-"network device this connection is activated on. This feature is known as MAC "
-"cloning or spoofing. Example: 00:11:22:33:44:55"
-msgstr ""
-"ইয়াত সুমুৱা MAC ঠিকনাক এই সংযোগ সক্ৰিয় কৰা নেটৱৰ্ক ডিভাইচৰ বাবে হাৰ্ডৱেৰ ঠিকনা "
-"হিচাপে ব্যৱহাৰ কৰা হব। এই বৈশিষ্টক MAC ক্লৌনিং অথবা স্পুফিং হিচাপে জনা যায়। "
-"উদাহৰণ: 00:11:22:33:44:55"
-
-#: src/connection-editor/ce-page.c:327
-#, fuzzy
-msgid "MAC address"
-msgstr "ঠিকনা"
-
-#: src/connection-editor/ce-page.c:327
-#, fuzzy
-msgid "HW address"
-msgstr "ঠিকনা"
-
-#: src/connection-editor/ce-page.c:330
-#, c-format
-msgid "invalid %s for %s (%s)"
-msgstr ""
-
-#: src/connection-editor/ce-page.c:334
-#, c-format
-msgid "invalid %s (%s)"
-msgstr ""
-
-#: src/connection-editor/ce-page.c:374
-#, c-format
-msgid "invalid interface-name for %s (%s): "
-msgstr ""
-
-#: src/connection-editor/ce-page.c:378
-#, fuzzy, c-format
-msgid "invalid interface-name (%s): "
-msgstr "VLAN আন্তঃপৃষ্ঠৰ নাম (_n):"
-
-#: src/connection-editor/ce-page.c:557
-msgid "can’t parse device name"
-msgstr ""
-
-#: src/connection-editor/ce-page.c:575
-#, fuzzy
-msgid "invalid hardware address"
-msgstr "হাৰ্ডৱেৰ ঠিকনা:"
-
-#: src/connection-editor/ce-page.c:597
-#, c-format
-msgid "invalid %s (%s): "
-msgstr ""
-
-#: src/connection-editor/ce-page.c:598 src/connection-editor/ce-page.c:603
-#, fuzzy
-msgid "device"
-msgstr "যিকোনো ডিভাইচ"
-
-#: src/connection-editor/ce-page.c:602
-#, c-format
-msgid "invalid %s (%s) "
-msgstr ""
-
 #: src/connection-editor/ce-page-dcb.ui:16
 #, fuzzy
 msgid "_Use Data Center Bridging (DCB) for this connection"
@@ -1593,6 +1392,14 @@ msgstr "বিকল্পসমূহ..."
 msgid "Priority Groups"
 msgstr "প্ৰাথমিকতা দলসমূহ"
 
+#: src/connection-editor/ce-page-dcb.ui:419
+#: src/connection-editor/ce-page-dcb.ui:442
+#: src/connection-editor/ce-page-dcb.ui:465 src/connection-editor/ce-page.c:111
+#: src/connection-editor/page-wifi.c:154 src/connection-editor/page-wifi.c:158
+#: src/connection-editor/page-wifi.c:179
+msgid "default"
+msgstr "অবিকল্পিত"
+
 #: src/connection-editor/ce-page-dcb.ui:487
 #: src/connection-editor/ce-page-dcb.ui:535
 msgid "Fabric"
@@ -1620,6 +1427,10 @@ msgstr ""
 #: src/connection-editor/ce-page-dcb.ui:1822
 #: src/connection-editor/ce-page-dcb.ui:2154
 #: src/connection-editor/ce-page-dcb.ui:2486
+#: src/connection-editor/ce-page-wireguard.ui:282
+#: src/connection-editor/ce-page-wireguard.ui:444
+#: src/connection-editor/ce-page-wireguard.ui:530
+#: src/connection-editor/ce-page-wireguard.ui:544
 msgid "0"
 msgstr "0"
 
@@ -1766,7 +1577,6 @@ msgid "_Service"
 msgstr "সেৱা (_S):"
 
 #: src/connection-editor/ce-page-dsl.ui:71
-#: src/libnma/nma-file-cert-chooser.c:340
 #: src/wireless-security/eap-method-leap.ui:60
 #: src/wireless-security/eap-method-simple.ui:77
 #: src/wireless-security/ws-leap.ui:60 src/wireless-security/ws-sae.ui:60
@@ -2025,36 +1835,6 @@ msgid ""
 "Connection priority for automatic activation. Connections with higher "
 "numbers are preferred when selecting profiles for automatic activation. "
 "Default value is 0."
-msgstr ""
-
-#: src/connection-editor/ce-page.h:95
-#, fuzzy
-msgid ""
-"IP addresses identify your computer on the network. Click the “Add” button "
-"to add static IP address to be configured in addition to the automatic ones."
-msgstr ""
-"IP ঠিকনাসমূহে আপোনাৰ কমপিউটাৰক নেটৱৰ্কত চিনাক্ত কৰে। এটা IP ঠিকনা যোগ কৰিবলে "
-"\"যোগ কৰক\" বুটাম ক্লিক কৰক।"
-
-#: src/connection-editor/ce-page.h:100
-msgid ""
-"The IP address identify your computer on the network and determines the "
-"address range distributed to other computers. Click the “Add” button to add "
-"an IP address. If no address is provided, range will be determined "
-"automatically."
-msgstr ""
-
-#: src/connection-editor/ce-page.h:105
-#, fuzzy
-msgid "Additional static addresses"
-msgstr "স্বচালিত, কেৱল ঠিকনা"
-
-#: src/connection-editor/ce-page.h:106
-msgid "Addresses"
-msgstr "ঠিকনাসমূহ"
-
-#: src/connection-editor/ce-page.h:107
-msgid "Address (optional)"
 msgstr ""
 
 #. IP-over-InfiniBand "datagram mode"
@@ -2427,7 +2207,6 @@ msgid "Allow _roaming if home network is not available"
 msgstr "ঘৰ নেটৱৰ্ক উপস্থিত নাথাকিলে ৰ'মিংৰ অনুমতি দিয়ক (_r)"
 
 #: src/connection-editor/ce-page-mobile.ui:303
-#: src/libnma/nma-pkcs11-cert-chooser.c:441
 msgid "Sho_w passwords"
 msgstr "পাছৱৰ্ডসমূহ দেখুৱাওক (_w)"
 
@@ -2831,15 +2610,14 @@ msgid "LACP"
 msgstr ""
 
 #: src/connection-editor/ce-page-team.ui:485
-#: src/connection-editor/connection-helpers.c:91
-#: src/connection-editor/page-ethernet.c:334 src/libnm-gtk/nm-ui-utils.c:307
+#: src/connection-editor/connection-helpers.c:92
+#: src/connection-editor/page-ethernet.c:334
 msgid "Ethernet"
 msgstr "ইথাৰনেট"
 
 #: src/connection-editor/ce-page-team.ui:489
-#: src/connection-editor/connection-helpers.c:106
-#: src/connection-editor/page-vlan.c:575 src/libnm-gtk/nm-ui-utils.c:325
-#: src/libnm-gtk/nm-ui-utils.c:569
+#: src/connection-editor/connection-helpers.c:107
+#: src/connection-editor/page-vlan.c:575
 msgid "VLAN"
 msgstr "VLAN"
 
@@ -3104,8 +2882,254 @@ msgstr "বেণ্ড (_d):"
 msgid "SS_ID"
 msgstr "SSID (_I):"
 
-#: src/connection-editor/ce-polkit.c:49
+#: src/connection-editor/ce-page-wireguard.ui:23
+msgid "Edit WireGuard peer"
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:55
+#, fuzzy
+msgid "_Apply"
+msgstr "প্ৰয়োগ কৰক"
+
+#: src/connection-editor/ce-page-wireguard.ui:159
+msgid "_Public key"
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:173
+#, fuzzy
+msgid "Allowed _IPs"
+msgstr "অনুমোদিত পদ্ধতিসমূহ:"
+
+#: src/connection-editor/ce-page-wireguard.ui:187
+msgid "_Endpoint"
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:201
+#, fuzzy
+msgid "Pre_shared key"
+msgstr "অংশীদাৰী কৰা কি'"
+
+#: src/connection-editor/ce-page-wireguard.ui:215
+msgid "Persistent _keepalive"
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:228
+msgid "A base64 public key calculated by 'wg pubkey' from a private key."
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:240
+msgid ""
+"Comma-separated list of IP (v4 or v6) addresses with CIDR masks from which "
+"incoming traffic for this peer is allowed and to which outgoing traffic for "
+"this peer is directed."
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:252
+msgid ""
+"An endpoint IP or hostname, followed by a colon, and then a port number."
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:264
+msgid ""
+"A base64 preshared key generated by 'wg genpsk'. Optional, and may be "
+"omitted. Adds an additional layer of symmetric-key cryptography to be mixed "
+"into the already existing public-key cryptography, for post-quantum "
+"resistance."
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:280
+msgid ""
+"How often to send an authenticated empty packet to the peer for the purpose "
+"of keeping a stateful firewall or NAT mapping valid. This is optional and "
+"not recommended outside of specific setups."
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:297
+msgid "seconds"
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:313
+#, fuzzy
+msgid "Sho_w preshared key"
+msgstr "কি' দেখুৱাওক (_w)"
+
+#: src/connection-editor/ce-page-wireguard.ui:386
+msgid "The name of the wireguard interface to create."
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:400
+#, fuzzy
+msgid "Private _key"
+msgstr "ব্যক্তিগত কি' (_k):"
+
+#: src/connection-editor/ce-page-wireguard.ui:413
+msgid "The 256 bit private key in base64 encoding"
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:429
+msgid "_Listen port"
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:442
+msgid ""
+"A port to listen on. If set to 'automatic', the port will be chosen randomly "
+"when the interface comes up."
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:459
+msgid "_Fwmark"
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:489
+msgid "Add peer _routes"
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:503
+msgid ""
+"Whether to automatically add routes for the AllowedIPs ranges of the peers"
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:543
+msgid ""
+"A 32-bit fwmark for outgoing packets. Leave it to 'off' to disable fwmark."
+msgstr ""
+
+#: src/connection-editor/ce-page-wireguard.ui:554
+#, fuzzy
+msgid "_Show private key"
+msgstr "ব্যক্তিগত কি' (_k):"
+
+#: src/connection-editor/ce-page-wireguard.ui:641
+#, fuzzy
+msgid "<b>_Peers</b>"
+msgstr "<b>Addresses</b>"
+
+#: src/connection-editor/ce-page.c:105
+msgid "automatic"
+msgstr "স্বচালিত"
+
+#: src/connection-editor/ce-page.c:117
+msgid "off"
+msgstr ""
+
+#: src/connection-editor/ce-page.c:163
+msgid "unspecified error"
+msgstr ""
+
+#: src/connection-editor/ce-page.c:268
+msgid "Preserve"
+msgstr ""
+
+#: src/connection-editor/ce-page.c:269
+msgid "Permanent"
+msgstr ""
+
+#: src/connection-editor/ce-page.c:270
+msgid "Random"
+msgstr ""
+
+#: src/connection-editor/ce-page.c:271
+#, fuzzy
+msgid "Stable"
+msgstr "সামৰ্থবান কৰক"
+
+#: src/connection-editor/ce-page.c:275
+#, fuzzy
+msgid ""
+"The MAC address entered here will be used as hardware address for the "
+"network device this connection is activated on. This feature is known as MAC "
+"cloning or spoofing. Example: 00:11:22:33:44:55"
+msgstr ""
+"ইয়াত সুমুৱা MAC ঠিকনাক এই সংযোগ সক্ৰিয় কৰা নেটৱৰ্ক ডিভাইচৰ বাবে হাৰ্ডৱেৰ ঠিকনা "
+"হিচাপে ব্যৱহাৰ কৰা হব। এই বৈশিষ্টক MAC ক্লৌনিং অথবা স্পুফিং হিচাপে জনা যায়। "
+"উদাহৰণ: 00:11:22:33:44:55"
+
+#: src/connection-editor/ce-page.c:315
+#, fuzzy
+msgid "MAC address"
+msgstr "ঠিকনা"
+
+#: src/connection-editor/ce-page.c:315
+#, fuzzy
+msgid "HW address"
+msgstr "ঠিকনা"
+
+#: src/connection-editor/ce-page.c:318
+#, c-format
+msgid "invalid %s for %s (%s)"
+msgstr ""
+
+#: src/connection-editor/ce-page.c:322
+#, c-format
+msgid "invalid %s (%s)"
+msgstr ""
+
+#: src/connection-editor/ce-page.c:362
+#, c-format
+msgid "invalid interface-name for %s (%s): "
+msgstr ""
+
+#: src/connection-editor/ce-page.c:366
+#, fuzzy, c-format
+msgid "invalid interface-name (%s): "
+msgstr "VLAN আন্তঃপৃষ্ঠৰ নাম (_n):"
+
+#: src/connection-editor/ce-page.c:545
+msgid "can’t parse device name"
+msgstr ""
+
+#: src/connection-editor/ce-page.c:563
+#, fuzzy
+msgid "invalid hardware address"
+msgstr "হাৰ্ডৱেৰ ঠিকনা:"
+
+#: src/connection-editor/ce-page.c:585
+#, c-format
+msgid "invalid %s (%s): "
+msgstr ""
+
+#: src/connection-editor/ce-page.c:586 src/connection-editor/ce-page.c:591
+#, fuzzy
+msgid "device"
+msgstr "যিকোনো ডিভাইচ"
+
+#: src/connection-editor/ce-page.c:590
+#, c-format
+msgid "invalid %s (%s) "
+msgstr ""
+
+#: src/connection-editor/ce-page.h:94
+#, fuzzy
+msgid ""
+"IP addresses identify your computer on the network. Click the “Add” button "
+"to add static IP address to be configured in addition to the automatic ones."
+msgstr ""
+"IP ঠিকনাসমূহে আপোনাৰ কমপিউটাৰক নেটৱৰ্কত চিনাক্ত কৰে। এটা IP ঠিকনা যোগ কৰিবলে "
+"\"যোগ কৰক\" বুটাম ক্লিক কৰক।"
+
+#: src/connection-editor/ce-page.h:99
+msgid ""
+"The IP address identify your computer on the network and determines the "
+"address range distributed to other computers. Click the “Add” button to add "
+"an IP address. If no address is provided, range will be determined "
+"automatically."
+msgstr ""
+
+#: src/connection-editor/ce-page.h:104
+#, fuzzy
+msgid "Additional static addresses"
+msgstr "স্বচালিত, কেৱল ঠিকনা"
+
+#: src/connection-editor/ce-page.h:105
+msgid "Addresses"
+msgstr "ঠিকনাসমূহ"
+
+#: src/connection-editor/ce-page.h:106
+msgid "Address (optional)"
+msgstr ""
+
 #: src/connection-editor/ce-polkit-button.c:60
+#: src/connection-editor/ce-polkit.c:49
 msgid "No polkit authorization to perform the action"
 msgstr ""
 
@@ -3162,65 +3186,68 @@ msgstr ""
 "বেছিৰভাগ ক্ষেত্ৰত, প্ৰদানকাৰীৰ PPP চাৰ্ভাৰসমূহে সকলো প্ৰমাণীকৰণ পদ্ধতি সমৰ্থন কৰিব। "
 "যদি সংযোগসমূহ ব্যৰ্থ হব, কিছুমান পদ্ধতিৰ বাবে সমৰ্থন অসামৰ্থবান কৰি চাওক।"
 
-#: src/connection-editor/connection-helpers.c:92
-#: src/connection-editor/page-wifi.c:423 src/libnm-gtk/nm-ui-utils.c:309
+#: src/connection-editor/connection-helpers.c:93
+#: src/connection-editor/page-wifi.c:423
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
-#: src/connection-editor/connection-helpers.c:100
-#: src/connection-editor/page-bluetooth.c:106 src/libnm-gtk/nm-ui-utils.c:311
+#: src/connection-editor/connection-helpers.c:101
+#: src/connection-editor/page-bluetooth.c:106
 msgid "Bluetooth"
 msgstr "ব্লুটুথ"
 
-#: src/connection-editor/connection-helpers.c:101
+#: src/connection-editor/connection-helpers.c:102
 #: src/connection-editor/page-dsl.c:203
 msgid "DSL/PPPoE"
 msgstr ""
 
-#: src/connection-editor/connection-helpers.c:102
-#: src/connection-editor/page-infiniband.c:131 src/libnm-gtk/nm-ui-utils.c:317
+#: src/connection-editor/connection-helpers.c:103
+#: src/connection-editor/page-infiniband.c:131
 msgid "InfiniBand"
 msgstr "InfiniBand"
 
-#: src/connection-editor/connection-helpers.c:103
-#: src/connection-editor/page-bond.c:429 src/libnm-gtk/nm-ui-utils.c:319
-#: src/libnm-gtk/nm-ui-utils.c:563
+#: src/connection-editor/connection-helpers.c:104
+#: src/connection-editor/page-bond.c:429
 msgid "Bond"
 msgstr "বান্ধনী"
 
-#: src/connection-editor/connection-helpers.c:104
-#: src/connection-editor/page-team.c:1014 src/libnm-gtk/nm-ui-utils.c:321
-#: src/libnm-gtk/nm-ui-utils.c:565
+#: src/connection-editor/connection-helpers.c:105
+#: src/connection-editor/page-team.c:1014
 msgid "Team"
 msgstr "দল"
 
-#: src/connection-editor/connection-helpers.c:105
-#: src/connection-editor/page-bridge.c:216 src/libnm-gtk/nm-ui-utils.c:323
-#: src/libnm-gtk/nm-ui-utils.c:567
+#: src/connection-editor/connection-helpers.c:106
+#: src/connection-editor/page-bridge.c:216
 msgid "Bridge"
 msgstr "ব্ৰিজ"
 
-#: src/connection-editor/connection-helpers.c:107
+#: src/connection-editor/connection-helpers.c:108
 #: src/connection-editor/page-ip-tunnel.c:159
 msgid "IP tunnel"
 msgstr ""
 
-#: src/connection-editor/connection-helpers.c:108
+#: src/connection-editor/connection-helpers.c:109
 #: src/connection-editor/page-macsec.c:173
 msgid "MACsec"
 msgstr ""
 
 #: src/connection-editor/connection-helpers.c:110
-#: src/connection-editor/connection-helpers.c:372
+#: src/connection-editor/page-wireguard.c:510
+#, fuzzy
+msgid "WireGuard"
+msgstr "তাঁৰযুক্ত"
+
+#: src/connection-editor/connection-helpers.c:112
+#: src/connection-editor/connection-helpers.c:374
 #: src/connection-editor/page-vpn.c:86
 msgid "VPN"
 msgstr "VPN"
 
-#: src/connection-editor/connection-helpers.c:190
+#: src/connection-editor/connection-helpers.c:192
 msgid "No VPN service type."
 msgstr ""
 
-#: src/connection-editor/connection-helpers.c:195
+#: src/connection-editor/connection-helpers.c:197
 #, fuzzy
 msgid "The VPN plugin failed to import the VPN connection correctly: "
 msgstr ""
@@ -3228,47 +3255,49 @@ msgstr ""
 "\n"
 "ত্ৰুটি: কোনো VPN সেৱাৰ ধৰণ উপলব্ধ নহয়।"
 
-#: src/connection-editor/connection-helpers.c:279
-#: src/connection-editor/page-proxy.c:104 src/connection-editor/page-team.c:327
+#: src/connection-editor/connection-helpers.c:281
+#: src/connection-editor/page-proxy.c:104
 #: src/connection-editor/page-team-port.c:189
+#: src/connection-editor/page-team.c:327
 msgid "Select file to import"
 msgstr "ইমপোৰ্ট কৰিবলৈ ফাইল বাছক"
 
-#: src/connection-editor/connection-helpers.c:283
-#: src/connection-editor/page-proxy.c:108 src/connection-editor/page-team.c:331
+#: src/connection-editor/connection-helpers.c:285
+#: src/connection-editor/page-proxy.c:108
 #: src/connection-editor/page-team-port.c:193
+#: src/connection-editor/page-team.c:331
 msgid "_Open"
 msgstr ""
 
-#: src/connection-editor/connection-helpers.c:314
+#: src/connection-editor/connection-helpers.c:316
 msgid "Hardware"
 msgstr "হাৰ্ডৱেৰ"
 
-#: src/connection-editor/connection-helpers.c:341
+#: src/connection-editor/connection-helpers.c:343
 msgid "Virtual"
 msgstr "ভাৰছুৱেল"
 
-#: src/connection-editor/connection-helpers.c:490
 #: src/connection-editor/connection-helpers.c:492
+#: src/connection-editor/connection-helpers.c:494
 #, fuzzy
 msgid "Import a saved VPN configuration…"
 msgstr "এটা সংৰক্ষিত VPN সংৰূপ ইমপোৰ্ট কৰক..."
 
-#: src/connection-editor/connection-helpers.c:522
+#: src/connection-editor/connection-helpers.c:524
 msgid ""
 "The connection editor dialog could not be initialized due to an unknown "
 "error."
 msgstr "অজ্ঞাত কাৰণে সংযোগ সম্পাদন ব্যৱস্থাৰ বাৰ্তা আৰম্ভ কৰা নাযায়।"
 
-#: src/connection-editor/connection-helpers.c:531
+#: src/connection-editor/connection-helpers.c:533
 msgid "Could not create new connection"
 msgstr "নতুন সংযোগ সৃষ্টি কৰা সম্ভৱ নহয়"
 
-#: src/connection-editor/connection-helpers.c:694
+#: src/connection-editor/connection-helpers.c:696
 msgid "Connection delete failed"
 msgstr "সংযোগ মচিবলৈ ব্যৰ্থ"
 
-#: src/connection-editor/connection-helpers.c:742
+#: src/connection-editor/connection-helpers.c:744
 #, c-format
 msgid "Are you sure you wish to delete the connection %s?"
 msgstr "আপুনি নিশ্চিতৰূপে %s সংযোগ মচিবলে ইচ্ছুক নে?"
@@ -3309,79 +3338,79 @@ msgstr "মেট্ৰিক"
 msgid "Prefix"
 msgstr "উপসৰ্গ"
 
-#: src/connection-editor/nm-connection-editor.c:96
+#: src/connection-editor/nm-connection-editor.c:97
 #, c-format
 msgid "Editing %s"
 msgstr "%s সম্পাদন"
 
-#: src/connection-editor/nm-connection-editor.c:100
+#: src/connection-editor/nm-connection-editor.c:101
 msgid "Editing un-named connection"
 msgstr "নামবিহীন সংযোগ সম্পাদন"
 
-#: src/connection-editor/nm-connection-editor.c:120
+#: src/connection-editor/nm-connection-editor.c:121
 #, fuzzy
 msgid "Missing connection name"
 msgstr "সংযোগৰ নাম (_n):"
 
-#: src/connection-editor/nm-connection-editor.c:336
+#: src/connection-editor/nm-connection-editor.c:337
 #, fuzzy
 msgid "Editor initializing…"
 msgstr "সম্পাদন ব্যৱস্থা আৰম্ভ কৰিবলৈ ত্ৰুটি"
 
-#: src/connection-editor/nm-connection-editor.c:343
+#: src/connection-editor/nm-connection-editor.c:344
 #: src/connection-editor/nm-connection-list.c:457
 #, fuzzy
 msgid "Connection cannot be modified"
 msgstr "সংযোগ যোগ কৰিবলৈ ব্যৰ্থ"
 
-#: src/connection-editor/nm-connection-editor.c:358
+#: src/connection-editor/nm-connection-editor.c:359
 #, c-format
 msgid "Invalid setting %s: %s"
 msgstr ""
 
-#: src/connection-editor/nm-connection-editor.c:434
+#: src/connection-editor/nm-connection-editor.c:435
 msgid ""
 "The connection editor could not find some required resources (the .ui file "
 "was not found)."
 msgstr "সংযোগ সম্পাদকে কিছুমান প্ৰয়োজনীয় সম্পদ বিচাৰি নাপায় (.ui ফাইল পোৱা নগল)।"
 
-#: src/connection-editor/nm-connection-editor.c:567
+#: src/connection-editor/nm-connection-editor.c:568
 #: src/connection-editor/vpn-helpers.c:199
 msgid "_Save"
 msgstr "সংৰক্ষণ কৰক (_S)"
 
-#: src/connection-editor/nm-connection-editor.c:568
+#: src/connection-editor/nm-connection-editor.c:569
 msgid "Save any changes made to this connection."
 msgstr "এই সংযোগলে কৰা যিকোনো পৰিবৰ্তন সংৰক্ষণ কৰক।"
 
-#: src/connection-editor/nm-connection-editor.c:569
+#: src/connection-editor/nm-connection-editor.c:570
 msgid "Authenticate to save this connection for all users of this machine."
 msgstr ""
 "এই ডিভাইচৰ সকলো ব্যৱহাৰকাৰীৰ বাবে এই সংযোগ সংৰক্ষণ কৰাৰ বাবে প্ৰমাণীত কৰক।"
 
-#: src/connection-editor/nm-connection-editor.c:585
+#: src/connection-editor/nm-connection-editor.c:586
 msgid "Could not create connection"
 msgstr "সংযোগ সৃষ্টি কৰিব পৰা নগল"
 
-#: src/connection-editor/nm-connection-editor.c:585
+#: src/connection-editor/nm-connection-editor.c:586
 msgid "Could not edit connection"
 msgstr "সংযোগ সম্পাদন কৰা সম্ভৱ নহয়"
 
-#: src/connection-editor/nm-connection-editor.c:587
+#: src/connection-editor/nm-connection-editor.c:588
 msgid "Unknown error creating connection editor dialog."
 msgstr "সংযোগ সম্পাদক ডাইলগ সৃষ্টি কৰোতে অজ্ঞাত ত্ৰুটি।"
 
-#: src/connection-editor/nm-connection-editor.c:728
+#: src/connection-editor/nm-connection-editor.c:729
 msgid ""
 "Warning: the connection contains some properties not supported by the "
 "editor. They will be cleared upon save."
 msgstr ""
 
-#: src/connection-editor/nm-connection-editor.c:748
+#: src/connection-editor/nm-connection-editor.c:749
 msgid "Error initializing editor"
 msgstr "সম্পাদন ব্যৱস্থা আৰম্ভ কৰিবলৈ ত্ৰুটি"
 
-#: src/connection-editor/nm-connection-editor.c:1155
+#: src/connection-editor/nm-connection-editor.c:1159
 msgid "Connection add failed"
 msgstr "সংযোগ যোগ কৰিবলৈ ব্যৰ্থ"
 
@@ -3493,7 +3522,6 @@ msgid "Select a connection to delete"
 msgstr "দল সংযোগ %d"
 
 #: src/connection-editor/nm-connection-list.c:785
-#: src/libnma/nma-pkcs11-cert-chooser-dialog.ui:116
 msgid "Name"
 msgstr "নাম"
 
@@ -3634,15 +3662,6 @@ msgstr "প্ৰাথমিক (_P):"
 msgid "Bond connection %d"
 msgstr "বান্ধনী সংযোগ %d"
 
-#: src/connection-editor/page-bridge.c:219
-msgid "Could not load bridge user interface."
-msgstr "ব্ৰিজ ব্যৱহাৰকাৰী আন্তঃপৃষ্ঠ ল'ড কৰিব পৰা নগল।"
-
-#: src/connection-editor/page-bridge.c:335
-#, c-format
-msgid "Bridge connection %d"
-msgstr "ব্ৰিজ সংযোগ %d"
-
 #. Translators: a "Bridge Port" is a network
 #. * device that is part of a bridge.
 #.
@@ -3653,6 +3672,15 @@ msgstr "ব্ৰিজ পোৰ্ট"
 #: src/connection-editor/page-bridge-port.c:93
 msgid "Could not load bridge port user interface."
 msgstr "ব্ৰিজ পোৰ্ট ব্যৱহাৰকাৰী আন্তঃপৃষ্ঠ ল'ড কৰিব পৰা নগল।"
+
+#: src/connection-editor/page-bridge.c:219
+msgid "Could not load bridge user interface."
+msgstr "ব্ৰিজ ব্যৱহাৰকাৰী আন্তঃপৃষ্ঠ ল'ড কৰিব পৰা নগল।"
+
+#: src/connection-editor/page-bridge.c:335
+#, c-format
+msgid "Bridge connection %d"
+msgstr "ব্ৰিজ সংযোগ %d"
 
 #: src/connection-editor/page-dcb.c:610
 msgid "DCB"
@@ -3717,8 +3745,6 @@ msgstr "ইথাৰনেট সংযোগ %d"
 
 #. TRANSLATORS: Default zone set for firewall, when no zone is selected
 #: src/connection-editor/page-general.c:41
-#: src/libnma/nma-mobile-providers.c:787
-#: src/libnm-gtk/nm-mobile-providers.c:786
 msgid "Default"
 msgstr "অবিকল্পিত"
 
@@ -3916,20 +3942,20 @@ msgstr ""
 msgid "%s slave %d"
 msgstr "%s স্লেইভ %d"
 
-#: src/connection-editor/page-mobile.c:293
+#: src/connection-editor/page-mobile.c:297
 msgid "Could not load mobile broadband user interface."
 msgstr "ম'বাইল ব্ৰডবেণ্ড ব্যৱহাৰকাৰী আন্তঃপৃষ্ঠ ল'ড কৰিবলৈ ব্যৰ্থ।"
 
-#: src/connection-editor/page-mobile.c:310
+#: src/connection-editor/page-mobile.c:314
 msgid "Unsupported mobile broadband connection type."
 msgstr "ম'বাইল ব্ৰডবেণ্ড সংযোগৰ ধৰণ সমৰ্থিত নহয়।"
 
 #. Fall back to just asking for GSM vs. CDMA
-#: src/connection-editor/page-mobile.c:523
+#: src/connection-editor/page-mobile.c:527
 msgid "Select Mobile Broadband Provider Type"
 msgstr "ম'বাইল ব্ৰডবেণ্ড উপলব্ধকৰ্তাৰ ধৰণ বাছক"
 
-#: src/connection-editor/page-mobile.c:550
+#: src/connection-editor/page-mobile.c:554
 #, fuzzy
 msgid ""
 "Select the technology your mobile broadband provider uses. If you are "
@@ -3938,7 +3964,7 @@ msgstr ""
 "ম'বাইল ব্ৰডবেণ্ড সেৱা উপলব্ধকৰ্তাৰ দ্বাৰা ব্যৱহৃত সেৱা বাছক। এই তথ্য অজ্ঞাত থাকিলে, "
 "সেৱা উপলব্ধকৰ্তাৰ সৈতে যোগাযোগ কৰক।"
 
-#: src/connection-editor/page-mobile.c:555
+#: src/connection-editor/page-mobile.c:559
 msgid "My provider uses _GSM-based technology (i.e. GPRS, EDGE, UMTS, HSDPA)"
 msgstr ""
 "মোৰ সেৱা উপলব্ধকৰ্তাৰ দ্বাৰা GSM-ভিত্তিক প্ৰযুক্তি ব্যৱহাৰ কৰা হয় (অৰ্থাৎ GPRS, EDGE, "
@@ -3946,41 +3972,41 @@ msgstr ""
 
 #. Translators: CDMA has 'D' accelerator key; 'C' collides with 'Cancel' button.
 #. You may need to change it according to your language.
-#: src/connection-editor/page-mobile.c:562
+#: src/connection-editor/page-mobile.c:566
 msgid "My provider uses C_DMA-based technology (i.e. 1xRTT, EVDO)"
 msgstr ""
 "মোৰ সেৱা উপলব্ধকৰ্তা দ্বাৰা CDMA-ভিত্তিক প্ৰযুক্তি ব্যৱহাৰ কৰা হয় (অৰ্থাৎ 1xRTT, "
 "EVDO) (_D)"
 
-#: src/connection-editor/page-mobile.c:572 src/libnma/nma-mobile-wizard.c:142
-#: src/mb-menu-item.c:36 src/mobile-helpers.c:268
+#: src/connection-editor/page-mobile.c:576 src/mb-menu-item.c:36
+#: src/mobile-helpers.c:268
 msgid "CDMA"
 msgstr "CDMA"
 
-#: src/connection-editor/page-mobile.c:575 src/libnma/nma-mobile-wizard.c:139
-#: src/mb-menu-item.c:40 src/mobile-helpers.c:266
+#: src/connection-editor/page-mobile.c:579 src/mb-menu-item.c:40
+#: src/mobile-helpers.c:266
 msgid "GSM"
 msgstr "GSM"
 
 #: src/connection-editor/page-ppp.c:116
-#: src/wireless-security/eap-method-ttls.c:275
+#: src/wireless-security/eap-method-ttls.c:267
 msgid "PAP"
 msgstr "PAP"
 
 #: src/connection-editor/page-ppp.c:117
-#: src/wireless-security/eap-method-ttls.c:341
+#: src/wireless-security/eap-method-ttls.c:333
 msgid "CHAP"
 msgstr "CHAP"
 
 #: src/connection-editor/page-ppp.c:118
-#: src/wireless-security/eap-method-fast.c:272
-#: src/wireless-security/eap-method-peap.c:287
-#: src/wireless-security/eap-method-ttls.c:307
+#: src/wireless-security/eap-method-fast.c:271
+#: src/wireless-security/eap-method-peap.c:279
+#: src/wireless-security/eap-method-ttls.c:299
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
 #: src/connection-editor/page-ppp.c:119
-#: src/wireless-security/eap-method-ttls.c:291
+#: src/wireless-security/eap-method-ttls.c:283
 msgid "MSCHAP"
 msgstr "MSCHAP"
 
@@ -4011,20 +4037,11 @@ msgstr ""
 msgid "Could not load proxy user interface."
 msgstr "বান্ধনী ব্যৱহাৰকাৰী আন্তঃপৃষ্ঠ ল'ড কৰিব পৰা নগল।"
 
-#: src/connection-editor/page-team.c:347
 #: src/connection-editor/page-team-port.c:209
+#: src/connection-editor/page-team.c:347
 #, fuzzy
 msgid "Error: file doesn’t contain a valid JSON configuration"
 msgstr "ত্ৰুটি: ফাইলত এটা বৈধ JSON সংৰূপ নাই"
-
-#: src/connection-editor/page-team.c:1017
-msgid "Could not load team user interface."
-msgstr "দল ব্যৱহাৰকাৰী আন্তঃপৃষ্ঠ ল'ড কৰিব পৰা নগল।"
-
-#: src/connection-editor/page-team.c:1114
-#, c-format
-msgid "Team connection %d"
-msgstr "দল সংযোগ %d"
 
 #. Translators: a "Team Port" is a network
 #. * device that is part of a team.
@@ -4036,6 +4053,15 @@ msgstr "দল পৰ্ট"
 #: src/connection-editor/page-team-port.c:640
 msgid "Could not load team port user interface."
 msgstr "দল পৰ্ট ব্যৱহাৰকাৰীৰ আন্তঃপৃষ্ঠ ল'ড কৰিব পৰা নগল।"
+
+#: src/connection-editor/page-team.c:1017
+msgid "Could not load team user interface."
+msgstr "দল ব্যৱহাৰকাৰী আন্তঃপৃষ্ঠ ল'ড কৰিব পৰা নগল।"
+
+#: src/connection-editor/page-team.c:1114
+#, c-format
+msgid "Team connection %d"
+msgstr "দল সংযোগ %d"
 
 #. Translators: the first %s is a device name (eg, "em1"), the
 #. * second is a connection name (eg, "Auto Ethernet").
@@ -4101,6 +4127,56 @@ msgstr ""
 "নতুন সংযোগৰ বাবে ব্যৱহাৰ কৰিব বিচৰা VPN ৰ ধৰণ বাছক। যদি আপুনি সৃষ্টি কৰিব বিচৰা "
 "VPN সংযোগ তালিকাত নাথাকে, আপোনাৰ হয়তো সঠিক VPN প্লাগিন ইনস্টল নাই।"
 
+#: src/connection-editor/page-wifi-security.c:351
+msgid "WEP 40/128-bit Key (Hex or ASCII)"
+msgstr "WEP 40/128-bit কি (Hex অথবা ASCII)"
+
+#: src/connection-editor/page-wifi-security.c:361
+msgid "WEP 128-bit Passphrase"
+msgstr "WEP ১২৮-বিট পৰিচয়পংক্তি"
+
+#: src/connection-editor/page-wifi-security.c:387
+msgid "Dynamic WEP (802.1X)"
+msgstr "ডাইনামিক WEP (802.1X)"
+
+#: src/connection-editor/page-wifi-security.c:400
+msgid "WPA & WPA2 Personal"
+msgstr "WPA আৰু WPA2 ব্যক্তিগত"
+
+#: src/connection-editor/page-wifi-security.c:413
+msgid "WPA & WPA2 Enterprise"
+msgstr "WPA আৰু WPA2 এন্টাৰপ্ৰাইজ"
+
+#: src/connection-editor/page-wifi-security.c:426
+#, fuzzy
+msgid "WPA3 Personal"
+msgstr "WPA আৰু WPA2 ব্যক্তিগত"
+
+#: src/connection-editor/page-wifi-security.c:437
+msgid "Enhanced Open"
+msgstr ""
+
+#: src/connection-editor/page-wifi-security.c:483
+msgid "Could not load Wi-Fi security user interface; missing Wi-Fi setting."
+msgstr ""
+"Wi-Fi সুৰক্ষাৰ ব্যৱহাৰকাৰী আন্তঃপৃষ্ঠ ল'ড কৰিবলৈ ব্যৰ্থ; Wi-Fi সংহতিসমূহ অনুপস্থিত।"
+
+#: src/connection-editor/page-wifi-security.c:494
+msgid "Wi-Fi Security"
+msgstr "Wi-Fi সুৰক্ষা"
+
+#: src/connection-editor/page-wifi-security.c:496
+msgid "Could not load Wi-Fi security user interface."
+msgstr "Wi-Fi সুৰক্ষাৰ ব্যৱহাৰকাৰী আন্তঃপৃষ্ঠ ল'ড কৰিবলৈ ব্যৰ্থ।"
+
+#: src/connection-editor/page-wifi-security.c:577
+msgid "missing SSID"
+msgstr ""
+
+#: src/connection-editor/page-wifi-security.c:583
+msgid "Security not compatible with Ad-Hoc mode"
+msgstr ""
+
 #: src/connection-editor/page-wifi.c:63
 #, fuzzy
 msgid ""
@@ -4143,56 +4219,24 @@ msgstr "যিকোনো ডিভাইচ"
 msgid "Wi-Fi connection %d"
 msgstr "Wi-Fi সংযোগ %d"
 
-#: src/connection-editor/page-wifi-security.c:346
-#: src/libnma/nma-wifi-dialog.c:940 src/libnm-gtk/nm-wifi-dialog.c:908
-msgid "WEP 40/128-bit Key (Hex or ASCII)"
-msgstr "WEP 40/128-bit কি (Hex অথবা ASCII)"
+#: src/connection-editor/page-wireguard.c:261
+msgid "Public key"
+msgstr ""
 
-#: src/connection-editor/page-wifi-security.c:356
-#: src/libnma/nma-wifi-dialog.c:949 src/libnm-gtk/nm-wifi-dialog.c:917
-msgid "WEP 128-bit Passphrase"
-msgstr "WEP ১২৮-বিট পৰিচয়পংক্তি"
-
-#: src/connection-editor/page-wifi-security.c:382
-msgid "Dynamic WEP (802.1X)"
-msgstr "ডাইনামিক WEP (802.1X)"
-
-#: src/connection-editor/page-wifi-security.c:395
-#: src/libnma/nma-wifi-dialog.c:993 src/libnm-gtk/nm-wifi-dialog.c:961
-msgid "WPA & WPA2 Personal"
-msgstr "WPA আৰু WPA2 ব্যক্তিগত"
-
-#: src/connection-editor/page-wifi-security.c:408
-#: src/libnma/nma-wifi-dialog.c:1011 src/libnm-gtk/nm-wifi-dialog.c:975
-msgid "WPA & WPA2 Enterprise"
-msgstr "WPA আৰু WPA2 এন্টাৰপ্ৰাইজ"
-
-#: src/connection-editor/page-wifi-security.c:421
-#: src/libnma/nma-wifi-dialog.c:1024
+#: src/connection-editor/page-wireguard.c:268
 #, fuzzy
-msgid "WPA3 Personal"
-msgstr "WPA আৰু WPA2 ব্যক্তিগত"
+msgid "Allowed IPs"
+msgstr "অনুমোদিত পদ্ধতিসমূহ:"
 
-#: src/connection-editor/page-wifi-security.c:464
-msgid "Could not load Wi-Fi security user interface; missing Wi-Fi setting."
-msgstr ""
-"Wi-Fi সুৰক্ষাৰ ব্যৱহাৰকাৰী আন্তঃপৃষ্ঠ ল'ড কৰিবলৈ ব্যৰ্থ; Wi-Fi সংহতিসমূহ অনুপস্থিত।"
+#: src/connection-editor/page-wireguard.c:512
+#, fuzzy
+msgid "Could not load WireGuard user interface."
+msgstr "দল ব্যৱহাৰকাৰী আন্তঃপৃষ্ঠ ল'ড কৰিব পৰা নগল।"
 
-#: src/connection-editor/page-wifi-security.c:475
-msgid "Wi-Fi Security"
-msgstr "Wi-Fi সুৰক্ষা"
-
-#: src/connection-editor/page-wifi-security.c:477
-msgid "Could not load Wi-Fi security user interface."
-msgstr "Wi-Fi সুৰক্ষাৰ ব্যৱহাৰকাৰী আন্তঃপৃষ্ঠ ল'ড কৰিবলৈ ব্যৰ্থ।"
-
-#: src/connection-editor/page-wifi-security.c:558
-msgid "missing SSID"
-msgstr ""
-
-#: src/connection-editor/page-wifi-security.c:564
-msgid "Security not compatible with Ad-Hoc mode"
-msgstr ""
+#: src/connection-editor/page-wireguard.c:628
+#, fuzzy, c-format
+msgid "WireGuard connection %d"
+msgstr "বেতাঁৰ সংযোগ %d"
 
 #: src/connection-editor/vpn-helpers.c:118
 #, fuzzy, c-format
@@ -4243,481 +4287,6 @@ msgstr "সংযোগ তথ্য"
 #: src/info.ui:30
 msgid "_Close"
 msgstr ""
-
-#: src/libnma/nma-bar-code-widget.ui:36
-msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
-msgstr ""
-
-#: src/libnma/nma-file-cert-chooser.c:101
-#: src/libnma/nma-pkcs11-cert-chooser.c:139
-#, fuzzy
-msgid "No certificate set"
-msgstr "কোনো CA প্ৰমাণপত্ৰৰ প্ৰয়োজন নাই (_r)"
-
-#: src/libnma/nma-file-cert-chooser.c:119
-#: src/libnma/nma-pkcs11-cert-chooser.c:163
-msgid "No key set"
-msgstr ""
-
-#: src/libnma/nma-file-cert-chooser.c:239
-#: src/libnma/nma-pkcs11-cert-chooser.c:369
-#, fuzzy, c-format
-msgid "Choose a key for %s Certificate"
-msgstr "এটা CA প্ৰমাণপত্ৰ বাছক"
-
-#: src/libnma/nma-file-cert-chooser.c:243
-#: src/libnma/nma-pkcs11-cert-chooser.c:373
-#, fuzzy, c-format
-msgid "%s private _key"
-msgstr "ব্যক্তিগত কি' (_k):"
-
-#: src/libnma/nma-file-cert-chooser.c:247
-#: src/libnma/nma-pkcs11-cert-chooser.c:377
-#, fuzzy, c-format
-msgid "%s key _password"
-msgstr "ব্যক্তিগত কি' পাছৱৰ্ড (_P):"
-
-#: src/libnma/nma-file-cert-chooser.c:251
-#, fuzzy, c-format
-msgid "Choose %s Certificate"
-msgstr "এটা CA প্ৰমাণপত্ৰ বাছক"
-
-#: src/libnma/nma-file-cert-chooser.c:255
-#: src/libnma/nma-pkcs11-cert-chooser.c:385
-#, fuzzy, c-format
-msgid "%s _certificate"
-msgstr "ব্যৱহাৰকাৰী প্ৰমাণপত্ৰ (_U):"
-
-#: src/libnma/nma-mobile-providers.c:976 src/libnm-gtk/nm-mobile-wizard.c:1063
-msgid "My country is not listed"
-msgstr "মোৰ দেশ তালিকাত নাই"
-
-#: src/libnma/nma-mobile-wizard.c:247 src/libnma/nma-mobile-wizard.c:279
-#: src/libnm-gtk/nm-mobile-wizard.c:312
-msgid "Unlisted"
-msgstr "তালিকা বহিৰ্ভূত"
-
-#: src/libnma/nma-mobile-wizard.c:479 src/libnm-gtk/nm-mobile-wizard.c:544
-#, fuzzy
-msgid "My plan is not listed…"
-msgstr "মোৰ পৰিকল্পনা তালিকাভুক্ত নহয়..."
-
-#: src/libnma/nma-mobile-wizard.c:651 src/libnm-gtk/nm-mobile-wizard.c:710
-msgid "Provider"
-msgstr "সেৱা উপলব্ধকৰ্তা"
-
-#: src/libnma/nma-mobile-wizard.c:1023 src/libnm-gtk/nm-mobile-wizard.c:1170
-msgid "Installed GSM device"
-msgstr "ইনস্টল কৰা GSM ডিভাইচ"
-
-#: src/libnma/nma-mobile-wizard.c:1026 src/libnm-gtk/nm-mobile-wizard.c:1173
-msgid "Installed CDMA device"
-msgstr "ইনস্টল কৰা CDMA ডিভাইচ"
-
-#: src/libnma/nma-mobile-wizard.c:1231 src/libnm-gtk/nm-mobile-wizard.c:1414
-msgid "Any device"
-msgstr "যিকোনো ডিভাইচ"
-
-#: src/libnma/nma-mobile-wizard.ui:49 src/libnm-gtk/nm-mobile-wizard.c:1600
-msgid "New Mobile Broadband Connection"
-msgstr "নতুন ম'বাইল ব্ৰডবেণ্ড সংযোগ"
-
-#: src/libnma/nma-mobile-wizard.ui:71 src/libnm-gtk/nm-mobile-wizard.c:1341
-msgid ""
-"This assistant helps you easily set up a mobile broadband connection to a "
-"cellular (3G) network."
-msgstr ""
-"এই সহায়ক ব্যৱস্থাৰ সহায়ত এটা চেলুলাৰ (3G) নেটৱৰ্কৰ সৈতে ম'বাইল ব্ৰডবেণ্ড সংযোগ "
-"স্থাপন কৰা যাব।"
-
-#: src/libnma/nma-mobile-wizard.ui:86 src/libnm-gtk/nm-mobile-wizard.c:1347
-msgid "You will need the following information:"
-msgstr "নিম্নলিখিত তথ্যৰ প্ৰয়োজন:"
-
-#: src/libnma/nma-mobile-wizard.ui:101 src/libnm-gtk/nm-mobile-wizard.c:1358
-#, fuzzy
-msgid "Your broadband provider’s name"
-msgstr "ব্ৰডবেণ্ড সেৱা উপলব্ধকৰ্তাৰ নাম"
-
-#: src/libnma/nma-mobile-wizard.ui:115 src/libnm-gtk/nm-mobile-wizard.c:1364
-msgid "Your broadband billing plan name"
-msgstr "ব্ৰডবেণ্ড বিলিং পৰিকল্পনাৰ নাম"
-
-#: src/libnma/nma-mobile-wizard.ui:129 src/libnm-gtk/nm-mobile-wizard.c:1370
-msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
-msgstr "(কিছু ক্ষেত্ৰত) আপোনাৰ ব্যৱহৃত ব্ৰডবেণ্ড বিলিং পৰিকল্পনা APN (এক্সেচ পইন্ট নেম)"
-
-#: src/libnma/nma-mobile-wizard.ui:143 src/libnm-gtk/nm-mobile-wizard.c:1399
-msgid "Create a connection for _this mobile broadband device:"
-msgstr "এই ম'বাইল ব্ৰডবেণ্ড ডিভাইচৰ বাবে সংযোগ সৃষ্টি কৰক (_t)"
-
-#: src/libnma/nma-mobile-wizard.ui:170 src/libnm-gtk/nm-mobile-wizard.c:1427
-msgid "Set up a Mobile Broadband Connection"
-msgstr "ম'বাইল ব্ৰডবেণ্ড সংযোগ প্ৰস্তুত কৰক"
-
-#: src/libnma/nma-mobile-wizard.ui:188
-#, fuzzy
-msgid "Country or region:"
-msgstr "দেশ অথবা অঞ্চল"
-
-#: src/libnma/nma-mobile-wizard.ui:228 src/libnm-gtk/nm-mobile-wizard.c:1113
-#, fuzzy
-msgid "Choose your Provider’s Country or Region"
-msgstr "আপোনাৰ প্ৰদানকাৰীৰ দেশ অথবা অঞ্চল বাছক"
-
-#: src/libnma/nma-mobile-wizard.ui:243 src/libnm-gtk/nm-mobile-wizard.c:697
-msgid "Select your provider from a _list:"
-msgstr "তালিকাৰ পৰা সেৱা উপলব্ধকৰ্তাৰ নাম বাছক (_l):"
-
-#: src/libnma/nma-mobile-wizard.ui:288
-#, fuzzy
-msgid "I can’t find my provider and I wish to set up the connection _manually:"
-msgstr "সেৱা উপলব্ধকৰ্তাৰ নাম অনুপস্থিত আৰু মই স্বয়ং সেইটো লিখিবলৈ ইচ্ছুক (_m):"
-
-#: src/libnma/nma-mobile-wizard.ui:309 src/libnm-gtk/nm-mobile-wizard.c:765
-msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
-msgstr ""
-"মোৰ সেৱা উপলব্ধকৰ্তা দ্বাৰা GSM প্ৰযুক্তি ব্যৱহাৰ কৰা হয় (GPRS, EDGE, UMTS, HSPA)"
-
-#: src/libnma/nma-mobile-wizard.ui:310 src/libnm-gtk/nm-mobile-wizard.c:767
-msgid "My provider uses CDMA technology (1xRTT, EVDO)"
-msgstr "মোৰ সেৱা উপলব্ধকৰ্তা দ্বাৰা CDMA প্ৰযুক্তি ব্যৱহাৰ কৰা হয় (1xRTT, EVDO)"
-
-#: src/libnma/nma-mobile-wizard.ui:321 src/libnm-gtk/nm-mobile-wizard.c:778
-msgid "Choose your Provider"
-msgstr "সেৱা উপলব্ধকৰ্তা বাছক"
-
-#: src/libnma/nma-mobile-wizard.ui:338 src/libnm-gtk/nm-mobile-wizard.c:443
-msgid "_Select your plan:"
-msgstr "আপোনাৰ পৰিকল্পনা বাছক (_S):"
-
-#: src/libnma/nma-mobile-wizard.ui:365 src/libnm-gtk/nm-mobile-wizard.c:467
-msgid "Selected plan _APN (Access Point Name):"
-msgstr "নিৰ্বাচিত পৰিকল্পনাৰ APN (এক্সেচ পইন্ট নেম) (_A):"
-
-#: src/libnma/nma-mobile-wizard.ui:415 src/libnm-gtk/nm-mobile-wizard.c:487
-#, fuzzy
-msgid ""
-"Warning: Selecting an incorrect plan may result in billing issues for your "
-"broadband account or may prevent connectivity.\n"
-"\n"
-"If you are unsure of your plan please ask your provider for your plan’s APN."
-msgstr ""
-"সতৰ্কবাৰ্তা: ভুল পৰিকল্পনা নিৰ্বাচন কৰিলে আপোনাৰ ব্ৰডবেণ্ড সংযোগৰ বিল আৰু সংযোগ "
-"স্থাপনত সমস্যা হ'ব।\n"
-"\n"
-"পৰিকল্পনা সম্পৰ্কে নিশ্চিত ন'হ'লে অনুগ্ৰহ কৰি সেৱা উপলব্ধকৰ্তা সৈতে যোগাযোগ কৰি "
-"আপোনাৰ ব্যৱহৃত পৰিকল্পনাৰ APN জানক।"
-
-#: src/libnma/nma-mobile-wizard.ui:436 src/libnm-gtk/nm-mobile-wizard.c:495
-msgid "Choose your Billing Plan"
-msgstr "ব্যৱহৃত বিল পৰিকল্পনা বাছক"
-
-#: src/libnma/nma-mobile-wizard.ui:454 src/libnm-gtk/nm-mobile-wizard.c:185
-msgid ""
-"Your mobile broadband connection is configured with the following settings:"
-msgstr "নিম্নলিখিত সংহতিসমূহৰ সৈতে ম'বাইল ব্ৰডবেণ্ড সংযোগ সংৰূপণ কৰা হৈছে:"
-
-#. Device
-#: src/libnma/nma-mobile-wizard.ui:468 src/libnm-gtk/nm-mobile-wizard.c:192
-msgid "Your Device:"
-msgstr "আপোনাৰ ডিভাইচ:"
-
-#. Provider
-#: src/libnma/nma-mobile-wizard.ui:494 src/libnm-gtk/nm-mobile-wizard.c:203
-msgid "Your Provider:"
-msgstr "আপোনাৰ সেৱা উপলব্ধকৰ্তা:"
-
-#. Plan and APN
-#: src/libnma/nma-mobile-wizard.ui:520 src/libnm-gtk/nm-mobile-wizard.c:214
-msgid "Your Plan:"
-msgstr "আপোনাৰ পৰিকল্পনা:"
-
-#: src/libnma/nma-mobile-wizard.ui:575 src/libnm-gtk/nm-mobile-wizard.c:235
-#, fuzzy
-msgid ""
-"A connection will now be made to your mobile broadband provider using the "
-"settings you selected. If the connection fails or you cannot access network "
-"resources, double-check your settings. To modify your mobile broadband "
-"connection settings, choose “Network Connections” from the System → "
-"Preferences menu."
-msgstr ""
-"আপোনাৰ নিৰ্বাচিত সংহতিসমূহসমূহ প্ৰয়োগ কৰি এতিয়া আপোনাৰ ম'বাইল ব্ৰডবেণ্ড সেৱা "
-"উপলব্ধকৰ্তাৰ সৈতে সংযোগ স্থাপন কৰা হ'ব।  সংযোগ বিফল হ'লে বা নেটৱৰ্ক সম্পদ ব্যৱহাৰ "
-"কৰা সম্ভৱ ন'হ'লে, নিৰ্ধাৰিত সংহতিসমূহসমূহ পৰীক্ষা কৰক।  ম'বাইল ব্ৰডবেণ্ড সংযোগৰ "
-"সংহতিসমূহ পৰিবৰ্তন কৰাৰ বাবে প্ৰণালী >> পছন্দ তালিকাৰ পৰা \"নেটৱৰ্ক সংযোগ\" বাছক।"
-
-#: src/libnma/nma-mobile-wizard.ui:589 src/libnm-gtk/nm-mobile-wizard.c:248
-msgid "Confirm Mobile Broadband Settings"
-msgstr "ম'বাইল ব্ৰডবেণ্ডৰ সংহতিসমূহ নিশ্চিত কৰক"
-
-#: src/libnma/nma-cert-chooser-button.c:153
-#, fuzzy
-msgid "(None)"
-msgstr "(শূণ্য)"
-
-#: src/libnma/nma-cert-chooser-button.c:161
-#, c-format
-msgid "Key in %s"
-msgstr ""
-
-#: src/libnma/nma-cert-chooser-button.c:162
-#, fuzzy, c-format
-msgid "Certificate in %s"
-msgstr "CA প্ৰমাণপত্ৰ (_A):"
-
-#: src/libnma/nma-cert-chooser-button.c:181
-#: src/libnma/nma-pkcs11-cert-chooser-dialog.c:169
-#, fuzzy
-msgid "(Unknown)"
-msgstr "অজ্ঞাত"
-
-#: src/libnma/nma-cert-chooser-button.c:203
-#: src/libnma/nma-cert-chooser-button.c:233
-#, fuzzy
-msgid "Select"
-msgstr "এটা পঞ্জিকা নিৰ্বাচন কৰক"
-
-#: src/libnma/nma-cert-chooser-button.c:204
-#: src/libnma/nma-cert-chooser-button.c:234
-msgid "Cancel"
-msgstr ""
-
-#: src/libnma/nma-cert-chooser-button.c:460
-#, fuzzy
-msgid "Select from file…"
-msgstr "এটা পঞ্জিকা নিৰ্বাচন কৰক"
-
-#: src/libnma/nma-pkcs11-cert-chooser.c:381
-#, fuzzy, c-format
-msgid "Choose a %s Certificate"
-msgstr "এটা CA প্ৰমাণপত্ৰ বাছক"
-
-#: src/libnma/nma-pkcs11-cert-chooser.c:389
-#, fuzzy, c-format
-msgid "%s certificate _password"
-msgstr "ব্যৱহাৰকাৰী প্ৰমাণপত্ৰ (_U):"
-
-#: src/libnma/nma-pkcs11-cert-chooser-dialog.c:241
-msgid "Error logging in: "
-msgstr ""
-
-#: src/libnma/nma-pkcs11-cert-chooser-dialog.c:263
-#, fuzzy
-msgid "Error opening a session: "
-msgstr "সংযোগ সম্পাদন কৰোতে ত্ৰুটি"
-
-#: src/libnma/nma-pkcs11-cert-chooser-dialog.ui:20
-#, fuzzy
-msgid "_Unlock token"
-msgstr "আনলক কৰক (_U)"
-
-#: src/libnma/nma-pkcs11-cert-chooser-dialog.ui:126
-msgid "Issued By"
-msgstr ""
-
-#: src/libnma/nma-pkcs11-token-login-dialog.c:132
-#, c-format
-msgid "Enter %s PIN"
-msgstr ""
-
-#: src/libnma/nma-pkcs11-token-login-dialog.ui:35
-msgid "_Login"
-msgstr ""
-
-#: src/libnma/nma-pkcs11-token-login-dialog.ui:82
-msgid "_Remember PIN"
-msgstr ""
-
-#: src/libnma/nma-ui-utils.c:36 src/libnm-gtk/nm-ui-utils.c:601
-#, fuzzy
-msgid "Store the password only for this user"
-msgstr "পাছৱৰ্ডক কেৱল এই ব্যৱহাৰকাৰীৰ বাবে সংৰক্ষণ কৰক (_u)"
-
-#: src/libnma/nma-ui-utils.c:37 src/libnm-gtk/nm-ui-utils.c:602
-#, fuzzy
-msgid "Store the password for all users"
-msgstr "সকলো ব্যৱহাৰকাৰীৰ বাবে পাছৱৰ্ড সংৰক্ষণ কৰক (_a)"
-
-#: src/libnma/nma-ui-utils.c:38 src/libnm-gtk/nm-ui-utils.c:603
-#, fuzzy
-msgid "Ask for this password every time"
-msgstr "প্ৰতিবাৰ এই পাছৱৰ্ড লিখাৰ অনুৰোধ কৰা হ'ব (_k)"
-
-#: src/libnma/nma-ui-utils.c:39 src/libnm-gtk/nm-ui-utils.c:604
-#, fuzzy
-msgid "The password is not required"
-msgstr "'%s' লৈ সংযোগ কৰিবলৈ এটা পাছৱৰ্ডৰ প্ৰয়োজন।"
-
-#: src/libnma/nma-vpn-password-dialog.ui:73
-#: src/libnm-gtk/nm-vpn-password-dialog.c:233
-msgid "Sh_ow passwords"
-msgstr "পাছৱৰ্ডসমূহ দেখুৱাওক (_o)"
-
-#: src/libnma/nma-vpn-password-dialog.ui:130
-#: src/libnm-gtk/nm-vpn-password-dialog.c:97
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "দ্বিতীয় পাছৱৰ্ড (_S):"
-
-#: src/libnma/nma-vpn-password-dialog.ui:144
-#: src/libnm-gtk/nm-vpn-password-dialog.c:94
-msgid "_Secondary Password:"
-msgstr "দ্বিতীয় পাছৱৰ্ড (_S):"
-
-#: src/libnma/nma-vpn-password-dialog.ui:158
-#: src/libnm-gtk/nm-vpn-password-dialog.c:92
-msgid "_Password:"
-msgstr "পাছৱৰ্ড (_P):"
-
-#: src/libnma/nma-wifi-dialog.c:114 src/libnm-gtk/nm-wifi-dialog.c:127
-#, fuzzy
-msgid "Click to connect"
-msgstr "বিচ্ছিন্ন কৰক"
-
-#: src/libnma/nma-wifi-dialog.c:445 src/libnm-gtk/nm-wifi-dialog.c:451
-msgid "New…"
-msgstr ""
-
-#: src/libnma/nma-wifi-dialog.c:923 src/libnm-gtk/nm-wifi-dialog.c:891
-msgctxt "Wifi/wired security"
-msgid "None"
-msgstr "কোনো নহয়"
-
-#: src/libnma/nma-wifi-dialog.c:979 src/libnm-gtk/nm-wifi-dialog.c:947
-#, fuzzy
-msgid "Dynamic WEP (802.1x)"
-msgstr "ডাইনামিক WEP (802.1X)"
-
-#: src/libnma/nma-wifi-dialog.c:1119 src/libnm-gtk/nm-wifi-dialog.c:1057
-msgid "C_reate"
-msgstr "সৃষ্টি কৰক (_r)"
-
-#: src/libnma/nma-wifi-dialog.c:1199 src/libnm-gtk/nm-wifi-dialog.c:1136
-#, fuzzy, c-format
-msgid ""
-"Passwords or encryption keys are required to access the Wi-Fi network “%s”."
-msgstr "'%s' Wi-Fi নেটৱৰ্ক ব্যৱহাৰ কৰাৰ বাবে পাছৱৰ্ড বা এনক্ৰিপশন কি'ৰ প্ৰয়োজন।"
-
-#: src/libnma/nma-wifi-dialog.c:1201 src/libnm-gtk/nm-wifi-dialog.c:1138
-msgid "Wi-Fi Network Authentication Required"
-msgstr "Wi-Fi নেটৱৰ্ক প্ৰমাণীকৰণ প্ৰয়োজন"
-
-#: src/libnma/nma-wifi-dialog.c:1203 src/libnm-gtk/nm-wifi-dialog.c:1140
-msgid "Authentication required by Wi-Fi network"
-msgstr "Wi-Fi নেটৱৰ্কৰ দ্বাৰা প্ৰমাণীকৰণৰ প্ৰয়োজন"
-
-#: src/libnma/nma-wifi-dialog.c:1208 src/libnm-gtk/nm-wifi-dialog.c:1145
-msgid "Create New Wi-Fi Network"
-msgstr "নতুন Wi-Fi নেটৱৰ্ক সৃষ্টি কৰক"
-
-#: src/libnma/nma-wifi-dialog.c:1210 src/libnm-gtk/nm-wifi-dialog.c:1147
-msgid "New Wi-Fi network"
-msgstr "নতুন Wi-Fi নেটৱৰ্ক"
-
-#: src/libnma/nma-wifi-dialog.c:1211 src/libnm-gtk/nm-wifi-dialog.c:1148
-msgid "Enter a name for the Wi-Fi network you wish to create."
-msgstr "সৃষ্টি কৰাৰ বাবে চিহ্নিত Wi-Fi নেটৱৰ্কৰ এটা নাম নিৰ্ধাৰণ কৰক।"
-
-#: src/libnma/nma-wifi-dialog.c:1213 src/libnm-gtk/nm-wifi-dialog.c:1150
-msgid "Connect to Hidden Wi-Fi Network"
-msgstr "লুকুৱা Wi-Fi নেটৱৰ্কৰ সৈতে সংযোগ কৰক"
-
-#: src/libnma/nma-wifi-dialog.c:1215 src/libnm-gtk/nm-wifi-dialog.c:1152
-msgid "Hidden Wi-Fi network"
-msgstr "লুকুৱা Wi-Fi নেটৱৰ্ক"
-
-#: src/libnma/nma-wifi-dialog.c:1216 src/libnm-gtk/nm-wifi-dialog.c:1153
-msgid ""
-"Enter the name and security details of the hidden Wi-Fi network you wish to "
-"connect to."
-msgstr "সংযোগ কৰাৰ বাবে চিহ্নিত লুকুৱা Wi-Fi নেটৱৰ্কৰ নাম আৰু সুৰক্ষা তথ্য লিখক।"
-
-#: src/libnma/wifi.ui:97
-#, fuzzy
-msgid "Wi-Fi _security"
-msgstr "Wi-Fi সুৰক্ষা (_s):"
-
-#: src/libnma/wifi.ui:154
-#, fuzzy
-msgid "C_onnection"
-msgstr "সংযোগ (_o):"
-
-#: src/libnma/wifi.ui:179
-#, fuzzy
-msgid "Wi-Fi _adapter"
-msgstr "Wi-Fi এডাপ্টাৰ (_a):"
-
-#: src/libnm-gtk/nm-mobile-wizard.c:735
-#, fuzzy
-msgid "I can’t find my provider and I wish to enter it _manually:"
-msgstr "সেৱা উপলব্ধকৰ্তাৰ নাম অনুপস্থিত আৰু মই স্বয়ং সেইটো লিখিবলৈ ইচ্ছুক (_m):"
-
-#: src/libnm-gtk/nm-mobile-wizard.c:748
-msgid "Provider:"
-msgstr "সেৱা উপলব্ধকৰ্তা:"
-
-#: src/libnm-gtk/nm-mobile-wizard.c:1040
-msgid "Country or Region List:"
-msgstr "দেশ অথবা অঞ্চল তালিকা:"
-
-#: src/libnm-gtk/nm-mobile-wizard.c:1053
-msgid "Country or region"
-msgstr "দেশ অথবা অঞ্চল"
-
-#: src/libnm-gtk/nm-ui-utils.c:288 src/libnm-gtk/nm-ui-utils.c:355
-msgid "Wired"
-msgstr "তাঁৰযুক্ত"
-
-#: src/libnm-gtk/nm-ui-utils.c:313
-msgid "OLPC Mesh"
-msgstr "OLPC মেশ"
-
-#: src/libnm-gtk/nm-ui-utils.c:327
-msgid "ADSL"
-msgstr "ADSL"
-
-#: src/libnm-gtk/nm-ui-utils.c:390
-msgid "PCI"
-msgstr "PCI"
-
-#: src/libnm-gtk/nm-ui-utils.c:392
-msgid "USB"
-msgstr "USB"
-
-#. Translators: the first %s is a bus name (eg, "USB") or
-#. * product name, the second is a device type (eg,
-#. * "Ethernet"). You can change this to something like
-#. * "%2$s (%1$s)" if there's no grammatical way to combine
-#. * the strings otherwise.
-#.
-#: src/libnm-gtk/nm-ui-utils.c:468 src/libnm-gtk/nm-ui-utils.c:488
-#, c-format
-msgctxt "long device name"
-msgid "%s %s"
-msgstr "%s %s"
-
-#: src/libnm-gtk/nm-wifi-dialog.c:128
-msgid ""
-"Either a password is missing or the connection is invalid. In the latter "
-"case, you have to edit the connection with nm-connection-editor first"
-msgstr ""
-
-#: src/libnm-gtk/wifi.ui:97
-msgid "Wi-Fi _security:"
-msgstr "Wi-Fi সুৰক্ষা (_s):"
-
-#: src/libnm-gtk/wifi.ui:129
-msgid "_Network name:"
-msgstr "নেটৱৰ্কৰ নাম (_N):"
-
-#: src/libnm-gtk/wifi.ui:154
-msgid "C_onnection:"
-msgstr "সংযোগ (_o):"
-
-#: src/libnm-gtk/wifi.ui:179
-msgid "Wi-Fi _adapter:"
-msgstr "Wi-Fi এডাপ্টাৰ (_a):"
 
 #: src/main.c:28
 msgid "Usage:"
@@ -4842,53 +4411,40 @@ msgid "roaming"
 msgstr "ৰ'মিং"
 
 #. The %s is a mobile provider name, eg "T-Mobile"
-#: src/utils/utils.c:170
+#: src/utils/utils.c:160
 #, c-format
 msgid "%s connection"
 msgstr "%s সংযোগ"
 
-#: src/utils/utils.c:544
+#: src/utils/utils.c:534
 #, fuzzy
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "DER বা PEM প্ৰমাণপত্ৰসমূহ (*.der, *.pem, *.crt, *.cer)"
 
-#: src/utils/utils.c:556
+#: src/utils/utils.c:546
 msgid "DER, PEM, or PKCS#12 private keys (*.der, *.pem, *.p12, *.key)"
 msgstr "DER, PEM, অথবা PKCS#12 ব্যক্তিগত কিসমূহ (*.der, *.pem, *.p12, *.key)"
 
-#: src/wireless-security/eap-method.c:43
-msgid "undefined error in 802.1X security (wpa-eap)"
-msgstr ""
-
-#: src/wireless-security/eap-method.c:351
-#, fuzzy
-msgid "no CA certificate selected"
-msgstr "কোনো CA প্ৰমাণপত্ৰৰ প্ৰয়োজন নাই (_r)"
-
-#: src/wireless-security/eap-method.c:356
-msgid "selected CA certificate file does not exist"
-msgstr ""
-
-#: src/wireless-security/eap-method-fast.c:59
+#: src/wireless-security/eap-method-fast.c:58
 msgid "missing EAP-FAST PAC file"
 msgstr ""
 
-#: src/wireless-security/eap-method-fast.c:256
-#: src/wireless-security/eap-method-peap.c:319
-#: src/wireless-security/eap-method-ttls.c:373
+#: src/wireless-security/eap-method-fast.c:255
+#: src/wireless-security/eap-method-peap.c:311
+#: src/wireless-security/eap-method-ttls.c:365
 msgid "GTC"
 msgstr "GTC"
 
-#: src/wireless-security/eap-method-fast.c:395
+#: src/wireless-security/eap-method-fast.c:394
 #, fuzzy
 msgid "Choose a PAC file"
 msgstr "এটা PAC ফাইল বাছক..."
 
-#: src/wireless-security/eap-method-fast.c:402
+#: src/wireless-security/eap-method-fast.c:401
 msgid "PAC files (*.pac)"
 msgstr "PAC ফাইলসমূহ (*.pac)"
 
-#: src/wireless-security/eap-method-fast.c:406
+#: src/wireless-security/eap-method-fast.c:405
 msgid "All files"
 msgstr "সকলো ফাইল"
 
@@ -4927,16 +4483,16 @@ msgstr "অভ্যন্তৰীক প্ৰমাণীকৰণ (_I):"
 msgid "Allow automatic PAC pro_visioning"
 msgstr "স্বচালিত PAC যোগানৰ অনুমতি দিয়ক (_v)"
 
-#: src/wireless-security/eap-method-leap.c:53
+#: src/wireless-security/eap-method-leap.c:52
 msgid "missing EAP-LEAP username"
 msgstr ""
 
-#: src/wireless-security/eap-method-leap.c:62
+#: src/wireless-security/eap-method-leap.c:61
 msgid "missing EAP-LEAP password"
 msgstr ""
 
-#: src/wireless-security/eap-method-peap.c:303
-#: src/wireless-security/eap-method-ttls.c:357
+#: src/wireless-security/eap-method-peap.c:295
+#: src/wireless-security/eap-method-ttls.c:349
 #: src/wireless-security/wireless-security.c:411
 msgid "MD5"
 msgstr "MD5"
@@ -4972,15 +4528,15 @@ msgstr ""
 msgid "_Domain"
 msgstr ""
 
-#: src/wireless-security/eap-method-simple.c:77
+#: src/wireless-security/eap-method-simple.c:76
 msgid "missing EAP username"
 msgstr ""
 
-#: src/wireless-security/eap-method-simple.c:93
+#: src/wireless-security/eap-method-simple.c:92
 msgid "missing EAP password"
 msgstr ""
 
-#: src/wireless-security/eap-method-simple.c:107
+#: src/wireless-security/eap-method-simple.c:106
 msgid "missing EAP client Private Key passphrase"
 msgstr ""
 
@@ -4994,24 +4550,24 @@ msgstr "WEP ১২৮-বিট পৰিচয়পংক্তি"
 msgid "Sh_ow passphrase"
 msgstr "পাছৱৰ্ডসমূহ দেখুৱাওক (_o)"
 
-#: src/wireless-security/eap-method-tls.c:51
+#: src/wireless-security/eap-method-tls.c:47
 msgid "missing EAP-TLS identity"
 msgstr ""
 
-#: src/wireless-security/eap-method-tls.c:243
+#: src/wireless-security/eap-method-tls.c:234
 #, fuzzy
 msgid "no user certificate selected"
 msgstr "কোনো CA প্ৰমাণপত্ৰৰ প্ৰয়োজন নাই (_r)"
 
-#: src/wireless-security/eap-method-tls.c:248
+#: src/wireless-security/eap-method-tls.c:239
 msgid "selected user certificate file does not exist"
 msgstr ""
 
-#: src/wireless-security/eap-method-tls.c:268
+#: src/wireless-security/eap-method-tls.c:259
 msgid "no key selected"
 msgstr ""
 
-#: src/wireless-security/eap-method-tls.c:273
+#: src/wireless-security/eap-method-tls.c:264
 msgid "selected key file does not exist"
 msgstr ""
 
@@ -5020,10 +4576,23 @@ msgstr ""
 msgid "I_dentity"
 msgstr "পৰিচয় (_d):"
 
-#: src/wireless-security/eap-method-ttls.c:324
+#: src/wireless-security/eap-method-ttls.c:316
 #, fuzzy
 msgid "MSCHAPv2 (no EAP)"
 msgstr "MSCHAPv2"
+
+#: src/wireless-security/eap-method.c:43
+msgid "undefined error in 802.1X security (wpa-eap)"
+msgstr ""
+
+#: src/wireless-security/eap-method.c:351
+#, fuzzy
+msgid "no CA certificate selected"
+msgstr "কোনো CA প্ৰমাণপত্ৰৰ প্ৰয়োজন নাই (_r)"
+
+#: src/wireless-security/eap-method.c:356
+msgid "selected CA certificate file does not exist"
+msgstr ""
 
 #: src/wireless-security/wireless-security.c:58
 msgid "Unknown error validating 802.1X security"
@@ -5060,15 +4629,15 @@ msgstr ""
 msgid "Au_thentication"
 msgstr "প্ৰমাণীকৰণ (_t):"
 
-#: src/wireless-security/ws-leap.c:51
+#: src/wireless-security/ws-leap.c:50
 msgid "missing leap-username"
 msgstr ""
 
-#: src/wireless-security/ws-leap.c:69
+#: src/wireless-security/ws-leap.c:68
 msgid "missing leap-password"
 msgstr ""
 
-#: src/wireless-security/ws-sae.c:57
+#: src/wireless-security/ws-sae.c:56
 #, fuzzy
 msgid "missing password"
 msgstr "ব্যক্তিগত কি' পাছৱৰ্ড (_P):"
@@ -5078,33 +4647,33 @@ msgstr "ব্যক্তিগত কি' পাছৱৰ্ড (_P):"
 msgid "_Type"
 msgstr "ধৰণ (_T):"
 
-#: src/wireless-security/ws-wep-key.c:100
+#: src/wireless-security/ws-wep-key.c:99
 msgid "missing wep-key"
 msgstr ""
 
-#: src/wireless-security/ws-wep-key.c:107
+#: src/wireless-security/ws-wep-key.c:106
 #, c-format
 msgid "invalid wep-key: key with a length of %zu must contain only hex-digits"
 msgstr ""
 
-#: src/wireless-security/ws-wep-key.c:115
+#: src/wireless-security/ws-wep-key.c:114
 #, c-format
 msgid ""
 "invalid wep-key: key with a length of %zu must contain only ascii characters"
 msgstr ""
 
-#: src/wireless-security/ws-wep-key.c:121
+#: src/wireless-security/ws-wep-key.c:120
 #, c-format
 msgid ""
 "invalid wep-key: wrong key length %zu. A key must be either of length 5/13 "
 "(ascii) or 10/26 (hex)"
 msgstr ""
 
-#: src/wireless-security/ws-wep-key.c:128
+#: src/wireless-security/ws-wep-key.c:127
 msgid "invalid wep-key: passphrase must be non-empty"
 msgstr ""
 
-#: src/wireless-security/ws-wep-key.c:130
+#: src/wireless-security/ws-wep-key.c:129
 msgid "invalid wep-key: passphrase must be shorter than 64 characters"
 msgstr ""
 
@@ -5134,16 +4703,415 @@ msgstr "কি' দেখুৱাওক (_w)"
 msgid "WEP inde_x"
 msgstr "WEP সূচী (_x):"
 
-#: src/wireless-security/ws-wpa-psk.c:63
+#: src/wireless-security/ws-wpa-psk.c:62
 #, c-format
 msgid ""
 "invalid wpa-psk: invalid key-length %zu. Must be [8,63] bytes or 64 hex "
 "digits"
 msgstr ""
 
-#: src/wireless-security/ws-wpa-psk.c:70
+#: src/wireless-security/ws-wpa-psk.c:69
 msgid "invalid wpa-psk: cannot interpret key with 64 bytes as hex"
 msgstr ""
+
+#~ msgid "Disable connected notifications"
+#~ msgstr "সংযুক্ত অধিসূচনাসমূহ অসামৰ্থবান কৰক"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr ""
+#~ "এটা নেটৱৰ্কলে সংযোগ কৰোতে অধিসূচনাসমূহ অসামৰ্থবান কৰিবলে ইয়াক সত্যলে সংহতি কৰক।"
+
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "বিচ্ছিন্ন হোৱাৰ অধিসূচনা অসামৰ্থবান কৰা হ'ব"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "এটা নেটৱৰ্কৰ পৰা বিচ্ছিন্ন হওতে অধিসূচনাসমূহ অসামৰ্থবান কৰিবলে ইয়াক সত্যলে সংহতি "
+#~ "কৰক।"
+
+#~ msgid "Disable VPN notifications"
+#~ msgstr "VPN অধিসূচনাসমূহ অসামৰ্থবান কৰক"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "এটা VPN লে সংযোগ কৰোতে অথবা তাৰ পৰা বিচ্ছিন্ন হওতে অধিসূচনাসমূহ অসামৰ্থবান "
+#~ "কৰিবলে ইয়াক সত্যলে সংহতি কৰক।"
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "উপলব্ধ নেটৱৰ্কৰ অধিসূচনা প্ৰদৰ্শন লুকুৱা হ'ব"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "যেতিয়া Wi-Fi নেটৱৰ্কসমূহ উপলব্ধ থাকে অধিসূচনাসমূহ অসামৰ্থবান কৰিবলে ইয়াক সত্যলে "
+#~ "সংহতি কৰক।"
+
+#~ msgid "Stamp"
+#~ msgstr "স্টেম্প"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr ""
+#~ "নতুন সংস্কৰণত সংহতিসমূহ প্ৰব্ৰজন কৰা হ'ব নে নহয় নিৰ্ধাৰণ কৰিবলৈ ইয়াক ব্যৱহাৰ কৰা "
+#~ "হয়।"
+
+#, fuzzy
+#~ msgid "Disable WiFi Create"
+#~ msgstr "Wi-Fi সৃষ্টি অসামৰ্থবান কৰক"
+
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "এপ্লেট ব্যৱহাৰ কৰি থাকোতে adhoc নেটৱৰ্কসমূহৰ সৃষ্টি অসামৰ্থবান কৰিবলে সত্যলে "
+#~ "সংহতি কৰক।"
+
+#~ msgid "Show the applet in notification area"
+#~ msgstr "এপ্লেটক অধিসূচনা স্থানত দেখুৱাওক"
+
+#~ msgid ""
+#~ "Set to FALSE to disable displaying the applet in the notification area."
+#~ msgstr "এপ্লেটক অধিসূচনা স্থানত প্ৰদৰ্শন অসামৰ্থবান কৰিবলে FALSE লৈ সংহত।"
+
+#~ msgid "Ignore CA certificate"
+#~ msgstr "CA প্ৰমাণপত্ৰ উপেক্ষা কৰক"
+
+#~ msgid ""
+#~ "Set this to true to disable warnings about CA certificates in EAP "
+#~ "authentication."
+#~ msgstr ""
+#~ "EAP প্ৰমাণীকৰণত CA প্ৰমাণপত্ৰসমূহৰ বিষয়ে সতৰ্কবাৰ্তা অসামৰ্থবান কৰিবলে ইয়াক "
+#~ "সত্যলে সংহতি কৰক।"
+
+#~ msgid ""
+#~ "Set this to true to disable warnings about CA certificates in phase 2 of "
+#~ "EAP authentication."
+#~ msgstr ""
+#~ "EAP প্ৰমাণীকৰণৰ স্তৰ ২ ত CA প্ৰমাণপত্ৰসমূহৰ বিষয়ে সতৰ্কবাৰ্তাসমূহ অসামৰ্থবান "
+#~ "কৰিবলে ইয়াক সত্যলে সংহতি কৰক।"
+
+#, fuzzy
+#~ msgid "No certificate set"
+#~ msgstr "কোনো CA প্ৰমাণপত্ৰৰ প্ৰয়োজন নাই (_r)"
+
+#, fuzzy, c-format
+#~ msgid "Choose a key for %s Certificate"
+#~ msgstr "এটা CA প্ৰমাণপত্ৰ বাছক"
+
+#, fuzzy, c-format
+#~ msgid "%s key _password"
+#~ msgstr "ব্যক্তিগত কি' পাছৱৰ্ড (_P):"
+
+#, fuzzy, c-format
+#~ msgid "Choose %s Certificate"
+#~ msgstr "এটা CA প্ৰমাণপত্ৰ বাছক"
+
+#, fuzzy, c-format
+#~ msgid "%s _certificate"
+#~ msgstr "ব্যৱহাৰকাৰী প্ৰমাণপত্ৰ (_U):"
+
+#~ msgid "My country is not listed"
+#~ msgstr "মোৰ দেশ তালিকাত নাই"
+
+#~ msgid "Unlisted"
+#~ msgstr "তালিকা বহিৰ্ভূত"
+
+#, fuzzy
+#~ msgid "My plan is not listed…"
+#~ msgstr "মোৰ পৰিকল্পনা তালিকাভুক্ত নহয়..."
+
+#~ msgid "Provider"
+#~ msgstr "সেৱা উপলব্ধকৰ্তা"
+
+#~ msgid "Installed GSM device"
+#~ msgstr "ইনস্টল কৰা GSM ডিভাইচ"
+
+#~ msgid "Installed CDMA device"
+#~ msgstr "ইনস্টল কৰা CDMA ডিভাইচ"
+
+#~ msgid "Any device"
+#~ msgstr "যিকোনো ডিভাইচ"
+
+#~ msgid "New Mobile Broadband Connection"
+#~ msgstr "নতুন ম'বাইল ব্ৰডবেণ্ড সংযোগ"
+
+#~ msgid ""
+#~ "This assistant helps you easily set up a mobile broadband connection to a "
+#~ "cellular (3G) network."
+#~ msgstr ""
+#~ "এই সহায়ক ব্যৱস্থাৰ সহায়ত এটা চেলুলাৰ (3G) নেটৱৰ্কৰ সৈতে ম'বাইল ব্ৰডবেণ্ড সংযোগ "
+#~ "স্থাপন কৰা যাব।"
+
+#~ msgid "You will need the following information:"
+#~ msgstr "নিম্নলিখিত তথ্যৰ প্ৰয়োজন:"
+
+#, fuzzy
+#~ msgid "Your broadband provider’s name"
+#~ msgstr "ব্ৰডবেণ্ড সেৱা উপলব্ধকৰ্তাৰ নাম"
+
+#~ msgid "Your broadband billing plan name"
+#~ msgstr "ব্ৰডবেণ্ড বিলিং পৰিকল্পনাৰ নাম"
+
+#~ msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
+#~ msgstr ""
+#~ "(কিছু ক্ষেত্ৰত) আপোনাৰ ব্যৱহৃত ব্ৰডবেণ্ড বিলিং পৰিকল্পনা APN (এক্সেচ পইন্ট নেম)"
+
+#~ msgid "Create a connection for _this mobile broadband device:"
+#~ msgstr "এই ম'বাইল ব্ৰডবেণ্ড ডিভাইচৰ বাবে সংযোগ সৃষ্টি কৰক (_t)"
+
+#~ msgid "Set up a Mobile Broadband Connection"
+#~ msgstr "ম'বাইল ব্ৰডবেণ্ড সংযোগ প্ৰস্তুত কৰক"
+
+#, fuzzy
+#~ msgid "Country or region:"
+#~ msgstr "দেশ অথবা অঞ্চল"
+
+#, fuzzy
+#~ msgid "Choose your Provider’s Country or Region"
+#~ msgstr "আপোনাৰ প্ৰদানকাৰীৰ দেশ অথবা অঞ্চল বাছক"
+
+#~ msgid "Select your provider from a _list:"
+#~ msgstr "তালিকাৰ পৰা সেৱা উপলব্ধকৰ্তাৰ নাম বাছক (_l):"
+
+#, fuzzy
+#~ msgid ""
+#~ "I can’t find my provider and I wish to set up the connection _manually:"
+#~ msgstr "সেৱা উপলব্ধকৰ্তাৰ নাম অনুপস্থিত আৰু মই স্বয়ং সেইটো লিখিবলৈ ইচ্ছুক (_m):"
+
+#~ msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
+#~ msgstr ""
+#~ "মোৰ সেৱা উপলব্ধকৰ্তা দ্বাৰা GSM প্ৰযুক্তি ব্যৱহাৰ কৰা হয় (GPRS, EDGE, UMTS, HSPA)"
+
+#~ msgid "My provider uses CDMA technology (1xRTT, EVDO)"
+#~ msgstr "মোৰ সেৱা উপলব্ধকৰ্তা দ্বাৰা CDMA প্ৰযুক্তি ব্যৱহাৰ কৰা হয় (1xRTT, EVDO)"
+
+#~ msgid "Choose your Provider"
+#~ msgstr "সেৱা উপলব্ধকৰ্তা বাছক"
+
+#~ msgid "_Select your plan:"
+#~ msgstr "আপোনাৰ পৰিকল্পনা বাছক (_S):"
+
+#~ msgid "Selected plan _APN (Access Point Name):"
+#~ msgstr "নিৰ্বাচিত পৰিকল্পনাৰ APN (এক্সেচ পইন্ট নেম) (_A):"
+
+#, fuzzy
+#~ msgid ""
+#~ "Warning: Selecting an incorrect plan may result in billing issues for "
+#~ "your broadband account or may prevent connectivity.\n"
+#~ "\n"
+#~ "If you are unsure of your plan please ask your provider for your plan’s "
+#~ "APN."
+#~ msgstr ""
+#~ "সতৰ্কবাৰ্তা: ভুল পৰিকল্পনা নিৰ্বাচন কৰিলে আপোনাৰ ব্ৰডবেণ্ড সংযোগৰ বিল আৰু সংযোগ "
+#~ "স্থাপনত সমস্যা হ'ব।\n"
+#~ "\n"
+#~ "পৰিকল্পনা সম্পৰ্কে নিশ্চিত ন'হ'লে অনুগ্ৰহ কৰি সেৱা উপলব্ধকৰ্তা সৈতে যোগাযোগ কৰি "
+#~ "আপোনাৰ ব্যৱহৃত পৰিকল্পনাৰ APN জানক।"
+
+#~ msgid "Choose your Billing Plan"
+#~ msgstr "ব্যৱহৃত বিল পৰিকল্পনা বাছক"
+
+#~ msgid ""
+#~ "Your mobile broadband connection is configured with the following "
+#~ "settings:"
+#~ msgstr "নিম্নলিখিত সংহতিসমূহৰ সৈতে ম'বাইল ব্ৰডবেণ্ড সংযোগ সংৰূপণ কৰা হৈছে:"
+
+#~ msgid "Your Device:"
+#~ msgstr "আপোনাৰ ডিভাইচ:"
+
+#~ msgid "Your Provider:"
+#~ msgstr "আপোনাৰ সেৱা উপলব্ধকৰ্তা:"
+
+#~ msgid "Your Plan:"
+#~ msgstr "আপোনাৰ পৰিকল্পনা:"
+
+#, fuzzy
+#~ msgid ""
+#~ "A connection will now be made to your mobile broadband provider using the "
+#~ "settings you selected. If the connection fails or you cannot access "
+#~ "network resources, double-check your settings. To modify your mobile "
+#~ "broadband connection settings, choose “Network Connections” from the "
+#~ "System → Preferences menu."
+#~ msgstr ""
+#~ "আপোনাৰ নিৰ্বাচিত সংহতিসমূহসমূহ প্ৰয়োগ কৰি এতিয়া আপোনাৰ ম'বাইল ব্ৰডবেণ্ড সেৱা "
+#~ "উপলব্ধকৰ্তাৰ সৈতে সংযোগ স্থাপন কৰা হ'ব।  সংযোগ বিফল হ'লে বা নেটৱৰ্ক সম্পদ "
+#~ "ব্যৱহাৰ কৰা সম্ভৱ ন'হ'লে, নিৰ্ধাৰিত সংহতিসমূহসমূহ পৰীক্ষা কৰক।  ম'বাইল ব্ৰডবেণ্ড "
+#~ "সংযোগৰ সংহতিসমূহ পৰিবৰ্তন কৰাৰ বাবে প্ৰণালী >> পছন্দ তালিকাৰ পৰা \"নেটৱৰ্ক "
+#~ "সংযোগ\" বাছক।"
+
+#~ msgid "Confirm Mobile Broadband Settings"
+#~ msgstr "ম'বাইল ব্ৰডবেণ্ডৰ সংহতিসমূহ নিশ্চিত কৰক"
+
+#, fuzzy
+#~ msgid "(None)"
+#~ msgstr "(শূণ্য)"
+
+#, fuzzy, c-format
+#~ msgid "Certificate in %s"
+#~ msgstr "CA প্ৰমাণপত্ৰ (_A):"
+
+#, fuzzy
+#~ msgid "(Unknown)"
+#~ msgstr "অজ্ঞাত"
+
+#, fuzzy
+#~ msgid "Select"
+#~ msgstr "এটা পঞ্জিকা নিৰ্বাচন কৰক"
+
+#, fuzzy
+#~ msgid "Select from file…"
+#~ msgstr "এটা পঞ্জিকা নিৰ্বাচন কৰক"
+
+#, fuzzy, c-format
+#~ msgid "Choose a %s Certificate"
+#~ msgstr "এটা CA প্ৰমাণপত্ৰ বাছক"
+
+#, fuzzy, c-format
+#~ msgid "%s certificate _password"
+#~ msgstr "ব্যৱহাৰকাৰী প্ৰমাণপত্ৰ (_U):"
+
+#, fuzzy
+#~ msgid "Error opening a session: "
+#~ msgstr "সংযোগ সম্পাদন কৰোতে ত্ৰুটি"
+
+#, fuzzy
+#~ msgid "_Unlock token"
+#~ msgstr "আনলক কৰক (_U)"
+
+#, fuzzy
+#~ msgid "Store the password only for this user"
+#~ msgstr "পাছৱৰ্ডক কেৱল এই ব্যৱহাৰকাৰীৰ বাবে সংৰক্ষণ কৰক (_u)"
+
+#, fuzzy
+#~ msgid "Store the password for all users"
+#~ msgstr "সকলো ব্যৱহাৰকাৰীৰ বাবে পাছৱৰ্ড সংৰক্ষণ কৰক (_a)"
+
+#, fuzzy
+#~ msgid "Ask for this password every time"
+#~ msgstr "প্ৰতিবাৰ এই পাছৱৰ্ড লিখাৰ অনুৰোধ কৰা হ'ব (_k)"
+
+#, fuzzy
+#~ msgid "The password is not required"
+#~ msgstr "'%s' লৈ সংযোগ কৰিবলৈ এটা পাছৱৰ্ডৰ প্ৰয়োজন।"
+
+#~ msgid "Sh_ow passwords"
+#~ msgstr "পাছৱৰ্ডসমূহ দেখুৱাওক (_o)"
+
+#, fuzzy
+#~ msgid "_Tertiary Password:"
+#~ msgstr "দ্বিতীয় পাছৱৰ্ড (_S):"
+
+#~ msgid "_Secondary Password:"
+#~ msgstr "দ্বিতীয় পাছৱৰ্ড (_S):"
+
+#~ msgid "_Password:"
+#~ msgstr "পাছৱৰ্ড (_P):"
+
+#, fuzzy
+#~ msgid "Click to connect"
+#~ msgstr "বিচ্ছিন্ন কৰক"
+
+#~ msgctxt "Wifi/wired security"
+#~ msgid "None"
+#~ msgstr "কোনো নহয়"
+
+#, fuzzy
+#~ msgid "Dynamic WEP (802.1x)"
+#~ msgstr "ডাইনামিক WEP (802.1X)"
+
+#~ msgid "C_reate"
+#~ msgstr "সৃষ্টি কৰক (_r)"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "Passwords or encryption keys are required to access the Wi-Fi network "
+#~ "“%s”."
+#~ msgstr "'%s' Wi-Fi নেটৱৰ্ক ব্যৱহাৰ কৰাৰ বাবে পাছৱৰ্ড বা এনক্ৰিপশন কি'ৰ প্ৰয়োজন।"
+
+#~ msgid "Wi-Fi Network Authentication Required"
+#~ msgstr "Wi-Fi নেটৱৰ্ক প্ৰমাণীকৰণ প্ৰয়োজন"
+
+#~ msgid "Authentication required by Wi-Fi network"
+#~ msgstr "Wi-Fi নেটৱৰ্কৰ দ্বাৰা প্ৰমাণীকৰণৰ প্ৰয়োজন"
+
+#~ msgid "Create New Wi-Fi Network"
+#~ msgstr "নতুন Wi-Fi নেটৱৰ্ক সৃষ্টি কৰক"
+
+#~ msgid "New Wi-Fi network"
+#~ msgstr "নতুন Wi-Fi নেটৱৰ্ক"
+
+#~ msgid "Enter a name for the Wi-Fi network you wish to create."
+#~ msgstr "সৃষ্টি কৰাৰ বাবে চিহ্নিত Wi-Fi নেটৱৰ্কৰ এটা নাম নিৰ্ধাৰণ কৰক।"
+
+#~ msgid "Connect to Hidden Wi-Fi Network"
+#~ msgstr "লুকুৱা Wi-Fi নেটৱৰ্কৰ সৈতে সংযোগ কৰক"
+
+#~ msgid "Hidden Wi-Fi network"
+#~ msgstr "লুকুৱা Wi-Fi নেটৱৰ্ক"
+
+#~ msgid ""
+#~ "Enter the name and security details of the hidden Wi-Fi network you wish "
+#~ "to connect to."
+#~ msgstr "সংযোগ কৰাৰ বাবে চিহ্নিত লুকুৱা Wi-Fi নেটৱৰ্কৰ নাম আৰু সুৰক্ষা তথ্য লিখক।"
+
+#, fuzzy
+#~ msgid "Wi-Fi _security"
+#~ msgstr "Wi-Fi সুৰক্ষা (_s):"
+
+#, fuzzy
+#~ msgid "C_onnection"
+#~ msgstr "সংযোগ (_o):"
+
+#, fuzzy
+#~ msgid "Wi-Fi _adapter"
+#~ msgstr "Wi-Fi এডাপ্টাৰ (_a):"
+
+#, fuzzy
+#~ msgid "I can’t find my provider and I wish to enter it _manually:"
+#~ msgstr "সেৱা উপলব্ধকৰ্তাৰ নাম অনুপস্থিত আৰু মই স্বয়ং সেইটো লিখিবলৈ ইচ্ছুক (_m):"
+
+#~ msgid "Provider:"
+#~ msgstr "সেৱা উপলব্ধকৰ্তা:"
+
+#~ msgid "Country or Region List:"
+#~ msgstr "দেশ অথবা অঞ্চল তালিকা:"
+
+#~ msgid "Country or region"
+#~ msgstr "দেশ অথবা অঞ্চল"
+
+#~ msgid "OLPC Mesh"
+#~ msgstr "OLPC মেশ"
+
+#~ msgid "ADSL"
+#~ msgstr "ADSL"
+
+#~ msgid "PCI"
+#~ msgstr "PCI"
+
+#~ msgid "USB"
+#~ msgstr "USB"
+
+#, c-format
+#~ msgctxt "long device name"
+#~ msgid "%s %s"
+#~ msgstr "%s %s"
+
+#~ msgid "Wi-Fi _security:"
+#~ msgstr "Wi-Fi সুৰক্ষা (_s):"
+
+#~ msgid "_Network name:"
+#~ msgstr "নেটৱৰ্কৰ নাম (_N):"
+
+#~ msgid "C_onnection:"
+#~ msgstr "সংযোগ (_o):"
+
+#~ msgid "Wi-Fi _adapter:"
+#~ msgstr "Wi-Fi এডাপ্টাৰ (_a):"
 
 #~ msgid "%s (default)"
 #~ msgstr "%s (অবিকল্পিত)"
@@ -5636,9 +5604,6 @@ msgstr ""
 #~ msgid "Wireless"
 #~ msgstr "বেতাঁৰ"
 
-#~ msgid "Wireless connection %d"
-#~ msgstr "বেতাঁৰ সংযোগ %d"
-
 #~ msgid "An unknown error occurred."
 #~ msgstr "এটা অজ্ঞাত ত্ৰুটি হৈছে।"
 
@@ -5695,9 +5660,6 @@ msgstr ""
 
 #~ msgid "Other Wireless Network..."
 #~ msgstr "বেতাঁৰ নেটৱৰ্ক"
-
-#~ msgid "<b>Addresses</b>"
-#~ msgstr "<b>Addresses</b>"
 
 #~ msgid ""
 #~ "Automatic\n"
@@ -5781,9 +5743,6 @@ msgstr ""
 #~ msgstr ""
 #~ "সংযোগ সম্পাদন ব্যৱস্থা দ্বাৰা কিছু আৱশ্যক সম্পদ সন্ধান কৰা সম্ভৱ নহয় "
 #~ "(NetworkManager এপ্লেট glade ফাইল পোৱা নাযায়)।"
-
-#~ msgid "Apply"
-#~ msgstr "প্ৰয়োগ কৰক"
 
 #~ msgid "Save this connection for all users of this machine."
 #~ msgstr "এই ডিভাইচৰ সকলো ব্যৱহাৰকাৰীৰ বাবে এই সংযোগ সংৰক্ষণ কৰক।"

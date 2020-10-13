@@ -1,31 +1,14 @@
 #!/usr/bin/make -f
 
-include /usr/share/dpkg/architecture.mk
-
-export DEB_LDFLAGS_MAINT_APPEND = -Wl,-z,defs -Wl,--as-needed
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,-z,defs
 
 %:
-	dh $@ --with gir,translations
-
-override_dh_autoreconf:
-	dh_autoreconf --as-needed
+	dh $@ --without=autoreconf --with translations --buildsystem=meson
 
 override_dh_auto_configure:
 	dh_auto_configure -- \
 		--libexecdir=/usr/lib/NetworkManager \
-		--disable-more-warnings \
-		--disable-static \
-		--enable-introspection \
-		--enable-gtk-doc \
-		--with-appindicator=ubuntu \
-		--with-gcr \
-		--with-selinux \
-		--with-wwan \
-		--without-libnm-gtk
-
-override_dh_install:
-	find debian/tmp -name '*.la' -print -delete
-	dh_install
-
-override_dh_missing:
-	dh_missing --fail-missing
+		-Dappindicator=ubuntu \
+		-Dwwan=true \
+		-Dselinux=true \
+		-Dteam=true

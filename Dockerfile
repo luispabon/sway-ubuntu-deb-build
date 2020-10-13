@@ -112,6 +112,7 @@ RUN yes | unminimize; \
 RUN yes | unminimize; \
     apt-get update; \
     apt-get -y install \
+        libnma-dev \
         libpipewire-0.3; \
     apt-get clean
 

@@ -6,10 +6,6 @@
     <property name="width_request">450</property>
     <property name="height_request">250</property>
     <property name="can_focus">False</property>
-    <property name="margin_start">5</property>
-    <property name="margin_end">5</property>
-    <property name="margin_top">5</property>
-    <property name="margin_bottom">5</property>
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
     <property name="icon_name">stock-peferences</property>
@@ -19,6 +15,10 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
+        <property name="margin_start">5</property>
+        <property name="margin_end">5</property>
+        <property name="margin_top">5</property>
+        <property name="margin_bottom">5</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox" id="dialog-action_area1">
@@ -66,10 +66,6 @@
             <property name="orientation">vertical</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_start">5</property>
-            <property name="margin_end">5</property>
-            <property name="margin_top">5</property>
-            <property name="margin_bottom">5</property>
             <property name="spacing">6</property>
             <child>
               <object class="GtkBox" id="hbox5">

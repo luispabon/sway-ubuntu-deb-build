@@ -40,6 +40,12 @@
 #define NM_IS_APPLET_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE((klass), NM_TYPE_APPLET))
 #define NM_APPLET_GET_CLASS(object) (G_TYPE_INSTANCE_GET_CLASS((object), NM_TYPE_APPLET, NMAppletClass))
 
+#ifdef WITH_APPINDICATOR
+#define INDICATOR_ENABLED(a) ((a)->app_indicator)
+#else
+#define INDICATOR_ENABLED(a) (FALSE)
+#endif  /* WITH_APPINDICATOR */
+
 typedef struct {
 	GApplicationClass parent_class;
 } NMAppletClass;

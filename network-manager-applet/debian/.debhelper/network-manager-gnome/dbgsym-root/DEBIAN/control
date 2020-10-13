@@ -1,0 +1,14 @@
+Package: network-manager-gnome-dbgsym
+Package-Type: ddeb
+Source: network-manager-applet
+Version: 1.18.0-1ubuntu2
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 984
+Depends: network-manager-gnome (= 1.18.0-1ubuntu2)
+Section: debug
+Priority: optional
+Description: debug symbols for network-manager-gnome
+Build-Ids: 0541cd2b956aff0372a91f180a7dbab1af0bcc06 1bb3e8841b5f2954972177a5c78e10877e56f88c
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>

@@ -14,7 +14,6 @@ PKG_NAME=nm-applet
 }
 
 (cd $srcdir;
-    gtkdocize &&
     autoreconf --force --install --symlink
 )
 

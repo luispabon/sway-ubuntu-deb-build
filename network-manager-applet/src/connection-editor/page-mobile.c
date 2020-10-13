@@ -74,7 +74,11 @@ populate_gsm_ui (CEPageMobile *self, NMConnection *connection)
 	NMSettingGsm *setting = NM_SETTING_GSM (priv->setting);
 	const char *s;
 
+	/* FIXME: no longer use gsm.number property. It's deprecated and has
+	 * no effect for NetworkManager. */
+	G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 	s = nm_setting_gsm_get_number (setting);
+	G_GNUC_END_IGNORE_DEPRECATIONS
 	if (s)
 		gtk_entry_set_text (priv->number, s);
 

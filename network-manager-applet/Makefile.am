@@ -1,6 +1,4 @@
 include $(GLIB_MAKEFILE)
--include $(INTROSPECTION_MAKEFILE)
-include $(top_srcdir)/gtk-doc.make
 
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
@@ -26,37 +24,24 @@ check_local =
 
 TESTS =
 
+EXTRA_DIST =
+
+CLEANFILES =
+
 DISTCLEANFILES =
 
 DISTCHECK_CONFIGURE_FLAGS = \
 	--disable-dependency-tracking \
-	--enable-gtk-doc \
-	--enable-introspection \
 	--enable-more-warnings=error \
 	--with-wwan \
-	--with-team \
-	--with-gcr
+	--with-team
 
-
-if WITH_LIBNM_GTK
-DISTCHECK_CONFIGURE_FLAGS += --with-libnm-gtk
-endif
 
 man_MANS =
 
 pkgconfig_DATA =
 
 pkgconfigdir = $(libdir)/pkgconfig
-
-girdir = $(datadir)/gir-1.0
-gir_DATA = $(INTROSPECTION_GIRS)
-BUILT_SOURCES += $(gir_DATA)
-
-typelibdir = $(libdir)/girepository-1.0
-typelib_DATA = $(INTROSPECTION_GIRS:.gir=.typelib)
-BUILT_SOURCES += $(typelib_DATA)
-
-INTROSPECTION_GIRS =
 
 SUBDIRS = \
 	. \
@@ -194,48 +179,6 @@ src_utils_libutils_libnm_la_LIBADD = \
 	$(GTK3_LIBS) \
 	$(LIBNM_LIBS)
 
-if WITH_LIBNM_GTK
-
-noinst_LTLIBRARIES += src/utils/libutils-libnm-glib.la
-
-src_utils_libutils_libnm_glib_la_CPPFLAGS = \
-	$(dflt_cppflags) \
-	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY \
-	"-I$(srcdir)/shared" \
-	$(GTK3_CFLAGS) \
-	$(LIBNM_GLIB_CFLAGS)
-
-src_utils_libutils_libnm_glib_la_SOURCES = \
-	$(shared_files) \
-	src/utils/utils.c \
-	src/utils/utils.h
-
-src_utils_libutils_libnm_glib_la_LIBADD = \
-	$(GTK3_LIBS) \
-	$(LIBNM_GLIB_LIBS)
-
-endif
-
-if WITH_LIBNMA_GTK4
-
-noinst_LTLIBRARIES += src/utils/libutils-libnm-gtk4.la
-
-src_utils_libutils_libnm_gtk4_la_CPPFLAGS = \
-	"-I$(srcdir)/shared" \
-	$(GTK4_CFLAGS) \
-	$(LIBNM_CFLAGS)
-
-src_utils_libutils_libnm_gtk4_la_SOURCES = \
-	$(shared_files) \
-	src/utils/utils.c \
-	src/utils/utils.h
-
-src_utils_libutils_libnm_gtk4_la_LIBADD = \
-	$(GTK4_LIBS) \
-	$(LIBNM_LIBS)
-
-endif
-
 check_programs += src/utils/tests/test-utils
 
 src_utils_tests_test_utils_SOURCES = src/utils/tests/test-utils.c
@@ -317,9 +260,8 @@ src_wireless_security_libwireless_security_libnm_la_CPPFLAGS = \
 	$(dflt_cppflags) \
 	"-I$(srcdir)/shared" \
 	"-I$(srcdir)/src/utils" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma \
 	$(GTK3_CFLAGS) \
+	$(LIBNMA_CFLAGS) \
 	$(LIBNM_CFLAGS)
 
 src_wireless_security_libwireless_security_libnm_la_LIBADD = \
@@ -328,62 +270,6 @@ src_wireless_security_libwireless_security_libnm_la_LIBADD = \
 	$(LIBNM_LIBS)
 
 $(src_wireless_security_libwireless_security_libnm_la_OBJECTS): $(wireless_security_h_gen)
-
-if WITH_LIBNM_GTK
-
-noinst_LTLIBRARIES += src/wireless-security/libwireless-security-libnm-glib.la
-
-src_wireless_security_libwireless_security_libnm_glib_la_SOURCES = \
-	$(wireless_security_c_real)
-
-nodist_src_wireless_security_libwireless_security_libnm_glib_la_SOURCES = \
-	$(wireless_security_c_gen)
-
-src_wireless_security_libwireless_security_libnm_glib_la_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GTK3_CFLAGS) \
-	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY \
-	"-I$(srcdir)/shared" \
-	"-I$(srcdir)/src/utils" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma \
-	$(LIBNM_GLIB_CFLAGS)
-
-src_wireless_security_libwireless_security_libnm_glib_la_LIBADD = \
-	src/utils/libutils-libnm-glib.la \
-	$(GTK3_LIBS) \
-	$(LIBNM_GLIB_LIBS)
-
-$(src_wireless_security_libwireless_security_libnm_glib_la_OBJECTS): $(wireless_security_h_gen)
-
-endif
-
-if WITH_LIBNMA_GTK4
-
-noinst_LTLIBRARIES += src/wireless-security/libwireless-security-libnm-gtk4.la
-
-src_wireless_security_libwireless_security_libnm_gtk4_la_SOURCES = \
-	$(wireless_security_c_real)
-
-nodist_src_wireless_security_libwireless_security_libnm_gtk4_la_SOURCES = \
-	$(wireless_security_c_gen)
-
-src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS = \
-	"-I$(srcdir)/shared" \
-	"-I$(srcdir)/src/utils" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma \
-	$(GTK4_CFLAGS) \
-	$(LIBNM_CFLAGS)
-
-src_wireless_security_libwireless_security_libnm_gtk4_la_LIBADD = \
-	src/utils/libutils-libnm-gtk4.la \
-	$(GTK4_LIBS) \
-	$(LIBNM_LIBS)
-
-$(src_wireless_security_libwireless_security_libnm_gtk4_la_OBJECTS): $(wireless_security_h_gen)
-
-endif
 
 EXTRA_DIST += \
 	src/wireless-security/eap-method-fast.ui \
@@ -400,638 +286,6 @@ EXTRA_DIST += \
 	src/wireless-security/ws-wpa-psk.ui \
 	src/wireless-security/ws.gresource.xml \
 	src/wireless-security/meson.build
-
-###############################################################################
-
-if WITH_LIBNM_GTK
-
-src/libnm-gtk/nm-resources.h: src/libnm-gtk/nm.gresource.xml
-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/src/libnm-gtk --generate-header --internal
-
-src/libnm-gtk/nm-resources.c: src/libnm-gtk/nm.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(srcdir)/src/libnm-gtk --generate-dependencies $(srcdir)/src/libnm-gtk/nm.gresource.xml)
-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/src/libnm-gtk --generate-source --internal
-
-CLEANFILES += \
-	$(libnm_gtk_h_priv_gen) \
-	$(libnm_gtk_c_gen)
-
-libnm_gtk_h_priv_gen = \
-	src/libnm-gtk/nm-resources.h
-
-libnm_gtk_c_gen = \
-	src/libnm-gtk/nm-resources.c
-
-libnm_gtk_h_pub = \
-	src/libnm-gtk/nm-wifi-dialog.h \
-	src/libnm-gtk/nm-wireless-dialog.h \
-	src/libnm-gtk/nm-mobile-wizard.h \
-	src/libnm-gtk/nm-ui-utils.h \
-	src/libnm-gtk/nm-mobile-providers.h \
-	src/libnm-gtk/nm-vpn-password-dialog.h \
-	src/libnm-gtk/nm-cert-chooser.h
-
-libnm_gtk_c_real = \
-	src/libnm-gtk/nm-wifi-dialog.c \
-	src/libnm-gtk/nm-wireless-dialog.c \
-	src/libnm-gtk/nm-mobile-wizard.c \
-	src/libnm-gtk/nm-ui-utils.c \
-	src/libnm-gtk/nm-mobile-providers.c \
-	src/libnm-gtk/nm-vpn-password-dialog.c \
-	src/libnma/nma-cert-chooser.c \
-	src/libnma/nma-file-cert-chooser.c \
-	src/libnm-gtk/init.c
-
-src_libnm_gtk_libnmgtkdir = $(includedir)/libnm-gtk
-
-src_libnm_gtk_libnmgtk_HEADERS = \
-	$(libnm_gtk_h_pub)
-
-lib_LTLIBRARIES += src/libnm-gtk/libnm-gtk.la
-
-src_libnm_gtk_libnm_gtk_la_SOURCES = \
-	$(libnm_gtk_c_real)
-
-nodist_src_libnm_gtk_libnm_gtk_la_SOURCES = \
-	$(libnm_gtk_c_gen)
-
-src_libnm_gtk_libnm_gtk_la_CFLAGS = \
-	$(dflt_cppflags) \
-	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY \
-	-DICONDIR=\""$(datadir)/icons"\" \
-	-DBINDIR=\""$(bindir)"\" \
-	-DSYSCONFDIR=\""$(sysconfdir)"\" \
-	-DLIBEXECDIR=\""$(libexecdir)"\" \
-	-DDATADIR=\""$(datadir)"\" \
-	-DAUTOSTARTDIR=\""$(sysconfdir)/xdg/autostart"\" \
-	-DNMALOCALEDIR=\"$(datadir)/locale\" \
-	"-I$(srcdir)/shared" \
-	"-I$(srcdir)/src/utils" \
-	"-I$(srcdir)/src/wireless-security" \
-	"-I$(srcdir)/src/libnm-gtk" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma \
-	$(GTK3_CFLAGS) \
-	$(LIBNM_GLIB_CFLAGS) \
-	$(GUDEV_CFLAGS)
-
-src_libnm_gtk_libnm_gtk_la_LIBADD = \
-	src/wireless-security/libwireless-security-libnm-glib.la \
-	$(GTK3_LIBS) \
-	$(LIBNM_GLIB_LIBS) \
-	$(GUDEV_LIBS)
-
-EXTRA_src_libnm_gtk_libnm_gtk_la_DEPENDENCIES = src/libnm-gtk/libnm-gtk.ver
-
-src_libnm_gtk_libnm_gtk_la_LDFLAGS = \
-	-Wl,-no-undefined \
-	-Wl,--version-script=$(srcdir)/src/libnm-gtk/libnm-gtk.ver
-
-$(src_libnm_gtk_libnm_gtk_la_OBJECTS): $(libnm_gtk_h_priv_gen)
-
-check-local-exports-libnm-gtk:
-	$(srcdir)/src/libnm-gtk/check-exports.sh $(builddir)/src/libnm-gtk/.libs/libnm-gtk.so $(srcdir)/src/libnm-gtk/libnm-gtk.ver
-
-check_local += check-local-exports-libnm-gtk
-
-
-pkgconfig_DATA += src/libnm-gtk/libnm-gtk.pc
-
-if HAVE_INTROSPECTION
-src/libnm-gtk/NMGtk-1.0.gir: src/libnm-gtk/libnm-gtk.la
-src_libnm_gtk_NMGtk_1_0_gir_INCLUDES = NMClient-1.0 NetworkManager-1.0 Gtk-3.0
-src_libnm_gtk_NMGtk_1_0_gir_EXPORT_PACKAGES = libnm-gtk
-src_libnm_gtk_NMGtk_1_0_gir_CFLAGS = $(src_libnm_gtk_libnm_gtk_la_CFLAGS)
-src_libnm_gtk_NMGtk_1_0_gir_LIBS = src/libnm-gtk/libnm-gtk.la
-src_libnm_gtk_NMGtk_1_0_gir_FILES = \
-	$(filter-out src/libnm-gtk/nm-wireless-dialog.h, $(libnm_gtk_h_pub)) \
-	$(filter-out src/libnm-gtk/nm-wireless-dialog.c, $(libnm_gtk_c_real))
-src_libnm_gtk_NMGtk_1_0_gir_SCANNERFLAGS = --warn-all --identifier-prefix=NMA --symbol-prefix=nma
-INTROSPECTION_GIRS += src/libnm-gtk/NMGtk-1.0.gir
-endif
-
-
-check_programs += src/libnm-gtk/tests/test-mobile-providers
-
-src_libnm_gtk_tests_test_mobile_providers_CPPFLAGS = \
-	$(dflt_cppflags) \
-	-DTEST_DATA_DIR=\""$(abs_srcdir)/src/libnm-gtk/tests"\" \
-	"-I$(srcdir)/shared" \
-	"-I$(srcdir)/src/libnm-gtk" \
-	$(GTK3_CFLAGS) \
-	$(LIBNM_GLIB_CFLAGS)
-
-src_libnm_gtk_tests_test_mobile_providers_LDADD = \
-	src/libnm-gtk/libnm-gtk.la \
-	$(LIBNM_GLIB_LIBS)
-
-endif
-
-EXTRA_DIST += \
-	src/libnm-gtk/libnm-gtk.pc.in \
-	src/libnm-gtk/libnm-gtk.ver \
-	src/libnm-gtk/check-exports.sh \
-	src/libnm-gtk/wifi.ui \
-	src/libnm-gtk/nm.gresource.xml \
-	src/libnm-gtk/meson.build \
-	\
-	src/libnm-gtk/tests/iso3166-test.xml \
-	src/libnm-gtk/tests/serviceproviders-test.xml \
-	\
-	src/libnm-gtk/examples/mobile-providers.js \
-	$(NULL)
-
-###############################################################################
-
-src/libnma/nma-resources.h: src/libnma/nma.gresource.xml
-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/src/libnma --generate-header --internal
-
-src/libnma/nma-resources.c: src/libnma/nma.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(srcdir)/src/libnma --generate-dependencies $(srcdir)/src/libnma/nma.gresource.xml)
-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/src/libnma --generate-source --internal
-
-src/libnma-gtk4/nma-resources.c: src/libnma/nma.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies $(srcdir)/src/libnma/nma.gresource.xml |sed "s,^,$(builddir)/src/libnma-gtk4/,")
-	@mkdir -p $(builddir)/src/libnma-gtk4
-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(builddir)/src/libnma-gtk4 --generate-source --internal
-
-
-src/libnma-gtk4/%.ui: src/libnma/%.ui
-	@mkdir -p $(builddir)/src/libnma-gtk4
-	gtk4-builder-tool simplify --3to4 $< >$@
-
-CLEANFILES += \
-	$(libnma_h_priv_gen) \
-	$(libnma_c_gen) \
-	$(libnma_gtk4_c_gen)
-
-libnma_h_priv_gen = \
-	src/libnma/nma-resources.h
-
-libnma_c_gen = \
-	src/libnma/nma-resources.c
-
-libnma_gtk4_c_gen = \
-	src/libnma-gtk4/nma-resources.c
-
-libnma_h_pub = \
-	src/libnma/nma-version.h \
-	src/libnma/nma-wifi-dialog.h \
-	src/libnma/nma-mobile-wizard.h \
-	src/libnma/nma-mobile-providers.h \
-	src/libnma/nma-vpn-password-dialog.h \
-	src/libnma/nma-ui-utils.h \
-	src/libnma/nma-cert-chooser.h \
-	src/libnma/nma-bar-code-widget.h \
-	src/libnma/nma-bar-code.h
-
-libnma_c_real = \
-	src/libnma/nma-wifi-dialog.c \
-	src/libnma/nma-mobile-wizard.c \
-	src/libnma/nma-mobile-providers.c \
-	src/libnma/nma-vpn-password-dialog.c \
-	src/libnma/nma-ui-utils.c \
-	src/libnma/init.c \
-	src/libnma/nma-cert-chooser.c \
-	src/libnma/nma-file-cert-chooser.c \
-	src/libnma/nma-bar-code-widget.c \
-	src/libnma/nma-bar-code.c
-
-EXTRA_DIST += \
-	src/libnma/qrcodegen.c \
-	src/libnma/qrcodegen.h
-
-libnma_h_priv_real = \
-	src/libnma/nma-cert-chooser-private.h \
-	src/libnma/nma-private.h
-
-libnma_h_priv_gcr = \
-	src/libnma/nma-pkcs11-token-login-dialog.h \
-	src/libnma/nma-pkcs11-cert-chooser-dialog.h \
-	src/libnma/nma-cert-chooser-button.h
-
-libnma_c_gcr = \
-	src/libnma/nma-pkcs11-token-login-dialog.c \
-	src/libnma/nma-pkcs11-cert-chooser-dialog.c \
-	src/libnma/nma-cert-chooser-button.c \
-	src/libnma/nma-pkcs11-cert-chooser.c
-
-src_libnma_libnmadir = $(includedir)/libnma
-
-src_libnma_libnma_HEADERS = \
-	$(libnma_h_pub)
-
-lib_LTLIBRARIES += src/libnma/libnma.la
-
-src_libnma_libnma_la_SOURCES = \
-	$(libnma_h_priv_real) \
-	$(libnma_c_real)
-
-if WITH_GCR
-src_libnma_libnma_la_SOURCES += \
-	$(libnma_h_priv_gcr) \
-	$(libnma_c_gcr)
-endif
-
-nodist_src_libnma_libnma_la_SOURCES = \
-	$(libnma_h_priv_gen) \
-	$(libnma_c_gen)
-
-src_libnma_libnma_la_CFLAGS = \
-	$(dflt_cppflags) \
-	-DICONDIR=\""$(datadir)/icons"\" \
-	-DBINDIR=\""$(bindir)"\" \
-	-DSYSCONFDIR=\""$(sysconfdir)"\" \
-	-DLIBEXECDIR=\""$(libexecdir)"\" \
-	-DDATADIR=\""$(datadir)"\" \
-	-DAUTOSTARTDIR=\""$(sysconfdir)/xdg/autostart"\" \
-	-DNMALOCALEDIR=\"$(datadir)/locale\" \
-	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB \
-	"-I$(srcdir)/shared" \
-	"-I$(srcdir)/src/utils" \
-	"-I$(srcdir)/src/wireless-security" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma \
-	$(GTK3_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	$(GUDEV_CFLAGS) \
-	$(GCR_CFLAGS)
-
-src_libnma_libnma_la_LIBADD = \
-	src/wireless-security/libwireless-security-libnm.la \
-	$(GTK3_LIBS) \
-	$(LIBNM_LIBS) \
-	$(GUDEV_LIBS) \
-	$(GCR_LIBS)
-
-EXTRA_src_libnma_libnma_la_DEPENDENCIES = src/libnma/libnma.ver
-
-src_libnma_libnma_la_LDFLAGS = \
-	-Wl,-no-undefined \
-	-Wl,--version-script=$(srcdir)/src/libnma/libnma.ver
-
-
-pkgconfig_DATA += src/libnma/libnma.pc
-
-if HAVE_INTROSPECTION
-src/libnma/NMA-1.0.gir: src/libnma/libnma.la
-src_libnma_NMA_1_0_gir_INCLUDES = NM-1.0 Gtk-3.0
-src_libnma_NMA_1_0_gir_EXPORT_PACKAGES = libnma
-src_libnma_NMA_1_0_gir_CFLAGS = $(src_libnma_libnma_la_CFLAGS)
-src_libnma_NMA_1_0_gir_LIBS = src/libnma/libnma.la
-src_libnma_NMA_1_0_gir_FILES = \
-	$(libnma_h_pub) \
-	$(libnma_c_real)
-if WITH_GCR
-src_libnma_NMA_1_0_gir_FILES += \
-	$(libnma_c_gcr)
-endif
-src_libnma_NMA_1_0_gir_SCANNERFLAGS = --warn-all --identifier-prefix=NMA --symbol-prefix=nma
-INTROSPECTION_GIRS += src/libnma/NMA-1.0.gir
-endif
-
-check_PROGRAMS_norun += src/libnma/tests/mobile-wizard
-
-src_libnma_tests_mobile_wizard_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GLIB_CFLAGS) \
-	$(GTK3_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	"-I$(srcdir)/shared/" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma
-
-src_libnma_tests_mobile_wizard_LDADD = \
-	$(GLIB_LIBS) \
-	$(GTK3_LIBS) \
-	$(LIBNM_LIBS) \
-	src/libnma/libnma.la
-
-check_PROGRAMS_norun += src/libnma/tests/vpn-password-dialog
-
-src_libnma_tests_vpn_password_dialog_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GLIB_CFLAGS) \
-	$(GTK3_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	"-I$(srcdir)/shared/" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma
-
-src_libnma_tests_vpn_password_dialog_LDADD = \
-	$(GLIB_LIBS) \
-	$(GTK3_LIBS) \
-	$(LIBNM_LIBS) \
-	src/libnma/libnma.la
-
-check_PROGRAMS_norun += src/libnma/tests/wifi-dialog
-
-src_libnma_tests_wifi_dialog_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GLIB_CFLAGS) \
-	$(GTK3_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	"-I$(srcdir)/shared/" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma
-
-src_libnma_tests_wifi_dialog_LDADD = \
-	$(GLIB_LIBS) \
-	$(GTK3_LIBS) \
-	$(LIBNM_LIBS) \
-	src/libnma/libnma.la
-
-check_PROGRAMS_norun += src/libnma/tests/wifi-dialog-secrets
-
-src_libnma_tests_wifi_dialog_secrets_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GLIB_CFLAGS) \
-	$(GTK3_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	"-I$(srcdir)/shared/" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma
-
-src_libnma_tests_wifi_dialog_secrets_LDADD = \
-	$(GLIB_LIBS) \
-	$(GTK3_LIBS) \
-	$(LIBNM_LIBS) \
-	src/libnma/libnma.la
-
-check_PROGRAMS_norun += src/libnma/tests/run-vpn
-
-src_libnma_tests_run_vpn_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GLIB_CFLAGS) \
-	$(GTK3_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	"-I$(srcdir)/shared/" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma
-
-src_libnma_tests_run_vpn_LDADD = \
-	$(GLIB_LIBS) \
-	$(GTK3_LIBS) \
-	$(LIBNM_LIBS) \
-	src/libnma/libnma.la
-
-check_PROGRAMS_norun += src/libnma/tests/cert-chooser
-
-src_libnma_tests_cert_chooser_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GLIB_CFLAGS) \
-	$(GTK3_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	"-I$(srcdir)/shared/" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma
-
-src_libnma_tests_cert_chooser_LDADD = \
-	$(GLIB_LIBS) \
-	$(GTK3_LIBS) \
-	$(LIBNM_LIBS) \
-	src/libnma/libnma.la
-
-check_PROGRAMS_norun += src/libnma/tests/bar-code
-
-src_libnma_tests_bar_code_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GLIB_CFLAGS) \
-	$(GTK3_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	"-I$(srcdir)/shared/" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma
-
-src_libnma_tests_bar_code_LDADD = \
-	$(GLIB_LIBS) \
-	$(GTK3_LIBS) \
-	$(LIBNM_LIBS) \
-	src/libnma/libnma.la
-
-if WITH_LIBNMA_GTK4
-
-lib_LTLIBRARIES += src/libnma/libnma-gtk4.la
-
-src_libnma_libnma_gtk4_la_SOURCES = \
-	$(libnma_h_priv_real) \
-	$(libnma_c_real)
-
-if WITH_GCR_GTK4
-src_libnma_libnma_gtk4_la_SOURCES += \
-	$(libnma_h_priv_gcr) \
-	$(libnma_c_gcr)
-endif
-
-nodist_src_libnma_libnma_gtk4_la_SOURCES = \
-	$(libnma_h_priv_gen) \
-	$(libnma_gtk4_c_gen)
-
-src_libnma_libnma_gtk4_la_CFLAGS = \
-	-DICONDIR=\""$(datadir)/icons"\" \
-	-DBINDIR=\""$(bindir)"\" \
-	-DSYSCONFDIR=\""$(sysconfdir)"\" \
-	-DLIBEXECDIR=\""$(libexecdir)"\" \
-	-DDATADIR=\""$(datadir)"\" \
-	-DAUTOSTARTDIR=\""$(sysconfdir)/xdg/autostart"\" \
-	-DNMALOCALEDIR=\"$(datadir)/locale\" \
-	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB \
-	"-I$(srcdir)/shared" \
-	"-I$(srcdir)/src/utils" \
-	"-I$(srcdir)/src/wireless-security" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma \
-	$(GTK4_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	$(GUDEV_CFLAGS) \
-	$(GCR_GCR4_CFLAGS)
-
-src_libnma_libnma_gtk4_la_LIBADD = \
-	src/wireless-security/libwireless-security-libnm-gtk4.la \
-	$(GTK4_LIBS) \
-	$(LIBNM_LIBS) \
-	$(GUDEV_LIBS) \
-	$(GCR_GCR4_LIBS)
-
-EXTRA_src_libnma_libnma_gtk4_la_DEPENDENCIES = src/libnma/libnma.ver
-
-src_libnma_libnma_gtk4_la_LDFLAGS = \
-	-Wl,-no-undefined \
-	-Wl,--version-script=$(srcdir)/src/libnma/libnma.ver
-
-
-pkgconfig_DATA += src/libnma/libnma-gtk4.pc
-
-if HAVE_INTROSPECTION
-src/libnma/NMA4-1.0.gir: src/libnma/libnma-gtk4.la
-src_libnma_NMA4_1_0_gir_INCLUDES = NM-1.0 Gtk-4.0
-src_libnma_NMA4_1_0_gir_EXPORT_PACKAGES = libnma-gtk4
-src_libnma_NMA4_1_0_gir_CFLAGS = $(src_libnma_libnma_gtk4_la_CFLAGS)
-src_libnma_NMA4_1_0_gir_LIBS = src/libnma/libnma-gtk4.la
-src_libnma_NMA4_1_0_gir_FILES = \
-	$(libnma_h_pub) \
-	$(libnma_c_real)
-if WITH_GCR_GTK4
-src_libnma_NMA4_1_0_gir_FILES += \
-	$(libnma_c_gcr)
-endif
-src_libnma_NMA4_1_0_gir_SCANNERFLAGS = --warn-all --identifier-prefix=NMA --symbol-prefix=nma
-INTROSPECTION_GIRS += src/libnma/NMA4-1.0.gir
-endif
-
-check_PROGRAMS_norun += src/libnma/tests/mobile-wizard-gtk4
-
-src_libnma_tests_mobile_wizard_gtk4_SOURCES = \
-	src/libnma/tests/mobile-wizard.c
-
-src_libnma_tests_mobile_wizard_gtk4_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GLIB_CFLAGS) \
-	$(GTK4_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	"-I$(srcdir)/shared/" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma
-
-src_libnma_tests_mobile_wizard_gtk4_LDADD = \
-	$(GLIB_LIBS) \
-	$(GTK4_LIBS) \
-	$(LIBNM_LIBS) \
-	src/libnma/libnma-gtk4.la
-
-check_PROGRAMS_norun += src/libnma/tests/vpn-password-dialog-gtk4
-
-src_libnma_tests_vpn_password_dialog_gtk4_SOURCES = \
-	src/libnma/tests/vpn-password-dialog.c
-
-src_libnma_tests_vpn_password_dialog_gtk4_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GLIB_CFLAGS) \
-	$(GTK4_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	"-I$(srcdir)/shared/" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma
-
-src_libnma_tests_vpn_password_dialog_gtk4_LDADD = \
-	$(GLIB_LIBS) \
-	$(GTK4_LIBS) \
-	$(LIBNM_LIBS) \
-	src/libnma/libnma-gtk4.la
-
-check_PROGRAMS_norun += src/libnma/tests/wifi-dialog-gtk4
-
-src_libnma_tests_wifi_dialog_gtk4_SOURCES = \
-	src/libnma/tests/wifi-dialog.c
-
-src_libnma_tests_wifi_dialog_gtk4_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GLIB_CFLAGS) \
-	$(GTK4_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	"-I$(srcdir)/shared/" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma
-
-src_libnma_tests_wifi_dialog_gtk4_LDADD = \
-	$(GLIB_LIBS) \
-	$(GTK4_LIBS) \
-	$(LIBNM_LIBS) \
-	src/libnma/libnma-gtk4.la
-
-check_PROGRAMS_norun += src/libnma/tests/wifi-dialog-secrets-gtk4
-
-src_libnma_tests_wifi_dialog_secrets_gtk4_SOURCES = \
-	src/libnma/tests/wifi-dialog-secrets.c
-
-src_libnma_tests_wifi_dialog_secrets_gtk4_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GLIB_CFLAGS) \
-	$(GTK4_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	"-I$(srcdir)/shared/" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma
-
-src_libnma_tests_wifi_dialog_secrets_gtk4_LDADD = \
-	$(GLIB_LIBS) \
-	$(GTK4_LIBS) \
-	$(LIBNM_LIBS) \
-	src/libnma/libnma-gtk4.la
-
-check_PROGRAMS_norun += src/libnma/tests/run-vpn-gtk4
-
-src_libnma_tests_run_vpn_gtk4_SOURCES = \
-	src/libnma/tests/run-vpn.c
-
-src_libnma_tests_run_vpn_gtk4_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GLIB_CFLAGS) \
-	$(GTK4_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	"-I$(srcdir)/shared/" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma
-
-src_libnma_tests_run_vpn_gtk4_LDADD = \
-	$(GLIB_LIBS) \
-	$(GTK4_LIBS) \
-	$(LIBNM_LIBS) \
-	src/libnma/libnma-gtk4.la
-
-check_PROGRAMS_norun += src/libnma/tests/cert-chooser-gtk4
-
-src_libnma_tests_cert_chooser_gtk4_SOURCES = \
-	src/libnma/tests/cert-chooser.c
-
-src_libnma_tests_cert_chooser_gtk4_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GLIB_CFLAGS) \
-	$(GTK4_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	"-I$(srcdir)/shared/" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma
-
-src_libnma_tests_cert_chooser_gtk4_LDADD = \
-	$(GLIB_LIBS) \
-	$(GTK4_LIBS) \
-	$(LIBNM_LIBS) \
-	src/libnma/libnma-gtk4.la
-
-check_PROGRAMS_norun += src/libnma/tests/bar-code-gtk4
-
-src_libnma_tests_bar_code_gtk4_SOURCES = \
-	src/libnma/tests/bar-code.c
-
-src_libnma_tests_bar_code_gtk4_CPPFLAGS = \
-	$(dflt_cppflags) \
-	$(GLIB_CFLAGS) \
-	$(GTK4_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	"-I$(srcdir)/shared/" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma
-
-src_libnma_tests_bar_code_gtk4_LDADD = \
-	$(GLIB_LIBS) \
-	$(GTK4_LIBS) \
-	$(LIBNM_LIBS) \
-	src/libnma/libnma-gtk4.la
-
-endif
-
-EXTRA_DIST += \
-	src/libnma/nma-version.h.in \
-	src/libnma/libnma.pc.in \
-	src/libnma/libnma-gtk4.pc.in \
-	src/libnma/libnma.ver \
-	src/libnma/wifi.ui \
-	src/libnma/nma-mobile-wizard.ui \
-	src/libnma/nma-bar-code-widget.ui \
-	src/libnma/nma-pkcs11-token-login-dialog.ui \
-	src/libnma/nma-pkcs11-cert-chooser-dialog.ui \
-	src/libnma/nma-vpn-password-dialog.ui \
-	src/libnma/nma.gresource.xml \
-	src/libnma/meson.build \
-	src/libnma/tests/meson.build
 
 ###############################################################################
 
@@ -1107,6 +361,8 @@ connection_editor_hc_real = \
 	src/connection-editor/page-vlan.c \
 	src/connection-editor/page-dcb.c \
 	src/connection-editor/page-dcb.h \
+	src/connection-editor/page-wireguard.h \
+	src/connection-editor/page-wireguard.c \
 	src/connection-editor/vpn-helpers.h \
 	src/connection-editor/vpn-helpers.c \
 	src/connection-editor/ip4-routes-dialog.h \
@@ -1143,18 +399,17 @@ src_connection_editor_nm_connection_editor_CPPFLAGS = \
 	"-I$(srcdir)/shared" \
 	"-I$(srcdir)/src/utils" \
 	"-I$(srcdir)/src/wireless-security" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma \
 	$(GTK3_CFLAGS) \
+	$(LIBNMA_CFLAGS) \
 	$(LIBNM_CFLAGS) \
 	$(JANSSON_CFLAGS) \
 	$(SELINUX_CFLAGS)
 
 src_connection_editor_nm_connection_editor_LDADD = \
 	src/wireless-security/libwireless-security-libnm.la \
-	src/libnma/libnma.la \
 	$(GTK3_LIBS) \
 	$(LIBNM_LIBS) \
+	$(LIBNMA_LIBS) \
 	$(JANSSON_LIBS) \
 	$(SELINUX_LIBS) \
 	-lm
@@ -1192,6 +447,7 @@ EXTRA_DIST += \
 	src/connection-editor/ce-page-vlan.ui \
 	src/connection-editor/ce-page-wifi-security.ui \
 	src/connection-editor/ce-page-wifi.ui \
+	src/connection-editor/ce-page-wireguard.ui \
 	src/connection-editor/ce-ppp-auth-methods.ui \
 	src/connection-editor/gtk/menus.ui \
 	src/connection-editor/nm-connection-editor.ui \
@@ -1270,9 +526,8 @@ src_nm_applet_CPPFLAGS = \
 	"-I$(srcdir)/shared" \
 	"-I$(srcdir)/src/utils" \
 	"-I$(srcdir)/src/wireless-security" \
-	"-I$(srcdir)/src/libnma" \
-	-Isrc/libnma \
 	$(GTK3_CFLAGS) \
+	$(LIBNMA_CFLAGS) \
 	$(LIBNM_CFLAGS) \
 	$(LIBSECRET_CFLAGS) \
 	$(NOTIFY_CFLAGS) \
@@ -1281,9 +536,9 @@ src_nm_applet_CPPFLAGS = \
 
 src_nm_applet_LDADD = \
 	src/wireless-security/libwireless-security-libnm.la \
-	src/libnma/libnma.la \
 	$(GTK3_LIBS) \
 	$(LIBNM_LIBS) \
+	$(LIBNMA_LIBS) \
 	$(LIBSECRET_LIBS) \
 	$(NOTIFY_LIBS) \
 	$(MM_GLIB_LIBS) \
@@ -1332,43 +587,6 @@ EXTRA_DIST += man/meson.build
 
 ###############################################################################
 
-DOC_MODULE = libnma
-
-DOC_SOURCE_DIR = $(top_srcdir)/src/libnma
-
-SCAN_OPTIONS=--rebuild-types --rebuild-sections
-
-DOC_MAIN_SGML_FILE = libnma-docs.xml
-
-GTKDOC_LIBS = src/libnma/libnma.la
-
-scan-build.stamp: $(GTKDOC_LIBS)
-
-HFILE_GLOB = $(top_srcdir)/src/libnma/*.h
-
-CFILE_GLOB = $(top_srcdir)/src/libnma/*.c
-
-IGNORE_HFILES = \
-	nma-resources.h \
-	nma-version.h \
-	nma-cert-chooser-private.h \
-	nma-private.h \
-	nma-pkcs11-token-login-dialog.h \
-	nma-pkcs11-cert-chooser-dialog.h \
-	nma-cert-chooser-button.h
-
-mkdb_ignore_c_files = \
-	nma-resources.c \
-	nma-file-cert-chooser.c \
-	nma-pkcs11-token-login-dialog.c \
-	nma-pkcs11-cert-chooser-dialog.c \
-	nma-cert-chooser-button.c \
-	nma-pkcs11-cert-chooser.c
-
-MKDB_OPTIONS = --ignore-files "$(IGNORE_HFILES) $(mkdb_ignore_c_files)"
-
-###############################################################################
-
 check_PROGRAMS += $(check_programs)
 
 check-local: $(check_local)
@@ -1384,7 +602,6 @@ EXTRA_DIST += \
 	meson_options.txt \
 	meson_post_install.py \
 	config.h.meson \
-	gtkdocentities.ent.in \
 	\
 	po/meson.build
 
@@ -1406,9 +623,6 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 nm-connection-editor.desktop: nm-connection-editor.desktop.in
 	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
-gsettings_SCHEMAS = org.gnome.nm-applet.gschema.xml
-@GSETTINGS_RULES@
-
 appdatadir = $(datadir)/metainfo
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
 appdata_in_files = nm-connection-editor.appdata.xml.in
@@ -1426,7 +640,6 @@ EXTRA_DIST += \
 	$(desktop_in_files)
 
 CLEANFILES += \
-	$(INTROSPECTION_GIRS) \
 	$(typelib_DATA) \
 	\
 	$(autostart_DATA) \

@@ -7,7 +7,7 @@
  */
 
 #include "nm-default.h"
-#include "nma-private.h"
+
 #include <ctype.h>
 
 #include <libsecret/secret.h>
@@ -469,7 +469,7 @@ ask_for_pin (GtkEntry **out_secret_entry)
 	w = gtk_entry_new ();
 	*out_secret_entry = GTK_ENTRY (w);
 	gtk_entry_set_max_length (GTK_ENTRY (w), 8);
-	gtk_editable_set_width_chars (GTK_EDITABLE (w), 8);
+	gtk_entry_set_width_chars (GTK_ENTRY (w), 8);
 	gtk_entry_set_activates_default (GTK_ENTRY (w), TRUE);
 	gtk_entry_set_visibility (GTK_ENTRY (w), FALSE);
 	gtk_box_pack_start (box, w, FALSE, FALSE, 0);

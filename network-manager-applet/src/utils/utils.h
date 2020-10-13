@@ -13,19 +13,11 @@
 
 gboolean utils_ether_addr_valid (const struct ether_addr *test_addr);
 
-#if LIBNM_BUILD
 char *utils_hash_ap (GBytes *ssid,
                      NM80211Mode mode,
                      guint32 flags,
                      guint32 wpa_flags,
                      guint32 rsn_flags);
-#else
-char *utils_hash_ap (const GByteArray *ssid,
-                     NM80211Mode mode,
-                     guint32 flags,
-                     guint32 wpa_flags,
-                     guint32 rsn_flags);
-#endif
 
 char *utils_escape_notify_message (const char *src);
 

@@ -50,6 +50,7 @@ typedef struct {
 
 	/* These are just for the external UI mode */
 	EuiSecret *eui_secrets;
+	GtkDialog *dialog;
 } RequestData;
 
 typedef struct {
@@ -59,7 +60,6 @@ typedef struct {
 
 /*****************************************************************************/
 
-static void request_data_free (RequestData *req_data);
 static void complete_request (VpnSecretsInfo *info);
 
 /*****************************************************************************/
@@ -125,6 +125,7 @@ external_ui_dialog_response (GtkDialog *dialog, int response_id, gpointer user_d
 	}
 
 	gtk_widget_destroy (GTK_WIDGET (dialog));
+	g_clear_object (&req_data->dialog);
 	external_ui_add_secrets (info);
 	complete_request (info);
 }
@@ -211,7 +212,7 @@ external_ui_from_child_response (VpnSecretsInfo *info, GError **error)
 	 * create a dialog and display it. */
 	if (num_ask > 0) {
 		dialog = (NMAVpnPasswordDialog *) nma_vpn_password_dialog_new (title, message, NULL);
-		g_object_ref_sink (dialog);
+		req_data->dialog = g_object_ref_sink (dialog);
 
 		nma_vpn_password_dialog_set_show_password (dialog, FALSE);
 		nma_vpn_password_dialog_set_show_password_secondary (dialog, FALSE);
@@ -281,7 +282,7 @@ complete_request (VpnSecretsInfo *info)
 	g_variant_builder_add (&settings_builder, "{sa{sv}}",
 	                       NM_SETTING_VPN_SETTING_NAME,
 	                       &vpn_builder);
-	settings = g_variant_builder_end (&settings_builder);
+	settings = g_variant_ref_sink (g_variant_builder_end (&settings_builder));
 
 	applet_secrets_request_complete (req, settings, NULL);
 	applet_secrets_request_free (req);
@@ -582,10 +583,80 @@ auth_dialog_spawn (const char *con_id,
 
 /*****************************************************************************/
 
+static gboolean
+ensure_killed (gpointer data)
+{
+	pid_t pid = GPOINTER_TO_INT (data);
+
+	kill (pid, SIGKILL);
+	waitpid (pid, NULL, 0);
+	return FALSE;
+}
+
+static void
+dialog_response_destroy (GtkDialog *dialog, int response_id, gpointer user_data)
+{
+	gtk_widget_destroy (GTK_WIDGET (dialog));
+	g_object_unref (dialog);
+}
+
 static void
 free_vpn_secrets_info (SecretsRequest *req)
 {
-	request_data_free (((VpnSecretsInfo *) req)->req_data);
+
+	RequestData *req_data;
+	guint i;
+
+	req_data = ((VpnSecretsInfo *) req)->req_data;
+
+	if (!req_data)
+		return;
+
+	g_free (req_data->uuid);
+	g_free (req_data->id);
+	g_free (req_data->service_type);
+
+	nm_clear_g_source (&req_data->watch_id);
+
+	nm_clear_g_source (&req_data->channel_eventid);
+	if (req_data->channel)
+		g_io_channel_unref (req_data->channel);
+
+	if (req_data->pid) {
+		if (kill (req_data->pid, SIGTERM) == 0)
+			g_timeout_add_seconds (2, ensure_killed, GINT_TO_POINTER (req_data->pid));
+		else {
+			kill (req_data->pid, SIGKILL);
+			waitpid (req_data->pid, NULL, 0);
+		}
+	}
+
+	if (req_data->child_response)
+		g_string_free (req_data->child_response, TRUE);
+
+	g_variant_builder_clear (&req_data->secrets_builder);
+
+	if (req_data->eui_secrets) {
+		for (i = 0; req_data->eui_secrets[i].name; i++) {
+			g_free (req_data->eui_secrets[i].name);
+			g_free (req_data->eui_secrets[i].label);
+			g_free (req_data->eui_secrets[i].value);
+		}
+		g_free (req_data->eui_secrets);
+	}
+
+	if (req_data->dialog) {
+		g_signal_handlers_disconnect_by_func (req_data->dialog,
+		                                      external_ui_dialog_response,
+		                                      req);
+		g_signal_connect (req_data->dialog,
+		                  "response",
+		                  G_CALLBACK (dialog_response_destroy),
+		                  NULL);
+		req_data->dialog = NULL;
+	}
+
+	g_slice_free (RequestData, req_data);
 }
 
 gboolean
@@ -674,64 +745,4 @@ applet_vpn_request_get_secrets (SecretsRequest *req, GError **error)
 
 	/* Dump parts of the connection to the child */
 	return TRUE;
-}
-
-/*****************************************************************************/
-
-static gboolean
-ensure_killed (gpointer data)
-{
-	pid_t pid = GPOINTER_TO_INT (data);
-
-	if (kill (pid, 0) == 0)
-		kill (pid, SIGKILL);
-	/* ensure the child is reaped */
-	waitpid (pid, NULL, 0);
-	return FALSE;
-}
-
-static void
-request_data_free (RequestData *req_data)
-{
-	guint i;
-
-	if (!req_data)
-		return;
-
-	g_free (req_data->uuid);
-	g_free (req_data->id);
-	g_free (req_data->service_type);
-
-	nm_clear_g_source (&req_data->watch_id);
-
-	nm_clear_g_source (&req_data->channel_eventid);
-	if (req_data->channel)
-		g_io_channel_unref (req_data->channel);
-
-	if (req_data->pid) {
-		g_spawn_close_pid (req_data->pid);
-		if (kill (req_data->pid, SIGTERM) == 0)
-			g_timeout_add_seconds (2, ensure_killed, GINT_TO_POINTER (req_data->pid));
-		else {
-			kill (req_data->pid, SIGKILL);
-			/* ensure the child is reaped */
-			waitpid (req_data->pid, NULL, 0);
-		}
-	}
-
-	if (req_data->child_response)
-		g_string_free (req_data->child_response, TRUE);
-
-	g_variant_builder_clear (&req_data->secrets_builder);
-
-	if (req_data->eui_secrets) {
-		for (i = 0; req_data->eui_secrets[i].name; i++) {
-			g_free (req_data->eui_secrets[i].name);
-			g_free (req_data->eui_secrets[i].label);
-			g_free (req_data->eui_secrets[i].value);
-		}
-		g_free (req_data->eui_secrets);
-	}
-
-	g_slice_free (RequestData, req_data);
 }

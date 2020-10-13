@@ -386,15 +386,12 @@ eap_method_setup_cert_chooser (NMACertChooser *cert_chooser,
 		case NM_SETTING_802_1X_CK_SCHEME_PATH:
 			value = cert_path_func (s_8021x);
 			break;
-#if LIBNM_BUILD
-/* Not available in libnm-glib */
 		case NM_SETTING_802_1X_CK_SCHEME_PKCS11:
 			value = cert_uri_func (s_8021x);
 			password = cert_password_func ? cert_password_func (s_8021x) : NULL;
 			if (password)
 				nma_cert_chooser_set_cert_password (cert_chooser, password);
 			break;
-#endif
 		case NM_SETTING_802_1X_CK_SCHEME_UNKNOWN:
 			/* No CA set. */
 			break;
@@ -411,12 +408,9 @@ eap_method_setup_cert_chooser (NMACertChooser *cert_chooser,
 		case NM_SETTING_802_1X_CK_SCHEME_PATH:
 			value = key_path_func (s_8021x);
 			break;
-#if LIBNM_BUILD
-/* Not available in libnm-glib */
 		case NM_SETTING_802_1X_CK_SCHEME_PKCS11:
 			value = key_uri_func (s_8021x);
 			break;
-#endif
 		case NM_SETTING_802_1X_CK_SCHEME_UNKNOWN:
 			/* No certificate set. */
 			break;

@@ -48,6 +48,7 @@
 #include "page-vlan.h"
 #include "page-dcb.h"
 #include "page-macsec.h"
+#include "page-wireguard.h"
 #include "ce-polkit-button.h"
 #include "vpn-helpers.h"
 #include "eap-method.h"
@@ -1036,6 +1037,9 @@ nm_connection_editor_set_connection (NMConnectionEditor *editor,
 		if (!add_page (editor, ce_page_macsec_new, editor->connection, error))
 			goto out;
 		if (!add_page (editor, ce_page_8021x_security_new, editor->connection, error))
+			goto out;
+	} else if (!strcmp (connection_type, NM_SETTING_WIREGUARD_SETTING_NAME)) {
+		if (!add_page (editor, ce_page_wireguard_new, editor->connection, error))
 			goto out;
 	} else {
 		g_warning ("Unhandled setting type '%s'", connection_type);

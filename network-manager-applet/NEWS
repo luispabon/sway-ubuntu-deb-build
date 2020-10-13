@@ -1,4 +1,27 @@
 =======================================================
+network-manager-applet-1.18.0
+Overview of changes since network-manager-applet-1.16.0
+=======================================================
+
+* Enable build with appindicator by default.
+* Add WireGuard support to the editor.
+* Support OWE (Opportunistic Wireless Encryption) in the editor.
+* Fix crash when disposing VPN secret dialog.
+
+=======================================================
+network-manager-applet-1.16.0
+Overview of changes since network-manager-applet-1.8.24
+=======================================================
+
+* Turned libnma into an external dependency and move to
+  "https://gitlab.gnome.org/GNOME/libnma". To build,
+  libnma-1.8.28 or newer is required.
+* The libnm-gtk, the deprecated libnm-glib compatibility library was
+  removed. Everybody should be using libnma by now.
+* Improve applet icons for hidpi.
+* Fix transparent dialog borders.
+
+=======================================================
 network-manager-applet-1.8.24
 Overview of changes since network-manager-applet-1.8.22
 =======================================================

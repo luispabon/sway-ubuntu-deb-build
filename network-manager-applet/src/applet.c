@@ -42,12 +42,6 @@ extern gboolean shell_debug;
 extern gboolean with_agent;
 extern gboolean with_appindicator;
 
-#ifdef WITH_APPINDICATOR
-#define INDICATOR_ENABLED(a) ((a)->app_indicator)
-#else
-#define INDICATOR_ENABLED(a) (FALSE)
-#endif  /* WITH_APPINDICATOR */
-
 G_DEFINE_TYPE (NMApplet, nma, G_TYPE_APPLICATION)
 
 /********************************************************************/
@@ -2992,6 +2986,7 @@ nma_icon_check_and_load (const char *name, NMApplet *applet)
 {
 	GError *error = NULL;
 	GdkPixbuf *icon;
+	int scale;
 
 	g_assert (name != NULL);
 	g_assert (applet != NULL);
@@ -3000,10 +2995,12 @@ nma_icon_check_and_load (const char *name, NMApplet *applet)
 	if (g_hash_table_lookup_extended (applet->icon_cache, name, NULL, (gpointer) &icon))
 		return icon;
 
+	scale = gdk_window_get_scale_factor (gdk_get_default_root_window ());
+
 	/* Try to load the icon; if the load fails, log the problem, and set
 	 * the icon to the fallback icon if requested.
 	 */
-	if (!(icon = gtk_icon_theme_load_icon (applet->icon_theme, name, applet->icon_size, GTK_ICON_LOOKUP_FORCE_SIZE, &error))) {
+	if (!(icon = gtk_icon_theme_load_icon_for_scale (applet->icon_theme, name, applet->icon_size, scale, GTK_ICON_LOOKUP_FORCE_SIZE, &error))) {
 		g_warning ("failed to load icon \"%s\": %s", name, error->message);
 		g_clear_error (&error);
 		icon = nm_g_object_ref (applet->fallback_icon);

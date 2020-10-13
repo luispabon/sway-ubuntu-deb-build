@@ -84,7 +84,6 @@ typedef struct {
 	gboolean    (*inter_page_change)  (CEPage *self);
 } CEPageClass;
 
-
 typedef CEPage* (*CEPageNewFunc)(NMConnectionEditor *editor,
                                  NMConnection *connection,
                                  GtkWindow *parent,
@@ -145,7 +144,7 @@ NMConnectionEditor *ce_page_new_editor (CEPage *self,
 
 void ce_spin_automatic_val (GtkSpinButton *spin, int defvalue);
 void ce_spin_default_val (GtkSpinButton *spin, int defvalue);
-
+void ce_spin_off_val (GtkSpinButton *spin, int defvalue);
 int ce_get_property_default (NMSetting *setting, const char *property_name);
 
 void ce_page_complete_init (CEPage *self,
@@ -186,7 +185,6 @@ CEPage *ce_page_new (GType page_type,
                      const char *ui_resource,
                      const char *widget_name,
                      const char *title);
-
 
 #endif  /* __CE_PAGE_H__ */
 

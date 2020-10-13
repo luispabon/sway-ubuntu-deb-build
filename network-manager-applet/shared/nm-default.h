@@ -25,7 +25,6 @@
  * Depending on which parts are compiled, different values are set. */
 #define NM_NETWORKMANAGER_COMPILATION_DEFAULT             0x0001
 #define NM_NETWORKMANAGER_COMPILATION_LIB                 0x0002
-#define NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY          0x0004
 
 #ifndef NETWORKMANAGER_COMPILATION
 /* For convenience, we don't require our Makefile.am to define
@@ -52,30 +51,14 @@
 
 #include <gtk/gtk.h>
 
-/*****************************************************************************/
-
-#if !((NETWORKMANAGER_COMPILATION) & NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY)
-#define LIBNM_BUILD 1
-#else
-#define LIBNM_BUILD 0
-#endif
-
-
-#if ((NETWORKMANAGER_COMPILATION) & NM_NETWORKMANAGER_COMPILATION_LIB) || ((NETWORKMANAGER_COMPILATION) & NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY)
+#if ((NETWORKMANAGER_COMPILATION) & NM_NETWORKMANAGER_COMPILATION_LIB)
 #include <glib/gi18n-lib.h>
 #else
 #include <glib/gi18n.h>
 #endif
 
-
-#if ((NETWORKMANAGER_COMPILATION) & NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY)
-#include <nm-connection.h>
-#else
 #include <NetworkManager.h>
-#endif /* NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY */
 
 #include "nm-libnm-compat.h"
-
-/*****************************************************************************/
 
 #endif /* __NM_DEFAULT_H__ */

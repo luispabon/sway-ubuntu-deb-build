@@ -7,7 +7,6 @@
  */
 
 #include "nm-default.h"
-#include "nma-private.h"
 
 #include <ctype.h>
 #include <string.h>
@@ -47,7 +46,7 @@ validate (EAPMethod *parent, GError **error)
 	const char *text;
 	gboolean ret = TRUE;
 
-	text = gtk_editable_get_text (GTK_EDITABLE (method->username_entry));
+	text = gtk_entry_get_text (method->username_entry);
 	if (!text || !strlen (text)) {
 		widget_set_error (GTK_WIDGET (method->username_entry));
 		g_set_error_literal (error, NMA_ERROR, NMA_ERROR_GENERIC, _("missing EAP-LEAP username"));
@@ -55,7 +54,7 @@ validate (EAPMethod *parent, GError **error)
 	} else
 		widget_unset_error (GTK_WIDGET (method->username_entry));
 
-	text = gtk_editable_get_text (GTK_EDITABLE (method->password_entry));
+	text = gtk_entry_get_text (method->password_entry);
 	if (!text || !strlen (text)) {
 		widget_set_error (GTK_WIDGET (method->password_entry));
 		if (ret) {
@@ -95,10 +94,8 @@ fill_connection (EAPMethod *parent, NMConnection *connection)
 
 	nm_setting_802_1x_add_eap_method (s_8021x, "leap");
 
-	g_object_set (s_8021x,
-	              NM_SETTING_802_1X_IDENTITY, gtk_editable_get_text (GTK_EDITABLE (method->username_entry)),
-	              NM_SETTING_802_1X_PASSWORD, gtk_editable_get_text (GTK_EDITABLE (method->password_entry)),
-	              NULL);
+	g_object_set (s_8021x, NM_SETTING_802_1X_IDENTITY, gtk_entry_get_text (method->username_entry), NULL);
+	g_object_set (s_8021x, NM_SETTING_802_1X_PASSWORD, gtk_entry_get_text (method->password_entry), NULL);
 
 	passwd_entry = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_leap_password_entry"));
 	g_assert (passwd_entry);
@@ -129,19 +126,15 @@ update_secrets (EAPMethod *parent, NMConnection *connection)
 static void
 set_userpass_ui (EAPMethodLEAP *method)
 {
-	if (method->ws_parent->username) {
-		gtk_editable_set_text (GTK_EDITABLE (method->username_entry),
-		                       method->ws_parent->username);
-	} else {
-		gtk_editable_set_text (GTK_EDITABLE (method->username_entry), "");
-	}
+	if (method->ws_parent->username)
+		gtk_entry_set_text (method->username_entry, method->ws_parent->username);
+	else
+		gtk_entry_set_text (method->username_entry, "");
 
-	if (method->ws_parent->password && !method->ws_parent->always_ask) {
-		gtk_editable_set_text (GTK_EDITABLE (method->password_entry),
-		                       method->ws_parent->password);
-	} else {
-		gtk_editable_set_text (GTK_EDITABLE (method->password_entry), "");
-	}
+	if (method->ws_parent->password && !method->ws_parent->always_ask)
+		gtk_entry_set_text (method->password_entry, method->ws_parent->password);
+	else
+		gtk_entry_set_text (method->password_entry, "");
 
 	gtk_toggle_button_set_active (method->show_password, method->ws_parent->show_password);
 }
@@ -156,8 +149,8 @@ static void
 widgets_unrealized (GtkWidget *widget, EAPMethodLEAP *method)
 {
 	wireless_security_set_userpass (method->ws_parent,
-	                                gtk_editable_get_text (GTK_EDITABLE (method->username_entry)),
-	                                gtk_editable_get_text (GTK_EDITABLE (method->password_entry)),
+	                                gtk_entry_get_text (method->username_entry),
+	                                gtk_entry_get_text (method->password_entry),
 	                                (gboolean) -1,
 	                                gtk_toggle_button_get_active (method->show_password));
 }

@@ -132,6 +132,11 @@ get_default_type_for_security (NMSettingWirelessSecurity *sec)
 	if (!strcmp (key_mgmt, "sae"))
 		return NMU_SEC_SAE;
 
+#if NM_CHECK_VERSION(1,24,0)
+	if (!strcmp (key_mgmt, "owe"))
+		return NMU_SEC_OWE;
+#endif
+
 	return NMU_SEC_INVALID;
 }
 
@@ -424,6 +429,20 @@ finish_setup (CEPageWifiSecurity *self, gpointer user_data)
 			item++;
 		}
 	}
+
+#if NM_CHECK_VERSION(1,24,0)
+	if (security_valid (NMU_SEC_OWE, mode)) {
+		gtk_list_store_append (sec_model, &iter);
+		gtk_list_store_set (sec_model, &iter,
+		                    S_NAME_COLUMN, _("Enhanced Open"),
+		                    S_ADHOC_VALID_COLUMN, FALSE,
+		                    S_HOTSPOT_VALID_COLUMN, TRUE,
+		                    -1);
+		if ((active < 0) && (default_type == NMU_SEC_OWE))
+			active = item;
+		item++;
+	}
+#endif
 
 	combo = GTK_COMBO_BOX (gtk_builder_get_object (parent->builder, "wifi_security_combo"));
 	gtk_combo_box_set_model (combo, GTK_TREE_MODEL (sec_model));

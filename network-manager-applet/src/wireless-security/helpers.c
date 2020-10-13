@@ -7,7 +7,7 @@
  */
 
 #include "nm-default.h"
-#include "nma-private.h"
+
 #include "helpers.h"
 
 void
@@ -32,7 +32,7 @@ helper_fill_secret_entry (NMConnection *connection,
 		if (tmp) {
 			widget = GTK_WIDGET (gtk_builder_get_object (builder, entry_name));
 			g_assert (widget);
-			gtk_editable_set_text (GTK_EDITABLE (widget), tmp);
+			gtk_entry_set_text (GTK_ENTRY (widget), tmp);
 		}
 	}
 }

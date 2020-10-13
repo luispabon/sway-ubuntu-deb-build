@@ -1,8 +1,73 @@
-network-manager-applet (1.8.24-luis1) focal; urgency=medium
+network-manager-applet (1.18.0-1ubuntu2) groovy; urgency=medium
 
-  * No-change rebuild with fixed binutils on arm64.
+  * d/p/Support-hiding-rather-than-desensitizing-disallowed-items.patch!
+    - restore initialization code for some of the 'allowed' variables which
+      was dropped by error in 16.10, fixes log warnings (lp: #1853331)
 
- -- Luis Pabon <luis.pabon@auronconsulting.co.uk>  Tue, 21 Apr 2020 11:12:34 +0000
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 29 Jul 2020 17:50:27 +0200
+
+network-manager-applet (1.18.0-1ubuntu1) groovy; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes:
+    - Support for SAE authentication (WPA3 Personal) was added.
+      (lp: #1848339)
+    - Fixed external UI mode without interactive secrets. (lp: #1857253)
+    - use libappindicator for now, it is tested and in main and the
+      new ayatana variant from Debian hasn't been reviewed yet.
+    - Run dh_translations
+    - Add Ubuntu patches:
+      - lp341684_device_sensitive_disconnect_notify.patch
+      - lp460144_correctly_update_notification.patch
+      - Have-the-appindicator-enabled-by-default.patch
+      - Make-policykit-restricted-actions-insensitive.patch
+      - Support-hiding-rather-than-desensitizing-disallowed-items.patch
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Tue, 23 Jun 2020 10:04:08 +0200
+
+network-manager-applet (1.18.0-1) unstable; urgency=medium
+
+  * New upstream version 1.18.0
+  * Remove -Wl,--as-needed from linker flags
+  * Remove unused architecture.mk include
+
+ -- Michael Biebl <biebl@debian.org>  Mon, 22 Jun 2020 18:10:51 +0200
+
+network-manager-applet (1.16.0-1ubuntu1) groovy; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes:
+    - Support for SAE authentication (WPA3 Personal) was added.
+      (lp: #1848339)
+    - Fixed external UI mode without interactive secrets. (lp: #1857253)
+    - use libappindicator for now, it is tested and in main and the
+      new ayatana variant from Debian hasn't been reviewed yet.
+    - Run dh_translations
+    - Add Ubuntu patches:
+      - lp341684_device_sensitive_disconnect_notify.patch
+      - lp460144_correctly_update_notification.patch
+      - Have-the-appindicator-enabled-by-default.patch
+      - Make-policykit-restricted-actions-insensitive.patch
+      - Support-hiding-rather-than-desensitizing-disallowed-items.patch
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 01 Jun 2020 09:37:52 +0200
+
+network-manager-applet (1.16.0-1) unstable; urgency=medium
+
+  * New upstream version 1.16.0
+  * Drop libnma, now built from a separate source package
+  * Drop override for dh_install and dh_missing.
+    No longer necessary as we only build a single binary package now.
+  * Drop gir dh addon, no longer needed
+  * Update Build-Depends
+  * Update configure switches
+  * Switch from autotools to meson
+  * Bump Standards-Version to 4.5.0
+  * Bump debhelper compatibility level to 13
+  * Remove Allow-creation-of-connections-without-admin-privileges.patch.
+    This patch requires ongoing maintenance work and no longer applies with
+    libnma being split off. A sustainable alternative will require buy-in
+    from upstream.
+
+ -- Michael Biebl <biebl@debian.org>  Wed, 22 Apr 2020 18:06:30 +0200
 
 network-manager-applet (1.8.24-1ubuntu2) focal; urgency=medium
 
@@ -43,6 +108,14 @@ network-manager-applet (1.8.22-1) experimental; urgency=medium
 
  -- Michael Biebl <biebl@debian.org>  Wed, 29 May 2019 12:58:48 +0200
 
+network-manager-applet (1.8.20-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix crash on creating custom Wi-Fi connection in wifi-dialog.
+    (Closes: #926328)
+
+ -- Boyuan Yang <byang@debian.org>  Fri, 19 Apr 2019 13:27:26 -0400
+
 network-manager-applet (1.8.20-1ubuntu2) eoan; urgency=medium
 
   * debian/control.in, debian/libnm-gtk*, debian/rules:
@@ -60,7 +133,7 @@ network-manager-applet (1.8.20-1ubuntu1) disco; urgency=medium
   * Resynchronize on Debian
   * The new version includes
     -  connection-editor: re-enable launcher in GNOME and KDE,
-       it's needed for some sort of configurion which are not handled
+       it's needed for some sort of configurion which are not handled 
        by the desktop settings interfaces (lp: #1812697)
   * debian/patches/git_wrong_free.patch:
     - wifi-dialog: fix wrong free
@@ -69,7 +142,7 @@ network-manager-applet (1.8.20-1ubuntu1) disco; urgency=medium
   * debian/patches/git_password_entry.patch:
     - nma/pkcs11-cert-chooser: show the password entries when it makes sense
   * debian/rules:
-    - build with --with-libnm-gtk, the default is now to disable it
+    - build with --with-libnm-gtk, the default is now to disable it 
       upstream but we still have unity-control-center depending on it.
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 04 Mar 2019 16:17:00 +0100
@@ -269,7 +342,7 @@ network-manager-applet (1.8.12-1) unstable; urgency=medium
 network-manager-applet (1.8.10-5ubuntu4) cosmic; urgency=medium
 
   * debian/control, debian/rules:
-    - use libappindicator for now, it is tested and in main and the
+    - use libappindicator for now, it is tested and in main and the 
       new ayatana variant from Debian hasn't been reviewed yet.
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 03 Jul 2018 09:53:01 +0200
@@ -1352,7 +1425,7 @@ network-manager-applet (0.7.0-1) experimental; urgency=low
     - The nm-editor tool has been replaced by nm-connection-editor.
       (Closes: #494148, #482107, #485651)
     - Show the correct configuration for WPA Enterprise setups in
-      nm-connection-editor (Closes: #480039)
+      nm-connection-editor (Closes: #480039)  
 
   [ Sjoerd Simons ]
   * debian/patches/02-nm-api-update.patch:
@@ -1442,9 +1515,9 @@ network-manager-applet (0.6.6-1) unstable; urgency=low
     - Better handling of VPN and WPA Enterprise security. (Closes: #444977)
   * debian/control
     - The Vcs-* fields are now officially supported, so remove the XS- prefix.
-    - Bump Standards-Version to 3.7.3. No further changes required.
+    - Bump Standards-Version to 3.7.3. No further changes required. 
     - Fix Xfce spelling error in the package description.
-    - Bump Build-Depends on libnm-util-dev and network-manager-dev to
+    - Bump Build-Depends on libnm-util-dev and network-manager-dev to 
       (>= 0.6.6).
   * Removed patches
     - debian/patches/10-po_fr.patch (merged upstream)
@@ -1475,7 +1548,7 @@ network-manager-applet (0.6.5-3) unstable; urgency=low
 network-manager-applet (0.6.5-2) unstable; urgency=low
 
   * debian/patches/30-connection_info_hide_on_delete_event.patch
-    - Patch from Ubuntu. Hide connection info dialog on delete-event.
+    - Patch from Ubuntu. Hide connection info dialog on delete-event. 
       (Closes: #406073)
 
  -- Michael Biebl <biebl@debian.org>  Wed, 19 Sep 2007 22:34:18 +0200

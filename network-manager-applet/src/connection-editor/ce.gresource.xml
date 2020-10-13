@@ -27,6 +27,7 @@
 		<file preprocess="xml-stripblanks">ce-page-vlan.ui</file>
 		<file preprocess="xml-stripblanks">ce-page-wifi-security.ui</file>
 		<file preprocess="xml-stripblanks">ce-page-wifi.ui</file>
+		<file preprocess="xml-stripblanks">ce-page-wireguard.ui</file>
 		<file preprocess="xml-stripblanks">ce-ppp-auth-methods.ui</file>
 		<file preprocess="xml-stripblanks">gtk/menus.ui</file>
 	</gresource>

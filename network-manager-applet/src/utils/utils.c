@@ -54,12 +54,7 @@ utils_ether_addr_valid (const struct ether_addr *test_addr)
 }
 
 char *
-utils_hash_ap (
-#if LIBNM_BUILD
-               GBytes *ssid,
-#else
-               const GByteArray *ssid,
-#endif
+utils_hash_ap (GBytes *ssid,
                NM80211Mode mode,
                guint32 flags,
                guint32 wpa_flags,
@@ -69,13 +64,8 @@ utils_hash_ap (
 
 	memset (&input[0], 0, sizeof (input));
 
-	if (ssid) {
-#if LIBNM_BUILD
+	if (ssid)
 		memcpy (input, g_bytes_get_data (ssid, NULL), g_bytes_get_size (ssid));
-#else
-		memcpy (input, ssid->data, ssid->len);
-#endif
-	}
 
 	if (mode == NM_802_11_MODE_INFRA)
 		input[32] |= (1 << 0);

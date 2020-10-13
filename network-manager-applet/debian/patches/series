@@ -1,4 +1,3 @@
-Allow-creation-of-connections-without-admin-privileges.patch
 Force-online-state-with-unmanaged-devices.patch
 lp341684_device_sensitive_disconnect_notify.patch
 lp460144_correctly_update_notification.patch

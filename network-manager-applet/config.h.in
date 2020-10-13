@@ -58,14 +58,8 @@
 /* Define to 1 if you have the <unistd.h> header file. */
 #undef HAVE_UNISTD_H
 
-/* ISO codes prefix */
-#undef ISO_CODES_PREFIX
-
 /* Define to the sub-directory where libtool stores uninstalled libraries. */
 #undef LT_OBJDIR
-
-/* Mobile Broadband Service Provider Information Database location */
-#undef MOBILE_BROADBAND_PROVIDER_INFO_DATABASE
 
 /* git commit id of the original source code version */
 #undef NMA_GIT_SHA
@@ -127,12 +121,6 @@
 
 /* Enable AppIndicator support and use Ubuntu AppIndicator */
 #undef WITH_APPINDICATOR
-
-/* Define if Gcr is available */
-#undef WITH_GCR
-
-/* Define if GTK4 Gcr is available */
-#undef WITH_GCR_GTK4
 
 /* Define if Jansson is available */
 #undef WITH_JANSSON

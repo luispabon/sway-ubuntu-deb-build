@@ -4,31 +4,23 @@ Priority: optional
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
 Uploaders: Michael Biebl <biebl@debian.org>
-Build-Depends: debhelper-compat (= 12),
+Build-Depends: debhelper-compat (= 13),
                dh-translations,
+               meson (>= 0.46.0),
                gettext (>= 0.18),
-               mobile-broadband-provider-info,
-               libsecret-1-dev,
+               libsecret-1-dev (>= 0.18),
                libgtk-3-dev (>= 3.10),
                libglib2.0-dev (>= 2.38),
                libnotify-dev (>= 0.7),
                libappindicator3-dev,
                libdbusmenu-gtk3-dev (>= 16.04.0),
-               libnm-dev (>= 1.8),
+               libnm-dev (>= 1.15),
+               libnma-dev (>= 1.8.27),
                libmm-glib-dev,
                libgudev-1.0-dev (>= 147),
                libjansson-dev (>= 2.7),
                libselinux-dev,
-               libdbusmenu-gtk3-dev (>= 16.04),
-               libgcr-3-dev (>= 3.14),
-               libgck-1-dev (>= 3.14),
-               iso-codes,
-               libgirepository1.0-dev,
-               gobject-introspection,
-               gtk-doc-tools,
-               libgtk-3-doc,
-               libglib2.0-doc,
-Standards-Version: 4.4.1
+Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Vcs-Git: https://code.launchpad.net/~network-manager/network-manager/+git/ubuntu-applet
 Vcs-Browser: https://git.launchpad.net/~network-manager/network-manager/+git/ubuntu-applet
@@ -40,7 +32,6 @@ Section: gnome
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         libnma0 (= ${binary:Version}),
          network-manager (>= 1.8),
          gnome-shell <!s390x> | policykit-1-gnome <!s390x> | polkit-1-auth-agent <!s390x>,
          default-dbus-session-bus | dbus-session-bus
@@ -66,41 +57,3 @@ Description: network management framework (GNOME frontend)
  them. For encrypted networks it will prompt the user for the key/passphrase
  and it can optionally store them in the gnome-keyring.
 
-Package: libnma0
-Architecture: linux-any
-Multi-Arch: same
-Section: libs
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${shlibs:Depends},
-         ${misc:Depends},
-Description: library for wireless and mobile dialogs (libnm version)
- This library provides Gtk+ dialogs for NetworkManager.
-
-Package: libnma-dev
-Architecture: linux-any
-Multi-Arch: same
-Section: libdevel
-Depends: ${shlibs:Depends},
-         ${misc:Depends},
-         libnma0 (= ${binary:Version}),
-         gir1.2-nma-1.0 (= ${binary:Version}),
-         libnm-dev (>= 1.8)
-Description: library for wireless and mobile dialogs - development files
- The libnm-gtk library provides Gtk+ dialogs for NetworkManager.
- .
- This package contains the development files.
-
-Package: gir1.2-nma-1.0
-Section: introspection
-Architecture: linux-any
-Multi-Arch: same
-Depends: ${gir:Depends},
-         ${shlibs:Depends},
-         ${misc:Depends}
-Description: GObject introspection data for libnma
- The libnma library provides Gtk+ dialogs for NetworkManager.
- .
- This package contains introspection data for libnma.
- .
- It can be used by packages using the GIRepository format to generate
- dynamic bindings.

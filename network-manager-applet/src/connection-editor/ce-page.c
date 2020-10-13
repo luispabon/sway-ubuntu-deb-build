@@ -35,98 +35,86 @@ enum {
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
+typedef struct {
+	int value;
+	const char *text;
+} SpinMapping;
+
 static gboolean
-spin_output_with_default_string (GtkSpinButton *spin,
-                                 int defvalue,
-                                 const char *defstring)
+spin_output_with_mapping (GtkSpinButton *spin,
+                          const SpinMapping *mapping)
 {
 	int val;
 	gchar *buf = NULL;
 
 	val = gtk_spin_button_get_value_as_int (spin);
-	if (val == defvalue)
-		buf = g_strdup (defstring);
+	if (val == mapping->value)
+		buf = g_strdup (mapping->text);
 	else
 		buf = g_strdup_printf ("%d", val);
 
-	if (strcmp (buf, gtk_entry_get_text (GTK_ENTRY (spin))))
+	if (!nm_streq (buf, gtk_entry_get_text (GTK_ENTRY (spin))))
 		gtk_entry_set_text (GTK_ENTRY (spin), buf);
 
 	g_free (buf);
 	return TRUE;
 }
 
-static gboolean
-ce_spin_output_with_automatic (GtkSpinButton *spin, gpointer user_data)
-{
-	return spin_output_with_default_string (spin,
-	                                        GPOINTER_TO_INT (user_data),
-	                                        _("automatic"));
-}
-
-static gboolean
-ce_spin_output_with_default (GtkSpinButton *spin, gpointer user_data)
-{
-	return spin_output_with_default_string (spin,
-	                                        GPOINTER_TO_INT (user_data),
-	                                        _("default"));
-}
-
 static gint
-spin_input_with_default_string (GtkSpinButton *spin,
-                                int defvalue,
-                                gdouble *new_val,
-                                const char *defstring)
+spin_input_with_mapping (GtkSpinButton *spin,
+                         gdouble *new_val,
+                         const SpinMapping *mapping)
 {
 	const gchar *buf;
 
 	buf = gtk_entry_get_text (GTK_ENTRY (spin));
-	if (strcmp (buf, defstring) == 0) {
-		*new_val = defvalue;
+	if (nm_streq (buf, mapping->text)) {
+		*new_val = mapping->value;
 		return TRUE;
 	}
 
 	return FALSE;
 }
 
-static gint
-ce_spin_input_with_automatic (GtkSpinButton *spin, gdouble *new_val, gpointer user_data)
+static void
+spin_set_mapping (GtkSpinButton *spin, int value, const char *text)
 {
-	return spin_input_with_default_string (spin,
-	                                       GPOINTER_TO_INT (user_data),
-	                                       new_val,
-	                                       _("automatic"));
-}
+	SpinMapping *mapping;
 
-static gint
-ce_spin_input_with_default (GtkSpinButton *spin, gdouble *new_val, gpointer user_data)
-{
-	return spin_input_with_default_string (spin,
-	                                       GPOINTER_TO_INT (user_data),
-	                                       new_val,
-	                                       _("default"));
+	g_return_if_fail (!g_object_get_data (G_OBJECT (spin), "mapping"));
+
+	mapping = g_new (SpinMapping, 1);
+	*mapping = (SpinMapping) {
+		.value = value,
+		.text = text,
+	};
+
+	g_object_set_data_full (G_OBJECT (spin), "mapping", mapping, g_free);
+
+	g_signal_connect (spin, "output",
+	                  G_CALLBACK (spin_output_with_mapping),
+	                  mapping);
+	g_signal_connect (spin, "input",
+	                  G_CALLBACK (spin_input_with_mapping),
+	                  mapping);
 }
 
 void
 ce_spin_automatic_val (GtkSpinButton *spin, int defvalue)
 {
-	g_signal_connect (spin, "output",
-	                  G_CALLBACK (ce_spin_output_with_automatic),
-	                  GINT_TO_POINTER (defvalue));
-	g_signal_connect (spin, "input",
-	                  G_CALLBACK (ce_spin_input_with_automatic),
-	                  GINT_TO_POINTER (defvalue));
+	spin_set_mapping (spin, defvalue, _("automatic"));
 }
 
 void
 ce_spin_default_val (GtkSpinButton *spin, int defvalue)
 {
-	g_signal_connect (spin, "output",
-	                  G_CALLBACK (ce_spin_output_with_default),
-	                  GINT_TO_POINTER (defvalue));
-	g_signal_connect (spin, "input",
-	                  G_CALLBACK (ce_spin_input_with_default),
-	                  GINT_TO_POINTER (defvalue));
+	spin_set_mapping (spin, defvalue, _("default"));
+}
+
+void
+ce_spin_off_val (GtkSpinButton *spin, int defvalue)
+{
+	spin_set_mapping (spin, defvalue, _("off"));
 }
 
 int

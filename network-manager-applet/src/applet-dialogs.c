@@ -478,7 +478,7 @@ info_dialog_add_page (GtkNotebook *notebook,
 	char *str;
 	const char *iface, *method = NULL;
 	NMIPConfig *ip4_config;
-	NMIPConfig *ip6_config;
+	NMIPConfig *ip6_config = NULL;
 	const char * const *dns;
 	const char * const *dns6;
 	NMIPAddress *def_addr = NULL;
@@ -676,7 +676,6 @@ info_dialog_add_page (GtkNotebook *notebook,
 		gtk_grid_attach (grid, create_info_group_label (_("IPv6"), FALSE), 0, row, 2, 1);
 		row++;
 
-		addresses = NULL;
 		ip6_config = nm_device_get_ip6_config (device);
 		if (ip6_config) {
 			addresses = nm_ip_config_get_addresses (ip6_config);

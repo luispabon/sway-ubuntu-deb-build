@@ -23,6 +23,7 @@
 #include "page-bridge.h"
 #include "page-vlan.h"
 #include "page-vpn.h"
+#include "page-wireguard.h"
 #include "vpn-helpers.h"
 #include "nm-utils/nm-vpn-editor-plugin-call.h"
 
@@ -106,6 +107,7 @@ get_connection_type_list (void)
 	add_type_data_virtual (array, _("VLAN"), vlan_connection_new, NM_TYPE_SETTING_VLAN);
 	add_type_data_virtual (array, _("IP tunnel"), ip_tunnel_connection_new, NM_TYPE_SETTING_IP_TUNNEL);
 	add_type_data_virtual (array, _("MACsec"), macsec_connection_new, NM_TYPE_SETTING_MACSEC);
+	add_type_data_virtual (array, _("WireGuard"), wireguard_connection_new, NM_TYPE_SETTING_WIREGUARD);
 
 	add_type_data_virtual (array, _("VPN"), vpn_connection_new, NM_TYPE_SETTING_VPN);
 
