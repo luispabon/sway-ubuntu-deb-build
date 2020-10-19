@@ -1,4 +1,4 @@
-network-manager-applet (1.18.0-1ubuntu2) groovy; urgency=medium
+network-manager-applet (1.18.0-1ubuntu3) groovy; urgency=medium
 
   * d/p/Support-hiding-rather-than-desensitizing-disallowed-items.patch!
     - restore initialization code for some of the 'allowed' variables which
