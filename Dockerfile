@@ -1,4 +1,4 @@
-FROM ubuntu:groovy AS meson-builder
+FROM ubuntu:focal AS meson-builder
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -91,7 +91,7 @@ RUN yes | unminimize; \
         libavformat-dev \
         libswscale-dev \
         libavdevice-dev \
-        libpipewire-0.3-dev \
+        libpipewire-0.2-dev \
         libxcb-xinput-dev \
         libx11-xcb-dev \
         bison \
@@ -113,12 +113,18 @@ RUN yes | unminimize; \
     apt-get update; \
     apt-get -y install \
         libnma-dev \
-        libpipewire-0.3; \
+        libpipewire-0.2; \
     apt-get clean
+    
+RUN curl -o meson.deb http://http.us.debian.org/debian/pool/main/m/meson/meson_0.55.3-1_all.deb; \
+     dpkg -i meson.deb; \
+     apt-get -f install; \
+     rm meson.deb
+
 
 # Rust apps builder
 
-FROM ubuntu:groovy AS rust-builder
+FROM ubuntu:focal AS rust-builder
 
 RUN export DEBIAN_FRONTEND=noninteractive;  \
     yes | unminimize; \
