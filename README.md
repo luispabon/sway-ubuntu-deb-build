@@ -1,6 +1,6 @@
-# Sway builds for ubuntu 20.10
+# Sway builds for ubuntu 20.04
 
-Ubuntu 20.10 build system for sway and related tools. Docker based.
+Ubuntu 20.04 build system for sway and related tools. Docker based.
 
 There are branches to this repository for previous ubuntu versions, but they will
 have outdated source submodules.
