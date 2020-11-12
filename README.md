@@ -1,3 +1,10 @@
+# Archived / abandoned
+
+This repo is now archived. I realised keeping all those deb configs and app forks and whatnot was more work that it was worth. I'm now building and installing directly from source, which is far easier at the cost of being a bit less clean on the system.
+
+I recommend you stop using this repo, uninstall all the debs and instead switch to using this https://github.com/luispabon/sway-ubuntu/
+
+
 # Sway builds for ubuntu 20.04
 
 Ubuntu 20.04 build system for sway and related tools. Docker based.
